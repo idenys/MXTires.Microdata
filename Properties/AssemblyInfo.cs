@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MXTires.Microdata")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The framework for .Net that attempts to use Schema.org structure to create JSON-LD")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("1010Tires.com Inc.")]
 [assembly: AssemblyProduct("MXTires.Microdata")]
