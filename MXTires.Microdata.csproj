@@ -82,6 +82,7 @@
     <Compile Include="WPFooter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="License.md" />
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
