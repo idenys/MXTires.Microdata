@@ -73,7 +73,6 @@
     <Compile Include="Rating.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="SearchAction.cs" />
-    <Compile Include="SiteAggregateRating.cs" />
     <Compile Include="Thing.cs" />
     <Compile Include="TireShop.cs" />
     <Compile Include="URL.cs" />
