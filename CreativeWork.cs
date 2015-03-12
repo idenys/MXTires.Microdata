@@ -11,6 +11,7 @@ namespace MXTires.Microdata
         /// <summary>
         /// The subject matter of the content.
         /// </summary>
+        [JsonProperty("about")]
         public Thing About { get; set; }
 
         /// <summary>

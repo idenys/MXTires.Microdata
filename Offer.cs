@@ -4,12 +4,9 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
     /// <summary>
-    /// A payment method is a standardized procedure for transferring the monetary amount for a purchase. 
-    /// Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction. 
-    /// Commonly used values: http://purl.org/goodrelations/v1#ByBankTransferInAdvance http://purl.org/goodrelations/v1#ByInvoice 
-    /// http://purl.org/goodrelations/v1#Cash http://purl.org/goodrelations/v1#CheckInAdvance http://purl.org/goodrelations/v1#COD 
-    /// http://purl.org/goodrelations/v1#DirectDebit http://purl.org/goodrelations/v1#GoogleCheckout http://purl.org/goodrelations/v1#PayPal 
-    /// http://purl.org/goodrelations/v1#PaySwarm
+    /// An offer to transfer some rights to an item or to provide a service—for example, 
+    /// an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, 
+    /// to repair a motorcycle, or to loan a book. For GTIN-related fields, see Check Digit calculator and validation guide from GS1.
     /// </summary>
     public class Offer : Thing
     {
@@ -81,5 +78,33 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("addOn")]
         public Offer AddOn { get; set; }
+
+        /// <summary>
+        /// The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
+        /// </summary>
+        [JsonProperty("sku")]
+        public string Sku { get; set; }
+
+        /// <summary>
+        /// The serial number or any alphanumeric identifier of a particular product. 
+        /// When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+        /// </summary>
+        [JsonProperty("serialNumber")]
+        public string SerialNumber { get; set; }
+
+        /// <summary>
+        /// Organization  or Person -An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider. Supersedes merchant, vendor.
+        /// </summary>
+        [JsonProperty("seller")]
+        public Thing Seller { get; set; }
+
+        /// <summary>
+        /// Review - A review of the item. Supersedes reviews.
+        /// </summary>
+        [JsonProperty("review")]
+        public Review Review { get; set; }
+
+
+        
     }
 }
