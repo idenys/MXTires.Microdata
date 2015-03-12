@@ -11,25 +11,32 @@ namespace MXTires.Microdata
         /// <summary>
         /// The overall rating, based on a collection of reviews or ratings, of the item.
         /// </summary>
+        [JsonProperty("aggregateRating")]
         public AggregateRating AggregateRating { get; set; }
 
         /// <summary>
         ///  The intended audience of the item, i.e. the group for whom the item was created.
         /// </summary>
-        public Audience audience { get; set; }
+        [JsonProperty("audience")]
+        public Audience Audience { get; set; }
         /// <summary>
         /// Organization  or 
         /// Brand 	The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
         /// </summary>
+        [JsonProperty("brand")]
         public Brand Brand { get; set; }
+
         /// <summary>
         /// The colour of the product.
         /// </summary>
+        [JsonProperty("color")]
         public string Color { get; set; }
+
         /// <summary>
         ///  QuantitativeValue.	The depth of the product.
         /// </summary>
-        public string Depth { get; set; }
+        [JsonProperty("depth")]
+        public QuantitativeValue Depth { get; set; }
         /// <summary>
         /// The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary for more details.
         /// </summary>

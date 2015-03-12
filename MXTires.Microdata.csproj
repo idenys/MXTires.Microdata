@@ -70,6 +70,7 @@
     <Compile Include="ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicationEvent.cs" />
+    <Compile Include="QuantitativeValue.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="SearchAction.cs" />

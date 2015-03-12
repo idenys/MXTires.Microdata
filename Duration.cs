@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MXTires.Microdata
 {
-    public class Duration
+    public class Duration : List<string>
     {
     }
 }
