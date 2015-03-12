@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MXTires.Microdata")]
-[assembly: AssemblyDescription("The framework for .Net that attempts to use Schema.org structure to create JSON-LD")]
+[assembly: AssemblyDescription("Converts .Net classes to Schema.org structured data in form of JSON-LD")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("1010Tires.com Inc.")]
 [assembly: AssemblyProduct("MXTires.Microdata")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.*")]
+[assembly: AssemblyFileVersion("1.0.0.*")]
