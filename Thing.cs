@@ -22,17 +22,23 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("additionalType")]
         public string AdditionalType { get; set; }
+
         /// <summary>
         /// Text 	An alias for the item.
         /// </summary>
+        [JsonProperty("alternateName")]
         public string AlternateName { get; set; }
+
         /// <summary>
         /// Text 	A short description of the item.
         /// </summary>
+        [JsonProperty("description")]
         public string Description { get; set; }
+
         /// <summary>
         /// URL  to an image of the item. This can be a URL or a fully described ImageObject.
         /// </summary>
+        [JsonProperty("image")]
         public string Image { get; set; }
         
         /// <summary>
@@ -45,13 +51,17 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("potentialAction")]
         public Microdata.Action PotentialAction { get; set; }
+
         /// <summary>
         ///	URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.
         /// </summary>
+        [JsonProperty("sameAs")]
         public string SameAs { get; set; }
+
         /// <summary>
         /// URL of the item.
         /// </summary>
+        [JsonProperty("url")]
         public string Url { get; set; }
 
         /// <summary>

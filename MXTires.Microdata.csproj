@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="ActionStatusType.cs" />
+    <Compile Include="AggregateOffer.cs" />
     <Compile Include="AggregateRating.cs" />
     <Compile Include="AlignmentObject.cs" />
     <Compile Include="Audience.cs" />
