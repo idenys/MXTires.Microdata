@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MXTires.Microdata
 {
     /// <summary>
-    /// Entities that have a somewhat fixed, physical extension.
+    /// A geographical region under the jurisdiction of a particular government.
     /// </summary>
-    public class Place :Thing
+    public class AdministrativeArea : Place
     {
     }
 }

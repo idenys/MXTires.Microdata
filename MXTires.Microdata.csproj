@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MXTires.Microdata</RootNamespace>
     <AssemblyName>MXTires.Microdata</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="ActionStatusType.cs" />
+    <Compile Include="AdministrativeArea.cs" />
     <Compile Include="AggregateOffer.cs" />
     <Compile Include="AggregateRating.cs" />
     <Compile Include="AlignmentObject.cs" />
@@ -53,16 +54,19 @@
     <Compile Include="Author.cs" />
     <Compile Include="Brand.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="ContactPoint.cs" />
     <Compile Include="Corporation.cs" />
     <Compile Include="CreativeWork.cs" />
     <Compile Include="CreditCard.cs" />
     <Compile Include="Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="Language.cs" />
     <Compile Include="LocalBusiness.cs" />
     <Compile Include="MediaObject.cs" />
     <Compile Include="Offer.cs" />
     <Compile Include="OfferItemCondition.cs" />
+    <Compile Include="OpeningHoursSpecification.cs" />
     <Compile Include="Organization.cs" />
     <Compile Include="PaymentMethod.cs" />
     <Compile Include="Person.cs" />
