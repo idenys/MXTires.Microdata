@@ -53,7 +53,7 @@ namespace MXTires.Microdata
         /// OpeningHoursSpecification 	The hours during which this contact point is available.
         /// </summary>
         [JsonProperty("hoursAvailable")]
-        public OpeningHoursSpecification HoursAvailable { get; set; }
+        public List<OpeningHoursSpecification> HoursAvailable { get; set; }
 
         /// <summary>
         /// Product  or Text - The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").

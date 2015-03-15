@@ -15,7 +15,7 @@ namespace MXTires.Microdata
         /// Text 	The currency accepted (in ISO 4217 currency format).
         /// </summary>
         [JsonProperty("currenciesAccepted")]
-        public string currenciesAccepted { get; set; }
+        public string CurrenciesAccepted { get; set; }
 
         /// <summary>
         /// Duration 	The opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.
@@ -25,15 +25,15 @@ namespace MXTires.Microdata
         ///- If a business is open 7 days a week, then it can be specified as <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>.
         /// </summary>
         [JsonProperty("openingHours")]
-        public Duration openingHours { get; set; }
+        public Duration OpeningHours { get; set; }
 
         /// <summary>
         /// Text 	Cash, credit card, etc.
         /// </summary>
         [JsonProperty("paymentAccepted")]
-        public string paymentAccepted { get; set; }
+        public string PaymentAccepted { get; set; }
 
         [JsonProperty("priceRange")]
-        public string priceRange { get; set; }
+        public string PriceRange { get; set; }
     }
 }

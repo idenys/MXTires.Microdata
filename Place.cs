@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {
@@ -10,5 +8,10 @@ namespace MXTires.Microdata
     /// </summary>
     public class Place :Thing
     {
+        /// <summary>
+        /// The location of the event, organization or action.
+        /// </summary>
+        [JsonProperty("geo")]
+        public GeoCoordinates Geo { get; set; }
     }
 }

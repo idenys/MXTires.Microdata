@@ -61,6 +61,8 @@
     <Compile Include="Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="GeoCoordinates.cs" />
+    <Compile Include="Intangible.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="LocalBusiness.cs" />
     <Compile Include="MediaObject.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="PaymentMethod.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Place.cs" />
+    <Compile Include="PostalAddress.cs" />
     <Compile Include="PriceSpecification.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductModel.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Rating.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="SearchAction.cs" />
+    <Compile Include="StructuredValue.cs" />
     <Compile Include="Thing.cs" />
     <Compile Include="TireShop.cs" />
     <Compile Include="URL.cs" />
