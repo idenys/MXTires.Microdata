@@ -47,7 +47,13 @@ namespace MXTires.Microdata.Tests
 
             OpeningHoursSpecification mondayHours = new OpeningHoursSpecification()
             {
+                 DayOfWeek = MXTires.Microdata.DaysOfWeek.Mo.ToString(),
+                 Opens = "9:00 AM",
+                 Closes = "5:30 PM",
             };
+
+            shop.Location.OpeningHoursSpecification = new List<OpeningHoursSpecification>();
+            shop.Location.OpeningHoursSpecification.Add(mondayHours);
 
             System.Diagnostics.Debug.Write(shop.ToJason());
         }

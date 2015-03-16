@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MXTires.Microdata
+﻿namespace MXTires.Microdata
 {
-    public class Duration : List<string>
+    public class Duration : Quantity
     {
     }
 }

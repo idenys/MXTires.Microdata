@@ -25,7 +25,7 @@ namespace MXTires.Microdata
         ///- If a business is open 7 days a week, then it can be specified as <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>.
         /// </summary>
         [JsonProperty("openingHours")]
-        public Duration OpeningHours { get; set; }
+        public List<Duration> OpeningHours { get; set; }
 
         /// <summary>
         /// Text 	Cash, credit card, etc.

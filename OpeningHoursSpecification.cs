@@ -5,7 +5,7 @@ namespace MXTires.Microdata
     /// <summary>
     /// A structured value providing information about the opening hours of a place or a certain service inside a place.
     /// </summary>
-    public class OpeningHoursSpecification
+    public class OpeningHoursSpecification : StructuredValue
     {
         /// <summary>
         /// Time 	The closing hour of the place or service on the given day(s) of the week.
