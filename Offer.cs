@@ -104,7 +104,10 @@ namespace MXTires.Microdata
         [JsonProperty("review")]
         public Review Review { get; set; }
 
-
-        
+        /// <summary>
+        /// ItemAvailability - The availability of this item—for example In stock, Out of stock, Pre-order, etc.
+        /// </summary>
+        [JsonProperty("availability")]
+        public string Availability { get; set; }
     }
 }
