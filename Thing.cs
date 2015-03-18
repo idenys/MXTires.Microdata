@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata
 {
     public class Thing
     {
+#pragma warning disable 0414
+
         [JsonProperty("@context", Order = 1)]
         string context = "http://schema.org";
+
 
         [JsonProperty("@type", Order = 2)]
         public string Type { get { return this.GetType().Name; } }
@@ -40,7 +44,7 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("image")]
         public string Image { get; set; }
-        
+
         /// <summary>
         /// Text 	The name of the item.
         /// </summary>
@@ -64,15 +68,17 @@ namespace MXTires.Microdata
         [JsonProperty("url")]
         public string Url { get; set; }
 
+        #pragma warning restore 0414
+
         /// <summary>
         /// Returns Jason string that  represents current object
         /// </summary>
         /// <returns></returns>
         public string ToJason()
         {
-            string item = JsonConvert.SerializeObject(this, Formatting.Indented);
+            string item = JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter());
             item = item.Replace("Context", "@context");
-            item= item.Replace("Type", "@type");
+            item = item.Replace("Type", "@type");
             return "<script type=\"application/ld+json\">" + item + "</script>";
         }
     }

@@ -65,9 +65,36 @@ namespace MXTires.Microdata.Tests
             {
                 Name = "T3 REPLICA NISSAN ALTIMA, MAXIMA (PAINTED/SILVER)",
             };
-            offer.Availability = ItemAvailability.InStock.ToString();
+            offer.Availability = ItemAvailability.InStock | ItemAvailability.Discontinued;
 
             System.Diagnostics.Debug.Write(offer.ToJason());
+
+            //Note: does not work as expected
+            //<script type="application/ld+json">{
+            //  "price": null,
+            //  "priceCurrency": null,
+            //  "priceSpecification": null,
+            //  "acceptedPaymentMethod": null,
+            //  "category": null,
+            //  "validFrom": null,
+            //  "validThrough": null,
+            //  "addOn": null,
+            //  "sku": null,
+            //  "serialNumber": null,
+            //  "seller": null,
+            //  "review": null,
+            //  "availability": "http://schema.org/InStock",
+            //  "additional@type": null,
+            //  "alternateName": null,
+            //  "description": null,
+            //  "image": null,
+            //  "name": "T3 REPLICA NISSAN ALTIMA, MAXIMA (PAINTED/SILVER)",
+            //  "potentialAction": null,
+            //  "sameAs": null,
+            //  "url": null,
+            //  "@context": "http://schema.org",
+            //  "@type": "Offer"
+            //}</script>
         }
     }
 }

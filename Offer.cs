@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata
 {
@@ -108,6 +109,8 @@ namespace MXTires.Microdata
         /// ItemAvailability - The availability of this item—for example In stock, Out of stock, Pre-order, etc.
         /// </summary>
         [JsonProperty("availability")]
-        public string Availability { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ItemAvailability Availability { get; set; }
+
     }
 }
