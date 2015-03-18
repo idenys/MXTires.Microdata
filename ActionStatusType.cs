@@ -5,7 +5,16 @@ using System.Text;
 
 namespace MXTires.Microdata
 {
-    public class ActionStatusType : Thing
+    [Flags]
+    public enum ActionStatusType
     {
+
+        ActiveActionStatus,
+
+        CompletedActionStatus,
+
+        FailedActionStatus,
+
+        PotentialActionStatus
     }
 }
