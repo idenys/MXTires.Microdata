@@ -9,10 +9,9 @@ namespace MXTires.Microdata
     /// an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, 
     /// to repair a motorcycle, or to loan a book. For GTIN-related fields, see Check Digit calculator and validation guide from GS1.
     /// </summary>
-    public class Offer : Thing
+    public class Offer : Intangible
     {
         /// <summary>
-
         /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes. 
         /// <list type="bullet">        
         ///     <listheader>
@@ -112,5 +111,66 @@ namespace MXTires.Microdata
         [JsonConverter(typeof(StringEnumConverter))]
         public ItemAvailability Availability { get; set; }
 
+        /// <summary>
+        /// QuantitativeValue - The amount of time that is required between accepting the offer and the actual usage of the resource or service.
+        /// </summary>
+        [JsonProperty("advanceBookingRequirement")]
+        public QuantitativeValue AdvanceBookingRequirement { get; set; }
+
+        /// <summary>
+        /// DateTime - The end of the availability of the product or service included in the offer.
+        /// </summary>
+        [JsonProperty("availabilityEnds")]
+        public DateTime AvailabilityEnds { get; set; }
+
+        /// <summary>
+        /// DateTime - The beginning of the availability of the product or service included in the offer.
+        /// </summary>
+        [JsonProperty("availabilityStarts")]
+        public DateTime AvailabilityStarts { get; set; }
+
+        /// <summary>
+        /// Place - The place(s) from which the offer can be obtained (e.g. store locations).
+        /// </summary>
+        [JsonProperty("availableAtOrFrom")]
+        public Place AvailableAtOrFrom { get; set; }
+
+        /// <summary>
+        /// DeliveryMethod - The delivery method(s) available for this offer.
+        /// </summary>
+        [JsonProperty("availableDeliveryMethod")]
+        public DeliveryMethod AvailableDeliveryMethod { get; set; }
+
+        private BusinessFunction businessFunction = BusinessFunction.Sell;
+        /// <summary>
+        /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
+        /// </summary>
+        [JsonProperty("businessFunction")]
+        public BusinessFunction BusinessFunction{
+            get { return businessFunction; }
+            set { businessFunction = value; }
+        }
+        
+        /// <summary>
+        /// QuantitativeValue - The typical delay between the receipt of the order and the goods leaving the warehouse.
+        /// </summary>
+        [JsonProperty("deliveryLeadTime")]
+        public QuantitativeValue DeliveryLeadTime { get; set; }
+
+        /// <summary>
+        /// BusinessEntityType -The type(s) of customers for which the given offer is valid.
+        /// </summary>
+        [JsonProperty("eligibleCustomerType")]
+        public BusinessEntityType EligibleCustomerType { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - The duration for which the given offer is valid.
+        /// </summary>
+        [JsonProperty("eligibleDuration")]
+        public QuantitativeValue EligibleDuration { get; set; }
+
+        //eligibleQuantity	QuantitativeValue 	The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
+	
+        	
     }
 }

@@ -54,12 +54,15 @@
     <Compile Include="AudioObject.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Brand.cs" />
+    <Compile Include="BusinessEntityType.cs" />
+    <Compile Include="BusinessFunction.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="ContactPoint.cs" />
     <Compile Include="Corporation.cs" />
     <Compile Include="CreativeWork.cs" />
     <Compile Include="CreditCard.cs" />
     <Compile Include="DaysOfWeek.cs" />
+    <Compile Include="DeliveryMethod.cs" />
     <Compile Include="Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Enumeration.cs" />
