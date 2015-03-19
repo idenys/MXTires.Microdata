@@ -19,6 +19,7 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("audience")]
         public Audience Audience { get; set; }
+
         /// <summary>
         /// Organization  or 
         /// Brand 	The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
@@ -30,7 +31,7 @@ namespace MXTires.Microdata
         /// The colour of the product.
         /// </summary>
         [JsonProperty("color")]
-        public string Color { get; set; }
+        public string Colour { get; set; }
 
         /// <summary>
         ///  QuantitativeValue.	The depth of the product.
@@ -40,56 +41,69 @@ namespace MXTires.Microdata
         /// <summary>
         /// The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary for more details.
         /// </summary>
-        public string gtin13 { get; set; }
+        [JsonProperty("gtin13")]
+        public string Gtin13 { get; set; }
         /// <summary>
         /// The GTIN-14 code of the product, or the product to which the offer refers. See GS1 GTIN Summary for more details.
         /// </summary>
-        public string gtin14 { get; set; }
+        [JsonProperty("gtin14")]
+        public string Gtin14 { get; set; }
         /// <summary>
         /// The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See GS1 GTIN Summary for more details.
         /// </summary>
-        public string gtin8 { get; set; }
+        [JsonProperty("gtin8")]
+        public string Gtin8 { get; set; }
         /// <summary>
         /// Distance  or QuantitativeValue 	The height of the item or person.
         /// </summary>
-        public string height { get; set; }
+        [JsonProperty("height")]
+        public QuantitativeValue Height { get; set; }
         /// <summary>
         /// A pointer to another product (or multiple products) for which this product is an accessory or spare part.
         /// </summary>
-        public Product isAccessoryOrSparePartFor { get; set; }
+        [JsonProperty("isAccessoryOrSparePartFor")]
+        public Product IsAccessoryOrSparePartFor { get; set; }
         /// <summary>
         /// A pointer to another product (or multiple products) for which this product is a consumable.
         /// </summary>
-        public Product isConsumableFor { get; set; }
+        [JsonProperty("isConsumableFor")]
+        public Product IsConsumableFor { get; set; }
         /// <summary>
         /// A pointer to another, somehow related product (or multiple products).
         /// </summary>
-        public Product isRelatedTo { get; set; }
+        [JsonProperty("isRelatedTo")]
+        public Product IsRelatedTo { get; set; }
         /// <summary>
         /// A pointer to another, functionally similar product (or multiple products).
         /// </summary>
-        public Product isSimilarTo { get; set; }
+        [JsonProperty("isSimilarTo")]
+        public Product IsSimilarTo { get; set; }
 
         /// <summary>
         /// OfferItemCondition 	A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.
         /// </summary>
-        public string itemCondition { get; set; }
+        [JsonProperty("itemCondition")]
+        public OfferItemCondition ItemCondition { get; set; }
         /// <summary>
         /// ImageObject  or URL 	An associated logo.
         /// </summary>
-        public string logo { get; set; }
+        [JsonProperty("logo")]
+        public string Logo { get; set; }
         /// <summary>
-        /// Organization 	The manufacturer of the product.
+        /// Organization - The manufacturer of the product.
         /// </summary>
-        public string manufacturer { get; set; }
+        [JsonProperty("manufacturer")]
+        public Organization Manufacturer { get; set; }
         /// <summary>
         ///   ProductModel  or Text 	The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
         /// </summary>
-        public ProductModel model { get; set; }
+        [JsonProperty("model")]
+        public ProductModel Model { get; set; }
         /// <summary>
         /// The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
         /// </summary>
-        public string mpn { get; set; }
+        [JsonProperty("mpn")]
+        public string Mpn { get; set; }
         /// <summary>
         ///   	An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, or give away tickets to an event.
         /// </summary>
@@ -98,26 +112,32 @@ namespace MXTires.Microdata
         /// <summary>
         /// The product identifier, such as ISBN. For example: <meta itemprop='productID' content='isbn:123-456-789'/>.
         /// </summary>
-        public string productID { get; set; }
+        [JsonProperty("productID")]
+        public string ProductId { get; set; }
         /// <summary>
         /// Date.The release date of a product or product model. This can be used to distinguish the exact variant of a product.
         /// </summary>
-        public string releaseDate { get; set; }
+        [JsonProperty("releaseDate")]
+        public string ReleaseDate { get; set; }
         /// <summary>
         /// Review 	A review of the item. Supersedes reviews.
         /// </summary>
-        public string review { get; set; }
+        [JsonProperty("review")]
+        public Review Review { get; set; }
         /// <summary>
         /// The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
         /// </summary>
+        [JsonProperty("sku")]
         public string Sku { get; set; }
         /// <summary>
         /// QuantitativeValue 	The weight of the product or person.
         /// </summary>
-        public string weight { get; set; }
+        [JsonProperty("weight")]
+        public QuantitativeValue Weight { get; set; }
         /// <summary>
         /// Distance  or QuantitativeValue 	The width of the item.
         /// </summary>
-        public string width { get; set; }
+        [JsonProperty("width")]
+        public QuantitativeValue Width { get; set; }
     }
 }
