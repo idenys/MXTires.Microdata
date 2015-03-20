@@ -60,7 +60,7 @@ namespace MXTires.Microdata
         ///	URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.
         /// </summary>
         [JsonProperty("sameAs")]
-        public string SameAs { get; set; }
+        public IList<string> SameAs { get; set; }
 
         /// <summary>
         /// URL of the item.
@@ -78,7 +78,7 @@ namespace MXTires.Microdata
         {
             string item = JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter());
             item = item.Replace("Context", "@context");
-            item = item.Replace("Type", "@type");
+            if (!item.Contains("contactType")) item = item.Replace("Type", "@type");
             return "<script type=\"application/ld+json\">" + item + "</script>";
         }
     }

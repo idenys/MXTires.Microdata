@@ -64,7 +64,7 @@
     <Compile Include="Intangible\Enumeration\CreditCard.cs" />
     <Compile Include="Intangible\Enumeration\DaysOfWeek.cs" />
     <Compile Include="Intangible\Enumeration\DeliveryMethod.cs" />
-    <Compile Include="Duration.cs" />
+    <Compile Include="Intangible\Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Intangible\Enumeration\Enumeration.cs" />
     <Compile Include="Event.cs" />
