@@ -99,7 +99,6 @@
     <Compile Include="Thing.cs" />
     <Compile Include="TireShop.cs" />
     <Compile Include="TypeAndQuantityNode.cs" />
-    <Compile Include="URL.cs" />
     <Compile Include="VideoObject.cs" />
     <Compile Include="WarrantyPromise.cs" />
     <Compile Include="WarrantyScope.cs" />
