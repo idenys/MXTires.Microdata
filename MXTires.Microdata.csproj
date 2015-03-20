@@ -60,6 +60,7 @@
     <Compile Include="ContactPoint.cs" />
     <Compile Include="Corporation.cs" />
     <Compile Include="CreativeWork.cs" />
+    <Compile Include="Intangible\Enumeration\ContactPointOption.cs" />
     <Compile Include="Intangible\Enumeration\CreditCard.cs" />
     <Compile Include="Intangible\Enumeration\DaysOfWeek.cs" />
     <Compile Include="Intangible\Enumeration\DeliveryMethod.cs" />
