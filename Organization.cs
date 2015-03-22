@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {

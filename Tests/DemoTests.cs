@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MXTires.Microdata;
+using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Intangible.Enumeration;
 
 namespace MXTires.Microdata.Tests
 {
@@ -47,7 +49,7 @@ namespace MXTires.Microdata.Tests
 
             OpeningHoursSpecification mondayHours = new OpeningHoursSpecification()
             {
-                 DayOfWeek = MXTires.Microdata.DaysOfWeek.Mo.ToString(),
+                 DayOfWeek = DaysOfWeek.Mo.ToString(),
                  Opens = "9:00 AM",
                  Closes = "5:30 PM",
             };

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
     /// The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the 

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
     /// A list of possible product availability options.

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
     /// A delivery method is a standardized procedure for transferring the product or service to the destination of fulfillment 

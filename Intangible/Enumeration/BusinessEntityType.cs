@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
     /// A business entity type is a conceptual entity representing the legal form, the size, the main line of business, 

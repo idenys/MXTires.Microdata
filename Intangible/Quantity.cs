@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MXTires.Microdata
 {
-    public class Quantity : Intangible
+    public class Quantity : Thing
     {
     }
 }
