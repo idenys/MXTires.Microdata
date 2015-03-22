@@ -121,13 +121,13 @@ namespace MXTires.Microdata
         /// DateTime - The end of the availability of the product or service included in the offer.
         /// </summary>
         [JsonProperty("availabilityEnds")]
-        public DateTime AvailabilityEnds { get; set; }
+        public DateTime? AvailabilityEnds { get; set; }
 
         /// <summary>
         /// DateTime - The beginning of the availability of the product or service included in the offer.
         /// </summary>
         [JsonProperty("availabilityStarts")]
-        public DateTime AvailabilityStarts { get; set; }
+        public DateTime? AvailabilityStarts { get; set; }
 
         /// <summary>
         /// Place - The place(s) from which the offer can be obtained (e.g. store locations).
