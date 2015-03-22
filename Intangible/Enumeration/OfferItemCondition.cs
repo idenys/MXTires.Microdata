@@ -5,8 +5,8 @@
     /// </summary>
     public enum OfferItemCondition
     {
-        DamagedCondition,
         NewCondition,
+        DamagedCondition,
         RefurbishedCondition,
         UsedCondition
     }

@@ -16,7 +16,7 @@ namespace MXTires.Microdata
 
 
         [JsonProperty("@type", Order = 2)]
-        public string Type { get { return this.GetType().Name; } }
+        public virtual string Type { get { return this.GetType().Name; } }
 
         /// <summary>
         /// URL 	An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. 
@@ -78,7 +78,7 @@ namespace MXTires.Microdata
         {
             string item = JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter());
             item = item.Replace("Context", "@context");
-            if (!item.Contains("contactType")) item = item.Replace("Type", "@type");
+            if (item.Equals("Type")) item = item.Replace("Type", "@type");
             return "<script type=\"application/ld+json\">" + item + "</script>";
         }
     }
