@@ -9,12 +9,12 @@ namespace MXTires.Microdata
     public enum ActionStatusType
     {
 
-        ActiveActionStatus,
+        ActiveActionStatus = 1 << 0,
 
-        CompletedActionStatus,
+        CompletedActionStatus = 1 << 1,
 
-        FailedActionStatus,
+        FailedActionStatus = 1 << 2,
 
-        PotentialActionStatus
+        PotentialActionStatus = 1 << 3
     }
 }

@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace MXTires.Microdata
 {
-    public class MapCategoryType //: Enumeration
+    /// <summary>
+    /// An enumeration of several kinds of Map
+    /// </summary>
+    [Flags]
+    public enum MapCategoryType
     {
+        ParkingMap = 1 << 0,
+        SeatingMap = 1 << 1,
+        TransitMap = 1 << 2,
+        VenueMap = 1 << 3,
     }
 }

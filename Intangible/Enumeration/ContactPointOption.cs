@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Enumerated options related to a ContactPoint.
+    /// </summary>
+    [Flags]
     public enum ContactPointOption
     {
-        HearingImpairedSupported,
-        TollFree
+        HearingImpairedSupported = 1 << 0,
+        TollFree = 1 << 1
     }
 }

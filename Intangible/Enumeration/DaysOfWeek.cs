@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace MXTires.Microdata
 {
+    [Flags]
     public enum DaysOfWeek
     {
-        Mo, Tu, We, Th, Fr, Sa, Su
+        Mo = 1 << 0, Tu = 1 << 1, We = 1 << 2, Th = 1 << 3, Fr = 1 << 4, Sa = 1 << 5, Su = 1 << 6
     }
 }

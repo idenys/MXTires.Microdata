@@ -9,13 +9,15 @@ namespace MXTires.Microdata
     /// <summary>
     /// A range of of services that will be provided to a customer free of charge in case of a defect or malfunction of a product. Commonly used values: http://purl.org/goodrelations/v1#Labor-BringIn http://purl.org/goodrelations/v1#PartsAndLabor-BringIn http://purl.org/goodrelations/v1#PartsAndLabor-PickUp
     /// </summary>
+    [Flags]
     public enum WarrantyScope
     {
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Labor-BringIn")]
-        LaborBringIn,
+        LaborBringIn = 1 << 0,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#PartsAndLabor-BringIn")]
-        PartsAndLaborBringIn,
+        PartsAndLaborBringIn = 1 << 1,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#PartsAndLabor-PickUp")]
-        PartsAndLaborPickUp
+        PartsAndLaborPickUp = 1 << 2,
+
     }
 }

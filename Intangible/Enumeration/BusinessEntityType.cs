@@ -19,15 +19,15 @@ namespace MXTires.Microdata
     public enum BusinessEntityType
     {
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Business")]
-        Business,
+        Business = 1 << 0,
 
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Enduser")]
-        Enduser,
+        Enduser = 1 << 1,
 
         [EnumMember(Value = "http://purl.org/goodrelations/v1#PublicInstitution")]
-        PublicInstitution,
+        PublicInstitution = 1 << 2,
 
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Reseller")]
-        Reseller
+        Reseller = 1 << 3
     }
 }

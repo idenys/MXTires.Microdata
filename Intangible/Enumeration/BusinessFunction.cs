@@ -25,20 +25,20 @@ namespace MXTires.Microdata
     public enum BusinessFunction
     {
         [EnumMember(Value = "http://purl.org/goodrelations/v1#ConstructionInstallation")]
-        ConstructionInstallation,
+        ConstructionInstallation = 1 << 0,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Dispose")]
-        Dispose,
+        Dispose = 1 << 1,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#LeaseOut")]
-        LeaseOut,
+        LeaseOut = 1 << 2,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Maintain")]
-        Maintain,
+        Maintain = 1 << 3,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#ProvideService")]
-        ProvideService,
+        ProvideService = 1 << 4,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Repair")]
-        Repair,
+        Repair = 1 << 5,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Sell")]
-        Sell,
+        Sell = 1 << 6,
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Buy")]
-        Buy
+        Buy = 1 << 7
     }
 }

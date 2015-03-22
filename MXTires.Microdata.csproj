@@ -101,7 +101,7 @@
     <Compile Include="TypeAndQuantityNode.cs" />
     <Compile Include="VideoObject.cs" />
     <Compile Include="WarrantyPromise.cs" />
-    <Compile Include="WarrantyScope.cs" />
+    <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />
     <Compile Include="WebSite.cs" />
     <Compile Include="WPFooter.cs" />
   </ItemGroup>
