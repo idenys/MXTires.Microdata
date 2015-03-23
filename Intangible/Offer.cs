@@ -54,7 +54,7 @@ namespace MXTires.Microdata.Intangible
          /// The payment method(s) accepted by seller for this offer.
         /// </summary>
         [JsonProperty ("acceptedPaymentMethod")]
-         public PaymentMethod AcceptedPaymentMethod { get; set; }
+         public PaymentMethod? AcceptedPaymentMethod { get; set; }
 
         /// <summary>
         /// The payment method(s) accepted by seller for this offer.
@@ -110,7 +110,7 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("availability")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public ItemAvailability Availability { get; set; }
+        public ItemAvailability? Availability { get; set; }
 
         /// <summary>
         /// QuantitativeValue - The amount of time that is required between accepting the offer and the actual usage of the resource or service.
@@ -140,7 +140,7 @@ namespace MXTires.Microdata.Intangible
         /// DeliveryMethod - The delivery method(s) available for this offer.
         /// </summary>
         [JsonProperty("availableDeliveryMethod")]
-        public DeliveryMethod AvailableDeliveryMethod { get; set; }
+        public DeliveryMethod? AvailableDeliveryMethod { get; set; }
 
         private BusinessFunction businessFunction = BusinessFunction.Sell;
         /// <summary>
@@ -162,7 +162,7 @@ namespace MXTires.Microdata.Intangible
         /// BusinessEntityType -The type(s) of customers for which the given offer is valid.
         /// </summary>
         [JsonProperty("eligibleCustomerType")]
-        public BusinessEntityType EligibleCustomerType { get; set; }
+        public BusinessEntityType? EligibleCustomerType { get; set; }
 
         /// <summary>
         /// QuantitativeValue - The duration for which the given offer is valid.

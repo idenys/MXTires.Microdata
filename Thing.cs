@@ -70,11 +70,20 @@ namespace MXTires.Microdata
 
         #pragma warning restore 0414
 
+        [Obsolete("Use ToJson Method instead")]
+        public string ToJason()
+        {
+            string item = JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter());
+            item = item.Replace("Context", "@context");
+            if (item.Equals("Type")) item = item.Replace("Type", "@type");
+            return "<script type=\"application/ld+json\">" + item + "</script>";
+        }
+
         /// <summary>
-        /// Returns Jason string that  represents current object
+        /// Returns Json string that  represents current object
         /// </summary>
         /// <returns></returns>
-        public string ToJason()
+        public string ToJson()
         {
             string item = JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter());
             item = item.Replace("Context", "@context");
