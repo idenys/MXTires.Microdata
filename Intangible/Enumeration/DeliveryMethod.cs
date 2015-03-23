@@ -52,6 +52,8 @@ namespace MXTires.Microdata
         FederalExpress = 1 << 8,
 
         [EnumMember(Value = "http://purl.org/goodrelations/v1#UPS")]
-        UPS = 1 << 9
+        UPS = 1 << 9,
+
+        Pupolator =1 << 10
     }
 }
