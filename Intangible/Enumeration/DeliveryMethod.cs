@@ -54,6 +54,6 @@ namespace MXTires.Microdata.Intangible.Enumeration
         [EnumMember(Value = "http://purl.org/goodrelations/v1#UPS")]
         UPS = 1 << 9,
 
-        Pupolator =1 << 10
+        Purolator = 1 << 10
     }
 }
