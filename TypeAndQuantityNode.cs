@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MXTires.Microdata.Intangible.Enumeration;
+using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {

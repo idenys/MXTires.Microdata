@@ -1,15 +1,16 @@
 ﻿using System;
+using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
     /// An offer to transfer some rights to an item or to provide a service—for example, 
     /// an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, 
     /// to repair a motorcycle, or to loan a book. For GTIN-related fields, see Check Digit calculator and validation guide from GS1.
     /// </summary>
-    public class Offer : Intangible
+    public class Offer : Thing
     {
         /// <summary>
         /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes. 

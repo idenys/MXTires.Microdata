@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible
 {
     public class AggregateOffer : Offer
     {

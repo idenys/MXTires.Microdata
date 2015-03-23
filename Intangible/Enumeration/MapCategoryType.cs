@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
     /// An enumeration of several kinds of Map

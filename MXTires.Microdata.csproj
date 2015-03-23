@@ -66,11 +66,9 @@
     <Compile Include="Intangible\Enumeration\DeliveryMethod.cs" />
     <Compile Include="Intangible\Duration.cs" />
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="Intangible\Enumeration\Enumeration.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Intangible\StructuredValue\GeoCoordinates.cs" />
     <Compile Include="Intangible\StructuredValue\GeoShape.cs" />
-    <Compile Include="Intangible\Intangible.cs" />
     <Compile Include="Intangible\Enumeration\ItemAvailability.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="LocalBusiness.cs" />
