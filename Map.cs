@@ -15,6 +15,6 @@ namespace MXTires.Microdata
         /// <summary>
         /// MapCategoryType - Indicates the kind of Map, from the MapCategoryType Enumeration.
         /// </summary>
-        public MapCategoryType mapType {get;set;}
+        public MapCategoryType? mapType {get;set;}
     }
 }
