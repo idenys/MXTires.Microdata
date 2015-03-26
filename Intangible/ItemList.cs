@@ -17,7 +17,7 @@ namespace MXTires.Microdata.Intangible
         /// Note: The order of elements in your mark-up is not sufficient for indicating the order or elements. Use ListItem with a 'position' property in such cases.
         /// </summary>
         [JsonProperty("itemListElement")]
-        public IList<ListItem> ItemListElement { get; set; }
+        public LinkedList<ListItem> ItemListElement { get; set; }
 
         /// <summary>
         /// ItemListOrderType  or Text - Type of ordering (e.g. Ascending, Descending, Unordered).
@@ -30,6 +30,7 @@ namespace MXTires.Microdata.Intangible
         /// (e.g. multi-page pagination).
         /// </summary>
         [JsonProperty("numberOfItems")]
-        public Int32 NumberOfItems { get; set; }
+        public Int32 NumberOfItems { get { return ItemListElement.Count; } }
+	
     }
 }

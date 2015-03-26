@@ -102,18 +102,32 @@ namespace MXTires.Microdata.Tests
         public void BreadcrumbListTest()
         {
             var breadcrumbList = new BreadcrumbList();
-            breadcrumbList.ItemListElement = new List<ListItem>();
-            breadcrumbList.ItemListElement.Add(new ListItem()
+            breadcrumbList.ItemListElement = new LinkedList<ListItem>();
+            breadcrumbList.ItemListElement.AddLast(new ListItem()
             {
                 Item = new Thing() { Name = "Home", Url="http://www.1010tires.com/" },
-                Position = 1,
 
             });
-            breadcrumbList.ItemListElement.Add(new ListItem()
+            breadcrumbList.ItemListElement.AddLast(new ListItem()
             {
                 Item = new Thing() { Name = "Tires by Brand", Url = "http://www.1010tires.com/Tires/Search" },
-                Position = 2,
             });
+            var i = 1;
+            //foreach (LinkedListNode<ListItem> listItem in breadcrumbList.ItemListElement)
+            //{
+                
+            //    if (breadcrumbList.ItemListOrder == ItemListOrderType.ItemListOrderAscending) {
+            //        listItem.Value.Position = i++;
+
+            //    }
+
+            //}
+
+            //                 NextItem = new ListItem()
+            //{
+            //    Item = new Thing() { Name = "Tires by Brand", Url = "http://www.1010tires.com/Tires/Search" },
+            //    Position = 2,
+            //}
 
             System.Diagnostics.Debug.Write(breadcrumbList.ToJson());
 
