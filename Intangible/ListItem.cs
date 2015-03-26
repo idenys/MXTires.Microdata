@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MXTires.Microdata.Intengible
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
     /// An list item, e.g. a step in a checklist or how-to description.
@@ -25,7 +25,7 @@ namespace MXTires.Microdata.Intengible
         /// Integer or Text - The position of an item in a series or sequence of items.
         /// </summary>
         [JsonProperty("position")]
-        public string Position { get; set; }
+        public Int32 Position { get; set; }
 
         /// <summary>
         /// ListItem - A link to the ListItem that preceeds the current one.

@@ -1,9 +1,9 @@
-﻿using MXTires.Microdata.Intengible;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using MXTires.Microdata.Intangible.Enumeration;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
     /// A list of items of any sort—for example, Top 10 Movies About Weathermen, or Top 100 Party Songs. 
@@ -17,18 +17,19 @@ namespace MXTires.Microdata
         /// Note: The order of elements in your mark-up is not sufficient for indicating the order or elements. Use ListItem with a 'position' property in such cases.
         /// </summary>
         [JsonProperty("itemListElement")]
-        public ListItem ItemListElement { get; set; }
+        public IList<ListItem> ItemListElement { get; set; }
 
         /// <summary>
         /// ItemListOrderType  or Text - Type of ordering (e.g. Ascending, Descending, Unordered).
         /// </summary>
         [JsonProperty("itemListOrder")]
-        public string ItemListOrder { get; set; }
+        public ItemListOrderType ItemListOrder { get; set; }
 
         /// <summary>
-        /// Number - The number of items in an ItemList. Note that some descriptions might not full describe all items in a list (e.g. multi-page pagination).
+        /// Number - The number of items in an ItemList. Note that some descriptions might not full describe all items in a list 
+        /// (e.g. multi-page pagination).
         /// </summary>
         [JsonProperty("numberOfItems")]
-        public string NumberOfItems { get; set; }
+        public Int32 NumberOfItems { get; set; }
     }
 }

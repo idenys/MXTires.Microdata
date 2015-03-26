@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
+    <Compile Include="Intangible\BreadcrumbList.cs" />
     <Compile Include="Intangible\Enumeration\ActionStatusType.cs" />
     <Compile Include="AdministrativeArea.cs" />
     <Compile Include="Intangible\AggregateOffer.cs" />
@@ -67,10 +68,11 @@
     <Compile Include="Intangible\Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="Intangible\Enumeration\ItemListOrderType.cs" />
     <Compile Include="Intangible\StructuredValue\GeoCoordinates.cs" />
     <Compile Include="Intangible\StructuredValue\GeoShape.cs" />
     <Compile Include="Intangible\Enumeration\ItemAvailability.cs" />
-    <Compile Include="ItemList.cs" />
+    <Compile Include="Intangible\ItemList.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="Intangible\ListItem.cs" />
     <Compile Include="LocalBusiness.cs" />
