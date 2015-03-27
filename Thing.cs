@@ -7,6 +7,9 @@ using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// The most generic type of item.
+    /// </summary>
     public class Thing
     {
 #pragma warning disable 0414
@@ -17,6 +20,9 @@ namespace MXTires.Microdata
 
         [JsonProperty("@type", Order = 2)]
         public virtual string Type { get { return this.GetType().Name; } }
+
+        [JsonProperty("@id", NullValueHandling = NullValueHandling.Ignore)]
+        public string Id { get; set; }
 
         /// <summary>
         /// URL 	An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. 
@@ -81,10 +87,25 @@ namespace MXTires.Microdata
         }
 
         /// <summary>
-        /// Returns Json string that  represents current object
+        /// Returns Json string that  represents current object.
+        /// JSON written by the serializer with an option of Formatting.None and NullValueHandling.Ignore. It makes the JSON result small, skipping all unnecessary 
+        /// spaces and line breaks to produce the most compact and efficient JSON possible.
         /// </summary>
         /// <returns></returns>
         public string ToJson()
+        {
+            string item = JsonConvert.SerializeObject(this, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+            item = item.Replace("Context", "@context");
+            if (item.Equals("Type")) item = item.Replace("Type", "@type");
+            return "<script type=\"application/ld+json\">" + item + "</script>";
+        }
+
+        /// <summary>
+        /// Returns Json string that  represents current object.
+        /// JSON written by the serializer with an option of Formatting.Indented produces nicely formatted, easy to read JSON – great when you are developing. 
+        /// </summary>
+        /// <returns></returns>
+        public string ToIndentedJson()
         {
             string item = JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
             item = item.Replace("Context", "@context");

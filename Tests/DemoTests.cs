@@ -105,12 +105,12 @@ namespace MXTires.Microdata.Tests
             breadcrumbList.ItemListElement = new LinkedList<ListItem>();
             breadcrumbList.ItemListElement.AddLast(new ListItem()
             {
-                Item = new Item() { Name = "Home", Url = "http://www.1010tires.com/", Id = "http://www.1010tires.com/" },
+                Item = new Thing() { Name = "Home", Url = "http://www.1010tires.com/", Id = "http://www.1010tires.com/" },
 
             });
             breadcrumbList.ItemListElement.AddLast(new ListItem()
             {
-                Item = new Item() { Name = "Tires by Brand", Url = "http://www.1010tires.com/Tires/Search", Id = "http://www.1010tires.com/Tires/Search", },
+                Item = new Thing() { Name = "Tires by Brand", Url = "http://www.1010tires.com/Tires/Search", Id = "http://www.1010tires.com/Tires/Search", },
             });
 
             if (breadcrumbList.ItemListOrder == ItemListOrderType.ItemListOrderAscending)
@@ -125,7 +125,7 @@ namespace MXTires.Microdata.Tests
                 }
             }
 
-            System.Diagnostics.Debug.Write(breadcrumbList.ToJson());
+            System.Diagnostics.Debug.WriteLine(breadcrumbList.ToIndentedJson());
 
             //<script type="application/ld+json">{
             //  "itemListElement": [

@@ -13,7 +13,7 @@ namespace MXTires.Microdata.Intangible
         /// Thing - An entity represented by an entry in a list (e.g. an 'artist' in a list of 'artists')’.
         /// </summary>
         [JsonProperty("item")]
-        public Item Item { get; set; }
+        public Thing Item { get; set; }
 
         /// <summary>
         /// ListItem - A link to the ListItem that follows the current one.
