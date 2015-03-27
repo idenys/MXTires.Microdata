@@ -1,5 +1,6 @@
 ﻿using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata
 {
@@ -18,6 +19,7 @@ namespace MXTires.Microdata
         /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
         /// </summary>
         [JsonProperty("businessFunction")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public BusinessFunction BusinessFunction { get; set; }		
         
         /// <summary>

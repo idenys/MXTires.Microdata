@@ -140,6 +140,7 @@ namespace MXTires.Microdata.Intangible
         /// DeliveryMethod - The delivery method(s) available for this offer.
         /// </summary>
         [JsonProperty("availableDeliveryMethod")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public DeliveryMethod? AvailableDeliveryMethod { get; set; }
 
         private BusinessFunction businessFunction = BusinessFunction.Sell;
@@ -147,6 +148,7 @@ namespace MXTires.Microdata.Intangible
         /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
         /// </summary>
         [JsonProperty("businessFunction")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public BusinessFunction BusinessFunction{
             get { return businessFunction; }
             set { businessFunction = value; }
@@ -162,6 +164,7 @@ namespace MXTires.Microdata.Intangible
         /// BusinessEntityType -The type(s) of customers for which the given offer is valid.
         /// </summary>
         [JsonProperty("eligibleCustomerType")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public BusinessEntityType? EligibleCustomerType { get; set; }
 
         /// <summary>
@@ -229,6 +232,7 @@ namespace MXTires.Microdata.Intangible
         /// or the products or services included in the offer.
         /// </summary>
         [JsonProperty("itemCondition")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public OfferItemCondition ItemCondition { get; set; }	
 
         /// <summary>

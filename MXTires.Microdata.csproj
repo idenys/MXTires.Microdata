@@ -69,6 +69,7 @@
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Intangible\Enumeration\ItemListOrderType.cs" />
+    <Compile Include="Intangible\Item.cs" />
     <Compile Include="Intangible\ItemListElement.cs" />
     <Compile Include="Intangible\StructuredValue\GeoCoordinates.cs" />
     <Compile Include="Intangible\StructuredValue\GeoShape.cs" />

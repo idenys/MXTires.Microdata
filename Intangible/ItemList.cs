@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
+using System.ComponentModel;
+using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata.Intangible
 {
@@ -23,6 +25,7 @@ namespace MXTires.Microdata.Intangible
         /// ItemListOrderType  or Text - Type of ordering (e.g. Ascending, Descending, Unordered).
         /// </summary>
         [JsonProperty("itemListOrder")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public ItemListOrderType ItemListOrder { get; set; }
 
         /// <summary>

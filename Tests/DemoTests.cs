@@ -105,29 +105,25 @@ namespace MXTires.Microdata.Tests
             breadcrumbList.ItemListElement = new LinkedList<ListItem>();
             breadcrumbList.ItemListElement.AddLast(new ListItem()
             {
-                Item = new Thing() { Name = "Home", Url="http://www.1010tires.com/" },
+                Item = new Item() { Name = "Home", Url = "http://www.1010tires.com/", Id = "http://www.1010tires.com/" },
 
             });
             breadcrumbList.ItemListElement.AddLast(new ListItem()
             {
-                Item = new Thing() { Name = "Tires by Brand", Url = "http://www.1010tires.com/Tires/Search" },
+                Item = new Item() { Name = "Tires by Brand", Url = "http://www.1010tires.com/Tires/Search", Id = "http://www.1010tires.com/Tires/Search", },
             });
-            var i = 1;
-            //foreach (LinkedListNode<ListItem> listItem in breadcrumbList.ItemListElement)
-            //{
-                
-            //    if (breadcrumbList.ItemListOrder == ItemListOrderType.ItemListOrderAscending) {
-            //        listItem.Value.Position = i++;
 
-            //    }
-
-            //}
-
-            //                 NextItem = new ListItem()
-            //{
-            //    Item = new Thing() { Name = "Tires by Brand", Url = "http://www.1010tires.com/Tires/Search" },
-            //    Position = 2,
-            //}
+            if (breadcrumbList.ItemListOrder == ItemListOrderType.ItemListOrderAscending)
+            {
+                var i = 1;
+                for (LinkedListNode<ListItem> currentNode = breadcrumbList.ItemListElement.First; currentNode != null; currentNode = currentNode.Next)
+                {
+                    currentNode.Value.Position = i++;
+                    //currentNode.Value.Type = currentNode.Value.Url;                    
+                    //currentNode.Value.NextItem = currentNode.Next == null ? null : currentNode.Next.Value;
+                    //currentNode.Value.PreviousItem = currentNode.Previous == null ? null : currentNode.Previous.Value;
+                }
+            }
 
             System.Diagnostics.Debug.Write(breadcrumbList.ToJson());
 

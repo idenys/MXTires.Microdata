@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
+using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata
 {
@@ -85,6 +86,7 @@ namespace MXTires.Microdata
         /// OfferItemCondition 	A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.
         /// </summary>
         [JsonProperty("itemCondition")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public OfferItemCondition? ItemCondition { get; set; }
         /// <summary>
         /// ImageObject  or URL 	An associated logo.

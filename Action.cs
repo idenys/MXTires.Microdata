@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
+using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata
 {
@@ -18,6 +19,7 @@ namespace MXTires.Microdata
         /// ActionStatusType - Indicates the current disposition of the Action.
         /// </summary>
         [JsonProperty("actionStatus")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public ActionStatusType ActionStatus { get; set; }
 
         /// <summary>

@@ -74,6 +74,7 @@ namespace MXTires.Microdata
         public string ToJason()
         {
             string item = JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter());
+
             item = item.Replace("Context", "@context");
             if (item.Equals("Type")) item = item.Replace("Type", "@type");
             return "<script type=\"application/ld+json\">" + item + "</script>";
@@ -85,7 +86,7 @@ namespace MXTires.Microdata
         /// <returns></returns>
         public string ToJson()
         {
-            string item = JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter());
+            string item = JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
             item = item.Replace("Context", "@context");
             if (item.Equals("Type")) item = item.Replace("Type", "@type");
             return "<script type=\"application/ld+json\">" + item + "</script>";
