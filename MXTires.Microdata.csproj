@@ -100,12 +100,14 @@
     <Compile Include="SearchAction.cs" />
     <Compile Include="Intangible\StructuredValue\StructuredValue.cs" />
     <Compile Include="Thing.cs" />
+    <Compile Include="Tire.cs" />
     <Compile Include="TireShop.cs" />
     <Compile Include="TypeAndQuantityNode.cs" />
     <Compile Include="VideoObject.cs" />
     <Compile Include="WarrantyPromise.cs" />
     <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />
     <Compile Include="WebSite.cs" />
+    <Compile Include="Wheel.cs" />
     <Compile Include="WPFooter.cs" />
   </ItemGroup>
   <ItemGroup>
