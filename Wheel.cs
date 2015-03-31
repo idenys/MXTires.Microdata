@@ -12,12 +12,14 @@ namespace MXTires.Microdata
         [JsonProperty("@type", Order = 2)]
         public new string Type { get { return "Product/Wheel"; } }
 
-    //    [JsonProperty("additionalType")]
-    //    public new string AdditionalType { get { return "http://www.1010tires.com/About/Wheel-Tech"; } }
+        [JsonProperty("additionalType")]
+        public new string AdditionalType { get { return "http://www.productontology.org/id/Wheel"; } }
 
-    //    public Wheel() {
-    //        base.SameAs = new List<string>();
-    //        SameAs.Add("http://en.wikipedia.org/wiki/Wheel");
-    //    }
-    //}
+        public Wheel()
+        {
+            base.SameAs = new List<string>();
+            SameAs.Add("http://en.wikipedia.org/wiki/Wheel");
+            SameAs.Add("http://www.1010tires.com/About/Wheel-Tech");
+        }
+    }
 }

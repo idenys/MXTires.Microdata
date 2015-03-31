@@ -198,5 +198,12 @@ namespace MXTires.Microdata.Tests
             //  "@type": "BreadcrumbList"
             //}</script>
         }
+
+        [TestMethod]
+        public void TireTest()
+        {
+            var tire = new Tire() { Name = "T3 Tire" };
+            System.Diagnostics.Debug.WriteLine(tire.ToIndentedJson());
+        }
     }
 }
