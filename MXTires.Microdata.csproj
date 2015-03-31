@@ -102,7 +102,7 @@
     <Compile Include="Thing.cs" />
     <Compile Include="Tire.cs" />
     <Compile Include="TireShop.cs" />
-    <Compile Include="TypeAndQuantityNode.cs" />
+    <Compile Include="Intangible\StructuredValue\TypeAndQuantityNode.cs" />
     <Compile Include="VideoObject.cs" />
     <Compile Include="WarrantyPromise.cs" />
     <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />

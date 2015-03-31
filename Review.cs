@@ -1,9 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-#region License
+﻿#region License
 // Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -27,6 +22,12 @@ using System.Text;
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
+
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace MXTires.Microdata
 {
