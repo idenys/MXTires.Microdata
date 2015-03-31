@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MXTires.Microdata.Intangible.Enumeration;
+using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {
@@ -7,8 +8,28 @@ namespace MXTires.Microdata
     /// </summary>
     public class OpeningHoursSpecification : StructuredValue
     {
+        public OpeningHoursSpecification(string closes, string dayOfWeek, string opens, string validFrom = null, string validThrough = null)
+        {
+            Closes = closes;
+            DayOfWeek = dayOfWeek;
+            Opens = opens;
+            ValidFrom = validFrom;
+            ValidThrough = validThrough;
+        }
+
+        public OpeningHoursSpecification(string closes, DaysOfWeek dayOfWeek, string opens, string validFrom = null, string validThrough = null)
+        {
+            Closes = closes;
+            DayOfWeek = dayOfWeek.ToString();
+            Opens = opens;
+            ValidFrom = validFrom;
+            ValidThrough = validThrough;
+        }
+
+
+        #region Properties
         /// <summary>
-        /// Time 	The closing hour of the place or service on the given day(s) of the week.
+        /// Time - The closing hour of the place or service on the given day(s) of the week.
         /// </summary>
         [JsonProperty("closes")]
         public string Closes { get; set; }
@@ -20,21 +41,23 @@ namespace MXTires.Microdata
         public string DayOfWeek { get; set; }
 
         /// <summary>
-        /// Time 	The opening hour of the place or service on the given day(s) of the week.
+        /// Time - The opening hour of the place or service on the given day(s) of the week.
         /// </summary>
         [JsonProperty("opens")]
         public string Opens { get; set; }
 
         /// <summary>
-        /// DateTime 	The date when the item becomes valid.
+        /// DateTime - The date when the item becomes valid.
         /// </summary>
         [JsonProperty("validFrom")]
         public string ValidFrom { get; set; }
 
         /// <summary>
-        /// DateTime 	The end of the validity of offer, price specification, or opening hours data.
+        /// DateTime - The end of the validity of offer, price specification, or opening hours data.
         /// </summary>
         [JsonProperty("validThrough")]
         public string ValidThrough { get; set; }
+
+        #endregion
     }
 }

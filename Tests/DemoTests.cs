@@ -47,13 +47,8 @@ namespace MXTires.Microdata.Tests
             shop.Location = new Place();
             shop.Location.Geo = new GeoCoordinates("49.210978", "-123.089581");           
 
-            OpeningHoursSpecification mondayHours = new OpeningHoursSpecification()
-            {
-                 DayOfWeek = DaysOfWeek.Mo.ToString(),
-                 Opens = "9:00 AM",
-                 Closes = "5:30 PM",
-            };
-
+            OpeningHoursSpecification mondayHours = new OpeningHoursSpecification("5:30 PM", DaysOfWeek.Mo,"9:00 AM");
+            
             shop.Location.OpeningHoursSpecification = new List<OpeningHoursSpecification>();
             shop.Location.OpeningHoursSpecification.Add(mondayHours);
 
@@ -204,6 +199,17 @@ namespace MXTires.Microdata.Tests
         {
             var tire = new Tire() { Name = "T3 Tire" };
             System.Diagnostics.Debug.WriteLine(tire.ToIndentedJson());
+
+            //<script type="application/ld+json">{
+            //  "additionalType": "http://www.productontology.org/id/Tire",
+            //  "name": "T3 Tire",
+            //  "sameAs": [
+            //    "http://en.wikipedia.org/wiki/Tire",
+            //    "http://www.1010tires.com/About/Tire-Tech"
+            //  ],
+            //  "@context": "http://schema.org",
+            //  "@type": "Product/Tire"
+            //}</script>
         }
     }
 }
