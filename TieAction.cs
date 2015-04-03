@@ -23,25 +23,13 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {
-    public class Tire : Product
+    /// <summary>
+    /// The act of reaching a draw in a competitive activity.
+    /// </summary>
+    public class TieAction : AchieveAction
     {
-        [JsonProperty("@type", Order = 2)]
-        public new string Type { get { return "Product/Tire"; } }
-
-        [JsonProperty("additionalType")]
-        public new string AdditionalType { get { return "http://www.productontology.org/id/Tire"; } }
-
-        public Tire()
-        {
-            base.SameAs = new List<string>();
-            SameAs.Add("http://en.wikipedia.org/wiki/Tire");
-            SameAs.Add("http://www.1010tires.com/About/Tire-Tech");
-        }
     }
 }

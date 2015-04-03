@@ -45,6 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
+    <Compile Include="AchieveAction.cs" />
+    <Compile Include="AssessAction.cs" />
+    <Compile Include="ConsumeAction.cs" />
+    <Compile Include="ControlAction.cs" />
+    <Compile Include="CreateAction.cs" />
+    <Compile Include="FindAction.cs" />
     <Compile Include="Intangible\BreadcrumbList.cs" />
     <Compile Include="Intangible\Enumeration\ActionStatusType.cs" />
     <Compile Include="AdministrativeArea.cs" />
@@ -74,19 +80,24 @@
     <Compile Include="Intangible\StructuredValue\GeoShape.cs" />
     <Compile Include="Intangible\Enumeration\ItemAvailability.cs" />
     <Compile Include="Intangible\ItemList.cs" />
+    <Compile Include="InteractAction.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="Intangible\ListItem.cs" />
     <Compile Include="LocalBusiness.cs" />
+    <Compile Include="LoseAction.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Intangible\Enumeration\MapCategoryType.cs" />
     <Compile Include="MediaObject.cs" />
     <Compile Include="Intangible\Offer.cs" />
     <Compile Include="Intangible\Enumeration\OfferItemCondition.cs" />
     <Compile Include="Intangible\StructuredValue\OpeningHoursSpecification.cs" />
+    <Compile Include="MoveAction.cs" />
     <Compile Include="Organization.cs" />
     <Compile Include="Intangible\Enumeration\PaymentMethod.cs" />
+    <Compile Include="OrganizeAction.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Place.cs" />
+    <Compile Include="PlayAction.cs" />
     <Compile Include="PostalAddress.cs" />
     <Compile Include="PriceSpecification.cs" />
     <Compile Include="Product.cs" />
@@ -100,14 +111,17 @@
     <Compile Include="SearchAction.cs" />
     <Compile Include="Intangible\StructuredValue\StructuredValue.cs" />
     <Compile Include="Thing.cs" />
+    <Compile Include="TieAction.cs" />
     <Compile Include="Tire.cs" />
     <Compile Include="TireShop.cs" />
     <Compile Include="Intangible\StructuredValue\TypeAndQuantityNode.cs" />
+    <Compile Include="TradeAction.cs" />
     <Compile Include="VideoObject.cs" />
     <Compile Include="WarrantyPromise.cs" />
     <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />
     <Compile Include="WebSite.cs" />
     <Compile Include="Wheel.cs" />
+    <Compile Include="WinAction.cs" />
     <Compile Include="WPFooter.cs" />
   </ItemGroup>
   <ItemGroup>

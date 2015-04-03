@@ -25,7 +25,7 @@
 
 namespace MXTires.Microdata
 {
-    public class Event :Thing
+    public class Event : Thing
     {
     }
 }

@@ -23,25 +23,20 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections.Generic;
+using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {
-    public class Tire : Product
+    /// <summary>
+    /// The act of ingesting information/resources/food.
+    /// </summary>
+    public class ConsumeAction : Action
     {
-        [JsonProperty("@type", Order = 2)]
-        public new string Type { get { return "Product/Tire"; } }
-
-        [JsonProperty("additionalType")]
-        public new string AdditionalType { get { return "http://www.productontology.org/id/Tire"; } }
-
-        public Tire()
-        {
-            base.SameAs = new List<string>();
-            SameAs.Add("http://en.wikipedia.org/wiki/Tire");
-            SameAs.Add("http://www.1010tires.com/About/Tire-Tech");
-        }
+        /// <summary>
+        /// Offer -	An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
+        /// </summary>
+        [JsonProperty("expectsAcceptanceOf")]
+        public Offer ExpectsAcceptanceOf { get; set; }
     }
 }
