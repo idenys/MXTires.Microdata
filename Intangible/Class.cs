@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are entities like '3 Kg' or '4 milligrams'.
+    /// A class, also often called a 'Type'; equivalent to rdfs:Class.
     /// </summary>
-    public class Quantity : Thing
+    public class Class : Thing
     {
     }
 }

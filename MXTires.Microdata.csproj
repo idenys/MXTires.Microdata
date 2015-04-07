@@ -52,6 +52,7 @@
     <Compile Include="CreateAction.cs" />
     <Compile Include="FindAction.cs" />
     <Compile Include="Intangible\BreadcrumbList.cs" />
+    <Compile Include="Intangible\Class.cs" />
     <Compile Include="Intangible\Enumeration\ActionStatusType.cs" />
     <Compile Include="AdministrativeArea.cs" />
     <Compile Include="Intangible\AggregateOffer.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Intangible\Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="Intangible\Enumeration\EventStatusType.cs" />
     <Compile Include="Intangible\Enumeration\ItemListOrderType.cs" />
     <Compile Include="Intangible\ItemListElement.cs" />
     <Compile Include="Intangible\Property.cs" />
