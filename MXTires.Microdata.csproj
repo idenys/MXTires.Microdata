@@ -35,6 +35,7 @@
       <HintPath>packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +48,8 @@
     <Compile Include="Action.cs" />
     <Compile Include="AchieveAction.cs" />
     <Compile Include="AssessAction.cs" />
+    <Compile Include="Attributes\ActorAttribute.cs" />
+    <Compile Include="Attributes\TypeValidationAttribute.cs" />
     <Compile Include="ConsumeAction.cs" />
     <Compile Include="ControlAction.cs" />
     <Compile Include="CreateAction.cs" />
@@ -119,6 +122,8 @@
     <Compile Include="TireShop.cs" />
     <Compile Include="Intangible\StructuredValue\TypeAndQuantityNode.cs" />
     <Compile Include="TradeAction.cs" />
+    <Compile Include="Validators\TypeValidator.cs" />
+    <Compile Include="Validators\Validator.cs" />
     <Compile Include="VideoObject.cs" />
     <Compile Include="WarrantyPromise.cs" />
     <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />
@@ -132,6 +137,7 @@
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

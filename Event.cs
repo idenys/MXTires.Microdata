@@ -27,6 +27,7 @@ using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using MXTires.Microdata.Attributes;
 namespace MXTires.Microdata
 {
     public class Event : Thing
@@ -35,6 +36,7 @@ namespace MXTires.Microdata
         /// Organization  or Person - A person or organization attending the event. Supersedes attendees.
         /// </summary>
         [JsonProperty("attendee")]
+        [TypeValidation(AcceptedType1 = typeof(Organization), AcceptedType2=typeof(Person))]
         public Thing Attendee { get; set; }
 
         /// <summary>

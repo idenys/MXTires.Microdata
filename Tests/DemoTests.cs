@@ -211,5 +211,14 @@ namespace MXTires.Microdata.Tests
             //  "@type": "Product/Tire"
             //}</script>
         }
+
+        [TestMethod]
+        public void EventTest()
+        {
+            var baseEvent = new Event();
+            baseEvent.Attendee = new Place();
+            System.Diagnostics.Debug.WriteLine(baseEvent.ToIndentedJson());
+        
+        }
     }
 }
