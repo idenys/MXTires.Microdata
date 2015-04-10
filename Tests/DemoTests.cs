@@ -215,7 +215,7 @@ namespace MXTires.Microdata.Tests
         [TestMethod]
         public void EventTest()
         {
-            var baseEvent = new Event();
+            var baseEvent = new Event() { Attendee = new Place() };
             baseEvent.Attendee = new Place();
             System.Diagnostics.Debug.WriteLine(baseEvent.ToIndentedJson());
         

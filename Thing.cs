@@ -135,5 +135,24 @@ namespace MXTires.Microdata
             if (item.Equals("Type")) item = item.Replace("Type", "@type");
             return "<script type=\"application/ld+json\">" + item + "</script>";
         }
+
+        //#region Delegate and Events
+        ///// <summary>
+        ///// OnValidateEventHandler delegate to enable injection of custom validation routines
+        ///// </summary>
+        //public delegate void OnValidateEventHandler(object sender, EventArgs e);
+        //public delegate void OnValidatedEventHandler(object sender, EventArgs e);
+
+        //public OnValidateEventHandler OnValidate;
+        //public OnValidatedEventHandler OnValidated;
+
+        //#endregion 
+        //#region Internal Fields
+        ///// <summary>
+        ///// The Errors collection to keep the errors. Tthe validation method populates this.
+        ///// </summary>
+        //public List<error> Errors = new List<error>();
+
+        //#endregion
     }
 }

@@ -36,7 +36,7 @@ namespace MXTires.Microdata
         /// Organization  or Person - A person or organization attending the event. Supersedes attendees.
         /// </summary>
         [JsonProperty("attendee")]
-        [TypeValidation(AcceptedType1 = typeof(Organization), AcceptedType2=typeof(Person))]
+        [TypeValidation(typeof(Organization), typeof(Person))]
         public Thing Attendee { get; set; }
 
         /// <summary>

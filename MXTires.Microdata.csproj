@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +50,7 @@
     <Compile Include="AchieveAction.cs" />
     <Compile Include="AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
+    <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
     <Compile Include="BroadcastService.cs" />
     <Compile Include="ConsumeAction.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="TireShop.cs" />
     <Compile Include="Intangible\StructuredValue\TypeAndQuantityNode.cs" />
     <Compile Include="TradeAction.cs" />
+    <Compile Include="Validators\TypeUtil.cs" />
     <Compile Include="Validators\TypeValidator.cs" />
     <Compile Include="Validators\Validator.cs" />
     <Compile Include="VideoObject.cs" />

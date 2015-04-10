@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MXTires.Microdata.Validators;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
+using System.ComponentModel;
 
 namespace MXTires.Microdata.Attributes
 {
@@ -15,6 +16,11 @@ namespace MXTires.Microdata.Attributes
         public Type AcceptedType1 { get; set; }
         public Type AcceptedType2 { get; set; }
         public List<Type> AcceptedTypes { get; set; }
+
+        public TypeValidationAttribute(Type propertyClassType1, Type propertyClassType2) {
+            AcceptedType1 = propertyClassType1;
+            AcceptedType2 = propertyClassType2;
+        }
         //private Type validator;
         //public TypeValidationAttribute(Type propertyClassType) { 
 
@@ -30,13 +36,22 @@ namespace MXTires.Microdata.Attributes
 
         public override bool IsValid(object value)
         {
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(value);
+            object originalValue = properties.Find("Attendee", true /* ignoreCase */).GetValue(value);
+           // object confirmValue = properties.Find(ConfirmProperty, true /* ignoreCase */).GetValue(value);
+            return false;
             if (AcceptedTypes == null) AcceptedTypes = new List<Type>();
             if (AcceptedType1 != null) AcceptedTypes.Add(AcceptedType1);
             if (AcceptedType2 != null) AcceptedTypes.Add(AcceptedType2);
             var validator = new TypeValidator(AcceptedTypes);
             return validator.IsValid(value.GetType());
         }
-
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+             return new ValidationResult(
+          FormatErrorMessage(validationContext.DisplayName));
+            //return ValidationResult.;
+        }
         //public virtual Validator ValidatorInstance
         //{
         //    get
