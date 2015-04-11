@@ -45,7 +45,7 @@ namespace MXTires.Microdata
             set
             {
                 var validator = new TypeValidator(typeof(Organization), typeof(Person));
-                validator.Validate(attendee);
+                validator.Validate(value);
                 attendee = value;
             }
         }
@@ -72,13 +72,23 @@ namespace MXTires.Microdata
         /// EventStatusType - An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.
         /// </summary>
         [JsonProperty("eventStatus")]
-        public EventStatusType EventStatus { get; set; }
+        public EventStatusType? EventStatus { get; set; }
 
+        Thing location;
         /// <summary>
         /// PostalAddress  or Place - The location of the event, organization or action.
         /// </summary>
         [JsonProperty("location")]
-        public Thing Location { get; set; }
+        public Thing Location
+        {
+            get { return location; }
+            set
+            {
+                var validator = new TypeValidator(typeof(PostalAddress), typeof(Place));
+                validator.Validate(value);
+                location = value;
+            }
+        }
 
         /// <summary>
         /// Offer - An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, or give away tickets to an event.
@@ -86,23 +96,43 @@ namespace MXTires.Microdata
         [JsonProperty("offers")]
         public IList<Offer> Offers { get; set; }
 
+        Thing organizer;
         /// <summary>
         /// Organization  or Person - An organizer of an Event.
         /// </summary>
         [JsonProperty("organizer")]
-        public Thing Organizer { get; set; }
+        public Thing Organizer
+        {
+            get { return organizer; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                organizer = value;
+            }
+        }
 
+        Thing performer;
         /// <summary>
         /// Organization  or Person 	A performer at the event—for example, a presenter, musician, musical group or actor. Supersedes performers.
         /// </summary>
         [JsonProperty("performer")]
-        public Thing Performer { get; set; }
+        public Thing Performer
+        {
+            get { return performer; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                performer = value;
+            }
+        }
 
         /// <summary>
         /// Date  - Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.
         /// </summary>
         [JsonProperty("previousStartDate")]
-        public Thing PreviousStartDate { get; set; }
+        public string PreviousStartDate { get; set; }
 
         /// <summary>
         /// CreativeWork - The CreativeWork that captured all or part of this Event. Inverse property: recordedAt.

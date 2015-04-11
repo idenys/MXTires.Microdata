@@ -26,6 +26,7 @@
 using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -46,6 +47,7 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("accessibilityAPI")]
         public string AccessibilityAPI { get; set; }
+
         /// <summary>
         /// Text 	Identifies input methods that are sufficient to fully control the described resource (WebSchemas wiki lists possible values).
         /// </summary>
@@ -67,13 +69,13 @@ namespace MXTires.Microdata
         public string AccessibilityHazard { get; set; }
 
         /// <summary>
-        /// Person 	Specifies the Person that is legally accountable for the CreativeWork.
+        /// Person - Specifies the Person that is legally accountable for the CreativeWork.
         /// </summary>
         [JsonProperty("accountablePerson")]
         public Person AccountablePerson { get; set; }
 
         /// <summary>
-        /// AggregateRating 	The overall rating, based on a collection of reviews or ratings, of the item.
+        /// AggregateRating - The overall rating, based on a collection of reviews or ratings, of the item.
         /// </summary>
         [JsonProperty("aggregateRating")]
         public AggregateRating AggregateRating { get; set; }
@@ -85,13 +87,13 @@ namespace MXTires.Microdata
         public string AlternativeHeadline { get; set; }
 
         /// <summary>
-        /// MediaObject 	A media object that encodes this CreativeWork. This property is a synonym for encoding.
+        /// MediaObject - A media object that encodes this CreativeWork. This property is a synonym for encoding.
         /// </summary>
         [JsonProperty("associatedMedia")]
         public MediaObject AssociatedMedia { get; set; }
 
         /// <summary>
-        /// Audience 	The intended audience of the item, i.e. the group for whom the item was created.
+        /// Audience - The intended audience of the item, i.e. the group for whom the item was created.
         /// </summary>
         [JsonProperty("audience")]
         public Audience Audience { get; set; }
@@ -102,29 +104,39 @@ namespace MXTires.Microdata
         [JsonProperty("audio")]
         public AudioObject Audio { get; set; }
 
+        Thing author;
         /// <summary>
         /// Person  or  Organization - The author of this content. 
         /// Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. 
         /// That is equivalent to this and may be used interchangeably.
         /// </summary>
         [JsonProperty("author")]
-        public Author Author { get; set; }
+        public Thing Author
+        {
+            get { return author; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                author = value;
+            }
+        }
 
         /// <summary>
-        /// Text 	An award won by this person or for this creative work. Supersedes awards.
+        /// Text - An award won by this person or for this creative work. Supersedes awards.
         /// </summary>
         [JsonProperty("award")]
         public string Award { get; set; }
 
         /// <summary>
-        /// Person 	Fictional person connected with a creative work.
+        /// Person - Fictional person connected with a creative work.
         /// </summary>
         [JsonProperty("character")]
         public Person Character { get; set; }
 
         /// <summary>
         /// 	CreativeWork  {get;set;} or 
-        ///     Text 	A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.
+        ///     Text - A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.
         /// </summary>
         [JsonProperty("citation")]
         public CreativeWork Citation { get; set; }
@@ -136,7 +148,7 @@ namespace MXTires.Microdata
         public object Comment { get; set; }
 
         /// <summary>
-        /// Integer 	The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.
+        /// Integer - The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.
         /// </summary>
         [JsonProperty("commentCount")]
         public Int32? CommentCount { get; set; }
@@ -148,7 +160,7 @@ namespace MXTires.Microdata
         public Place ContentLocation { get; set; }
         
         /// <summary>
-        /// Text 	Official rating of a piece of content—for example,'MPAA PG-13'.
+        /// Text - Official rating of a piece of content—for example,'MPAA PG-13'.
         /// </summary>
         [JsonProperty("contentRating")]
         public string ContentRating { get; set; }

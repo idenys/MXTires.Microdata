@@ -48,11 +48,13 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="AchieveAction.cs" />
+    <Compile Include="Answer.cs" />
     <Compile Include="AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
     <Compile Include="BroadcastService.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="ConsumeAction.cs" />
     <Compile Include="ControlAction.cs" />
     <Compile Include="CreateAction.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="PublicationEvent.cs" />
     <Compile Include="QuantitativeValue.cs" />
     <Compile Include="Intangible\Quantity.cs" />
+    <Compile Include="Question.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="SearchAction.cs" />

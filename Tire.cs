@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -42,6 +43,12 @@ namespace MXTires.Microdata
             base.SameAs = new List<string>();
             SameAs.Add("http://en.wikipedia.org/wiki/Tire");
             SameAs.Add("http://www.1010tires.com/About/Tire-Tech");
+
+            //Properties = new List<Property>();
+            //Properties.Add(new Property() { Name = "Speed Rating" });
         }
+
+        //[JsonProperty("properties")]
+        //public IList<Property> Properties { get; set; }
     }
 }

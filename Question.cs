@@ -24,32 +24,39 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
-
 namespace MXTires.Microdata
 {
-    /// <summary>
-    /// A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
-    /// </summary>
-    public class WarrantyPromise : StructuredValue
+    public class Question : CreativeWork
     {
         /// <summary>
-        /// QuantitativeValue 	The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
+        /// Answer 	The answer that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
         /// </summary>
-        [JsonProperty("durationOfWarranty")]
-        public QuantitativeValue DurationOfWarranty { get; private set; }
+        [JsonProperty("acceptedAnswer")]
+        public Answer AcceptedAnswer { get; set; }
 
         /// <summary>
-        /// WarrantyScope 	The scope of the warranty promise.
+        /// Integer 	The number of answers this question has received.
         /// </summary>
-        [JsonProperty("warrantyScope")]
-        public WarrantyScope WarrantyScope { get; private set; }
+        [JsonProperty("answerCount")]
+        public Int32? AnswerCount { get; set; }
 
-        public WarrantyPromise(QuantitativeValue durationOfWarranty, WarrantyScope warrantyScope) {
-            DurationOfWarranty = durationOfWarranty;
-            WarrantyScope = warrantyScope;
-        }
+        /// <summary>
+        /// Integer 	The number of downvotes this question has received from the community.
+        /// </summary>
+        [JsonProperty("downvoteCount")]
+        public Int32? DownvoteCount { get; set; }
+
+        /// <summary>
+        /// Answer 	An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.
+        /// </summary>
+        [JsonProperty("suggestedAnswer")]
+        public Answer SuggestedAnswer { get; set; }
+
+        /// <summary>
+        /// 	Integer 	The number of upvotes this question has received from the community.
+        /// </summary>
+        [JsonProperty("upvoteCount")]
+        public Int32? UpvoteCount { get; set; }
     }
 }

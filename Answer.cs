@@ -24,32 +24,30 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
-
 namespace MXTires.Microdata
 {
     /// <summary>
-    /// A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
+    /// An answer offered to a question; perhaps correct, perhaps opinionated or wrong.
     /// </summary>
-    public class WarrantyPromise : StructuredValue
+    public class Answer : CreativeWork
     {
         /// <summary>
-        /// QuantitativeValue 	The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
+        /// Integer 	The number of downvotes this question has received from the community.
         /// </summary>
-        [JsonProperty("durationOfWarranty")]
-        public QuantitativeValue DurationOfWarranty { get; private set; }
+        [JsonProperty("downvoteCount")]
+        public Int32? DownvoteCount { get; set; }
 
         /// <summary>
-        /// WarrantyScope 	The scope of the warranty promise.
+        /// Question 	The parent of a question, answer or item in general.
         /// </summary>
-        [JsonProperty("warrantyScope")]
-        public WarrantyScope WarrantyScope { get; private set; }
+        [JsonProperty("parentItem")]
+        public Question ParentItem { get; set; }
 
-        public WarrantyPromise(QuantitativeValue durationOfWarranty, WarrantyScope warrantyScope) {
-            DurationOfWarranty = durationOfWarranty;
-            WarrantyScope = warrantyScope;
-        }
+        /// <summary>
+        /// 	Integer 	The number of upvotes this question has received from the community.
+        /// </summary>
+        [JsonProperty("upvoteCount")]
+        public Int32? UpvoteCount { get; set; }
     }
 }

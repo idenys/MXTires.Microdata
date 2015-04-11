@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Validators;
+using Newtonsoft.Json;
 namespace MXTires.Microdata.Events
 {
     /// <summary>
@@ -38,9 +40,53 @@ namespace MXTires.Microdata.Events
     public class UserCheckins : UserInteraction
     {
     }
+
+    /// <summary>
+    /// The UserInteraction event in which a user comments on an item.
+    /// </summary>
     public class UserComments : UserInteraction
     {
+        /// <summary>
+        /// Text - The text of the UserComment.
+        /// </summary>
+        [JsonProperty("commentText")]
+        public string CommentText { get; set; }
+
+        /// <summary>
+        /// Date - The time at which the UserComment was made.
+        /// </summary>
+        [JsonProperty("commentTime")]
+        public string CommentTime { get; set; }
+
+        Thing creator;
+        /// <summary>
+        /// Person  or Organization - The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.
+        /// </summary>
+        [JsonProperty("creator")]
+        public Thing Creator
+        {
+            get { return creator; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                creator = value;
+            }
+        }
+
+        /// <summary>
+        /// CreativeWork - Specifies the CreativeWork associated with the UserComment.
+        /// </summary>
+        [JsonProperty("discusses")]
+        public CreativeWork Discusses { get; set; }
+
+        /// <summary>
+        /// URL - The URL at which a reply may be posted to the specified UserComment.
+        /// </summary>
+        [JsonProperty("replyToUrl")]
+        public string ReplyToUrl { get; set; }
     }
+
     public class UserDownloads : UserInteraction
     {
     }
