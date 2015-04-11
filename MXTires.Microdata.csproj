@@ -106,6 +106,7 @@
     <Compile Include="Intangible\Enumeration\ItemListOrderType.cs" />
     <Compile Include="Intangible\ItemListElement.cs" />
     <Compile Include="Intangible\Property.cs" />
+    <Compile Include="Intangible\PropertyValueSpecification.cs" />
     <Compile Include="Intangible\StructuredValue\GeoCoordinates.cs" />
     <Compile Include="Intangible\StructuredValue\GeoShape.cs" />
     <Compile Include="Intangible\Enumeration\ItemAvailability.cs" />
