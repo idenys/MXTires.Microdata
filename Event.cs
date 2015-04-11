@@ -28,16 +28,27 @@ using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using MXTires.Microdata.Attributes;
+using MXTires.Microdata.Validators;
 namespace MXTires.Microdata
 {
     public class Event : Thing
     {
+        Thing attendee;
         /// <summary>
         /// Organization  or Person - A person or organization attending the event. Supersedes attendees.
         /// </summary>
         [JsonProperty("attendee")]
         [TypeValidation(typeof(Organization), typeof(Person))]
-        public Thing Attendee { get; set; }
+        public Thing Attendee
+        {
+            get { return attendee; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(attendee);
+                attendee = value;
+            }
+        }
 
         /// <summary>
         /// DateTime - The time admission will commence.

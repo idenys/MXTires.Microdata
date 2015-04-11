@@ -42,6 +42,7 @@ namespace MXTires.Microdata.Validators
         {
             type1 = acceptableType1;
             type2 = acceptableType2;
+            types = new List<Type>() { type1, type2 };
         }
 
         public override bool IsValid(Type type)
@@ -60,7 +61,13 @@ namespace MXTires.Microdata.Validators
         {
             if ((value != null) && !IsValid(value.GetType()))
             {
-                throw new ArgumentException(string.Format("Value of {0} is not valid.", value.GetType()));
+                string errMsg = "";
+                foreach (var item in types)
+                {
+                    if (!string.IsNullOrEmpty(errMsg)) errMsg = errMsg + " and ";
+                    errMsg = errMsg + item.FullName;
+                }
+                throw new ArgumentException(string.Format("Type of {0} is not valid for this property. Accepted types are: {1} ", value.GetType(), errMsg));
             }
         }
     }
