@@ -28,6 +28,7 @@ using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json.Converters;
+using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata
 {
@@ -47,11 +48,21 @@ namespace MXTires.Microdata
         [JsonConverter(typeof(StringEnumConverter))]
         public ActionStatusType ActionStatus { get; set; }
 
+        private Thing agent;
         /// <summary>
         /// Person  or Organization - The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book.
         /// </summary>
         [JsonProperty("agent")]
-        public Thing Agent { get; set; }
+        public Thing Agent
+        {
+            get { return agent; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                agent = value;
+            }
+        }
 
         /// <summary>
         /// DateTime - The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), 
@@ -86,11 +97,22 @@ namespace MXTires.Microdata
         [JsonProperty("object")]
         public Thing ActionObject { get; set; }
 
+        private Thing participant;
+
         /// <summary>
         /// Person  or  Organization - Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*.
         /// </summary>
         [JsonProperty("participant")]
-        public Thing Participant { get; set; }
+        public Thing Participant
+        {
+            get { return participant; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                participant = value;
+            }
+        }
 
         /// <summary>
         /// Thing 	The result produced in the action. e.g. John wrote *a book*.

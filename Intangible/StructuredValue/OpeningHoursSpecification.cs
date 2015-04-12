@@ -1,12 +1,12 @@
 ﻿using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.StructuredValue
 {
     /// <summary>
     /// A structured value providing information about the opening hours of a place or a certain service inside a place.
     /// </summary>
-    public class OpeningHoursSpecification : StructuredValue
+    public class OpeningHoursSpecification : Thing
     {
         public OpeningHoursSpecification(string closes, string dayOfWeek, string opens, string validFrom = null, string validThrough = null)
         {

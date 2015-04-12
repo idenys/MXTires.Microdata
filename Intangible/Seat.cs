@@ -23,33 +23,36 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections.Generic;
-using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
-
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
+    /// Used to describe a seat, such as a reserved seat in an event reservation.
     /// </summary>
-    public class WarrantyPromise : StructuredValue
+    public class Seat : Thing
     {
         /// <summary>
-        /// QuantitativeValue 	The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
+        /// Text 	The location of the reserved seat (e.g., 27).
         /// </summary>
-        [JsonProperty("durationOfWarranty")]
-        public QuantitativeValue DurationOfWarranty { get; private set; }
+        [JsonProperty("seatNumber")]
+        public string SeatNumber { get; set; }
 
         /// <summary>
-        /// WarrantyScope 	The scope of the warranty promise.
+        /// Text 	The row location of the reserved seat (e.g., B).
         /// </summary>
-        [JsonProperty("warrantyScope")]
-        public WarrantyScope WarrantyScope { get; private set; }
+        [JsonProperty("seatRow")]
+        public string SeatRow { get; set; }
 
-        public WarrantyPromise(QuantitativeValue durationOfWarranty, WarrantyScope warrantyScope) {
-            DurationOfWarranty = durationOfWarranty;
-            WarrantyScope = warrantyScope;
-        }
+        /// <summary>
+        /// Text 	The section location of the reserved seat (e.g. Orchestra).
+        /// </summary>
+        [JsonProperty("seatSection")]
+        public string SeatSection { get; set; }
+
+        /// <summary>
+        /// Text  or QualitativeValue 	The type/class of the seat.
+        /// </summary>
+        [JsonProperty("seatingType")]
+        public string SeatingType { get; set; }
     }
 }

@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.StructuredValue
 {
     /// <summary>
     /// The geographic coordinates of a place or event.
     /// </summary>
-    public class GeoCoordinates : StructuredValue
+    public class GeoCoordinates : Thing
     {
         public GeoCoordinates(string latitude, string longitude) {
             Latitude = latitude; 

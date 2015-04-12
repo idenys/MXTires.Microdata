@@ -1,5 +1,6 @@
 ﻿using System;
 using MXTires.Microdata.Intangible.Enumeration;
+using MXTires.Microdata.Intangible.StructuredValue;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 

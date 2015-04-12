@@ -2,12 +2,12 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace MXTires.Microdata.Intangible
+namespace MXTires.Microdata.Intangible.StructuredValue
 {
     /// <summary>
     /// A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
     /// </summary>
-    public class TypeAndQuantityNode:StructuredValue
+    public class TypeAndQuantityNode : Thing
     {
         /// <summary>
         /// Number 	The quantity of the goods included in the offer.

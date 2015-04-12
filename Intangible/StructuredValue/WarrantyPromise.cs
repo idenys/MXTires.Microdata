@@ -23,30 +23,33 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
+using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
-namespace MXTires.Microdata
+
+namespace MXTires.Microdata.Intangible.StructuredValue
 {
     /// <summary>
-    /// A delivery service through which content is provided via broadcast over the air or online.
+    /// A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
     /// </summary>
-    public class BroadcastService : Thing
+    public class WarrantyPromise : Thing
     {
         /// <summary>
-        /// Place -	The area within which users can expect to reach the broadcast service.
+        /// QuantitativeValue 	The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
         /// </summary>
-        [JsonProperty("area")]
-        public Place Area { get; set; }
+        [JsonProperty("durationOfWarranty")]
+        public QuantitativeValue DurationOfWarranty { get; private set; }
 
         /// <summary>
-        /// Organization - The organization owning or operating the broadcast service.
+        /// WarrantyScope 	The scope of the warranty promise.
         /// </summary>
-        [JsonProperty("broadcaster")]
-        public Organization Broadcaster { get; set; }
+        [JsonProperty("warrantyScope")]
+        public WarrantyScope WarrantyScope { get; private set; }
 
-        /// <summary>
-        /// BroadcastService - A broadcast service to which the broadcast service may belong to such as regional variations of a national channel.
-        /// </summary>
-        [JsonProperty("parentService")]
-        public BroadcastService ParentService { get; set; }
+        public WarrantyPromise(QuantitativeValue durationOfWarranty, WarrantyScope warrantyScope) {
+            DurationOfWarranty = durationOfWarranty;
+            WarrantyScope = warrantyScope;
+        }
     }
 }

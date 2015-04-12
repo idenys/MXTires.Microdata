@@ -24,29 +24,44 @@
 #endregion
 
 using Newtonsoft.Json;
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.StructuredValue
 {
     /// <summary>
-    /// A delivery service through which content is provided via broadcast over the air or online.
+    /// A DatedMoneySpecification represents monetary values with optional start and end dates. 
+    /// For example, this could represent an employee's salary over a specific period of time.
     /// </summary>
-    public class BroadcastService : Thing
+    public class DatedMoneySpecification : Thing
     {
         /// <summary>
-        /// Place -	The area within which users can expect to reach the broadcast service.
+        /// Number - The amount of money.
         /// </summary>
-        [JsonProperty("area")]
-        public Place Area { get; set; }
+        [JsonProperty("amount")]
+        public string Amount { get; private set; }
 
         /// <summary>
-        /// Organization - The organization owning or operating the broadcast service.
+        /// Text - The currency in which the monetary amount is expressed (in 3-letter ISO 4217 format).
         /// </summary>
-        [JsonProperty("broadcaster")]
-        public Organization Broadcaster { get; set; }
+        [JsonProperty("currency")]
+        public string Currency { get; private set; }
 
         /// <summary>
-        /// BroadcastService - A broadcast service to which the broadcast service may belong to such as regional variations of a national channel.
+        /// Date - The end date and time of the item (in ISO 8601 date format).
         /// </summary>
-        [JsonProperty("parentService")]
-        public BroadcastService ParentService { get; set; }
+        [JsonProperty("endDate")]
+        public string EndDate { get; private set; }
+
+        /// <summary>
+        /// Date - The start date and time of the item (in ISO 8601 date format).
+        /// </summary>
+        [JsonProperty("startDate")]
+        public string StartDate { get; private set; }
+
+        public DatedMoneySpecification(float amount, string currency, string endDate, string startDate)
+        {
+            Amount = amount.ToString("c2");
+            Currency = currency;
+            EndDate = endDate;
+            StartDate = startDate;
+        }
     }
 }

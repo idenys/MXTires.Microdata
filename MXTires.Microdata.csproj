@@ -107,10 +107,15 @@
     <Compile Include="Intangible\ItemListElement.cs" />
     <Compile Include="Intangible\Property.cs" />
     <Compile Include="Intangible\PropertyValueSpecification.cs" />
+    <Compile Include="Intangible\Seat.cs" />
+    <Compile Include="Intangible\Service.cs" />
+    <Compile Include="Intangible\ServiceChannel.cs" />
+    <Compile Include="Intangible\StructuredValue\DatedMoneySpecification.cs" />
     <Compile Include="Intangible\StructuredValue\GeoCoordinates.cs" />
     <Compile Include="Intangible\StructuredValue\GeoShape.cs" />
     <Compile Include="Intangible\Enumeration\ItemAvailability.cs" />
     <Compile Include="Intangible\ItemList.cs" />
+    <Compile Include="Intangible\Ticket.cs" />
     <Compile Include="InteractAction.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="Intangible\ListItem.cs" />
@@ -141,7 +146,6 @@
     <Compile Include="Rating.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="SearchAction.cs" />
-    <Compile Include="Intangible\StructuredValue\StructuredValue.cs" />
     <Compile Include="Thing.cs" />
     <Compile Include="TieAction.cs" />
     <Compile Include="Tire.cs" />
@@ -152,7 +156,7 @@
     <Compile Include="Validators\TypeValidator.cs" />
     <Compile Include="Validators\Validator.cs" />
     <Compile Include="VideoObject.cs" />
-    <Compile Include="WarrantyPromise.cs" />
+    <Compile Include="Intangible\StructuredValue\WarrantyPromise.cs" />
     <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />
     <Compile Include="WebSite.cs" />
     <Compile Include="Wheel.cs" />
