@@ -1,17 +1,75 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿#region License
+// Copyright (c) 2015 1010Tires.com
+//
+// Permission is hereby granted, free of charge, to any person
+// obtaining a copy of this software and associated documentation
+// files (the "Software"), to deal in the Software without
+// restriction, including without limitation the rights to use,
+// copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following
+// conditions:
+//
+// The above copyright notice and this permission notice shall be
+// included in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+// OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+// WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+// OTHER DEALINGS IN THE SOFTWARE.
+#endregion
+
+using System;
+using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible.StructuredValue
 {
-    public class GeoShape:Thing
+    /// <summary>
+    /// The geographic shape of a place.
+    /// </summary>
+    public class GeoShape : Thing
     {
-//        box	Text 	A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
-//circle	Text 	A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.
-//elevation	Text  or 
-//Number 	The elevation of a location.
-//line	Text 	A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.
-//polygon	Text 	A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
+        /// <summary>
+        /// Text 	A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
+        /// </summary>
+        [JsonProperty("box")]
+        public string Box { get; private set; }
+
+        /// <summary>
+        /// Text 	A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.
+        /// </summary>
+        [JsonProperty("circle")]
+        public string Circle { get; private set; }
+
+        /// <summary>
+        /// Text  or Number - The elevation of a location.
+        /// </summary>
+        [JsonProperty("elevation")]
+        public string Elevation { get; private set; }
+
+        /// <summary>
+        /// Text 	A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.
+        /// </summary>
+        [JsonProperty("line")]
+        public string Line { get; private set; }
+
+        /// <summary>
+        /// Text 	A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
+        /// </summary>
+        [JsonProperty("polygon")]
+        public string Polygon { get; private set; }
+
+        public GeoShape(string box, string circle, string elevation, string line, string polygon)
+        {
+            Box = box;
+            Circle = circle;
+            Elevation = elevation;
+            Line = line;
+            Polygon = polygon;
+        }
     }
 }
