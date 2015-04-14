@@ -64,31 +64,30 @@ namespace MXTires.Microdata.Tests
                 Name = "T3 REPLICA NISSAN ALTIMA, MAXIMA (PAINTED/SILVER)",
             };
             offer.Availability = ItemAvailability.InStock | ItemAvailability.Discontinued;
+            offer.Reviews = new List<Review>();
+            offer.Reviews.Add(new Review() {  ItemReviewed = new Thing(), });
+            System.Diagnostics.Debug.WriteLine(offer.ToIndentedJson());
 
-            System.Diagnostics.Debug.Write(offer.ToJson());
-
-            //<script type="application/ld+json">{
-            //  "price": null,
-            //  "priceCurrency": null,
-            //  "priceSpecification": null,
-            //  "acceptedPaymentMethod": null,
-            //  "category": null,
-            //  "validFrom": null,
-            //  "validThrough": null,
-            //  "addOn": null,
-            //  "sku": null,
-            //  "serialNumber": null,
-            //  "seller": null,
-            //  "review": null,
-            //  "availability": "http://schema.org/InStock, http://schema.org/Discontinued",
-            //  "additional@type": null,
-            //  "alternateName": null,
-            //  "description": null,
-            //  "image": null,
+            // <script type="application/ld+json">{
+            //  "reviews": [
+            //    {
+            //      "itemReviewed": {
+            //        "@context": "http://schema.org",
+            //        "@type": "Thing"
+            //      },
+            //      "author": {
+            //        "name": "a guy",
+            //        "@context": "http://schema.org",
+            //        "@type": "Person"
+            //      },
+            //      "@context": "http://schema.org",
+            //      "@type": "Review"
+            //    }
+            //  ],
+            //  "availability": "http://schema.org/Discontinued, http://schema.org/InStock",
+            //  "businessFunction": "http://purl.org/goodrelations/v1#Sell",
+            //  "itemCondition": "NewCondition",
             //  "name": "T3 REPLICA NISSAN ALTIMA, MAXIMA (PAINTED/SILVER)",
-            //  "potentialAction": null,
-            //  "sameAs": null,
-            //  "url": null,
             //  "@context": "http://schema.org",
             //  "@type": "Offer"
             //}</script>

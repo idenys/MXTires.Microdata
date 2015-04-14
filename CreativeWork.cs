@@ -110,7 +110,7 @@ namespace MXTires.Microdata
         /// Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. 
         /// That is equivalent to this and may be used interchangeably.
         /// </summary>
-        [JsonProperty("author")]
+        [JsonProperty("author", Required = Required.Always)]
         public Thing Author
         {
             get { return author; }

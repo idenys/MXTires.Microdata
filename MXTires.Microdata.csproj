@@ -80,6 +80,7 @@
     <Compile Include="FindAction.cs" />
     <Compile Include="Intangible\BreadcrumbList.cs" />
     <Compile Include="Intangible\Class.cs" />
+    <Compile Include="Intangible\Demand.cs" />
     <Compile Include="Intangible\Enumeration\ActionStatusType.cs" />
     <Compile Include="AdministrativeArea.cs" />
     <Compile Include="Intangible\AggregateOffer.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Intangible\Enumeration\EventStatusType.cs" />
     <Compile Include="Intangible\Enumeration\ItemListOrderType.cs" />
     <Compile Include="Intangible\ItemListElement.cs" />
+    <Compile Include="Intangible\ProgramMembership.cs" />
     <Compile Include="Intangible\Property.cs" />
     <Compile Include="Intangible\PropertyValueSpecification.cs" />
     <Compile Include="Intangible\Seat.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Intangible\StructuredValue\GeoShape.cs" />
     <Compile Include="Intangible\Enumeration\ItemAvailability.cs" />
     <Compile Include="Intangible\ItemList.cs" />
+    <Compile Include="Intangible\StructuredValue\OwnershipInfo.cs" />
     <Compile Include="Intangible\Ticket.cs" />
     <Compile Include="InteractAction.cs" />
     <Compile Include="Language.cs" />

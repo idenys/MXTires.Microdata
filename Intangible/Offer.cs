@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValue;
 using Newtonsoft.Json;
@@ -105,6 +106,9 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("review")]
         public Review Review { get; set; }
+
+        [JsonProperty("reviews")]
+        public IList<Review> Reviews { get; set; }
 
         /// <summary>
         /// ItemAvailability - The availability of this item—for example In stock, Out of stock, Pre-order, etc.

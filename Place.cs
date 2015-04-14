@@ -80,43 +80,37 @@ namespace MXTires.Microdata
         /// Text - The fax number.
         /// </summary>
         [JsonProperty("faxNumber")]
-        public string faxNumber { get; set; }
-
-        /// <summary>
-        /// GeoCoordinates  or GeoShape - The geo coordinates of the place.
-        /// </summary>
-        [JsonProperty("geo")]
-        public Thing geo { get; set; }
+        public string FaxNumber { get; set; }
 
         /// <summary>
         /// Text - The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
         /// </summary>
         [JsonProperty("globalLocationNumber")]
-        public string globalLocationNumber { get; set; }
+        public string GlobalLocationNumber { get; set; }
 
         /// <summary>
         /// Text - A count of a specific user interactions with this item—for example, 20 UserLikes, 5 UserComments, or 300 UserDownloads. The user interaction type should be one of the sub types of UserInteraction.
         /// </summary>
         [JsonProperty("interactionCount")]
-        public string interactionCount { get; set; }
+        public string InteractionCount { get; set; }
 
         /// <summary>
         /// Text 	The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
         /// </summary>
         [JsonProperty("isicV4")]
-        public string isicV4 { get; set; }
+        public string IsicV4 { get; set; }
 
         /// <summary>
         /// ImageObject  or URL - An associated logo.
         /// </summary>
         [JsonProperty("logo")]
-        public PostalAddress logo { get; set; }
+        public PostalAddress Logo { get; set; }
 
         /// <summary>
         /// Photograph  or ImageObject 	A photograph of this place. Supersedes photos.
         /// </summary>
         [JsonProperty("photo")]
-        public Thing photo { get; set; }
+        public Thing Photo { get; set; }
 
         /// <summary>
         /// Photos.
@@ -128,7 +122,7 @@ namespace MXTires.Microdata
         /// Review - A review of the item. Supersedes reviews.
         /// </summary>
         [JsonProperty("review")]
-        public Review review { get; set; }
+        public Review Review { get; set; }
 
         /// <summary>
         /// Reviews.
@@ -140,6 +134,6 @@ namespace MXTires.Microdata
         /// Text - The telephone number.
         /// </summary>
         [JsonProperty("telephone")]
-        public PostalAddress telephone { get; set; }
+        public PostalAddress Telephone { get; set; }
     }
 }

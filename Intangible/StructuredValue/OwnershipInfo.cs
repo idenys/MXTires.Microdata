@@ -25,54 +25,36 @@
 
 using System;
 using Newtonsoft.Json;
-
 namespace MXTires.Microdata.Intangible.StructuredValue
 {
     /// <summary>
-    /// The geographic coordinates of a place or event.
+    /// A structured value providing information about when a certain organization or person owned a certain product
     /// </summary>
-    public class GeoCoordinates : Thing
+    public class OwnershipInfo : Thing
     {
-        public GeoCoordinates(string latitude, string longitude) {
-            Latitude = latitude; 
-            Longitude = longitude;
-        }
-
-        public GeoCoordinates(float latitude, float longitude)
-        {
-            Latitude = latitude.ToString();
-            Longitude = longitude.ToString();
-        }
-
-        public GeoCoordinates(string elevation, string latitude, string longitude)
-        {
-            Latitude = latitude;
-            Longitude = longitude;
-            Elevation = elevation;
-        }
-
-        public GeoCoordinates(float elevation, float latitude, float longitude)
-        {
-            Latitude = latitude.ToString();
-            Longitude = longitude.ToString();
-            Elevation = elevation.ToString();
-        }
         /// <summary>
-        /// Text  or Number - The elevation of a location.
+        /// Organization  or  Person - The organization or person from which the product was acquired.
         /// </summary>
-        [JsonProperty("elevation")]
-        public string Elevation { get; private set; }
+        [JsonProperty("acquiredFrom")]
+        public Thing AcquiredFrom { get; set; }
 
         /// <summary>
-        /// Text  or Number - The latitude of a location. For example 37.42242.
+        /// DateTime - The date and time of obtaining the product.
         /// </summary>
-        [JsonProperty("latitude")]
-        public string Latitude;
+        [JsonProperty("ownedFrom")]
+        public DateTime? OwnedFrom { get; set; }
 
         /// <summary>
-        /// Text  or Number - The longitude of a location. For example -122.08585.
+        /// DateTime - The date and time of giving up ownership on the product.
         /// </summary>
-        [JsonProperty("longitude")]
-        public string Longitude;
+        [JsonProperty("ownedThrough")]
+        public DateTime? OwnedThrough { get; set; }
+
+
+        /// <summary>
+        /// Product - The product that this structured value is referring to.
+        /// </summary>
+        [JsonProperty("typeOfGood")]
+        public Product TypeOfGood { get; set; }
     }
 }
