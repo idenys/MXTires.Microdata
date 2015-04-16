@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MXTires.Microdata</RootNamespace>
     <AssemblyName>MXTires.Microdata</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -158,6 +158,7 @@
     <Compile Include="Validators\TypeUtil.cs" />
     <Compile Include="Validators\TypeValidator.cs" />
     <Compile Include="Validators\Validator.cs" />
+    <Compile Include="Vehicle.cs" />
     <Compile Include="VideoObject.cs" />
     <Compile Include="Intangible\StructuredValue\WarrantyPromise.cs" />
     <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />
