@@ -31,10 +31,13 @@ using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// An organization such as a school, NGO, corporation, club, etc.
+    /// </summary>
     public class Organization : Thing
     {
         /// <summary>
-        /// PostalAddress 	Physical address of the item.
+        /// PostalAddress - Physical address of the item.
         /// </summary>
         [JsonProperty("address")]
         public PostalAddress Address { get; set; }
@@ -77,7 +80,7 @@ namespace MXTires.Microdata
 
         private List<Thing> brand;
         /// <summary>
-        /// Brand  or Organization 	The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+        /// Brand or Organization - The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
         /// </summary>
         [JsonProperty("brand")]
         public List<Thing> Brand

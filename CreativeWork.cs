@@ -178,7 +178,7 @@ namespace MXTires.Microdata
         public Thing CopyrightHolder { get; set; }
 
         /// <summary>
-        /// Number 	The year during which the claimed copyright for the CreativeWork was first asserted.
+        /// Number - The year during which the claimed copyright for the CreativeWork was first asserted.
         /// </summary>
         [JsonProperty("copyrightYear")]
         public Int32? CopyrightYear { get; set; }
@@ -190,49 +190,49 @@ namespace MXTires.Microdata
         public Thing Creator { get; set; }
 
         /// <summary>
-        /// Date 	The date on which the CreativeWork was created.
+        /// Date - The date on which the CreativeWork was created.
         /// </summary>
         [JsonProperty("dateCreated")]
         public DateTime? DateCreated { get; set; }
 
         /// <summary>
-        /// Date 	The date on which the CreativeWork was most recently modified.
+        /// Date - The date on which the CreativeWork was most recently modified.
         /// </summary>
         [JsonProperty("dateModified")]
         public DateTime? DateModified { get; set; }
 
         /// <summary>
-        /// Date 	Date of first broadcast/publication.
+        /// Date - Date of first broadcast/publication.
         /// </summary>
         [JsonProperty("datePublished")]
         public DateTime? DatePublished { get; set; }
 
         /// <summary>
-        ///  URL 	A link to the page containing the comments of the CreativeWork.
+        ///  URL - A link to the page containing the comments of the CreativeWork.
         /// </summary>
         [JsonProperty("discussionUrl")]
         public string DiscussionUrl { get; set; }
 
         /// <summary>
-        /// Person 	Specifies the Person who edited the CreativeWork.
+        /// Person - Specifies the Person who edited the CreativeWork.
         /// </summary>
         [JsonProperty("editor")]
         public Person Editor { get; set; }
 
         /// <summary>
-        /// AlignmentObject 	An alignment to an established educational framework.
+        /// AlignmentObject - An alignment to an established educational framework.
         /// </summary>
         [JsonProperty("educationalAlignment")]
         public AlignmentObject EducationalAlignment { get; set; }
 
         /// <summary>
-        /// Text 	The purpose of a work in the context of education; for example, 'assignment', 'group work'.
+        /// Text - The purpose of a work in the context of education; for example, 'assignment', 'group work'.
         /// </summary>
         [JsonProperty("educationalUse")]
         public string EducationalUse { get; set; }
 
         /// <summary>
-        /// MediaObject 	A media object that encodes this CreativeWork. This property is a synonym for associatedMedia. Supersedes encodings.
+        /// MediaObject - A media object that encodes this CreativeWork. This property is a synonym for associatedMedia. Supersedes encodings.
         /// </summary>
         [JsonProperty("encoding")]
         public MediaObject Encoding { get; set; }
@@ -268,7 +268,7 @@ namespace MXTires.Microdata
         public string InLanguage { get; set; }
 
         /// <summary>
-        /// Text 	A count of a specific user interactions with this item—for example, 20 UserLikes, 5 UserComments, or 300 UserDownloads. The user interaction type should be one of the sub types of UserInteraction.
+        /// Text - A count of a specific user interactions with this item—for example, 20 UserLikes, 5 UserComments, or 300 UserDownloads. The user interaction type should be one of the sub types of UserInteraction.
         /// </summary>
         [JsonProperty("interactionCount")]
         public string InteractionCount { get; set; }
@@ -280,19 +280,19 @@ namespace MXTires.Microdata
         public string InteractivityType { get; set; }
 
         /// <summary>
-        /// URL 	A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html
+        /// URL - A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html
         /// </summary>
         [JsonProperty("isBasedOnUrl")]
         public string IsBasedOnUrl { get; set; }
 
         /// <summary>
-        /// Boolean 	Indicates whether this content is family friendly.
+        /// Boolean - Indicates whether this content is family friendly.
         /// </summary>
         [JsonProperty("isFamilyFriendly")]
         public bool? IsFamilyFriendly { get; set; }
         
         /// <summary>
-        /// CreativeWork 	Indicates a CreativeWork that this CreativeWork is (in some sense) part of.
+        /// CreativeWork - Indicates a CreativeWork that this CreativeWork is (in some sense) part of.
         /// Inverse property: hasPart.
         /// </summary>
         [JsonProperty("isPartOf")]
@@ -317,13 +317,13 @@ namespace MXTires.Microdata
         public Thing License { get; set; }
 
         /// <summary>
-        /// Thing 	Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.
+        /// Thing - Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.
         /// </summary>
         [JsonProperty("mentions")]
         public Thing Mentions { get; set; }
 
         /// <summary>
-        /// Offer 	An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, or give away tickets to an event.
+        /// Offer - An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, or give away tickets to an event.
         /// </summary>
         [JsonProperty("offers")]
         public IList<Offer> Offers { get; set; }
@@ -362,13 +362,13 @@ namespace MXTires.Microdata
         public Event RecordedAt { get; set; }
 
         /// <summary>
-        /// PublicationEvent 	The place and time the release was issued, expressed as a PublicationEvent.
+        /// PublicationEvent - The place and time the release was issued, expressed as a PublicationEvent.
         /// </summary>
         [JsonProperty("releasedEvent")]
         public PublicationEvent ReleasedEvent { get; set; }
 
         /// <summary>
-        /// Review 	A review of the item. Supersedes reviews.
+        /// Review - A review of the item. Supersedes reviews.
         /// </summary>
         [JsonProperty("review")]
         public Review Review { get; set; }
@@ -392,7 +392,7 @@ namespace MXTires.Microdata
         public string ThumbnailUrl { get; set; }
 
         /// <summary>
-        /// Duration 	Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.
+        /// Duration - Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.
         /// </summary>
         [JsonProperty("timeRequired")]
         public Duration TimeRequired { get; set; }
@@ -404,7 +404,7 @@ namespace MXTires.Microdata
         public Thing Translator { get; set; }
 
         /// <summary>
-        /// Text 	The typical expected age range, e.g. '7-9', '11-'.
+        /// Text - The typical expected age range, e.g. '7-9', '11-'.
         /// </summary>
         [JsonProperty("typicalAgeRange")]
         public string TypicalAgeRange { get; set; }
@@ -416,13 +416,13 @@ namespace MXTires.Microdata
         public Int32? Version { get; set; }
 
         /// <summary>
-        /// VideoObject 	An embedded video object.
+        /// VideoObject - An embedded video object.
         /// </summary>
         [JsonProperty("video")]
         public VideoObject Video { get; set; }
 
         /// <summary>
-        /// CreativeWork 	Example/instance/realization/derivation of the concept of this creative work. eg. 
+        /// CreativeWork - Example/instance/realization/derivation of the concept of this creative work. eg. 
         /// The paperback edition, first edition, or eBook. 
         /// Inverse  property: exampleOfWork.
         /// </summary>

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MXTires.Microdata</RootNamespace>
     <AssemblyName>MXTires.Microdata</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -46,18 +46,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action.cs" />
-    <Compile Include="AchieveAction.cs" />
+    <Compile Include="Actions\Action.cs" />
+    <Compile Include="Actions\AchieveActions\AchieveAction.cs" />
+    <Compile Include="Actions\AssessActions\AgreeAction.cs" />
+    <Compile Include="Actions\AssessActions\ChooseAction.cs" />
+    <Compile Include="Actions\AssessActions\DisagreeAction.cs" />
+    <Compile Include="Actions\AssessActions\DislikeAction.cs" />
+    <Compile Include="Actions\AssessActions\EndorseAction.cs" />
+    <Compile Include="Actions\AssessActions\IgnoreAction.cs" />
+    <Compile Include="Actions\AssessActions\LikeAction.cs" />
+    <Compile Include="Actions\AssessActions\ReactAction.cs" />
+    <Compile Include="Actions\AssessActions\ReviewAction.cs" />
+    <Compile Include="Actions\AssessActions\VoteAction.cs" />
+    <Compile Include="Actions\AssessActions\WantAction.cs" />
+    <Compile Include="Actions\ConsumeActions\DrinkAction.cs" />
+    <Compile Include="Actions\ConsumeActions\EatAction.cs" />
+    <Compile Include="Actions\ConsumeActions\InstallAction.cs" />
+    <Compile Include="Actions\ConsumeActions\ListenAction.cs" />
+    <Compile Include="Actions\ConsumeActions\ReadAction.cs" />
+    <Compile Include="Actions\ConsumeActions\UseAction.cs" />
+    <Compile Include="Actions\ConsumeActions\ViewAction.cs" />
+    <Compile Include="Actions\ConsumeActions\WatchAction.cs" />
+    <Compile Include="Actions\ConsumeActions\WearAction.cs" />
+    <Compile Include="Actions\ControlActions\ActivateAction.cs" />
+    <Compile Include="Actions\ControlActions\DeactivateAction.cs" />
+    <Compile Include="Actions\ControlActions\ResumeAction.cs" />
+    <Compile Include="Actions\ControlActions\SuspendAction.cs" />
+    <Compile Include="Actions\CreateActions\CookAction.cs" />
+    <Compile Include="Actions\CreateActions\FoodEstablishment.cs" />
     <Compile Include="Answer.cs" />
-    <Compile Include="AssessAction.cs" />
+    <Compile Include="Actions\AssessActions\AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
     <Compile Include="BroadcastService.cs" />
     <Compile Include="Comment.cs" />
-    <Compile Include="ConsumeAction.cs" />
-    <Compile Include="ControlAction.cs" />
-    <Compile Include="CreateAction.cs" />
+    <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />
+    <Compile Include="Actions\ControlActions\ControlAction.cs" />
+    <Compile Include="Actions\CreateActions\CreateAction.cs" />
+    <Compile Include="CreativeWorks\Recipe.cs" />
     <Compile Include="Events\BroadcastEvent.cs" />
     <Compile Include="Events\BusinessEvent.cs" />
     <Compile Include="Events\ChildrensEvent.cs" />
@@ -77,7 +104,7 @@
     <Compile Include="Events\SportsEvent.cs" />
     <Compile Include="Events\TheaterEvent.cs" />
     <Compile Include="Events\UserInteraction.cs" />
-    <Compile Include="FindAction.cs" />
+    <Compile Include="Actions\FindAction.cs" />
     <Compile Include="Intangible\BreadcrumbList.cs" />
     <Compile Include="Intangible\Class.cs" />
     <Compile Include="Intangible\Demand.cs" />
@@ -119,24 +146,24 @@
     <Compile Include="Intangible\ItemList.cs" />
     <Compile Include="Intangible\StructuredValue\OwnershipInfo.cs" />
     <Compile Include="Intangible\Ticket.cs" />
-    <Compile Include="InteractAction.cs" />
+    <Compile Include="Actions\InteractAction.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="Intangible\ListItem.cs" />
     <Compile Include="LocalBusiness.cs" />
-    <Compile Include="LoseAction.cs" />
+    <Compile Include="Actions\AchieveActions\LoseAction.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Intangible\Enumeration\MapCategoryType.cs" />
     <Compile Include="MediaObject.cs" />
     <Compile Include="Intangible\Offer.cs" />
     <Compile Include="Intangible\Enumeration\OfferItemCondition.cs" />
     <Compile Include="Intangible\StructuredValue\OpeningHoursSpecification.cs" />
-    <Compile Include="MoveAction.cs" />
+    <Compile Include="Actions\MoveAction.cs" />
     <Compile Include="Organization.cs" />
     <Compile Include="Intangible\Enumeration\PaymentMethod.cs" />
-    <Compile Include="OrganizeAction.cs" />
+    <Compile Include="Actions\OrganizeAction.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Place.cs" />
-    <Compile Include="PlayAction.cs" />
+    <Compile Include="Actions\PlayAction.cs" />
     <Compile Include="PostalAddress.cs" />
     <Compile Include="PriceSpecification.cs" />
     <Compile Include="Product.cs" />
@@ -148,13 +175,13 @@
     <Compile Include="Question.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Review.cs" />
-    <Compile Include="SearchAction.cs" />
+    <Compile Include="Actions\SearchAction.cs" />
     <Compile Include="Thing.cs" />
-    <Compile Include="TieAction.cs" />
+    <Compile Include="Actions\AchieveActions\TieAction.cs" />
     <Compile Include="Tire.cs" />
     <Compile Include="TireShop.cs" />
     <Compile Include="Intangible\StructuredValue\TypeAndQuantityNode.cs" />
-    <Compile Include="TradeAction.cs" />
+    <Compile Include="Actions\TradeAction.cs" />
     <Compile Include="Validators\TypeUtil.cs" />
     <Compile Include="Validators\TypeValidator.cs" />
     <Compile Include="Validators\Validator.cs" />
@@ -164,7 +191,7 @@
     <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />
     <Compile Include="WebSite.cs" />
     <Compile Include="Wheel.cs" />
-    <Compile Include="WinAction.cs" />
+    <Compile Include="Actions\AchieveActions\WinAction.cs" />
     <Compile Include="WPFooter.cs" />
   </ItemGroup>
   <ItemGroup>
