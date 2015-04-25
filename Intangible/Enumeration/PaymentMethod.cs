@@ -46,6 +46,7 @@ namespace MXTires.Microdata.Intangible.Enumeration
         [EnumMember(Value = "http://purl.org/goodrelations/v1#PaySwarm")]
         PaySwarm = 1 << 8,
 
+        [EnumMember(Value = "VisaCheckout")]
         VisaCheckout = 1 << 9,
 
         /// <summary>
