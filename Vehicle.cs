@@ -28,7 +28,7 @@ namespace MXTires.Microdata
     /// <summary>
     /// A vehicle/
     /// </summary>
-    public class Vehicle : Thing
+    public class Vehicle : Product
     {
     }
 }
