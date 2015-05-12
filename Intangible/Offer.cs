@@ -56,7 +56,8 @@ namespace MXTires.Microdata.Intangible
          /// The payment method(s) accepted by seller for this offer.
         /// </summary>
         [JsonProperty ("acceptedPaymentMethod")]
-         public PaymentMethod? AcceptedPaymentMethod { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PaymentMethod? AcceptedPaymentMethod { get; set; }
 
         /// <summary>
         /// The payment method(s) accepted by seller for this offer.

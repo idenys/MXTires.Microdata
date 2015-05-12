@@ -66,6 +66,7 @@ namespace MXTires.Microdata.Tests
             offer.Availability = ItemAvailability.InStock | ItemAvailability.Discontinued;
             offer.Reviews = new List<Review>();
             offer.Reviews.Add(new Review() {  ItemReviewed = new Thing(), });
+            offer.AcceptedPaymentMethod = PaymentMethod.VisaCheckout | PaymentMethod.PayPal;
             System.Diagnostics.Debug.WriteLine(offer.ToIndentedJson());
 
             // <script type="application/ld+json">{

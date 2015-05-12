@@ -55,7 +55,8 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// http://purl.org/goodrelations/v1#Discover http://purl.org/goodrelations/v1#JCB 
         /// http://purl.org/goodrelations/v1#MasterCard http://purl.org/goodrelations/v1#VISA
         /// </summary>
-        //CreditCard = 1 << 10,
+        [EnumMember(Value = "http://schema.org/CreditCard")]
+        CreditCard = 1 << 10,
     
         [EnumMember(Value = "http://purl.org/goodrelations/v1#AmericanExpress")]
         AmericanExpress= 1 << 11,
