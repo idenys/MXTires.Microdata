@@ -23,6 +23,9 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Validators;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 namespace MXTires.Microdata.Intangible
 {
     /// <summary>
@@ -30,5 +33,56 @@ namespace MXTires.Microdata.Intangible
     /// </summary>
     public class ProgramMembership : Thing
     {
+        /// <summary>
+        /// Organization - The organization (airline, travelers' club, etc.) the membership is made with.
+        /// </summary>
+        [JsonProperty("hostingOrganization")]
+        public Organization HostingOrganization { get; set; }
+
+        Thing member;
+        /// <summary>
+        /// Organization  or Person - A member of an Organization or a ProgramMembership. 
+        /// Organizations can be members of organizations; ProgramMembership is typically for individuals. Supersedes members, musicGroupMember. 
+        /// Inverse property: memberOf.
+        /// </summary>
+        [JsonProperty("member")]
+        public Thing Member
+        {
+            get { return member; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                member = value;
+            }
+        }
+
+        List<Thing> members;
+        [JsonProperty("members")]
+        public List<Thing> Members
+        {
+            get { return members; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                foreach (var item in value)
+                {
+                    validator.Validate(item);
+                }
+                members = value;
+            }
+        }
+
+        /// <summary>
+        /// Text - A unique identifier for the membership.
+        /// </summary>
+        [JsonProperty("membershipNumber")]
+        public string MembershipNumber { get; set; }
+
+        /// <summary>
+        /// Text - The program providing the membership.
+        /// </summary>
+        [JsonProperty("programName")]
+        public Organization ProgramName { get; set; }
     }
 }
