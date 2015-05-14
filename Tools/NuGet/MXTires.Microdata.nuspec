@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MXTires.Microdata</id>
+    <version>1.0.0.6</version>
+    <title>MXTires Microdata .NET</title>
+    <authors>1010Tires.com Inc.</authors>
+    <owners>1010Tires.com Inc.</owners>
+    <licenseUrl>https://github.com/idenys/MXTires.Microdata/blob/master/License.md</licenseUrl>
+    <projectUrl>https://github.com/idenys/MXTires.Microdata</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Converts .Net classes to Schema.org structured data in form of JSON-LD</description>
+	<summary>Converts .Net classes to Schema.org structured data in form of JSON-LD</summary>
+    <copyright>Copyright ©  1010Tires.com Inc. 2015. All rights reserved.</copyright>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="6.0.8" />
+    </dependencies>
+	<tags>.Net Microdata Schema.org Json-LD</tags>
+	<releaseNotes>Code restructure for Enumerations. Note this breaks backward compatibility.</releaseNotes>
+  </metadata>
+</package>

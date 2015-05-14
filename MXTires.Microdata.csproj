@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MXTires.Microdata.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -84,9 +85,11 @@
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />
     <Compile Include="Actions\ControlActions\ControlAction.cs" />
     <Compile Include="Actions\CreateActions\CreateAction.cs" />
+    <Compile Include="CreativeWorks\Article.cs" />
     <Compile Include="CreativeWorks\CreativeWork.cs" />
     <Compile Include="CreativeWorks\ImageObject.cs" />
     <Compile Include="CreativeWorks\MediaObject.cs" />
+    <Compile Include="CreativeWorks\NewsArticle.cs" />
     <Compile Include="CreativeWorks\Recipe.cs" />
     <Compile Include="Events\BroadcastEvent.cs" />
     <Compile Include="Events\BusinessEvent.cs" />
@@ -129,7 +132,7 @@
     <Compile Include="Intangible\Enumeration\CreditCard.cs" />
     <Compile Include="Intangible\Enumeration\DaysOfWeek.cs" />
     <Compile Include="Intangible\Enumeration\DeliveryMethod.cs" />
-    <Compile Include="Intangible\Duration.cs" />
+    <Compile Include="Intangible\Quantity\Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Intangible\Enumeration\EventStatusType.cs" />
@@ -138,6 +141,7 @@
     <Compile Include="Intangible\ProgramMembership.cs" />
     <Compile Include="Intangible\Property.cs" />
     <Compile Include="Intangible\PropertyValueSpecification.cs" />
+    <Compile Include="Intangible\Quantity\Distance.cs" />
     <Compile Include="Intangible\Seat.cs" />
     <Compile Include="Intangible\Service.cs" />
     <Compile Include="Intangible\ServiceChannel.cs" />
@@ -147,6 +151,7 @@
     <Compile Include="Intangible\Enumeration\ItemAvailability.cs" />
     <Compile Include="Intangible\ItemList.cs" />
     <Compile Include="Intangible\StructuredValue\OwnershipInfo.cs" />
+    <Compile Include="Intangible\StructuredValue\PropertyValue.cs" />
     <Compile Include="Intangible\Ticket.cs" />
     <Compile Include="Actions\InteractAction.cs" />
     <Compile Include="Language.cs" />
@@ -172,7 +177,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicationEvent.cs" />
     <Compile Include="QuantitativeValue.cs" />
-    <Compile Include="Intangible\Quantity.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Review.cs" />

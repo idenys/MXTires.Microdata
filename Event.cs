@@ -29,6 +29,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using MXTires.Microdata.Attributes;
 using MXTires.Microdata.Validators;
+using MXTires.Microdata.Intangible.Quantity;
 namespace MXTires.Microdata
 {
     public class Event : Thing

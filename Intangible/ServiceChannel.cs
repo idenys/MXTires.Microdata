@@ -25,6 +25,7 @@
 
 using System;
 using Newtonsoft.Json;
+using MXTires.Microdata.Intangible.Quantity;
 
 namespace MXTires.Microdata.Intangible
 {

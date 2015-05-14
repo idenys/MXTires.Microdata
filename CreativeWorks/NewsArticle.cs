@@ -23,21 +23,12 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using Newtonsoft.Json;
-
-namespace MXTires.Microdata
+namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// The act of searching for an object.
-    /// Related actions:
-    /// <code>FindAction</code>: SearchAction generally leads to a FindAction, but not necessarily
+    /// A news article.
     /// </summary>
-    public class SearchAction : Action
+    public class NewsArticle : Article
     {
-        /// <summary>
-        /// Class  or Text - A sub property of instrument. The query used on this action.
-        /// </summary>
-        [JsonProperty("query-input")]
-        public string Query { get; set; }
     }
 }

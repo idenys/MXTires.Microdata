@@ -25,6 +25,9 @@
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// The act of consuming static visual content.
+    /// </summary>
     public class ViewAction : ConsumeAction
     {
     }
