@@ -46,7 +46,7 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("actionStatus")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public ActionStatusType ActionStatus { get; set; }
+        public ActionStatusType? ActionStatus { get; set; }
 
         private Thing agent;
         /// <summary>
