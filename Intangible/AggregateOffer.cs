@@ -25,7 +25,7 @@ namespace MXTires.Microdata.Intangible
         public Int32 OfferCount { get; set; }
 
         /// <summary>
-        /// Offer 	An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, 
+        /// Offer -	An offer to provide this item. For example, an offer to sell a product, rent the DVD of a movie, 
         /// or give away tickets to an event.
         /// </summary>
         [JsonProperty("offers")]

@@ -60,6 +60,9 @@ namespace MXTires.Microdata
         [JsonProperty("review")]
         public Review Review { get; set; }
 
+        [JsonProperty("reviews")]
+        public List<Review> Reviews { get; set; }
+
         /// <summary>
         /// Offer - A pointer to products or services offered by the organization or person.
         /// </summary>
