@@ -84,6 +84,9 @@
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />
     <Compile Include="Actions\ControlActions\ControlAction.cs" />
     <Compile Include="Actions\CreateActions\CreateAction.cs" />
+    <Compile Include="CreativeWorks\CreativeWork.cs" />
+    <Compile Include="CreativeWorks\ImageObject.cs" />
+    <Compile Include="CreativeWorks\MediaObject.cs" />
     <Compile Include="CreativeWorks\Recipe.cs" />
     <Compile Include="Events\BroadcastEvent.cs" />
     <Compile Include="Events\BusinessEvent.cs" />
@@ -122,7 +125,6 @@
     <Compile Include="Car.cs" />
     <Compile Include="ContactPoint.cs" />
     <Compile Include="Corporation.cs" />
-    <Compile Include="CreativeWork.cs" />
     <Compile Include="Intangible\Enumeration\ContactPointOption.cs" />
     <Compile Include="Intangible\Enumeration\CreditCard.cs" />
     <Compile Include="Intangible\Enumeration\DaysOfWeek.cs" />
@@ -153,7 +155,6 @@
     <Compile Include="Actions\AchieveActions\LoseAction.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Intangible\Enumeration\MapCategoryType.cs" />
-    <Compile Include="MediaObject.cs" />
     <Compile Include="Intangible\Offer.cs" />
     <Compile Include="Intangible\Enumeration\OfferItemCondition.cs" />
     <Compile Include="Intangible\StructuredValue\OpeningHoursSpecification.cs" />
