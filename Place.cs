@@ -104,7 +104,7 @@ namespace MXTires.Microdata
         /// ImageObject  or URL - An associated logo.
         /// </summary>
         [JsonProperty("logo")]
-        public PostalAddress Logo { get; set; }
+        public object Logo { get; set; }
 
         /// <summary>
         /// Photograph  or ImageObject 	A photograph of this place. Supersedes photos.
