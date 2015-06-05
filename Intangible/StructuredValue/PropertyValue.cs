@@ -52,5 +52,15 @@ namespace MXTires.Microdata.Intangible.StructuredValue
         /// </summary>
         [JsonProperty("valueReference")]
         public string ValueReference { get; set; }
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public PropertyValue(string name, object value) {
+            Name = name; 
+            Value = value;
+        }
     }
 }
