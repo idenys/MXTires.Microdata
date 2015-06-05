@@ -31,6 +31,7 @@ using System.Web;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json.Converters;
+using MXTires.Microdata.Intangible.StructuredValue;
 
 namespace MXTires.Microdata
 {
@@ -175,5 +176,11 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("width")]
         public QuantitativeValue Width { get; set; }
+
+        /// <summary>
+        /// Distance  or QuantitativeValue -The width of the item.
+        /// </summary>
+        [JsonProperty("additionalProperty")]
+        public PropertyValue AdditionalProperty { get; set; }
     }
 }

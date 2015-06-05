@@ -33,8 +33,14 @@ using MXTires.Microdata.Intangible.Quantity;
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.
+    /// </summary>
     public class LocalBusiness : Organization
     {
+        /// <summary>
+        /// The larger organization that this local business is a branch of, if any.
+        /// </summary>
         [JsonProperty("branchOf")]
         public Organization BranchOf { get; set; }
 
@@ -60,6 +66,9 @@ namespace MXTires.Microdata
         [JsonProperty("paymentAccepted")]
         public string PaymentAccepted { get; set; }
 
+        /// <summary>
+        /// The price range of the business, for example $$$.
+        /// </summary>
         [JsonProperty("priceRange")]
         public string PriceRange { get; set; }
     }
