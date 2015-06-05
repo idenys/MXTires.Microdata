@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -46,13 +47,13 @@ namespace MXTires.Microdata
         /// Text - The actual body of the review.
         /// </summary>
         [JsonProperty("reviewBody")]
-        public string reviewBody { get; set; }
+        public string ReviewBody { get; set; }
 
         /// <summary>
         /// Rating 	The rating given in this review. Note that reviews can themselves be rated. 
         /// The reviewRating applies to rating given by the review. The aggregateRating property applies to the review itself, as a creative work.
         /// </summary>
         [JsonProperty("reviewRating")]
-        public string reviewRating { get; set; }
+        public Rating ReviewRating { get; set; }
     }
 }

@@ -26,6 +26,7 @@
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible.StructuredValue;
 using Newtonsoft.Json;
+using MXTires.Microdata.Intangible;
 
 namespace MXTires.Microdata
 {

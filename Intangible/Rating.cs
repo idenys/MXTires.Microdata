@@ -29,24 +29,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible
 {
     public class Rating : Thing
     {
+        string bestRating = "5";
         /// <summary>
         /// Number  or Text. The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
         /// </summary>
         [JsonProperty("bestRating")]
-        public string BestRating { get; set; }
+        public string BestRating
+        {
+            get { return bestRating; }
+            set { bestRating = value; }
+        }
         /// <summary>
         /// Text. The rating for the content.
         /// </summary>
         [JsonProperty("ratingValue")]
         public string RatingValue { get; set; }
+
+        string worstRating = "1";
         /// <summary>
         /// The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.
         /// </summary>
         [JsonProperty("worstRating")]
-        public string WorstRating { get; set; }
+        public string WorstRating
+        {
+            get { return worstRating; }
+            set { worstRating = value; }
+        }
+        
+        /// <summary>
+        /// Default struct
+        /// </summary>
+        public Rating() { }
+
+        /// <summary>
+        /// Default struct
+        /// </summary>
+        public Rating(double ratingValue) {
+            RatingValue = ratingValue.ToString("#.##");
+        }
+
+        /// <summary>
+        /// Default struct
+        /// </summary>
+        public Rating(string ratingValue)
+        {
+            RatingValue = ratingValue;
+        }
+
     }
 }

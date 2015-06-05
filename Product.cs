@@ -153,6 +153,13 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("review")]
         public Review Review { get; set; }
+
+        /// <summary>
+        /// Collection of reviews.
+        /// </summary>
+        [JsonProperty("reviews")]
+        public List<Review> Reviews { get; set; }
+
         /// <summary>
         /// The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
         /// </summary>

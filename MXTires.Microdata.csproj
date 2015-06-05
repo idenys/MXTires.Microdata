@@ -30,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\MXTires.Microdata.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -117,7 +118,7 @@
     <Compile Include="Intangible\Enumeration\ActionStatusType.cs" />
     <Compile Include="AdministrativeArea.cs" />
     <Compile Include="Intangible\AggregateOffer.cs" />
-    <Compile Include="AggregateRating.cs" />
+    <Compile Include="Intangible\AggregateRating.cs" />
     <Compile Include="Intangible\AlignmentObject.cs" />
     <Compile Include="Intangible\Audience.cs" />
     <Compile Include="AudioObject.cs" />
@@ -178,7 +179,7 @@
     <Compile Include="PublicationEvent.cs" />
     <Compile Include="QuantitativeValue.cs" />
     <Compile Include="Question.cs" />
-    <Compile Include="Rating.cs" />
+    <Compile Include="Intangible\Rating.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="Actions\SearchAction.cs" />
     <Compile Include="Thing.cs" />
