@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -37,7 +38,13 @@ namespace MXTires.Microdata
         /// <summary>
         /// Class  or Text - A sub property of instrument. The query used on this action.
         /// </summary>
-        [JsonProperty("query-input")]
+        [JsonProperty("query")]
         public string Query { get; set; }
+
+        /// <summary>
+        /// PropertyValueSpecification - A sub property of instrument. The query used on this action.
+        /// </summary>
+        [JsonProperty("query-input")]
+        public PropertyValueSpecification QueryInput { get; set; }
     }
 }

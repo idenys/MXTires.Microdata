@@ -51,13 +51,13 @@ namespace MXTires.Microdata.Intangible
         public Int64? MinValue { get; set; }
 
         /// <summary>
-        /// Boolean 	Whether multiple values are allowed for the property. Default is false.
+        /// Boolean - Whether multiple values are allowed for the property. Default is false.
         /// </summary>
         [JsonProperty("multipleValues")]
         public Boolean MultipleValues { get; set; }
 
         /// <summary>
-        /// Boolean 	Whether or not a property is mutable. Default is false. Specifying this for a property that also has a value makes it act similar to a "hidden" input in an HTML form.
+        /// Boolean - Whether or not a property is mutable. Default is false. Specifying this for a property that also has a value makes it act similar to a "hidden" input in an HTML form.
         /// </summary>
         [JsonProperty("readonlyValue")]
         public Boolean ReadonlyValue { get; set; }
@@ -81,19 +81,19 @@ namespace MXTires.Microdata.Intangible
         public Int64? ValueMinLength { get; set; }
 
         /// <summary>
-        /// Text 	Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name.
+        /// Text - Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name.
         /// </summary>
         [JsonProperty("valueName")]
         public string ValueName { get; set; }
 
         /// <summary>
-        /// Text 	Specifies a regular expression for testing literal values according to the HTML spec.
+        /// Text - Specifies a regular expression for testing literal values according to the HTML spec.
         /// </summary>
         [JsonProperty("valuePattern")]
         public string ValuePattern { get; set; }
 
         /// <summary>
-        /// Boolean 	Whether the property must be filled in to complete the action. Default is false.
+        /// Boolean - Whether the property must be filled in to complete the action. Default is false.
         /// </summary>
         [JsonProperty("valueRequired")]
         public Boolean ValueRequired { get; set; }

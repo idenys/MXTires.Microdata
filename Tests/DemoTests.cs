@@ -223,5 +223,31 @@ namespace MXTires.Microdata.Tests
             System.Diagnostics.Debug.WriteLine(baseEvent.ToIndentedJson());
         
         }
+
+        [TestMethod]
+        public void WebSiteTest()
+        {
+            WebSite webSite = new WebSite();
+            webSite.Id = "/";
+            webSite.Url = "http://www.1010tires.com/";
+            webSite.PotentialAction = new SearchAction()
+            {
+                Target = new EntryPoint() { UrlTemplate = "http://www.1010tires.com/Products/Search/?q={q}", },
+                //Query = "required name=q",
+                QueryInput = new PropertyValueSpecification() { ValueName = "q", ValueRequired = true, MultipleValues = true },
+                ActionStatus = MXTires.Microdata.Intangible.Enumeration.ActionStatusType.PotentialActionStatus,
+            };
+            webSite.AggregateRating = new AggregateRating()
+                    {
+                        Id= "SiteAggregateRating",
+                        BestRating = "5",
+                        WorstRating = "1",
+                        RatingValue = "4.6",
+                        ReviewCount = "3500",
+                        Description = "1010tires.com Reviews and Customer Ratings by Shopper Approved.",
+                        Url = "http://www.shopperapproved.com/reviews/1010tires.com/"
+                    };
+            System.Diagnostics.Debug.WriteLine(webSite.ToIndentedJson());
+        }
     }
 }
