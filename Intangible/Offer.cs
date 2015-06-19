@@ -97,17 +97,20 @@ namespace MXTires.Microdata.Intangible
         public string SerialNumber { get; set; }
 
         /// <summary>
-        /// Organization  or Person -An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider. Supersedes merchant, vendor.
+        /// <see cref="Organization"/>   or <see cref="Person"/> - An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider. Supersedes merchant, vendor.
         /// </summary>
         [JsonProperty("seller")]
         public Thing Seller { get; set; }
 
         /// <summary>
-        /// Review - A review of the item. Supersedes reviews.
+        /// <see cref="Review"/> - A review of the item. Supersedes reviews.
         /// </summary>
         [JsonProperty("review")]
         public Review Review { get; set; }
 
+        /// <summary>
+        /// Collection of <see cref="Review"/> 
+        /// </summary>
         [JsonProperty("reviews")]
         public IList<Review> Reviews { get; set; }
 
@@ -248,9 +251,17 @@ namespace MXTires.Microdata.Intangible
         public Product ItemOffered { get; set; }	
 
         /// <summary>
+        /// Text - The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
+        /// </summary>
+        [JsonProperty("mpn")]
+        public string Mpn { get; set; }
+
+        /// <summary>
         /// WarrantyPromise - The warranty promise(s) included in the offer..
         /// </summary>
         [JsonProperty("warranty")]
         public WarrantyPromise Warranty { get; set; }	
+
+
     }
 }

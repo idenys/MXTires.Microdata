@@ -201,6 +201,11 @@ namespace MXTires.Microdata.Tests
         public void TireTest()
         {
             var tire = new Tire() { Name = "T3 Tire" };
+
+            PropertyValue additionalProperty = new PropertyValue(name : "Specs", value : "265/60R18");
+
+            tire.AdditionalProperty =  additionalProperty ;
+
             System.Diagnostics.Debug.WriteLine(tire.ToIndentedJson());
 
             //<script type="application/ld+json">{
@@ -239,7 +244,7 @@ namespace MXTires.Microdata.Tests
             };
             webSite.AggregateRating = new AggregateRating()
                     {
-                        Id= "SiteAggregateRating",
+                        Id= "/SiteAggregateRating",
                         BestRating = "5",
                         WorstRating = "1",
                         RatingValue = "4.6",

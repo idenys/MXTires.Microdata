@@ -182,5 +182,6 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("additionalProperty")]
         public PropertyValue AdditionalProperty { get; set; }
+
     }
 }
