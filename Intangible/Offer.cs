@@ -237,7 +237,7 @@ namespace MXTires.Microdata.Intangible
         public QuantitativeValue InventoryLevel { get; set; }	
 
         /// <summary>
-        /// OfferItemCondition 	A predefined value from OfferItemCondition or a textual description of the condition of the product or service, 
+        /// <see cref="OfferItemCondition"/> - A predefined value from OfferItemCondition or a textual description of the condition of the product or service, 
         /// or the products or services included in the offer.
         /// </summary>
         [JsonProperty("itemCondition")]
@@ -245,7 +245,7 @@ namespace MXTires.Microdata.Intangible
         public OfferItemCondition ItemCondition { get; set; }	
 
         /// <summary>
-        /// Product - The item being offered.
+        /// <see cref="Product"/> - The item being offered.
         /// </summary>
         [JsonProperty("itemOffered")]
         public Product ItemOffered { get; set; }	

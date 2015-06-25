@@ -56,6 +56,13 @@ namespace MXTires.Microdata
         [JsonProperty("brand")]
         public Brand Brand { get; set; }
 
+
+        /// <summary>
+        /// Text  or <see cref="PhysicalActivityCategory"/>  or <see cref="Thing"/> - A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+        /// </summary>
+        [JsonProperty("category")]
+        public object Category { get; set; }
+
         /// <summary>
         /// The colour of the product.
         /// </summary>
