@@ -36,6 +36,15 @@ namespace MXTires.Microdata
     public class Place : Thing
     {
         /// <summary>
+        /// <see cref:"PropertyValue"/> - A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. 
+        /// </summary>
+        /// <remarks>
+        /// Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
+        /// </remarks>
+        [JsonProperty("additionalProperty")]
+        public PropertyValue AdditionalProperty { get; set; }
+
+        /// <summary>
         /// The location of the event, organization or action.
         /// </summary>
         [JsonProperty("geo")]
