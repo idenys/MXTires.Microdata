@@ -51,7 +51,7 @@ namespace MXTires.Microdata.Intangible.StructuredValue
         /// QualitativeValue  or QuantitativeValue  or PropertyValue  or Enumeration  or  StructuredValue - A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.
         /// </summary>
         [JsonProperty("valueReference")]
-        public string ValueReference { get; set; }
+        public object ValueReference { get; set; }
 
         /// <summary>
         /// Default constructor

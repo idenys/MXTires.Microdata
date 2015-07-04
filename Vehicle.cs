@@ -26,9 +26,58 @@
 namespace MXTires.Microdata
 {
     /// <summary>
-    /// A vehicle/
+    /// A car is a wheeled, self-powered motor vehicle used for transportation.
     /// </summary>
     public class Vehicle : Product
     {
+//        cargoVolume	QuantitativeValue 	The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
+//Typical unit code(s): LTR for liters, FTQ for cubic foot/feet
+//Note: You can use minValue and maxValue to indicate ranges.
+//dateVehicleFirstRegistered	Date 	The date of the first registration of the vehicle with the respective public authorities.
+//driveWheelConfiguration	Text  or 
+//DriveWheelConfigurationValue 	The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.
+//fuelConsumption	QuantitativeValue 	The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).
+//Note 1: There are unfortunately no standard unit codes for liters per 100 km.
+//Use unitText to indicate the unit of measurement, e.g. L/100 km. Note 2: There are two ways of indicating the fuel consumption, fuelConsumption (e.g. 8 liters per 100 km) and fuelEfficiency (e.g. 30 miles per gallon). They are reciprocal.
+//Note 3: Often, the absolute value is useful only when related to driving speed ("at 80 km/h") or usage pattern ("city traffic"). You can use valueReference to link the value for the fuel consumption to another value.
+//fuelEfficiency	QuantitativeValue 	The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).
+//Note 1: There are unfortunately no standard unit codes for miles per gallon or kilometers per liter.
+//Use unitText to indicate the unit of measurement, e.g. mpg or km/L. Note 2: There are two ways of indicating the fuel consumption, fuelConsumption (e.g. 8 liters per 100 km) and fuelEfficiency (e.g. 30 miles per gallon). They are reciprocal.
+//Note 3: Often, the absolute value is useful only when related to driving speed ("at 80 km/h") or usage pattern ("city traffic"). You can use valueReference to link the value for the fuel economy to another value.
+//fuelType	Text  or 
+//QualitativeValue  or 
+//URL 	The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
+//knownVehicleDamages	Text 	A textual description of known damages, both repaired and unrepaired.
+//mileageFromOdometer	QuantitativeValue 	The total distance travelled by the particular vehicle since its initial production, as read from its odometer.
+//Typical unit code(s): KMT for kilometers, SMI for statute miles
+//numberOfAirbags	Text  or 
+//Number 	The number or type of airbags in the vehicle.
+//numberOfAxles	Number  or 
+//QuantitativeValue 	The number of axles.
+//Typical unit code(s): C62
+//numberOfDoors	Number  or 
+//QuantitativeValue 	The number of doors.
+//Typical unit code(s): C62
+//numberOfForwardGears	Number  or 
+//QuantitativeValue 	The total number of forward gears available for the transmission system of the vehicle.
+//Typical unit code(s): C62
+//numberOfPreviousOwners	Number  or 
+//QuantitativeValue 	The number of owners of the vehicle, including the current one.
+//Typical unit code(s): C62
+//productionDate	Date 	The date of production of the item, e.g. vehicle.
+//purchaseDate	Date 	The date the item e.g. vehicle was purchased by the current owner.
+//steeringPosition	SteeringPositionValue 	The position of the steering wheel or similar device (mostly for cars).
+//vehicleConfiguration	Text 	A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
+//vehicleEngine	EngineSpecification 	Information about the engine or engines of the vehicle.
+//vehicleIdentificationNumber	Text 	The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles.
+//vehicleInteriorColor	Text 	The color or color combination of the interior of the vehicle.
+//vehicleInteriorType	Text 	The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience.
+//vehicleModelDate	Date 	The release date of a vehicle model (often used to differentiate versions of the same make and model).
+//vehicleSeatingCapacity	Number  or 
+//QuantitativeValue 	The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
+//Typical unit code(s): C62 for persons
+//vehicleTransmission	Text  or 
+//QualitativeValue  or 
+//URL 	The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) ("gearbox" for cars).
     }
 }
