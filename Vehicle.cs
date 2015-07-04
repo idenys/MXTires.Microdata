@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
     /// <summary>
@@ -72,7 +73,13 @@ namespace MXTires.Microdata
 //vehicleIdentificationNumber	Text 	The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles.
 //vehicleInteriorColor	Text 	The color or color combination of the interior of the vehicle.
 //vehicleInteriorType	Text 	The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience.
-//vehicleModelDate	Date 	The release date of a vehicle model (often used to differentiate versions of the same make and model).
+
+        /// <summary>
+        /// Date - The release date of a vehicle model (often used to differentiate versions of the same make and model).
+        /// </summary>
+        [JsonProperty("vehicleModelDate")]
+        public object VehicleModelDate { get; set; }	
+
 //vehicleSeatingCapacity	Number  or 
 //QuantitativeValue 	The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
 //Typical unit code(s): C62 for persons

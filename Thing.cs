@@ -38,13 +38,21 @@ namespace MXTires.Microdata
     {
 #pragma warning disable 0414
 
+        /// <summary>
+        /// Context
+        /// </summary>
         [JsonProperty("@context", Order = 1)]
         string context = "http://schema.org";
 
-
+        /// <summary>
+        /// Type tag
+        /// </summary>
         [JsonProperty("@type", Order = 2)]
         public virtual string Type { get { return this.GetType().Name; } }
 
+        /// <summary>
+        /// ID
+        /// </summary>
         [JsonProperty("@id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
 
