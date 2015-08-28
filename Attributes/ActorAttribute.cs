@@ -28,6 +28,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MXTires.Microdata.Attributes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ActorAttribute : ValidationAttribute
     {
 

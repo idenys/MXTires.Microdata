@@ -60,6 +60,9 @@ namespace MXTires.Microdata
         [JsonProperty("review")]
         public Review Review { get; set; }
 
+        /// <summary>
+        /// Review collection
+        /// </summary>
         [JsonProperty("reviews")]
         public List<Review> Reviews { get; set; }
 
@@ -127,7 +130,7 @@ namespace MXTires.Microdata
         public DateTime? DissolutionDate { get; set; }
 
         /// <summary>
-        /// Text - The Dun & Bradstreet DUNS number for identifying an organization or business person.
+        /// Text - The Dun and Bradstreet DUNS number for identifying an organization or business person.
         /// </summary>
         [JsonProperty("duns")]
         public string Duns { get; set; }
