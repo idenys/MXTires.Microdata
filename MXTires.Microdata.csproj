@@ -77,6 +77,9 @@
     <Compile Include="Actions\ControlActions\SuspendAction.cs" />
     <Compile Include="Actions\CreateActions\CookAction.cs" />
     <Compile Include="Actions\CreateActions\FoodEstablishment.cs" />
+    <Compile Include="Actions\FindActions\CheckAction.cs" />
+    <Compile Include="Actions\FindActions\DiscoverAction.cs" />
+    <Compile Include="Actions\FindActions\TrackAction.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Actions\AssessActions\AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
