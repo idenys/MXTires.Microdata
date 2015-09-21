@@ -82,8 +82,15 @@
     <Compile Include="Actions\FindActions\TrackAction.cs" />
     <Compile Include="Actions\InteractActions\BefriendAction.cs" />
     <Compile Include="Actions\InteractActions\CommunicateAction.cs" />
+    <Compile Include="Actions\InteractActions\CommunicateActions\AskAction.cs" />
+    <Compile Include="Actions\InteractActions\CommunicateActions\CheckInAction.cs" />
     <Compile Include="Actions\InteractActions\FollowAction.cs" />
     <Compile Include="Actions\InteractActions\JoinAction.cs" />
+    <Compile Include="Actions\InteractActions\LeaveAction.cs" />
+    <Compile Include="Actions\InteractActions\MarryAction.cs" />
+    <Compile Include="Actions\InteractActions\RegisterAction.cs" />
+    <Compile Include="Actions\InteractActions\SubscribeAction.cs" />
+    <Compile Include="Actions\InteractActions\UnRegisterAction.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Actions\AssessActions\AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
