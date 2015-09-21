@@ -80,6 +80,10 @@
     <Compile Include="Actions\FindActions\CheckAction.cs" />
     <Compile Include="Actions\FindActions\DiscoverAction.cs" />
     <Compile Include="Actions\FindActions\TrackAction.cs" />
+    <Compile Include="Actions\InteractActions\BefriendAction.cs" />
+    <Compile Include="Actions\InteractActions\CommunicateAction.cs" />
+    <Compile Include="Actions\InteractActions\FollowAction.cs" />
+    <Compile Include="Actions\InteractActions\JoinAction.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Actions\AssessActions\AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
