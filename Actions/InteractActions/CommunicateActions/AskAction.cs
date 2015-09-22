@@ -10,7 +10,7 @@ namespace MXTires.Microdata.Actions.InteractActions.CommunicateActions
     /// <summary>
     /// The act of posing a question / favor to someone.
     /// Related actions:
-    /// ReplyAction: Appears generally as a response to AskAction
+    /// <see cref="ReplyAction"/>: Appears generally as a response to AskAction
     /// </summary>
     public class AskAction : CommunicateAction
     {

@@ -45,7 +45,7 @@ namespace MXTires.Microdata
         public Organization BranchOf { get; set; }
 
         /// <summary>
-        /// Text 	The currency accepted (in ISO 4217 currency format).
+        /// Text - The currency accepted (in ISO 4217 currency format).
         /// </summary>
         [JsonProperty("currenciesAccepted")]
         public string CurrenciesAccepted { get; set; }
