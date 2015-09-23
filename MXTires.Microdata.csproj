@@ -112,6 +112,7 @@
     <Compile Include="Actions\OrganizeActions\ReserveAction.cs" />
     <Compile Include="Actions\OrganizeActions\ScheduleAction.cs" />
     <Compile Include="Actions\PlayActions\ExerciseAction.cs" />
+    <Compile Include="Actions\PlayActions\PerformAction.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Actions\AssessActions\AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Intangible\ListItem.cs" />
     <Compile Include="LocalBusiness.cs" />
     <Compile Include="Actions\AchieveActions\LoseAction.cs" />
+    <Compile Include="LocalBusinesses\EntertainmentBusiness .cs" />
     <Compile Include="LocalBusinesses\SportsActivityLocation.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Intangible\Enumeration\MapCategoryType.cs" />
