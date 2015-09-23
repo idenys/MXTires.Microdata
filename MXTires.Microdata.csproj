@@ -106,6 +106,7 @@
     <Compile Include="Actions\OrganizeActions\AssignAction.cs" />
     <Compile Include="Actions\OrganizeActions\AuthorizeAction.cs" />
     <Compile Include="Actions\OrganizeActions\BookmarkAction.cs" />
+    <Compile Include="Actions\TradeActions\BuyAction.cs" />
     <Compile Include="Actions\OrganizeActions\CancelAction.cs" />
     <Compile Include="Actions\OrganizeActions\PlanAction.cs" />
     <Compile Include="Actions\OrganizeActions\RejectAction.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Actions\OrganizeActions\ScheduleAction.cs" />
     <Compile Include="Actions\PlayActions\ExerciseAction.cs" />
     <Compile Include="Actions\PlayActions\PerformAction.cs" />
+    <Compile Include="Actions\TradeActions\DonateAction.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Actions\AssessActions\AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
