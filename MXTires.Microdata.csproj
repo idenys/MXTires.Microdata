@@ -183,6 +183,7 @@
     <Compile Include="Intangible\Property.cs" />
     <Compile Include="Intangible\PropertyValueSpecification.cs" />
     <Compile Include="Intangible\Quantity\Distance.cs" />
+    <Compile Include="Intangible\Quantity\Energy.cs" />
     <Compile Include="Intangible\Seat.cs" />
     <Compile Include="Intangible\Service.cs" />
     <Compile Include="Intangible\ServiceChannel.cs" />

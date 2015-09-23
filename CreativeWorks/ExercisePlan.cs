@@ -57,9 +57,9 @@ namespace MXTires.Microdata.CreativeWorks
         public string RestPeriods { get; set; }
 
         /// <summary>
-        /// Energy 	Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure.
+        /// Energy - Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure.
         /// </summary>
-        //[JsonProperty("workload")]
-        //public Energy workload	{ get; set; } 	
+        [JsonProperty("workload")]
+        public Energy Workload { get; set; } 	
     }
 }
