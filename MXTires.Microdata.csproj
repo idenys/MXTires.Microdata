@@ -130,6 +130,13 @@
     <Compile Include="Actions\TransferActions\SendAction.cs" />
     <Compile Include="Actions\TransferActions\TakeAction.cs" />
     <Compile Include="Actions\TransferActions\TransferAction.cs" />
+    <Compile Include="Actions\UpdateActions\AddAction.cs" />
+    <Compile Include="Actions\UpdateActions\AppendAction.cs" />
+    <Compile Include="Actions\UpdateActions\DeleteAction.cs" />
+    <Compile Include="Actions\UpdateActions\InsertAction.cs" />
+    <Compile Include="Actions\UpdateActions\PrependAction.cs" />
+    <Compile Include="Actions\UpdateActions\ReplaceAction.cs" />
+    <Compile Include="Actions\UpdateActions\UpdateAction.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Actions\AssessActions\AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
