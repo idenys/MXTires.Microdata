@@ -23,30 +23,24 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using MXTires.Microdata.Validators;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A datasheet or vendor specification of a product (in the sense of a prototypical description).
+    /// The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.
+    /// Related actions:
+    /// <see cref="LendAction"/>: Reciprocal of SocialMediaPosting
     /// </summary>
-    public class ProductModel : Product
+    public class SocialMediaPosting : CreativeWork
     {
+        object recipient;
+
         /// <summary>
-        /// A pointer to a base product from which this product is a variant. 
-        /// It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive.
+        /// Person - A sub property of participant. The person that lends the object being borrowed.
         /// </summary>
-        public ProductModel isVariantOf { get; set; }
-        /// <summary>
-        /// A pointer from a previous, often discontinued variant of the product to its newer variant.
-        /// </summary>
-        public ProductModel predecessorOf { get; set; }
-        /// <summary>
-        /// A pointer from a newer variant of a product to its previous, often discontinued predecessor.
-        /// </summary>
-        public ProductModel successorOf { get; set; }
+        [JsonProperty("lender")]
+        public Person Lender { get; set; }
     }
 }

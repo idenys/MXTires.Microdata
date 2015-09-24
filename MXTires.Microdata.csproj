@@ -148,6 +148,7 @@
     <Compile Include="Actions\ControlActions\ControlAction.cs" />
     <Compile Include="Actions\CreateActions\CreateAction.cs" />
     <Compile Include="CreativeWorks\Article.cs" />
+    <Compile Include="CreativeWorks\Blog.cs" />
     <Compile Include="CreativeWorks\CreativeWork.cs" />
     <Compile Include="CreativeWorks\Diet.cs" />
     <Compile Include="CreativeWorks\ExercisePlan.cs" />
