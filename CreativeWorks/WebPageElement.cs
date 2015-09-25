@@ -29,14 +29,9 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A blog post.
+    /// A web page element, like a table or an image.
     /// </summary>
-    public class SocialMediaPosting : Article
+    public class WebPageElement : CreativeWork
     {
-        /// <summary>
-        /// CreativeWork  - A CreativeWork such as an image, video, or audio clip shared as part of this psting.
-        /// </summary>
-        [JsonProperty("sharedContent")]
-        public CreativeWork SharedContent { get; set; }
     }
 }

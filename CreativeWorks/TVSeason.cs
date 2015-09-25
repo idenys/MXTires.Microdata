@@ -22,21 +22,12 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
-
-using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A blog post.
+    /// Season dedicated to TV broadcast and associated online delivery.
     /// </summary>
-    public class SocialMediaPosting : Article
-    {
-        /// <summary>
-        /// CreativeWork  - A CreativeWork such as an image, video, or audio clip shared as part of this psting.
-        /// </summary>
-        [JsonProperty("sharedContent")]
-        public CreativeWork SharedContent { get; set; }
-    }
+    public class TVSeason : CreativeWorkSeason { }
 }
