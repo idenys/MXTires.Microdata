@@ -160,6 +160,7 @@
     <Compile Include="CreativeWorks\NewsArticle.cs" />
     <Compile Include="CreativeWorks\Recipe.cs" />
     <Compile Include="CreativeWorks\SocialMediaPosting.cs" />
+    <Compile Include="CreativeWorks\SoftwareApplication.cs" />
     <Compile Include="CreativeWorks\TVSeason.cs" />
     <Compile Include="CreativeWorks\WebPage.cs" />
     <Compile Include="CreativeWorks\WebPageElement.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="AudioObject.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Intangible\Brand.cs" />
+    <Compile Include="Intangible\Enumeration\BoardingPolicyType.cs" />
     <Compile Include="Intangible\Enumeration\BookFormatType.cs" />
     <Compile Include="Intangible\Enumeration\BusinessEntityType.cs" />
     <Compile Include="Intangible\Enumeration\BusinessFunction.cs" />
@@ -249,11 +251,21 @@
     <Compile Include="Organization.cs" />
     <Compile Include="Intangible\Enumeration\PaymentMethod.cs" />
     <Compile Include="Actions\OrganizeAction.cs" />
+    <Compile Include="Organizations\Airline.cs" />
+    <Compile Include="Organizations\EducationalOrganizations\CollegeOrUniversity.cs" />
+    <Compile Include="Organizations\EducationalOrganizations\EducationalOrganization.cs" />
+    <Compile Include="Organizations\EducationalOrganizations\ElementarySchool.cs" />
+    <Compile Include="Organizations\EducationalOrganizations\HighSchool.cs" />
+    <Compile Include="Organizations\EducationalOrganizations\MiddleSchool.cs" />
+    <Compile Include="Organizations\EducationalOrganizations\Preschool.cs" />
+    <Compile Include="Organizations\EducationalOrganizations\School.cs" />
+    <Compile Include="Organizations\GovernmentOrganization.cs" />
     <Compile Include="Organizations\SportsOrganization.cs" />
     <Compile Include="Organizations\SportsTeam.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="Actions\PlayAction.cs" />
+    <Compile Include="Places\IPlace.cs" />
     <Compile Include="PostalAddress.cs" />
     <Compile Include="PriceSpecification.cs" />
     <Compile Include="Product.cs" />

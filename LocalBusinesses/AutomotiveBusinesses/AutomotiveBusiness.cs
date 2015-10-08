@@ -24,18 +24,14 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.LocalBusinesses
+namespace MXTires.Microdata.LocalBusinesses.AutomotiveBusinesses
 {
     /// <summary>
-    /// A business providing entertainment.
+    /// Car repair, sales, or parts.
     /// </summary>
-    public class EntertainmentBusiness : LocalBusiness
+    public class AutomotiveBusiness : LocalBusiness
     {
     }
 }

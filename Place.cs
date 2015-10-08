@@ -33,7 +33,7 @@ namespace MXTires.Microdata
     /// <summary>
     /// Entities that have a somewhat fixed, physical extension.
     /// </summary>
-    public class Place : Thing
+    public class Place : Thing, MXTires.Microdata.Places.IPlace
     {
         /// <summary>
         /// <see cref:"PropertyValue"/> - A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. 
@@ -144,6 +144,6 @@ namespace MXTires.Microdata
         /// Text - The telephone number.
         /// </summary>
         [JsonProperty("telephone")]
-        public PostalAddress Telephone { get; set; }
+        public string Telephone { get; set; }
     }
 }

@@ -30,12 +30,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.LocalBusinesses
+namespace MXTires.Microdata.LocalBusinesses.AutomotiveBusinesses
 {
     /// <summary>
     /// A business providing entertainment.
     /// </summary>
-    public class EntertainmentBusiness : LocalBusiness
+    public class AutoWash : LocalBusiness
     {
     }
 }

@@ -28,14 +28,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.LocalBusinesses
+namespace MXTires.Microdata.Organizations.EducationalOrganizations
 {
     /// <summary>
-    /// A business providing entertainment.
+    /// A college, university, or other third-level educational institution.
     /// </summary>
-    public class EntertainmentBusiness : LocalBusiness
-    {
-    }
+    public class CollegeOrUniversity : EducationalOrganization { }
 }

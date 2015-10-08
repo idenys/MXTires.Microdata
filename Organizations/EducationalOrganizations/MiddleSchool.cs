@@ -24,18 +24,15 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.LocalBusinesses
+namespace MXTires.Microdata.Organizations.EducationalOrganizations
 {
     /// <summary>
-    /// A business providing entertainment.
+    ///A middle school (typically for children aged around 11-14, although this varies somewhat).
     /// </summary>
-    public class EntertainmentBusiness : LocalBusiness
+    public class MiddleSchool : EducationalOrganization
     {
     }
 }

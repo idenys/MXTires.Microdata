@@ -24,18 +24,15 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.LocalBusinesses
+namespace MXTires.Microdata.Organizations
 {
     /// <summary>
-    /// A business providing entertainment.
+    /// A governmental organization or agency.
     /// </summary>
-    public class EntertainmentBusiness : LocalBusiness
+    public class GovernmentOrganization : Organization
     {
     }
 }
