@@ -239,6 +239,14 @@
     <Compile Include="Intangible\ListItem.cs" />
     <Compile Include="LocalBusiness.cs" />
     <Compile Include="Actions\AchieveActions\LoseAction.cs" />
+    <Compile Include="LocalBusinesses\AnimalShelter.cs" />
+    <Compile Include="LocalBusinesses\AutomotiveBusinesses\AutoBodyShop.cs" />
+    <Compile Include="LocalBusinesses\AutomotiveBusinesses\AutoDealer.cs" />
+    <Compile Include="LocalBusinesses\AutomotiveBusinesses\AutomotiveBusiness.cs" />
+    <Compile Include="LocalBusinesses\AutomotiveBusinesses\AutoPartsStore.cs" />
+    <Compile Include="LocalBusinesses\AutomotiveBusinesses\AutoRental.cs" />
+    <Compile Include="LocalBusinesses\AutomotiveBusinesses\AutoRepair.cs" />
+    <Compile Include="LocalBusinesses\AutomotiveBusinesses\AutoWash.cs" />
     <Compile Include="LocalBusinesses\EntertainmentBusiness .cs" />
     <Compile Include="LocalBusinesses\RealEstateAgent.cs" />
     <Compile Include="LocalBusinesses\SportsActivityLocation.cs" />

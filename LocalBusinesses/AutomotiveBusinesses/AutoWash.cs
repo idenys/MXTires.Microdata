@@ -33,7 +33,7 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata.LocalBusinesses.AutomotiveBusinesses
 {
     /// <summary>
-    /// A business providing entertainment.
+    /// A car wash business.
     /// </summary>
     public class AutoWash : LocalBusiness
     {

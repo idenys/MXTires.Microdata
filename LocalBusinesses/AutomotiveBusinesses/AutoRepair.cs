@@ -33,9 +33,9 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata.LocalBusinesses.AutomotiveBusinesses
 {
     /// <summary>
-    /// A business providing entertainment.
+    ///Car repair business.
     /// </summary>
-    public class AutoRepair : LocalBusiness
+    public class AutoRepair : AutomotiveBusiness
     {
     }
 }
