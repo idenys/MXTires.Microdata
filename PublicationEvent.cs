@@ -30,6 +30,9 @@ using System.Text;
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class PublicationEvent.
+    /// </summary>
     public class PublicationEvent
     {
     }

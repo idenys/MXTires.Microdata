@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace MXTires.Microdata.CreativeWorks
 {
+    /// <summary>
+    /// Class ImageObject.
+    /// </summary>
     public class ImageObject : MediaObject
     {
         /// <summary>
@@ -19,7 +22,7 @@ namespace MXTires.Microdata.CreativeWorks
 
         object exifData;
         /// <summary>
-        /// Text  or PropertyValue 	exif data for this object.
+        /// Text  or PropertyValue exif data for this object.
         /// </summary>
         [JsonProperty("exifData")]
         public object ExifData

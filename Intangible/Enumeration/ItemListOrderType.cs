@@ -5,8 +5,17 @@
     /// </summary>
     public enum ItemListOrderType
     {
+        /// <summary>
+        /// The item list order ascending
+        /// </summary>
         ItemListOrderAscending,
+        /// <summary>
+        /// The item list order descending
+        /// </summary>
         ItemListOrderDescending,
+        /// <summary>
+        /// The item list unordered
+        /// </summary>
         ItemListUnordered,
     }
 }

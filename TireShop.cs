@@ -30,6 +30,9 @@ using System.Web;
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class TireShop.
+    /// </summary>
     public class TireShop : LocalBusiness
     {
 

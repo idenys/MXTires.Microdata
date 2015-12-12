@@ -11,9 +11,21 @@ namespace MXTires.Microdata.Intangible.Enumeration
     /// </summary>
     public enum EventStatusType
     {
+        /// <summary>
+        /// The event canceled
+        /// </summary>
         EventCancelled = 1 << 0,
+        /// <summary>
+        /// The event postponed
+        /// </summary>
         EventPostponed = 1 << 1,
+        /// <summary>
+        /// The event rescheduled
+        /// </summary>
         EventRescheduled = 1 << 2,
+        /// <summary>
+        /// The event scheduled
+        /// </summary>
         EventScheduled = 1 << 3,
     }
 }

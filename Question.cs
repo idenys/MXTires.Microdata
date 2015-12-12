@@ -27,35 +27,43 @@ using System;
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class Question.
+    /// </summary>
     public class Question : CreativeWork
     {
         /// <summary>
         /// Answer 	The answer that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
         /// </summary>
+        /// <value>The accepted answer.</value>
         [JsonProperty("acceptedAnswer")]
         public Answer AcceptedAnswer { get; set; }
 
         /// <summary>
         /// Integer 	The number of answers this question has received.
         /// </summary>
+        /// <value>The answer count.</value>
         [JsonProperty("answerCount")]
         public Int32? AnswerCount { get; set; }
 
         /// <summary>
         /// Integer 	The number of downvotes this question has received from the community.
         /// </summary>
+        /// <value>The downvote count.</value>
         [JsonProperty("downvoteCount")]
         public Int32? DownvoteCount { get; set; }
 
         /// <summary>
         /// Answer 	An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.
         /// </summary>
+        /// <value>The suggested answer.</value>
         [JsonProperty("suggestedAnswer")]
         public Answer SuggestedAnswer { get; set; }
 
         /// <summary>
-        /// 	Integer 	The number of upvotes this question has received from the community.
+        /// Integer 	The number of upvotes this question has received from the community.
         /// </summary>
+        /// <value>The upvote count.</value>
         [JsonProperty("upvoteCount")]
         public Int32? UpvoteCount { get; set; }
     }

@@ -31,12 +31,19 @@ using System.Web;
 
 namespace MXTires.Microdata.Intangible
 {
+    /// <summary>
+    /// Class Rating.
+    /// </summary>
     public class Rating : Thing
     {
+        /// <summary>
+        /// The best rating
+        /// </summary>
         string bestRating = "5";
         /// <summary>
         /// Number  or Text. The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
         /// </summary>
+        /// <value>The best rating.</value>
         [JsonProperty("bestRating")]
         public string BestRating
         {
@@ -46,20 +53,25 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Text. The rating for the content.
         /// </summary>
+        /// <value>The rating value.</value>
         [JsonProperty("ratingValue")]
         public string RatingValue { get; set; }
 
+        /// <summary>
+        /// The worst rating
+        /// </summary>
         string worstRating = "1";
         /// <summary>
         /// The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.
         /// </summary>
+        /// <value>The worst rating.</value>
         [JsonProperty("worstRating")]
         public string WorstRating
         {
             get { return worstRating; }
             set { worstRating = value; }
         }
-        
+
         /// <summary>
         /// Default struct
         /// </summary>
@@ -68,6 +80,7 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Default struct
         /// </summary>
+        /// <param name="ratingValue">The rating value.</param>
         public Rating(double ratingValue) {
             RatingValue = ratingValue.ToString("#.##");
         }
@@ -75,6 +88,7 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Default struct
         /// </summary>
+        /// <param name="ratingValue">The rating value.</param>
         public Rating(string ratingValue)
         {
             RatingValue = ratingValue;

@@ -10,7 +10,7 @@ namespace MXTires.Microdata.CreativeWorks
     /// <summary>
     /// An article, such as a news article or piece of investigative report. 
     /// Newspapers and magazines have articles of many different types and this is intended to cover them all. 
-    /// See also <seealso cref="blog post"/>.
+    /// See also <seealso cref="BlogPosting"/>.
     /// </summary>
     public class Article : CreativeWork
     {

@@ -33,17 +33,33 @@ namespace MXTires.Microdata.Intangible.StructuredValue
     /// </summary>
     public class GeoCoordinates : Thing
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeoCoordinates"/> class.
+        /// </summary>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
         public GeoCoordinates(string latitude, string longitude) {
             Latitude = latitude; 
             Longitude = longitude;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeoCoordinates"/> class.
+        /// </summary>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
         public GeoCoordinates(float latitude, float longitude)
         {
             Latitude = latitude.ToString();
             Longitude = longitude.ToString();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeoCoordinates"/> class.
+        /// </summary>
+        /// <param name="elevation">The elevation.</param>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
         public GeoCoordinates(string elevation, string latitude, string longitude)
         {
             Latitude = latitude;
@@ -51,6 +67,12 @@ namespace MXTires.Microdata.Intangible.StructuredValue
             Elevation = elevation;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeoCoordinates"/> class.
+        /// </summary>
+        /// <param name="elevation">The elevation.</param>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
         public GeoCoordinates(float elevation, float latitude, float longitude)
         {
             Latitude = latitude.ToString();
@@ -60,6 +82,7 @@ namespace MXTires.Microdata.Intangible.StructuredValue
         /// <summary>
         /// Text  or Number - The elevation of a location.
         /// </summary>
+        /// <value>The elevation.</value>
         [JsonProperty("elevation")]
         public string Elevation { get; private set; }
 

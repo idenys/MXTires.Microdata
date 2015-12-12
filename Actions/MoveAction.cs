@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Actions.TransferActions;
+
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {

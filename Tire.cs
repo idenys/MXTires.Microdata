@@ -30,17 +30,22 @@ using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class Tire.
+    /// </summary>
     public class Tire : Product
     {
         /// <summary>
         /// Specific product type definition
         /// </summary>
+        /// <value>The type.</value>
         [JsonProperty("@type", Order = 2)]
         public new string Type { get { return "Product/Tire"; } }
-        
+
         /// <summary>
         /// Additional type of product override
         /// </summary>
+        /// <value>The type of the additional.</value>
         [JsonProperty("additionalType")]
         public new string AdditionalType { get { return "http://www.productontology.org/id/Tire"; } }
 

@@ -13,6 +13,9 @@ namespace MXTires.Microdata.Actions.OrganizeActions
     /// </summary>
     public class PlanAction : Action
     {
+        /// <summary>
+        /// The purpose
+        /// </summary>
         object purpose;
 
         /// <summary>

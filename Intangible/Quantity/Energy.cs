@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MXTires.Microdata.Intangible.Quantity
 {
     /// <summary>
-    /// Properties that take Energy as values are of the form '<Number> <Energy unit of measure>'.
+    /// Properties that take Energy as values are of the form 'Number or Energy unit of measure'.
     /// </summary>
     public class Energy : Thing
     {

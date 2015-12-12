@@ -27,17 +27,38 @@ using System;
 using System.Collections.Generic;
 namespace MXTires.Microdata.Validators
 {
+    /// <summary>
+    /// Class TypeValidator.
+    /// </summary>
     public class TypeValidator : Validator
     {
+        /// <summary>
+        /// The types
+        /// </summary>
         private List<Type> types;
+        /// <summary>
+        /// The type1
+        /// </summary>
         private Type type1;
+        /// <summary>
+        /// The type2
+        /// </summary>
         private Type type2;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TypeValidator"/> class.
+        /// </summary>
+        /// <param name="acceptableTypes">The acceptable types.</param>
         public TypeValidator(List<Type> acceptableTypes)
         {
             types = acceptableTypes;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TypeValidator"/> class.
+        /// </summary>
+        /// <param name="acceptableType1">The acceptable type1.</param>
+        /// <param name="acceptableType2">The acceptable type2.</param>
         public TypeValidator(Type acceptableType1, Type acceptableType2 = null)
         {
             type1 = acceptableType1;
@@ -45,6 +66,11 @@ namespace MXTires.Microdata.Validators
             types = new List<Type>() { type1, type2 };
         }
 
+        /// <summary>
+        /// Determines whether the specified type is valid.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns><c>true</c> if the specified type is valid; otherwise, <c>false</c>.</returns>
         public override bool IsValid(Type type)
         {
             if (type1 != null && type == type1) return true;
@@ -57,6 +83,11 @@ namespace MXTires.Microdata.Validators
             return false;
         }
 
+        /// <summary>
+        /// Validates the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <exception cref="System.ArgumentException"></exception>
         public override void Validate(object value)
         {
             if ((value != null) && !IsValid(value.GetType()))

@@ -25,6 +25,9 @@
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class Author.
+    /// </summary>
     public class Author
     {
     }
