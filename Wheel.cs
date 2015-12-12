@@ -32,14 +32,26 @@ using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Represents Wheel product
+    /// </summary>
     public class Wheel : Product
     {
+        /// <summary>
+        /// Specific product type definition
+        /// </summary>
         [JsonProperty("@type", Order = 2)]
         public new string Type { get { return "Product/Wheel"; } }
 
+        /// <summary>
+        /// Additional type of product override
+        /// </summary>
         [JsonProperty("additionalType")]
         public new string AdditionalType { get { return "http://www.productontology.org/id/Wheel"; } }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Wheel()
         {
             base.SameAs = new List<string>();

@@ -32,12 +32,21 @@ namespace MXTires.Microdata
 {
     public class Tire : Product
     {
+        /// <summary>
+        /// Specific product type definition
+        /// </summary>
         [JsonProperty("@type", Order = 2)]
         public new string Type { get { return "Product/Tire"; } }
-
+        
+        /// <summary>
+        /// Additional type of product override
+        /// </summary>
         [JsonProperty("additionalType")]
         public new string AdditionalType { get { return "http://www.productontology.org/id/Tire"; } }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Tire()
         {
             base.SameAs = new List<string>();
