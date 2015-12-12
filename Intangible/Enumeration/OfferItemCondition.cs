@@ -5,9 +5,21 @@
     /// </summary>
     public enum OfferItemCondition
     {
+        /// <summary>
+        /// The new condition
+        /// </summary>
         NewCondition,
+        /// <summary>
+        /// The damaged condition
+        /// </summary>
         DamagedCondition,
+        /// <summary>
+        /// The refurbished condition
+        /// </summary>
         RefurbishedCondition,
+        /// <summary>
+        /// The used condition
+        /// </summary>
         UsedCondition
     }
 }

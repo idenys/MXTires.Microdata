@@ -33,6 +33,14 @@ namespace MXTires.Microdata.Intangible.StructuredValue
     /// </summary>
     public class OpeningHoursSpecification : Thing
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OpeningHoursSpecification"/> class.
+        /// </summary>
+        /// <param name="closes">The closes.</param>
+        /// <param name="dayOfWeek">The day of week.</param>
+        /// <param name="opens">The opens.</param>
+        /// <param name="validFrom">The valid from.</param>
+        /// <param name="validThrough">The valid through.</param>
         public OpeningHoursSpecification(string closes, string dayOfWeek, string opens, string validFrom = null, string validThrough = null)
         {
             Closes = closes;
@@ -42,6 +50,14 @@ namespace MXTires.Microdata.Intangible.StructuredValue
             ValidThrough = validThrough;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OpeningHoursSpecification"/> class.
+        /// </summary>
+        /// <param name="closes">The closes.</param>
+        /// <param name="dayOfWeek">The day of week.</param>
+        /// <param name="opens">The opens.</param>
+        /// <param name="validFrom">The valid from.</param>
+        /// <param name="validThrough">The valid through.</param>
         public OpeningHoursSpecification(string closes, DaysOfWeek dayOfWeek, string opens, string validFrom = null, string validThrough = null)
         {
             Closes = closes;
@@ -56,30 +72,35 @@ namespace MXTires.Microdata.Intangible.StructuredValue
         /// <summary>
         /// Time - The closing hour of the place or service on the given day(s) of the week.
         /// </summary>
+        /// <value>The closes.</value>
         [JsonProperty("closes")]
         public string Closes { get; set; }
 
         /// <summary>
         /// DayOfWeek 	The day of the week for which these opening hours are valid.
         /// </summary>
+        /// <value>The day of week.</value>
         [JsonProperty("dayOfWeek")]
         public string DayOfWeek { get; set; }
 
         /// <summary>
         /// Time - The opening hour of the place or service on the given day(s) of the week.
         /// </summary>
+        /// <value>The opens.</value>
         [JsonProperty("opens")]
         public string Opens { get; set; }
 
         /// <summary>
         /// DateTime - The date when the item becomes valid.
         /// </summary>
+        /// <value>The valid from.</value>
         [JsonProperty("validFrom")]
         public string ValidFrom { get; set; }
 
         /// <summary>
         /// DateTime - The end of the validity of offer, price specification, or opening hours data.
         /// </summary>
+        /// <value>The valid through.</value>
         [JsonProperty("validThrough")]
         public string ValidThrough { get; set; }
 

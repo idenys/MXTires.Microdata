@@ -25,6 +25,9 @@
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class VideoObject.
+    /// </summary>
     public class VideoObject
     {
     }

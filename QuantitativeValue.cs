@@ -39,38 +39,44 @@ namespace MXTires.Microdata
     public class QuantitativeValue : Thing
     {
         /// <summary>
-        /// <see cref:"PropertyValue"/> - A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. 
+        /// Gets or sets the additional property.
         /// </summary>
+        /// <value>The additional property.</value>
         [JsonProperty("additionalProperty")]
         public PropertyValue AdditionalProperty { get; set; }
 
         /// <summary>
         /// Number - The upper value of some characteristic or property.
         /// </summary>
+        /// <value>The maximum value.</value>
         [JsonProperty("maxValue")]
         public float? MaxValue { get; set; }
 
         /// <summary>
         /// Number - The lower value of some characteristic or property.
         /// </summary>
+        /// <value>The minimum value.</value>
         [JsonProperty("minValue")]
         public float? MinValue { get; set; }
 
         /// <summary>
         /// Text - The unit of measurement given using the UN/CEFACT Common Code (3 characters).
         /// </summary>
+        /// <value>The unit code.</value>
         [JsonProperty("unitCode")]
         public string UnitCode { get; set; }
 
         /// <summary>
         /// Number - The value of the product characteristic.
         /// </summary>
+        /// <value>The value.</value>
         [JsonProperty("value")]
         public float Value { get; set; }
 
         /// <summary>
         /// Enumeration or StructuredValue - A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.
         /// </summary>
+        /// <value>The value reference.</value>
         [JsonProperty("valueReference")]
         public object ValueReference { get; set; }
     }

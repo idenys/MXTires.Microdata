@@ -26,15 +26,20 @@
 namespace MXTires.Microdata
 {
     /// <summary>
-    /// Thing > Intangible > Enumeration > MedicalDevicePurpose 
-    /// Thing > MedicalEntity > MedicalIntangible > MedicalEnumeration > MedicalDevicePurpose 
-    /// Thing > Intangible > Enumeration > MedicalEnumeration > MedicalDevicePurpose
-
+    /// Thing &gt; Intangible &gt; Enumeration &gt; MedicalDevicePurpose
+    /// Thing &gt; MedicalEntity &gt; MedicalIntangible &gt; MedicalEnumeration &gt; MedicalDevicePurpose
+    /// Thing &gt; Intangible &gt; Enumeration &gt; MedicalEnumeration &gt; MedicalDevicePurpose
     /// Categories of medical devices, organized by the purpose or intended use of the device.
     /// </summary>
     public enum MedicalDevicePurpose
     {
+        /// <summary>
+        /// The diagnostic
+        /// </summary>
         Diagnostic,
+        /// <summary>
+        /// The therapeutic
+        /// </summary>
         Therapeutic
     }
 }

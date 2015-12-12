@@ -18,6 +18,10 @@ namespace MXTires.Microdata.Actions.InteractActions.CommunicateActions
         [JsonProperty("event")]
         public Event Event { get; set; }
 
+        /// <summary>
+        /// Gets or sets the events.
+        /// </summary>
+        /// <value>The events.</value>
         [JsonProperty("events")]
         public List<Event> Events { get; set; }
     }

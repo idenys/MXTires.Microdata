@@ -32,23 +32,29 @@ using System.Web;
 
 namespace MXTires.Microdata.Intangible
 {
+    /// <summary>
+    /// Class AggregateRating.
+    /// </summary>
     public class AggregateRating : Rating
     {
         /// <summary>
         /// Thing 	The item that is being reviewed/rated.
         /// </summary>
+        /// <value>The item reviewed.</value>
         [JsonProperty("itemReviewed")]
         public Thing ItemReviewed { get; set; }
 
         /// <summary>
         /// The count of total number of ratings.
         /// </summary>
+        /// <value>The rating count.</value>
         [JsonProperty("ratingCount")]
         public string RatingCount { get; set; }
 
         /// <summary>
         /// The count of total number of reviews.
         /// </summary>
+        /// <value>The review count.</value>
         [JsonProperty("reviewCount")]
         public string ReviewCount { get; set; }
     }

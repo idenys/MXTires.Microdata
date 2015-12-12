@@ -36,15 +36,20 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Organization - The organization (airline, travelers' club, etc.) the membership is made with.
         /// </summary>
+        /// <value>The hosting organization.</value>
         [JsonProperty("hostingOrganization")]
         public Organization HostingOrganization { get; set; }
 
+        /// <summary>
+        /// The member
+        /// </summary>
         Thing member;
         /// <summary>
-        /// Organization  or Person - A member of an Organization or a ProgramMembership. 
-        /// Organizations can be members of organizations; ProgramMembership is typically for individuals. Supersedes members, musicGroupMember. 
+        /// Organization  or Person - A member of an Organization or a ProgramMembership.
+        /// Organizations can be members of organizations; ProgramMembership is typically for individuals. Supersedes members, musicGroupMember.
         /// Inverse property: memberOf.
         /// </summary>
+        /// <value>The member.</value>
         [JsonProperty("member")]
         public Thing Member
         {
@@ -57,7 +62,14 @@ namespace MXTires.Microdata.Intangible
             }
         }
 
+        /// <summary>
+        /// The members
+        /// </summary>
         List<Thing> members;
+        /// <summary>
+        /// Gets or sets the members.
+        /// </summary>
+        /// <value>The members.</value>
         [JsonProperty("members")]
         public List<Thing> Members
         {
@@ -76,12 +88,14 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Text - A unique identifier for the membership.
         /// </summary>
+        /// <value>The membership number.</value>
         [JsonProperty("membershipNumber")]
         public string MembershipNumber { get; set; }
 
         /// <summary>
         /// Text - The program providing the membership.
         /// </summary>
+        /// <value>The name of the program.</value>
         [JsonProperty("programName")]
         public Organization ProgramName { get; set; }
     }

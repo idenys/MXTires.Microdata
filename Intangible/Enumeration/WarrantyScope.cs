@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-//Acknowledgements
+//Acknowledgments
 //This class is derived from the GoodRelations Vocabulary for E-Commerce, created by Martin Hepp. GoodRelations is a data model for sharing e-commerce data on the Web that can be expressed in a variety of syntaxes, including RDFa and HTML5 Microdata. More information about GoodRelations can be found at http://purl.org/goodrelations/
 
 namespace MXTires.Microdata.Intangible.Enumeration
@@ -12,10 +12,19 @@ namespace MXTires.Microdata.Intangible.Enumeration
     [Flags]
     public enum WarrantyScope
     {
+        /// <summary>
+        /// The labor bring in
+        /// </summary>
         [EnumMember(Value = "http://purl.org/goodrelations/v1#Labor-BringIn")]
         LaborBringIn = 1 << 0,
+        /// <summary>
+        /// The parts and labor bring in
+        /// </summary>
         [EnumMember(Value = "http://purl.org/goodrelations/v1#PartsAndLabor-BringIn")]
         PartsAndLaborBringIn = 1 << 1,
+        /// <summary>
+        /// The parts and labor pick up
+        /// </summary>
         [EnumMember(Value = "http://purl.org/goodrelations/v1#PartsAndLabor-PickUp")]
         PartsAndLaborPickUp = 1 << 2,
 

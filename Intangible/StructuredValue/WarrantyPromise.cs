@@ -38,15 +38,22 @@ namespace MXTires.Microdata.Intangible.StructuredValue
         /// <summary>
         /// QuantitativeValue 	The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
         /// </summary>
+        /// <value>The duration of warranty.</value>
         [JsonProperty("durationOfWarranty")]
         public QuantitativeValue DurationOfWarranty { get; private set; }
 
         /// <summary>
         /// WarrantyScope 	The scope of the warranty promise.
         /// </summary>
+        /// <value>The warranty scope.</value>
         [JsonProperty("warrantyScope")]
         public WarrantyScope WarrantyScope { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WarrantyPromise"/> class.
+        /// </summary>
+        /// <param name="durationOfWarranty">The duration of warranty.</param>
+        /// <param name="warrantyScope">The warranty scope.</param>
         public WarrantyPromise(QuantitativeValue durationOfWarranty, WarrantyScope warrantyScope) {
             DurationOfWarranty = durationOfWarranty;
             WarrantyScope = warrantyScope;

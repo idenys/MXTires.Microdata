@@ -34,9 +34,15 @@ namespace MXTires.Microdata.Events
     {
     }
 
+    /// <summary>
+    /// Class UserBlocks.
+    /// </summary>
     public class UserBlocks : UserInteraction
     {
     }
+    /// <summary>
+    /// Class UserCheckins.
+    /// </summary>
     public class UserCheckins : UserInteraction
     {
     }
@@ -87,21 +93,39 @@ namespace MXTires.Microdata.Events
         public string ReplyToUrl { get; set; }
     }
 
+    /// <summary>
+    /// Class UserDownloads.
+    /// </summary>
     public class UserDownloads : UserInteraction
     {
     }
+    /// <summary>
+    /// Class UserLikes.
+    /// </summary>
     public class UserLikes : UserInteraction
     {
     }
+    /// <summary>
+    /// Class UserPageVisits.
+    /// </summary>
     public class UserPageVisits : UserInteraction
     {
     }
+    /// <summary>
+    /// Class UserPlays.
+    /// </summary>
     public class UserPlays : UserInteraction
     {
     }
+    /// <summary>
+    /// Class UserPlusOnes.
+    /// </summary>
     public class UserPlusOnes : UserInteraction
     {
     }
+    /// <summary>
+    /// Class UserTweets.
+    /// </summary>
     public class UserTweets : UserInteraction
     {
     }

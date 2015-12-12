@@ -26,13 +26,25 @@
 using System;
 namespace MXTires.Microdata.Validators
 {
+    /// <summary>
+    /// Class Validator.
+    /// </summary>
     public abstract class Validator
     {
+        /// <summary>
+        /// Determines whether the specified type is valid.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns><c>true</c> if the specified type is valid; otherwise, <c>false</c>.</returns>
         public virtual bool IsValid(Type type)
         {
             return false;
         }
 
+        /// <summary>
+        /// Validates the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public abstract void Validate(object value);
     }
 }

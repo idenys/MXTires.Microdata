@@ -37,14 +37,32 @@ using System;
 using MXTires.Microdata.Validators;
 namespace MXTires.Microdata.Attributes
 {
+    /// <summary>
+    /// Class MicrodataValidationAttribute.
+    /// </summary>
     public class MicrodataValidationAttribute : Attribute
     {
-        
+
+        /// <summary>
+        /// The _declaring type
+        /// </summary>
         internal Type _declaringType;
+        /// <summary>
+        /// The _validator
+        /// </summary>
         private readonly Type _validator;
- 
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MicrodataValidationAttribute"/> class.
+        /// </summary>
         protected MicrodataValidationAttribute() {
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MicrodataValidationAttribute"/> class.
+        /// </summary>
+        /// <param name="validator">The validator.</param>
+        /// <exception cref="System.ArgumentNullException">validator</exception>
+        /// <exception cref="System.ArgumentException">Validator Error 1</exception>
         public MicrodataValidationAttribute(Type validator)
         {
             if (validator == null) {
@@ -58,19 +76,27 @@ namespace MXTires.Microdata.Attributes
  
             _validator = validator;
         }
+        /// <summary>
+        /// Gets the validator instance.
+        /// </summary>
+        /// <value>The validator instance.</value>
         public virtual Validator ValidatorInstance
         {
             get {
                 return (Validator) new object(); //(Validator) TypeUtil.CreateInstanceRestricted(_declaringType, _validator);
             }
         }
- 
+
         // Used for limiting the visibility of types that can be accessed in the reflection
         // call made by the ValidatorInstance property getter. This will normally be the
         // type that declared the attribute, but in certain cases it could be a subclass
         // of the type that declared the attribute. This should be ok from a security
         // perspective, as one wouldn't reasonably expect a derived type to have fewer
         // security constraints than its base type.
+        /// <summary>
+        /// Sets the type of the declaring.
+        /// </summary>
+        /// <param name="declaringType">Type of the declaring.</param>
         internal void SetDeclaringType(Type declaringType) {
             if (declaringType == null) {
                 Debug.Fail("Declaring type must not be null.");
@@ -86,7 +112,11 @@ namespace MXTires.Microdata.Attributes
                 return; // don't throw in an in-place update
             }
         }
- 
+
+        /// <summary>
+        /// Gets the type of the validator.
+        /// </summary>
+        /// <value>The type of the validator.</value>
         public Type ValidatorType {
             get {
                 return _validator;

@@ -25,6 +25,9 @@
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class WPFooter.
+    /// </summary>
     public class WPFooter:CreativeWork
     {
     }

@@ -30,6 +30,9 @@ using System.Web;
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class PriceSpecification.
+    /// </summary>
     public class PriceSpecification : Thing
     {
 
@@ -40,32 +43,39 @@ namespace MXTires.Microdata
         /// <summary>
         /// Number 	The highest price if the price is a range.
         /// </summary>
+        /// <value>The maximum price.</value>
         public string maxPrice { get; set; }
         /// <summary>
         /// Number 	The lowest price if the price is a range.
         /// </summary>
+        /// <value>The minimum price.</value>
         public string minPrice { get; set; }
 
         /// <summary>
-        /// Number  or Text. The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes. 
+        /// Number  or Text. The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
         /// </summary>
+        /// <value>The price.</value>
         public string price { get; set; }
 
         /// <summary>
         /// Text. The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification and its subtypes.
         /// </summary>
+        /// <value>The price currency.</value>
         public string PriceCurrency { get; set; }
         /// <summary>
         /// The date when the item becomes valid.
         /// </summary>
+        /// <value>The valid from.</value>
         public DateTime? validFrom { get; set; }
         /// <summary>
         /// The end of the validity of offer, price specification, or opening hours data.
         /// </summary>
+        /// <value>The valid through.</value>
         public DateTime? validThrough { get; set; }
         /// <summary>
         /// Boolean 	Specifies whether the applicable value-added tax (VAT) is included in the price specification or not.
         /// </summary>
+        /// <value><c>true</c> if [value added tax included]; otherwise, <c>false</c>.</value>
         public bool valueAddedTaxIncluded { get; set; }
 
         #endregion

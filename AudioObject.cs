@@ -25,6 +25,9 @@
 
 namespace MXTires.Microdata
 {
+    /// <summary>
+    /// Class AudioObject.
+    /// </summary>
     public class AudioObject
     {
     }
