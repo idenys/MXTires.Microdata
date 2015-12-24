@@ -11,7 +11,7 @@ namespace MXTires.Microdata.Actions.FindActions
     /// <summary>
     /// An agent tracks an object for updates.
     /// </summary>
-    public class TrackAction :FindAction
+    public class TrackAction : FindAction
     {
         /// <summary>
         /// DeliveryMethod - A sub property of instrument. The method of delivery.

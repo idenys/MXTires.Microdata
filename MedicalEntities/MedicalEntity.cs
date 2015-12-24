@@ -23,13 +23,19 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Actions.CreateActions
+namespace MXTires.Microdata.MedicalEntities
 {
     /// <summary>
-    /// The act of deliberately creating/producing/generating/building a result out of the agent.
+    /// The most generic type of entity related to health and the practice of medicine.
     /// </summary>
-    public class CreateAction : Action
+    public class MedicalEntity : Thing
     {
     }
 }

@@ -119,40 +119,10 @@ namespace MXTires.Microdata
         public Place containedIn { get; set; }
 
         /// <summary>
-        /// Event - Upcoming or past event associated with this place, organization, or action. Supersedes events.
-        /// </summary>
-        [JsonProperty("event")]
-        public Event Event { get; set; }
-
-        /// <summary>
-        /// Text - The fax number.
-        /// </summary>
-        [JsonProperty("faxNumber")]
-        public string FaxNumber { get; set; }
-
-        /// <summary>
-        /// Text - The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
-        /// </summary>
-        [JsonProperty("globalLocationNumber")]
-        public string GlobalLocationNumber { get; set; }
-
-        /// <summary>
-        /// Text - A count of a specific user interactions with this item—for example, 20 UserLikes, 5 UserComments, or 300 UserDownloads. The user interaction type should be one of the sub types of UserInteraction.
-        /// </summary>
-        [JsonProperty("interactionCount")]
-        public string InteractionCount { get; set; }
-
-        /// <summary>
-        /// Text 	The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
-        /// </summary>
-        [JsonProperty("isicV4")]
-        public string IsicV4 { get; set; }
-
-        /// <summary>
         /// ImageObject  or URL - An associated logo.
         /// </summary>
         [JsonProperty("logo")]
-        public object Logo { get; set; }
+        public new object Logo { get; set; }
 
         /// <summary>
         /// Photograph  or ImageObject 	A photograph of this place. Supersedes photos.
@@ -170,18 +140,13 @@ namespace MXTires.Microdata
         /// Review - A review of the item. Supersedes reviews.
         /// </summary>
         [JsonProperty("review")]
-        public Review Review { get; set; }
+        public new Review Review { get; set; }
 
         /// <summary>
         /// Reviews.
         /// </summary>
         [JsonProperty("reviews")]
-        public IList<Review> Reviews { get; set; }
+        public new  IList<Review> Reviews { get; set; }
 
-        /// <summary>
-        /// Text - The telephone number.
-        /// </summary>
-        [JsonProperty("telephone")]
-        public string Telephone { get; set; }
     }
 }

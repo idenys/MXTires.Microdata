@@ -23,13 +23,19 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Actions.CreateActions
+namespace MXTires.Microdata.LocalBusinesses.EntertainmentBusinesses
 {
     /// <summary>
-    /// The act of deliberately creating/producing/generating/building a result out of the agent.
+    /// A nightclub or discotheque.
     /// </summary>
-    public class CreateAction : Action
+    public class NightClub : EntertainmentBusiness
     {
     }
 }

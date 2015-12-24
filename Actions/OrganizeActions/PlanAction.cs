@@ -14,11 +14,6 @@ namespace MXTires.Microdata.Actions.OrganizeActions
     public class PlanAction : Action
     {
         /// <summary>
-        /// The purpose
-        /// </summary>
-        object purpose;
-
-        /// <summary>
         /// The time the object is scheduled to.
         /// </summary>
         [JsonProperty("scheduledTime")]
