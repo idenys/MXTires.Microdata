@@ -274,6 +274,11 @@
     <Compile Include="LocalBusinesses\EntertainmentBusinesses\ComedyClub.cs" />
     <Compile Include="LocalBusinesses\EntertainmentBusinesses\MovieTheater.cs" />
     <Compile Include="LocalBusinesses\EntertainmentBusinesses\NightClub.cs" />
+    <Compile Include="LocalBusinesses\FinancialServices\AccountingService.cs" />
+    <Compile Include="LocalBusinesses\FinancialServices\AutomatedTeller.cs" />
+    <Compile Include="LocalBusinesses\FinancialServices\BankOrCreditUnion.cs" />
+    <Compile Include="LocalBusinesses\FinancialServices\FinancialService.cs" />
+    <Compile Include="LocalBusinesses\FinancialServices\InsuranceAgency.cs" />
     <Compile Include="LocalBusinesses\RealEstateAgent.cs" />
     <Compile Include="LocalBusinesses\SportsActivityLocation.cs" />
     <Compile Include="Map.cs" />
