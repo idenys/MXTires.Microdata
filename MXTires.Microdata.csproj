@@ -279,6 +279,15 @@
     <Compile Include="LocalBusinesses\FinancialServices\BankOrCreditUnion.cs" />
     <Compile Include="LocalBusinesses\FinancialServices\FinancialService.cs" />
     <Compile Include="LocalBusinesses\FinancialServices\InsuranceAgency.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\Bakery.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\BarOrPub.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\Brewery.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\CafeOrCoffeeShop.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\FastFoodRestaurant.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\FoodEstablishment.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\IceCreamShop.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\Restaurant.cs" />
+    <Compile Include="LocalBusinesses\FoodEstablishments\Winery.cs" />
     <Compile Include="LocalBusinesses\RealEstateAgent.cs" />
     <Compile Include="LocalBusinesses\SportsActivityLocation.cs" />
     <Compile Include="Map.cs" />
