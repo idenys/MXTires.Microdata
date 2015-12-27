@@ -288,6 +288,14 @@
     <Compile Include="LocalBusinesses\FoodEstablishments\IceCreamShop.cs" />
     <Compile Include="LocalBusinesses\FoodEstablishments\Restaurant.cs" />
     <Compile Include="LocalBusinesses\FoodEstablishments\Winery.cs" />
+    <Compile Include="LocalBusinesses\GovernmentOffice.cs" />
+    <Compile Include="LocalBusinesses\HealthAndBeautyBusinesses\BeautySalon.cs" />
+    <Compile Include="LocalBusinesses\HealthAndBeautyBusinesses\DaySpa.cs" />
+    <Compile Include="LocalBusinesses\HealthAndBeautyBusinesses\HairSalon.cs" />
+    <Compile Include="LocalBusinesses\HealthAndBeautyBusinesses\HealthAndBeautyBusiness.cs" />
+    <Compile Include="LocalBusinesses\HealthAndBeautyBusinesses\NailSalon.cs" />
+    <Compile Include="LocalBusinesses\HealthAndBeautyBusinesses\TattooParlor.cs" />
+    <Compile Include="LocalBusinesses\PostOffice.cs" />
     <Compile Include="LocalBusinesses\RealEstateAgent.cs" />
     <Compile Include="LocalBusinesses\SportsActivityLocation.cs" />
     <Compile Include="Map.cs" />
