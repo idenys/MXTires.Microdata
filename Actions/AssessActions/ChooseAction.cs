@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Attributes;
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
@@ -32,8 +33,9 @@ namespace MXTires.Microdata
     public class ChooseAction : AssessAction
     {
         /// <summary>
-        /// Text  or Thing - A sub property of object. The options subject to this action.
+        /// Text or Thing - A sub property of object. The options subject to this action.
         /// </summary>
+        [TypeValidation(typeof(string), typeof(Thing))]
         [JsonProperty("option")]
         public object Option { get; set; }
     }

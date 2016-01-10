@@ -42,7 +42,7 @@ namespace MXTires.Microdata
         /// </summary>
         Thing attendee;
         /// <summary>
-        /// Organization  or Person - A person or organization attending the event. Supersedes attendees.
+        /// Organization or Person - A person or organization attending the event. Supersedes attendees.
         /// </summary>
         /// <value>The attendee.</value>
         [JsonProperty("attendee")]

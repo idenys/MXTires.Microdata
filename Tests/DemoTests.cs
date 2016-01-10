@@ -254,5 +254,15 @@ namespace MXTires.Microdata.Tests
                     };
             System.Diagnostics.Debug.WriteLine(webSite.ToIndentedJson());
         }
+
+        [TestMethod]
+        public void TestChooseAction() {
+            var action = new ChooseAction();
+            action.Option = "text";
+            action.Option = new Thing();
+            action.Option = new Object();
+            action.Option = new Person();
+        }
+
     }
 }

@@ -108,14 +108,14 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The email.</value>
         [JsonProperty("email")]
-        public  string Email { get; set; }
+        public string Email { get; set; }
 
         /// <summary>
         /// Gets or sets the birth date.
         /// </summary>
         /// <value>The birth date.</value>
         [JsonProperty("birthDate")]
-        public  DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         /// <summary>
         /// Gets or sets the birth place.
@@ -128,7 +128,7 @@ namespace MXTires.Microdata
         /// Gets or sets the biography.
         /// </summary>
         /// <value>The biography.</value>
-        [JsonProperty("email")]
+        [JsonProperty("biography")]
         public  string Biography { get; set; }
 
         /// <summary>
