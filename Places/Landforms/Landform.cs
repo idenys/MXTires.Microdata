@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-#region License
+﻿#region License
 // Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -26,16 +23,21 @@ using System.Linq;
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System.Web;
-using MXTires.Microdata.LocalBusinesses.Stores;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Places.Landforms
 {
     /// <summary>
-    /// Class TireShop.
+    /// A landform or physical feature. Landform elements include mountains, plains, lakes, rivers, 
+    /// seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, 
+    /// including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.
     /// </summary>
-    public class TireShop : Store
+    public class Landform : Place
     {
-
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-#region License
+﻿#region License
 // Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -26,16 +23,24 @@ using System.Linq;
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System.Web;
-using MXTires.Microdata.LocalBusinesses.Stores;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.LocalBusinesses
 {
     /// <summary>
-    /// Class TireShop.
+    /// Original definition: "provider of professional services." 
+    /// The general ProfessionalService type for local businesses was deprecated due to confusion with Service. 
+    /// For reference, the types that it included were: Dentist, AccountingService, Attorney, Notary, as well as 
+    /// types for several kinds of HomeAndConstructionBusiness: Electrician, GeneralContractor, HousePainter, 
+    /// Locksmith, Plumber, RoofingContractor. LegalService was introduced as a more inclusive supertype of 
+    /// Attorney.
     /// </summary>
-    public class TireShop : Store
+    public class ProfessionalService : LocalBusiness
     {
-
     }
 }

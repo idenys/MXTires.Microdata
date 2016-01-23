@@ -39,7 +39,8 @@ namespace MXTires.Microdata.CreativeWorks
         public string ExerciseType { get; set; }
 
         /// <summary>
-        /// Text 	Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. May include the velocity of the movement.
+        /// Text 	Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. 
+        /// May include the velocity of the movement.
         /// </summary>
         [JsonProperty("intensity")]
         public string Intensity { get; set; }

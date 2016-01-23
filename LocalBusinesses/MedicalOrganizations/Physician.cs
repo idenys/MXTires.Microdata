@@ -28,41 +28,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MXTires.Microdata.LocalBusinesses.MedicalOrganizations;
+using MXTires.Microdata.LocalBusinesses.EmergencyServices;
 using MXTires.Microdata.MedicalEntities;
-using MXTires.Microdata.Places;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.LocalBusinesses.EmergencyServices
+namespace MXTires.Microdata.LocalBusinesses.MedicalOrganizations
 {
     /// <summary>
-    /// A business providing entertainment.
+    /// A doctor's office.
     /// </summary>
-    public class Hospital : EmergencyService, ICivicStructure, IMedicalOrganization
+    public class Physician : MedicalOrganization
     {
-        #region ICivicStructure
         /// <summary>
-        /// The opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.
-        /// - Days are specified using the following two-letter combinations: Mo, Tu, We, Th, Fr, Sa, Su.
-        /// - Times are specified using 24:00 time. For example, 3pm is specified as 15:00. 
-        /// - Here is an example: <time itemprop="openingHours" datetime="Tu,Th 16:00-20:00">Tuesdays and Thursdays 4-8pm</time>. 
-        /// - If a business is open 7 days a week, then it can be specified as <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>.
-        /// </summary>
-        [JsonProperty("openingHours")]
-        public new string OpeningHours { get; set; }
-
-        #endregion
-
-        /// <summary>
-        /// MedicalTest or MedicalTherapy or MedicalProcedure - A medical service available from this provider.
+        /// MedicalTest  or MedicalTherapy  or MedicalProcedure - A medical service available from this provider
         /// </summary>
         [JsonProperty("availableService")]
-        public MedicalEntity AvailableService { get; set; }
+        public Thing AvailableService { get; set; }
 
         /// <summary>
+        /// Hospital - A hospital with which the physician or office is affiliated.
+        /// </summary>
+        [JsonProperty("hospitalAffiliation")]
+        public Hospital hospitalAffiliation { get; set; }	
+        
+         /// <summary>
         /// MedicalSpecialty - A medical specialty of the provider.
         /// </summary>
         [JsonProperty("medicalSpecialty")]
-        public object MedicalSpecialty { get; set; }
+        public object MedicalSpecialty { get; set; }	
     }
 }

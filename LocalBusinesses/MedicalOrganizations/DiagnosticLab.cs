@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-#region License
+﻿#region License
 // Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -26,16 +23,25 @@ using System.Linq;
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System.Web;
-using MXTires.Microdata.LocalBusinesses.Stores;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MXTires.Microdata.MedicalEntities;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.LocalBusinesses.MedicalOrganizations
 {
     /// <summary>
-    /// Class TireShop.
+    /// A DiagnosticLab.
     /// </summary>
-    public class TireShop : Store
+    public class DiagnosticLab : MedicalOrganization
     {
-
+        /// <summary>
+        /// MedicalTest - A diagnostic test or procedure offered by this lab.
+        /// </summary>
+        [JsonProperty("availableTest")]
+        public MedicalTest AvailableTest { get; set; }
     }
 }

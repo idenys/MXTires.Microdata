@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-#region License
+﻿#region License
 // Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -26,16 +23,21 @@ using System.Linq;
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System.Web;
-using MXTires.Microdata.LocalBusinesses.Stores;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.LocalBusinesses.HomeAndConstructionBusinesses
 {
     /// <summary>
-    /// Class TireShop.
+    /// A construction business. 
+    /// A HomeAndConstructionBusiness is a LocalBusiness that provides services around homes and buildings. 
+    /// As a LocalBusiness it can be described as a provider of one or more Service(s).
     /// </summary>
-    public class TireShop : Store
+    public class HomeAndConstructionBusiness : LocalBusiness
     {
-
     }
 }

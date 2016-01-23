@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-#region License
+﻿#region License
 // Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -26,16 +23,13 @@ using System.Linq;
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System.Web;
-using MXTires.Microdata.LocalBusinesses.Stores;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Places.Landforms.BodysOfWater
 {
     /// <summary>
-    /// Class TireShop.
+    /// A canal, like the Panama Canal.
     /// </summary>
-    public class TireShop : Store
+    public class Canal : BodyOfWater
     {
-
     }
 }

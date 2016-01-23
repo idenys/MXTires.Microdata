@@ -23,7 +23,7 @@ namespace MXTires.Microdata.Organizations
         /// <summary>
         /// Text - IATA identifier for an airline or airport.
         /// </summary>
-        [JsonProperty("boardingPolicy")]
+        [JsonProperty("iataCode")]
         public string IataCode { get; set; }
     }
 }
