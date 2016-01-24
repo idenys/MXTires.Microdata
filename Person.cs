@@ -136,7 +136,7 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The organization.</value>
         [JsonProperty("worksFor")]
-        public Organization Organization { get; set; }
+        public Organization WorksFor { get; set; }
 
         /// <summary>
         /// Gets or sets the affiliation.
