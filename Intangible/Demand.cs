@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,8 +24,12 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
+using MXTires.Microdata.Intangible.StructuredValue;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
+
 namespace MXTires.Microdata.Intangible
 {
     /// <summary>
@@ -36,61 +40,90 @@ namespace MXTires.Microdata.Intangible
     public class Demand : Thing
     {
         /// <summary>
-        /// PaymentMethod 	The payment method(s) accepted by seller for this offer.
+        /// PaymentMethod - The payment method(s) accepted by seller for this offer.
         /// </summary>
         [JsonProperty("acceptedPaymentMethod")]
         public PaymentMethod AcceptedPaymentMethod { get; set; }
 
         /// <summary>
-        /// QuantitativeValue 	The amount of time that is required between accepting the offer and the actual usage of the resource or service.
+        /// QuantitativeValue - The amount of time that is required between accepting the offer and the actual usage of the resource or service.
         /// </summary>
         [JsonProperty("advanceBookingRequirement")]
         public QuantitativeValue AdvanceBookingRequirement { get; set; }
 
+        private object areaServed;
         /// <summary>
-        /// Text  or GeoShape  or AdministrativeArea  or Place 	The geographic area where a service or offered item is provided. Supersedes serviceArea.
+        /// Text or GeoShape or AdministrativeArea or Place - The geographic area where a service or offered item is provided. 
+        /// Supersedes <see cref="ServiceArea"/>.
         /// </summary>
         [JsonProperty("areaServed")]
-        public Thing AreaServed { get; set; }
+        public object AreaServed
+        {
+            get { return areaServed; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(GeoShape), typeof(AdministrativeArea), typeof(Place), typeof(String), });
+                validator.Validate(value);
+                areaServed = value;
+            }
+        }
+
+        private Thing serviceArea;
+        /// <summary>
+        /// GeoShape or AdministrativeArea or Place - The geographic area where a service or offered item is provided. 
+        /// Superseded by <see cref="AreaServed"/>.
+        /// </summary>
+        [JsonProperty("serviceArea")]
+        public Thing ServiceArea
+        {
+            get { return serviceArea; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(GeoShape), typeof(AdministrativeArea), typeof(Place) });
+                validator.Validate(value);
+                serviceArea = value;
+            }
+        }
 
         /// <summary>
-        /// ItemAvailability 	The availability of this item—for example In stock, Out of stock, Pre-order, etc.
+        /// ItemAvailability - The availability of this item—for example In stock, Out of stock, Pre-order, etc.
         /// </summary>
         [JsonProperty("availability")]
         public ItemAvailability Availability { get; set; }
 
         /// <summary>
-        /// DateTime 	The end of the availability of the product or service included in the offer.
+        /// DateTime - The end of the availability of the product or service included in the offer.
         /// </summary>
         [JsonProperty("availabilityEnds")]
         public DateTime? AvailabilityEnds { get; set; }
 
         /// <summary>
-        /// 	DateTime 	The beginning of the availability of the product or service included in the offer.
+        /// DateTime - The beginning of the availability of the product or service included in the offer.
         /// </summary>
         [JsonProperty("availabilityStarts")]
         public DateTime? AvailabilityStarts { get; set; }
 
         /// <summary>
-        /// Place 	The place(s) from which the offer can be obtained (e.g. store locations).
+        /// Place - The place(s) from which the offer can be obtained (e.g. store locations).
         /// </summary>
         [JsonProperty("availableAtOrFrom")]
         public Place AvailableAtOrFrom { get; set; }
 
         /// <summary>
-        /// DeliveryMethod 	The delivery method(s) available for this offer.
+        /// DeliveryMethod - The delivery method(s) available for this offer.
         /// </summary>
         [JsonProperty("availableDeliveryMethod")]
         public DeliveryMethod AvailableDeliveryMethod { get; set; }
 
         /// <summary>
-        /// BusinessFunction 	The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
+        /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode).
+        /// The default is http://purl.org/goodrelations/v1#Sell.
         /// </summary>
         [JsonProperty("businessFunction")]
         public BusinessFunction BusinessFunction { get; set; }
 
         /// <summary>
-        /// QuantitativeValue 	The typical delay between the receipt of the order and the goods leaving the warehouse.
+        /// QuantitativeValue - The typical delay between the receipt of the order and the goods leaving the warehouse.
         /// </summary>
         [JsonProperty("deliveryLeadTime")]
         public QuantitativeValue DeliveryLeadTime { get; set; }
@@ -111,6 +144,24 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("eligibleDuration")]
         public QuantitativeValue EligibleDuration { get; set; }
 
+        object eligibleRegion;
+        /// <summary>
+        /// Text or GeoShape or Place - The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, 
+        /// or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid,
+        /// e.g. a region where the transaction is not allowed. See also <seealso cref="IneligibleRegion"/>.
+        /// </summary>
+        [JsonProperty("eligibleRegion")]
+        public object EligibleRegion
+        {
+            get { return eligibleRegion; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(GeoShape), typeof(String), typeof(Place) });
+                validator.Validate(value);
+                eligibleRegion = value;
+            }
+        }
+
         /// <summary>
         /// PriceSpecification - The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
         /// </summary>
@@ -122,6 +173,12 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("gtin12")]
         public String Gtin12 { get; set; }
+	    
+        /// <summary>
+        /// Text - The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary for more details.
+        /// </summary>
+        [JsonProperty("gtin13")]
+        public String Gtin13 { get; set; }
 	
         /// <summary>
         /// Text - The GTIN-14 code of the product, or the product to which the offer refers. See GS1 GTIN Summary for more details.
@@ -139,13 +196,25 @@ namespace MXTires.Microdata.Intangible
         /// TypeAndQuantityNode - This links to a node or nodes indicating the exact quantity of the products included in the offer.
         /// </summary>
         [JsonProperty("includesObject")]
-        public Thing IncludesObject { get; set; }
+        public TypeAndQuantityNode IncludesObject { get; set; }
 
+        object ineligibleRegion;
         /// <summary>
-        /// Text  or GeoShape  or Place - The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed. See also eligibleRegion.
+        /// Text or GeoShape or Place - The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, 
+        /// or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid,
+        /// e.g. a region where the transaction is not allowed. See also <seealso cref="EligibleRegion"/>.
         /// </summary>
         [JsonProperty("ineligibleRegion")]
-        public Thing IneligibleRegion { get; set; }
+        public object IneligibleRegion
+        {
+            get { return ineligibleRegion; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(GeoShape), typeof(String), typeof(Place) });
+                validator.Validate(value);
+                ineligibleRegion = value;
+            }
+        }
 
         /// <summary>
         /// QuantitativeValue - The current approximate inventory level for the item or items.
@@ -160,23 +229,28 @@ namespace MXTires.Microdata.Intangible
         public OfferItemCondition ItemCondition { get; set; }
 
         /// <summary>
-        /// Product  or Service - The item being offered.
+        /// Product or Service - The item being offered.
         /// </summary>
         [JsonProperty("itemOffered")]
         public Thing ItemOffered { get; set; }
 
         /// <summary>
-        /// Text 	The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
+        /// Text - The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
         /// </summary>
         [JsonProperty("mpn")]
-        public Thing Mpn { get; set; }
+        public string Mpn { get; set; }
 
         /// <summary>
-        /// PriceSpecification 	One or more detailed price specifications, indicating the unit price and delivery or payment charges.
-        /// seller	Person  or Text 	The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+        /// PriceSpecification - One or more detailed price specifications, indicating the unit price and delivery or payment charges.
         /// </summary>
         [JsonProperty("priceSpecification")]
-        public Thing PriceSpecification { get; set; }
+        public PriceSpecification PriceSpecification { get; set; }
+
+        /// <summary>
+        /// Person  or Text - The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+        /// </summary>
+        [JsonProperty("seller")]
+        public object Seller { get; set; }
 
         /// <summary>
         ///Text - The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
@@ -185,7 +259,7 @@ namespace MXTires.Microdata.Intangible
         public String Sku { get; set; }
 
         /// <summary>
-        /// DateTime 	The date when the item becomes valid.
+        /// DateTime - The date when the item becomes valid.
         /// </summary>
         [JsonProperty("validFrom")]
         public DateTime? ValidFrom { get; set; }
