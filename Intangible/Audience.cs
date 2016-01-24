@@ -23,7 +23,7 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         /// <value>The administrative area.</value>
         [JsonProperty("administrativeArea")]
-        public string AdministrativeArea { get; set; }
+        public AdministrativeArea AdministrativeArea { get; set; }
 
     }
 }

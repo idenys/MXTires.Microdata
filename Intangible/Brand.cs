@@ -25,6 +25,12 @@ namespace MXTires.Microdata.Intangible
         public Review Review { get; set; }
 
         /// <summary>
+        /// Reviews - A reviews of the item. Superseded by review.
+        /// </summary>
+        [JsonProperty("reviews")]
+        public IList<Review> Reviews { get; set; }
+
+        /// <summary>
         /// AggregateRating - The overall rating, based on a collection of reviews or ratings, of the item.
         /// </summary>
         [JsonProperty("aggregateRating")]

@@ -165,18 +165,38 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("contentRating")]
         public string ContentRating { get; set; }
-        
+
+        private Thing contributor;
         /// <summary>
         /// Person  or Organization - A secondary contributor to the CreativeWork.
         /// </summary>
         [JsonProperty("contributor")]
-        public Thing Contributor { get; set; }
+        public Thing Contributor
+        {
+            get { return contributor; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                contributor = value;
+            }
+        }
 
+        private Thing copyrightHolder;
         /// <summary>
-        /// Person  or Organization - The party holding the legal copyright to the CreativeWork.
+        /// Person  or Organization - The party holding the legal copyright to the <see cref="CreativeWork"/>.
         /// </summary>
         [JsonProperty("copyrightHolder")]
-        public Thing CopyrightHolder { get; set; }
+        public Thing CopyrightHolder
+        {
+            get { return copyrightHolder; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                copyrightHolder = value;
+            }
+        }
 
         /// <summary>
         /// Number - The year during which the claimed copyright for the CreativeWork was first asserted.
@@ -184,11 +204,22 @@ namespace MXTires.Microdata
         [JsonProperty("copyrightYear")]
         public Int32? CopyrightYear { get; set; }
 
+        private Thing creator;
+
         /// <summary>
         /// Person  or Organization - The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.
         /// </summary>
         [JsonProperty("creator")]
-        public Thing Creator { get; set; }
+        public Thing Creator
+        {
+            get { return creator; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                creator = value;
+            }
+        }
 
         /// <summary>
         /// Date - The date on which the CreativeWork was created.
@@ -399,6 +430,13 @@ namespace MXTires.Microdata
         public Duration TimeRequired { get; set; }
 
         /// <summary>
+        /// The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species”
+        /// Inverse property: <see cref="WorkTranslation"/>.
+        /// </summary>
+        [JsonProperty("translationOfWork")]
+        public CreativeWork TranslationOfWork { get; set; }
+
+        /// <summary>
         /// Person  or Organization - Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market.
         /// </summary>
         [JsonProperty("translator")]
@@ -425,9 +463,17 @@ namespace MXTires.Microdata
         /// <summary>
         /// CreativeWork - Example/instance/realization/derivation of the concept of this creative work. eg. 
         /// The paperback edition, first edition, or eBook. 
-        /// Inverse  property: exampleOfWork.
+        /// Inverse  property: <see cref="ExampleOfWork"/>.
         /// </summary>
         [JsonProperty("workExample")]
         public CreativeWork WorkExample { get; set; }
+
+        /// <summary>
+        /// A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation 
+        /// “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese translation Tây du ký bình khảo.
+        /// Inverse property: <see cref="TranslationOfWork"/>.
+        /// </summary>
+        [JsonProperty("workTranslation")]
+        public CreativeWork WorkTranslation { get; set; }
     }
 }

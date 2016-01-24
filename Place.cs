@@ -51,10 +51,24 @@ namespace MXTires.Microdata
         public GeoCoordinates Geo { get; set; }
 
         /// <summary>
-        /// A URL to a map of the place. Supersedes map, maps.
+        /// A URL to a map of the place. Supersedes <see cref="Map" />, <see cref="Maps" />.
         /// </summary>
         [JsonProperty("hasMap")]
         public Map HasMap { get; set; }
+
+        /// <summary>
+        /// A URL to a map of the place.
+        /// Superseded by <see cref="HasMap" />.
+        /// </summary>
+        [JsonProperty("maps")]
+        public List<string> Maps { get; set; }
+
+        /// <summary>
+        /// A URL to a map of the place.
+        /// Superseded by <see cref="HasMap" />.
+        /// </summary>
+        [JsonProperty("map")]
+        public string Map { get; set; }
 
         /// <summary>
         /// OpeningHoursSpecification - The opening hours of a certain place.
@@ -129,13 +143,14 @@ namespace MXTires.Microdata
         public IList<Thing> Photos { get; set; }
 
         /// <summary>
-        /// Review - A review of the item. Supersedes reviews.
+        /// Review - A review of the item. Supersedes <see cref="Reviews" />.
         /// </summary>
         [JsonProperty("review")]
         public Review Review { get; set; }
 
         /// <summary>
         /// Reviews.
+        /// Superseded by  <see cref="Review" />.
         /// </summary>
         [JsonProperty("reviews")]
         public IList<Review> Reviews { get; set; }

@@ -23,34 +23,19 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Intangible
+namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// Class AggregateRating.
+    /// A created collection of Creative Works or other artefacts.
     /// </summary>
-    public class AggregateRating : Rating
+    public class Collection : CreativeWork 
     {
-        /// <summary>
-        /// Thing 	The item that is being reviewed/rated.
-        /// </summary>
-        /// <value>The item reviewed.</value>
-        [JsonProperty("itemReviewed")]
-        public Thing ItemReviewed { get; set; }
-
-        /// <summary>
-        /// The count of total number of ratings.
-        /// </summary>
-        /// <value>The rating count.</value>
-        [JsonProperty("ratingCount")]
-        public string RatingCount { get; set; }
-
-        /// <summary>
-        /// The count of total number of reviews.
-        /// </summary>
-        /// <value>The review count.</value>
-        [JsonProperty("reviewCount")]
-        public string ReviewCount { get; set; }
     }
 }

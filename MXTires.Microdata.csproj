@@ -159,6 +159,7 @@
     <Compile Include="CreativeWorks\Blog.cs" />
     <Compile Include="CreativeWorks\BlogPosting.cs" />
     <Compile Include="CreativeWorks\Book.cs" />
+    <Compile Include="CreativeWorks\Collection.cs" />
     <Compile Include="CreativeWorks\CreativeWork.cs" />
     <Compile Include="CreativeWorks\CreativeWorkSeason.cs" />
     <Compile Include="CreativeWorks\Diet.cs" />
@@ -194,6 +195,8 @@
     <Compile Include="Actions\FindAction.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Intangible\BreadcrumbList.cs" />
+    <Compile Include="Intangible\BroadcastChannel.cs" />
+    <Compile Include="Intangible\CableOrSatelliteService.cs" />
     <Compile Include="Intangible\Class.cs" />
     <Compile Include="Intangible\Demand.cs" />
     <Compile Include="Intangible\Enumeration\ActionStatusType.cs" />
@@ -442,7 +445,10 @@
     <Compile Include="Places\Landforms\Volcano.cs" />
     <Compile Include="Places\LandmarksOrHistoricalBuildings.cs" />
     <Compile Include="Places\Residences\ApartmentComplex.cs" />
+    <Compile Include="Places\Residences\GatedResidenceCommunity.cs" />
     <Compile Include="Places\Residences\Residence.cs" />
+    <Compile Include="Places\Residences\SingleFamilyResidence.cs" />
+    <Compile Include="Places\TouristAttraction.cs" />
     <Compile Include="PostalAddress.cs" />
     <Compile Include="PriceSpecification.cs" />
     <Compile Include="Product.cs" />

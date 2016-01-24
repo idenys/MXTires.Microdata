@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -28,29 +28,32 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// Class AggregateRating.
+    /// A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
     /// </summary>
-    public class AggregateRating : Rating
+    public class BroadcastChannel : Thing
     {
         /// <summary>
-        /// Thing 	The item that is being reviewed/rated.
+        /// Text - The unique address by which the BroadcastService can be identified in a provider lineup. In US, this is typically a number.
         /// </summary>
-        /// <value>The item reviewed.</value>
-        [JsonProperty("itemReviewed")]
-        public Thing ItemReviewed { get; set; }
+        [JsonProperty("broadcastChannelId")]
+        public string BroadcastChannelId { get; set; }
 
         /// <summary>
-        /// The count of total number of ratings.
+        /// Text - The type of service required to have access to the channel (e.g. Standard or Premium).
         /// </summary>
-        /// <value>The rating count.</value>
-        [JsonProperty("ratingCount")]
-        public string RatingCount { get; set; }
+        [JsonProperty("broadcastServiceTier")]
+        public string BroadcastServiceTier { get; set; }
 
         /// <summary>
-        /// The count of total number of reviews.
+        /// CableOrSatelliteService - The CableOrSatelliteService offering the channel.
         /// </summary>
-        /// <value>The review count.</value>
-        [JsonProperty("reviewCount")]
-        public string ReviewCount { get; set; }
+        [JsonProperty("inBroadcastLineup")]
+        public CableOrSatelliteService InBroadcastLineup { get; set; }
+
+        /// <summary>
+        /// BroadcastService - The BroadcastService offered on this channel.
+        /// </summary>
+        [JsonProperty("providesBroadcastService")]
+        public BroadcastService ProvidesBroadcastService { get; set; }
     }
 }
