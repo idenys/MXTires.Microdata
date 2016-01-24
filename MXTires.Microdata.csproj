@@ -196,6 +196,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Intangible\BreadcrumbList.cs" />
     <Compile Include="Intangible\BroadcastChannel.cs" />
+    <Compile Include="Intangible\BusTrip.cs" />
     <Compile Include="Intangible\CableOrSatelliteService.cs" />
     <Compile Include="Intangible\Class.cs" />
     <Compile Include="Intangible\Demand.cs" />
