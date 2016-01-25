@@ -23,12 +23,12 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-namespace MXTires.Microdata.Intangible.Quantity
+namespace MXTires.Microdata.Intangible.Quantities
 {
     /// <summary>
     /// Quantity: Duration (use ISO 8601 duration format).
     /// </summary>
-    public class Duration : Thing
+    public class Duration : Quantity
     {
     }
 }

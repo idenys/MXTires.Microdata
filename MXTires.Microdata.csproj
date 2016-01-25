@@ -227,6 +227,9 @@
     <Compile Include="Intangible\Enumeration\Specialty.cs" />
     <Compile Include="Intangible\Flight.cs" />
     <Compile Include="Intangible\JobPosting.cs" />
+    <Compile Include="Intangible\Quantity.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Intangible\Quantity\Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Event.cs" />

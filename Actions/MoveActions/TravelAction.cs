@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MXTires.Microdata.Intangible.Quantity;
+using MXTires.Microdata.Intangible.Quantities;
 
 namespace MXTires.Microdata.Actions.MoveActions
 {

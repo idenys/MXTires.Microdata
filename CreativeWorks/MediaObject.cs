@@ -25,7 +25,7 @@
 
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
-using MXTires.Microdata.Intangible.Quantity;
+using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using System;

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MXTires.Microdata.Intangible.Quantity
+namespace MXTires.Microdata.Intangible.Quantities
 {
     /// <summary>
     /// Properties that take Energy as values are of the form 'Number or Energy unit of measure'.
     /// </summary>
-    public class Energy : Thing
+    public class Energy : Quantity
     {
     }
 }

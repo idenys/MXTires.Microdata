@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Events;
-using MXTires.Microdata.Intangible.Quantity;
+using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.LocalBusinesses;
 using MXTires.Microdata.Organizations;
 using MXTires.Microdata.Validators;

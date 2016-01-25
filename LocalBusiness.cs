@@ -29,7 +29,7 @@ using System.Linq;
 using System.Web;
 using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
-using MXTires.Microdata.Intangible.Quantity;
+using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValue;
 
 namespace MXTires.Microdata

@@ -28,7 +28,7 @@ using System.Collections.Generic;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
-using MXTires.Microdata.Intangible.Quantity;
+using MXTires.Microdata.Intangible.Quantities;
 
 namespace MXTires.Microdata
 {
