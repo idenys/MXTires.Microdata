@@ -225,6 +225,7 @@
     <Compile Include="Intangible\Enumeration\MedicalSpecialty.cs" />
     <Compile Include="Intangible\Enumeration\RsvpResponseType.cs" />
     <Compile Include="Intangible\Enumeration\Specialty.cs" />
+    <Compile Include="Intangible\Flight.cs" />
     <Compile Include="Intangible\JobPosting.cs" />
     <Compile Include="Intangible\Quantity\Duration.cs" />
     <Compile Include="EntryPoint.cs" />
