@@ -237,7 +237,7 @@ namespace MXTires.Microdata.Tests
             webSite.Url = "http://www.1010tires.com/";
             webSite.PotentialAction = new SearchAction()
             {
-                Target = new EntryPoint() { UrlTemplate = "http://www.1010tires.com/Products/Search/?q={q}", },
+                Target = new MXTires.Microdata.Intangible.EntryPoint() { UrlTemplate = "http://www.1010tires.com/Products/Search/?q={q}", },
                 //Query = "required name=q",
                 QueryInput = new PropertyValueSpecification() { ValueName = "q", ValueRequired = true, MultipleValues = true },
                 ActionStatus = MXTires.Microdata.Intangible.Enumeration.ActionStatusType.PotentialActionStatus,

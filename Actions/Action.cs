@@ -74,22 +74,32 @@ namespace MXTires.Microdata
         public DateTime? EndTime { get; set; }
 
         /// <summary>
-        /// Thing 	For failed actions, more information on the cause of the failure.
+        /// Thing - For failed actions, more information on the cause of the failure.
         /// </summary>
         [JsonProperty("error")]
         public Thing Error { get; set; }
 
         /// <summary>
-        ///  Thing 	The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.
+        ///  Thing - The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.
         /// </summary>
         [JsonProperty("instrument")]
         public Thing Instrument { get; set; }
 
+        Thing location; 
         /// <summary>
-        /// PostalAddress  or Place - The location of the event, organization or action.
+        /// PostalAddress or Place - The location of the event, organization or action.
         /// </summary>
         [JsonProperty("location")]
-        public Thing Location { get; set; }
+        public Thing Location
+        {
+            get { return location; }
+            set
+            {
+                var validator = new TypeValidator(typeof(PostalAddress), typeof(Place));
+                validator.Validate(value);
+                location = value;
+            }
+        }
 
         /// <summary>
         /// Thing - The object upon the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.
@@ -115,7 +125,7 @@ namespace MXTires.Microdata
         }
 
         /// <summary>
-        /// Thing 	The result produced in the action. e.g. John wrote *a book*.
+        /// Thing - The result produced in the action. e.g. John wrote *a book*.
         /// </summary>
         [JsonProperty("result")]
         public Thing Result { get; set; }
@@ -134,6 +144,6 @@ namespace MXTires.Microdata
         ///EntryPoint - Indicates a target EntryPoint for an Action.
         /// </summary>
         [JsonProperty("target")]
-        public EntryPoint Target { get; set; }
+        public MXTires.Microdata.Intangible.EntryPoint Target { get; set; }
     }
 }

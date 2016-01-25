@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -30,12 +31,14 @@ namespace MXTires.Microdata
     /// <summary>
     /// Class EntryPoint.
     /// </summary>
+    [Obsolete("This class is obsolete. Use EntryPoint in Intangible namespase")]
     public class EntryPoint:Thing
     {
         /// <summary>
         /// Text - An url template (RFC6570) that will be used to construct the target of the execution of the action.
         /// </summary>
         /// <value>The URL template.</value>
+        [Obsolete("This property is obsolete. Use UrlTemplate in Intangible.EntryPoint namespase")]
         [JsonProperty("urlTemplate")]
         public string UrlTemplate {get;set;}
     }

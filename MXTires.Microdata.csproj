@@ -200,6 +200,7 @@
     <Compile Include="Intangible\CableOrSatelliteService.cs" />
     <Compile Include="Intangible\Class.cs" />
     <Compile Include="Intangible\Demand.cs" />
+    <Compile Include="Intangible\EntryPoint.cs" />
     <Compile Include="Intangible\Enumeration\ActionStatusType.cs" />
     <Compile Include="AdministrativeArea.cs" />
     <Compile Include="Intangible\AggregateOffer.cs" />
