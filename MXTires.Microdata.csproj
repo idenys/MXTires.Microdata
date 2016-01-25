@@ -164,6 +164,8 @@
     <Compile Include="CreativeWorks\CreativeWorkSeason.cs" />
     <Compile Include="CreativeWorks\Diet.cs" />
     <Compile Include="CreativeWorks\ExercisePlan.cs" />
+    <Compile Include="CreativeWorks\Game.cs" />
+    <Compile Include="CreativeWorks\IGame.cs" />
     <Compile Include="CreativeWorks\ImageObject.cs" />
     <Compile Include="CreativeWorks\MediaObject.cs" />
     <Compile Include="CreativeWorks\NewsArticle.cs" />
@@ -171,6 +173,7 @@
     <Compile Include="CreativeWorks\SocialMediaPosting.cs" />
     <Compile Include="CreativeWorks\SoftwareApplication.cs" />
     <Compile Include="CreativeWorks\TVSeason.cs" />
+    <Compile Include="CreativeWorks\VideoGame.cs" />
     <Compile Include="CreativeWorks\WebPage.cs" />
     <Compile Include="CreativeWorks\WebPageElement.cs" />
     <Compile Include="Events\BroadcastEvent.cs" />
@@ -221,16 +224,23 @@
     <Compile Include="Intangible\Enumeration\CreditCard.cs" />
     <Compile Include="Intangible\Enumeration\DaysOfWeek.cs" />
     <Compile Include="Intangible\Enumeration\DeliveryMethod.cs" />
+    <Compile Include="Intangible\Enumeration\GameServerStatus.cs" />
     <Compile Include="Intangible\Enumeration\MedicalDevicePurpose.cs" />
     <Compile Include="Intangible\Enumeration\MedicalSpecialty.cs" />
+    <Compile Include="Intangible\Enumeration\Medical\PhysicalActivityCategory.cs" />
+    <Compile Include="Intangible\Enumeration\PaymentStatusType.cs" />
     <Compile Include="Intangible\Enumeration\RsvpResponseType.cs" />
     <Compile Include="Intangible\Enumeration\Specialty.cs" />
     <Compile Include="Intangible\Flight.cs" />
+    <Compile Include="Intangible\GameServer.cs" />
+    <Compile Include="Intangible\Invoice.cs" />
     <Compile Include="Intangible\JobPosting.cs" />
+    <Compile Include="Intangible\Order.cs" />
+    <Compile Include="Intangible\Quantities\Mass.cs" />
     <Compile Include="Intangible\Quantity.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Intangible\Quantity\Duration.cs" />
+    <Compile Include="Intangible\Quantities\Duration.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Intangible\Enumeration\EventStatusType.cs" />
@@ -239,8 +249,8 @@
     <Compile Include="Intangible\ProgramMembership.cs" />
     <Compile Include="Intangible\Property.cs" />
     <Compile Include="Intangible\PropertyValueSpecification.cs" />
-    <Compile Include="Intangible\Quantity\Distance.cs" />
-    <Compile Include="Intangible\Quantity\Energy.cs" />
+    <Compile Include="Intangible\Quantities\Distance.cs" />
+    <Compile Include="Intangible\Quantities\Energy.cs" />
     <Compile Include="Intangible\Seat.cs" />
     <Compile Include="Intangible\Service.cs" />
     <Compile Include="Intangible\ServiceChannel.cs" />

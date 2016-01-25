@@ -23,64 +23,45 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
+using MXTires.Microdata.Validators;
+using Newtonsoft.Json;
 
-
-namespace MXTires.Microdata.Intangible.Enumeration
+namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A list of possible product availability options.
+    /// A class, also often called a 'Type'; equivalent to rdfs:VideoGame.
     /// </summary>
-    [Flags]
-    public enum ItemAvailability 
+    public class VideoGame : IGame //, SoftwareApplication
     {
         /// <summary>
-        /// The discontinued
+        /// Thing 	A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
         /// </summary>
-        [EnumMember(Value = "http://schema.org/Discontinued")]
-        Discontinued = 1,
+        [JsonProperty("characterAttribute")]
+        public Thing CharacterAttribute { get; set; }
 
         /// <summary>
-        /// The in stock
+        /// Thing - An item is an object within the game world that can be collected by a player or, occasionally, a non-player character.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/InStock")]
-        InStock = 2,
+        [JsonProperty("gameItem")]
+        public Thing GameItem { get; set; }
 
         /// <summary>
-        /// The in store only
+        /// Place  or PostalAddress  or URL  - Real or fictional location of the game (or part of game).
         /// </summary>
-        [EnumMember(Value = "http://schema.org/InStoreOnly")]
-        InStoreOnly = 4,
+        [JsonProperty("gameLocation")]
+        public object GameLocation { get; set; }
 
         /// <summary>
-        /// The limited availability
+        /// QuantitativeValue - Indicate how many people can play this game (minimum, maximum, or range).
         /// </summary>
-        [EnumMember(Value = "http://schema.org/LimitedAvailability")]
-        LimitedAvailability = 8,
+        [JsonProperty("numberOfPlayers")]
+        public QuantitativeValue NumberOfPlayers { get; set; }
 
         /// <summary>
-        /// The online only
+        /// Thing - The task that a player-controlled character, or group of characters may complete in order to gain a reward.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/OnlineOnly")]
-        OnlineOnly = 16,
-
-        /// <summary>
-        /// The out of stock
-        /// </summary>
-        [EnumMember(Value = "http://schema.org/OutOfStock")]
-        OutOfStock = 32,
-
-        /// <summary>
-        /// The pre order
-        /// </summary>
-        [EnumMember(Value = "http://schema.org/PreOrder")]
-        PreOrder = 64,
-
-        /// <summary>
-        /// The sold out
-        /// </summary>
-        [EnumMember(Value = "http://schema.org/SoldOut")]
-        SoldOut = 128 
+        [JsonProperty("quest")]
+        public Thing Quest { get; set; }
     }
 }

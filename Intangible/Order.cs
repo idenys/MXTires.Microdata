@@ -23,40 +23,29 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
+using MXTires.Microdata.Validators;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Intangible.Enumeration
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// The status of an Action.
+    /// An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.
     /// </summary>
-    [Flags]
-    public enum ActionStatusType
+    public class Order : Thing
     {
-        /// <summary>
-        /// An in-progress action (e.g, while watching the movie, or driving to a location).
-        /// </summary>
-        [EnumMember(Value = "ActiveActionStatus")]
-        ActiveActionStatus = 1 << 0,
-
-        /// <summary>
-        /// An action that has already taken place.
-        /// </summary>
-        [EnumMember(Value = "CompletedActionStatus")]
-        CompletedActionStatus = 1 << 1,
-
-        /// <summary>
-        /// An action that failed to complete. 
-        /// The action's error property and the HTTP return code contain more information about the failure.
-        /// </summary>
-        [EnumMember(Value = "FailedActionStatus")]
-        FailedActionStatus = 1 << 2,
-
-        /// <summary>
-        /// A description of an action that is supported.
-        /// </summary>
-        [EnumMember(Value = "PotentialActionStatus")]
-        PotentialActionStatus = 1 << 3
+        //Thing supersededBy;
+        ///// <summary>
+        ///// Enumeration  or Order  or Property 	Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
+        ///// </summary>
+        //[JsonProperty("supersededBy")]
+        //public Thing SupersededBy
+        //{
+        //    get { return this.supersededBy; }
+        //    set
+        //    {
+        //        this.supersededBy = value;
+        //    }
+        //}
     }
 }

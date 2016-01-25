@@ -1,4 +1,7 @@
-﻿#region License
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+#region License
 // Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -23,64 +26,47 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Runtime.Serialization;
-
-
-namespace MXTires.Microdata.Intangible.Enumeration
+namespace MXTires.Microdata.Intangible.Enumeration.Medical
 {
     /// <summary>
-    /// A list of possible product availability options.
+    /// Categories of physical activity, organized by physiologic classification.
     /// </summary>
     [Flags]
-    public enum ItemAvailability 
+    public enum PhysicalActivityCategory
     {
         /// <summary>
-        /// The discontinued
+        /// Physical activity of relatively low intensity that depends primarily on the aerobic energy-generating process; during activity, the aerobic metabolism uses oxygen to adequately meet energy demands during exercise.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/Discontinued")]
-        Discontinued = 1,
+        AerobicActivity = 1 << 0,
 
         /// <summary>
-        /// The in stock
+        /// Physical activity that is of high-intensity which utilizes the anaerobic metabolism of the body.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/InStock")]
-        InStock = 2,
+        AnaerobicActivity = 1 << 1,
 
         /// <summary>
-        /// The in store only
+        /// Physical activity that is engaged to help maintain posture and balance.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/InStoreOnly")]
-        InStoreOnly = 4,
+        Balance = 1 << 2,
 
         /// <summary>
-        /// The limited availability
+        /// Physical activity that is engaged in to improve joint and muscle flexibility.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/LimitedAvailability")]
-        LimitedAvailability = 8,
+        Flexibility = 1 << 3,
 
         /// <summary>
-        /// The online only
+        /// Any physical activity engaged in for recreational purposes. Examples may include ballroom dancing, roller skating, canoeing, fishing, etc.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/OnlineOnly")]
-        OnlineOnly = 16,
+        LeisureTimeActivity = 1 << 4,
 
         /// <summary>
-        /// The out of stock
+        /// Any physical activity engaged in for job-related purposes. Examples may include waiting tables, maid service, carrying a mailbag, picking fruits or vegetables, construction work, etc.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/OutOfStock")]
-        OutOfStock = 32,
+        OccupationalActivity = 1 << 5,
 
         /// <summary>
-        /// The pre order
+        /// Physical activity that is engaged in to improve muscle and bone strength. Also referred to as resistance training.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/PreOrder")]
-        PreOrder = 64,
-
-        /// <summary>
-        /// The sold out
-        /// </summary>
-        [EnumMember(Value = "http://schema.org/SoldOut")]
-        SoldOut = 128 
+        StrengthTraining = 1 << 6,
     }
 }

@@ -23,64 +23,37 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
 using System.Runtime.Serialization;
-
 
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// A list of possible product availability options.
+    /// Status of a game server.
     /// </summary>
-    [Flags]
-    public enum ItemAvailability 
+    public enum GameServerStatus
     {
         /// <summary>
-        /// The discontinued
+        /// Game server status: OfflinePermanently. Server is offline and not available.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/Discontinued")]
-        Discontinued = 1,
+        [EnumMember(Value = "http://schema.org/OfflinePermanently")]
+        OfflinePermanently = 1 << 0,
 
         /// <summary>
-        /// The in stock
+        /// Game server status: OfflineTemporarily. Server is offline now but it can be online soon.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/InStock")]
-        InStock = 2,
+        [EnumMember(Value = "http://schema.org/OfflineTemporarily")]
+        OfflineTemporarily = 1 << 1,
 
         /// <summary>
-        /// The in store only
+        /// Game server status: Online. Server is available.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/InStoreOnly")]
-        InStoreOnly = 4,
+        [EnumMember(Value = "http://schema.org/Online")]
+        Online = 1 << 2,
 
         /// <summary>
-        /// The limited availability
+        /// Game server status: OnlineFull. Server is online but unavailable. The maximum number of players has reached.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/LimitedAvailability")]
-        LimitedAvailability = 8,
-
-        /// <summary>
-        /// The online only
-        /// </summary>
-        [EnumMember(Value = "http://schema.org/OnlineOnly")]
-        OnlineOnly = 16,
-
-        /// <summary>
-        /// The out of stock
-        /// </summary>
-        [EnumMember(Value = "http://schema.org/OutOfStock")]
-        OutOfStock = 32,
-
-        /// <summary>
-        /// The pre order
-        /// </summary>
-        [EnumMember(Value = "http://schema.org/PreOrder")]
-        PreOrder = 64,
-
-        /// <summary>
-        /// The sold out
-        /// </summary>
-        [EnumMember(Value = "http://schema.org/SoldOut")]
-        SoldOut = 128 
+        [EnumMember(Value = "http://schema.org/OnlineFull")]
+        OnlineFull= 1 << 3,
     }
 }

@@ -23,40 +23,12 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Runtime.Serialization;
-
-namespace MXTires.Microdata.Intangible.Enumeration
+namespace MXTires.Microdata.Intangible.Quantities
 {
     /// <summary>
-    /// The status of an Action.
+    /// Properties that take Mass as values are of the form '[Number] [Mass unit of measure]'. E.g., '7 kg'.
     /// </summary>
-    [Flags]
-    public enum ActionStatusType
+    public class Mass : Quantity
     {
-        /// <summary>
-        /// An in-progress action (e.g, while watching the movie, or driving to a location).
-        /// </summary>
-        [EnumMember(Value = "ActiveActionStatus")]
-        ActiveActionStatus = 1 << 0,
-
-        /// <summary>
-        /// An action that has already taken place.
-        /// </summary>
-        [EnumMember(Value = "CompletedActionStatus")]
-        CompletedActionStatus = 1 << 1,
-
-        /// <summary>
-        /// An action that failed to complete. 
-        /// The action's error property and the HTTP return code contain more information about the failure.
-        /// </summary>
-        [EnumMember(Value = "FailedActionStatus")]
-        FailedActionStatus = 1 << 2,
-
-        /// <summary>
-        /// A description of an action that is supported.
-        /// </summary>
-        [EnumMember(Value = "PotentialActionStatus")]
-        PotentialActionStatus = 1 << 3
     }
 }
