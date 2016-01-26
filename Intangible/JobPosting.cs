@@ -41,7 +41,7 @@ namespace MXTires.Microdata.Intangible
         public object BaseSalary { get; set; }
 
         /// <summary>
-        /// Person - Publication date for the job posting.
+        /// Date - Publication date for the job posting.
         /// </summary>
         [JsonProperty("datePosted")]
         public DateTime? DatePosted { get; set; }
