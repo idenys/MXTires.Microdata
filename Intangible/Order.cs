@@ -104,7 +104,7 @@ namespace MXTires.Microdata.Intangible
         /// Text - The currency (in 3-letter ISO 4217 format) of the discount.
         /// </summary>
         [JsonProperty("DiscountCurrency")]
-        public String discountCurrency { get; set; }
+        public String DiscountCurrency { get; set; }
 
         /// <summary>
         /// Boolean - Was the offer accepted as a gift for someone other than the buyer.
@@ -136,11 +136,21 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("orderStatus")]
         public OrderStatus OrderStatus { get; set; }
 
+        Thing orderedItem;
         /// <summary>
         /// OrderItem  or Product - The item ordered.
         /// </summary>
         [JsonProperty("orderedItem")]
-        public Thing OrderedItem { get; set; }
+        public Thing OrderedItem
+        {
+            get { return orderedItem; }
+            set
+            {
+                var validator = new TypeValidator(typeof(OrderItem), typeof(Product));
+                validator.Validate(value);
+                orderedItem = value;
+            }
+        }
 
         /// <summary>
         /// Invoice - The order is being paid as part of the referenced Invoice.

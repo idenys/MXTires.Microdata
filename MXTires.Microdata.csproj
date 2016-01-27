@@ -237,6 +237,7 @@
     <Compile Include="Intangible\Invoice.cs" />
     <Compile Include="Intangible\JobPosting.cs" />
     <Compile Include="Intangible\Order.cs" />
+    <Compile Include="Intangible\OrderItem.cs" />
     <Compile Include="Intangible\ParcelDelivery.cs" />
     <Compile Include="Intangible\Quantities\Mass.cs" />
     <Compile Include="Intangible\Quantity.cs">
