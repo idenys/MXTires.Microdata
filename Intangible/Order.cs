@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -93,5 +94,99 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("discount")]
         public String Discount { get; set; }
 
+        /// <summary>
+        /// Text - Code used to redeem a discount.
+        /// </summary>
+        [JsonProperty("discount")]
+        public String DiscountCode { get; set; }
+
+        /// <summary>
+        /// Text - The currency (in 3-letter ISO 4217 format) of the discount.
+        /// </summary>
+        [JsonProperty("DiscountCurrency")]
+        public String discountCurrency { get; set; }
+
+        /// <summary>
+        /// Boolean - Was the offer accepted as a gift for someone other than the buyer.
+        /// </summary>
+        [JsonProperty("isGift")]
+        public Boolean? IsGift { get; set; }
+
+        /// <summary>
+        /// DateTime - Date order was placed.
+        /// </summary>
+        [JsonProperty("orderDate")]
+        public DateTime? OrderDate { get; set; }
+
+        /// <summary>
+        /// ParcelDelivery - The delivery of the parcel related to this order or order item.
+        /// </summary>
+        [JsonProperty("orderDelivery")]
+        public ParcelDelivery OrderDelivery { get; set; }
+
+        /// <summary>
+        /// Text - The identifier of the transaction.
+        /// </summary>
+        [JsonProperty("orderNumber")]
+        public String OrderNumber { get; set; }
+
+        /// <summary>
+        /// OrderStatus - The current status of the order.
+        /// </summary>
+        [JsonProperty("orderStatus")]
+        public OrderStatus OrderStatus { get; set; }
+
+        /// <summary>
+        /// OrderItem  or Product - The item ordered.
+        /// </summary>
+        [JsonProperty("orderedItem")]
+        public Thing OrderedItem { get; set; }
+
+        /// <summary>
+        /// Invoice - The order is being paid as part of the referenced Invoice.
+        /// </summary>
+        [JsonProperty("partOfInvoice")]
+        public Invoice PartOfInvoice { get; set; }
+
+        /// <summary>
+        /// DateTime - The date that payment is due. Supersedes paymentDue.
+        /// </summary>
+        [JsonProperty("paymentDueDate")]
+        public DateTime? PaymentDueDate { get; set; }
+
+        /// <summary>
+        /// PaymentMethod - The name of the credit card or other method of payment for the order.
+        /// </summary>
+        [JsonProperty("paymentMethod")]
+        public PaymentMethod PaymentMethod { get; set; }
+
+        /// <summary>
+        /// Text - An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
+        /// </summary>
+        [JsonProperty("paymentMethodId")]
+        public String PaymentMethodId { get; set; }
+
+        /// <summary>
+        /// URL - The URL for sending a payment.
+        /// </summary>
+        [JsonProperty("paymentUrl")]
+        public String PaymentUrl { get; set; }
+
+        Thing seller;
+        /// <summary>
+        /// Person or Organization - An entity which offers (sells / leases / lends / loans) the services / goods. 
+        /// A seller may also be a provider. Supersedes vendor, merchant.
+        /// </summary>
+        [JsonProperty("seller")]
+        public Thing Seller
+        {
+            get { return seller; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                seller = value;
+            }
+        }
     }
 }

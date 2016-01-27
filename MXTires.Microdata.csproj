@@ -228,6 +228,7 @@
     <Compile Include="Intangible\Enumeration\MedicalDevicePurpose.cs" />
     <Compile Include="Intangible\Enumeration\MedicalSpecialty.cs" />
     <Compile Include="Intangible\Enumeration\Medical\PhysicalActivityCategory.cs" />
+    <Compile Include="Intangible\Enumeration\OrderStatus.cs" />
     <Compile Include="Intangible\Enumeration\PaymentStatusType.cs" />
     <Compile Include="Intangible\Enumeration\RsvpResponseType.cs" />
     <Compile Include="Intangible\Enumeration\Specialty.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Intangible\Invoice.cs" />
     <Compile Include="Intangible\JobPosting.cs" />
     <Compile Include="Intangible\Order.cs" />
+    <Compile Include="Intangible\ParcelDelivery.cs" />
     <Compile Include="Intangible\Quantities\Mass.cs" />
     <Compile Include="Intangible\Quantity.cs">
       <SubType>Code</SubType>
@@ -263,7 +265,7 @@
     <Compile Include="Intangible\StructuredValue\PropertyValue.cs" />
     <Compile Include="Intangible\Ticket.cs" />
     <Compile Include="Actions\InteractAction.cs" />
-    <Compile Include="Language.cs" />
+    <Compile Include="Intangible\Language.cs" />
     <Compile Include="Intangible\ListItem.cs" />
     <Compile Include="LocalBusiness.cs" />
     <Compile Include="Actions\AchieveActions\LoseAction.cs" />
