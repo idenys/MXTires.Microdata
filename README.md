@@ -1,8 +1,12 @@
 # MXTires.Microdata
 MXTires.Microdata is framework to correspond schema.org object types to .Net classes with conversion to JSON
 
+## Prerequisites
+Visual Studio 2008 or higher
+[NuGet](https://github.com/paypal/rest-api-sdk-dotnet#nuget "NuGet")
+
 ## Code example of defining a Product:
-[This link](https://schema.org/Product/ "Product")
+[https://schema.org/Product](https://schema.org/Product/ "Product")
 ```
         public void SimpleProduct()
         {
@@ -16,3 +20,17 @@ MXTires.Microdata is framework to correspond schema.org object types to .Net cla
             System.Diagnostics.Debug.Write(product.ToJson());
         }
 ```
+
+## Code example of defining an Event:
+[https://schema.org/Event](https://schema.org/Event/ "Event")
+```
+        public void EventTest()
+        {
+            var baseEvent = new Event();
+            baseEvent.Attendee = new Person();
+            System.Diagnostics.Debug.WriteLine(baseEvent.ToIndentedJson());
+        
+        }
+```
+## Dependencies
+[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/ "Newtonsoft.Json")(>= 7.0.0)
