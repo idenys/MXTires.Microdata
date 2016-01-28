@@ -23,7 +23,10 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
 using System.Collections.Generic;
+using MXTires.Microdata.Events;
+using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -34,6 +37,53 @@ namespace MXTires.Microdata.Intangible
     /// </summary>
     public class ParcelDelivery : Thing
     {
+        /// <summary>
+        /// PostalAddress - Destination address.
+        /// </summary>
+        [JsonProperty("deliveryAddress")]
+        public PostalAddress DeliveryAddress { get; set; }
+
+        /// <summary>
+        /// DeliveryEvent - New entry added as the package passes through each leg of its journey (from shipment to final delivery).
+        /// </summary>
+        [JsonProperty("deliveryStatus")]
+        public DeliveryEvent DeliveryStatus { get; set; }
+
+        /// <summary>
+        /// DateTime - The earliest date the package may arrive.
+        /// </summary>
+        [JsonProperty("expectedArrivalFrom")]
+        public DateTime? ExpectedArrivalFrom { get; set; }
+
+        /// <summary>
+        /// DateTime - The latest date the package may arrive.
+        /// </summary>
+        [JsonProperty("expectedArrivalUntil")]
+        public DateTime? ExpectedArrivalUntil { get; set; }
+
+        /// <summary>
+        /// DeliveryMethod 	Method used for delivery or shipping.
+        /// </summary>
+        [JsonProperty("hasDeliveryMethod")]
+        public DeliveryMethod HasDeliveryMethod { get; set; }
+
+        /// <summary>
+        /// Product - Item(s) being shipped.
+        /// </summary>
+        [JsonProperty("itemShipped")]
+        public Product ItemShipped { get; set; }
+
+        /// <summary>
+        /// PostalAddress - Shipper's address.
+        /// </summary>
+        [JsonProperty("originAddress")]
+        public PostalAddress OriginAddress { get; set; }
+
+        /// <summary>
+        /// Order - The overall order the items in this delivery were included in.
+        /// </summary>
+        [JsonProperty("partOfOrder")]
+        public Order PartOfOrder { get; set; }
 
         Thing provider;
         /// <summary>
@@ -50,5 +100,17 @@ namespace MXTires.Microdata.Intangible
                 provider = value;
             }
         }
+
+        /// <summary>
+        /// Text - Shipper tracking number.
+        /// </summary>
+        [JsonProperty("trackingNumber")]
+        public String TrackingNumber { get; set; }
+
+        /// <summary>
+        /// URL - Tracking url for the parcel delivery.
+        /// </summary>
+        [JsonProperty("trackingUrl")]
+        public String TrackingUrl { get; set; }
     }
 }
