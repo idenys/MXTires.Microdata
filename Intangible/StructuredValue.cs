@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,36 +23,12 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using Newtonsoft.Json;
 namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// Used to describe a seat, such as a reserved seat in an event reservation.
+    /// Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing.
     /// </summary>
-    public class Seat : Thing
+    public class StructuredValue : Thing
     {
-        /// <summary>
-        /// Text - The location of the reserved seat (e.g., 27).
-        /// </summary>
-        [JsonProperty("seatNumber")]
-        public string SeatNumber { get; set; }
-
-        /// <summary>
-        /// Text - The row location of the reserved seat (e.g., B).
-        /// </summary>
-        [JsonProperty("seatRow")]
-        public string SeatRow { get; set; }
-
-        /// <summary>
-        /// Text - The section location of the reserved seat (e.g. Orchestra).
-        /// </summary>
-        [JsonProperty("seatSection")]
-        public string SeatSection { get; set; }
-
-        /// <summary>
-        /// Text  or QualitativeValue - The type/class of the seat.
-        /// </summary>
-        [JsonProperty("seatingType")]
-        public string SeatingType { get; set; }
     }
 }

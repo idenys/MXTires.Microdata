@@ -33,19 +33,19 @@ namespace MXTires.Microdata.Intangible
     public class PropertyValueSpecification : Thing
     {
         /// <summary>
-        /// Text  or Thing 	The default value of the input. For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.
+        /// Text  or Thing - The default value of the input. For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.
         /// </summary>
         [JsonProperty("defaultValue")]
         public object DefaultValue { get; set; }
 
         /// <summary>
-        /// Number 	The upper value of some characteristic or property.
+        /// Number - The upper value of some characteristic or property.
         /// </summary>
         [JsonProperty("maxValue")]
         public Int64? MaxValue { get; set; }
 
         /// <summary>
-        /// Number 	The lower value of some characteristic or property.
+        /// Number - The lower value of some characteristic or property.
         /// </summary>
         [JsonProperty("minValue")]
         public Int64? MinValue { get; set; }
@@ -63,19 +63,19 @@ namespace MXTires.Microdata.Intangible
         public Boolean ReadonlyValue { get; set; }
 
         /// <summary>
-        /// Number 	The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification.
+        /// Number - The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification.
         /// </summary>
         [JsonProperty("stepValue")]
         public Int64? StepValue { get; set; }
 
         /// <summary>
-        /// Number 	Specifies the allowed range for number of characters in a literal value.
+        /// Number - Specifies the allowed range for number of characters in a literal value.
         /// </summary>
         [JsonProperty("valueMaxLength")]
         public Int64? ValueMaxLength { get; set; }
 
         /// <summary>
-        /// Number 	Specifies the minimum allowed range for number of characters in a literal value.
+        /// Number -Specifies the minimum allowed range for number of characters in a literal value.
         /// </summary>
         [JsonProperty("valueMinLength")]
         public Int64? ValueMinLength { get; set; }

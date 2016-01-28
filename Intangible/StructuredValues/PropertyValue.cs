@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace MXTires.Microdata.Intangible.StructuredValue
+namespace MXTires.Microdata.Intangible.StructuredValues
 {
     /// <summary>
     /// A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. 

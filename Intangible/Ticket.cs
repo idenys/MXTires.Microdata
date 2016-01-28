@@ -41,7 +41,7 @@ namespace MXTires.Microdata.Intangible
         public DateTime? DateIssued { get; set; }
 
         /// <summary>
-        /// Organization 	The organization issuing the ticket or permit.
+        /// Organization - The organization issuing the ticket or permit.
         /// </summary>
         /// <value>The issued by.</value>
         [JsonProperty("issuedBy")]

@@ -30,7 +30,7 @@ using System.Web;
 using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 using MXTires.Microdata.Intangible.Quantities;
-using MXTires.Microdata.Intangible.StructuredValue;
+using MXTires.Microdata.Intangible.StructuredValues;
 
 namespace MXTires.Microdata
 {

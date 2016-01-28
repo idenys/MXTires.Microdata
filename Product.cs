@@ -31,8 +31,8 @@ using System.Web;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json.Converters;
-using MXTires.Microdata.Intangible.StructuredValue;
 using MXTires.Microdata.Intangible.Enumeration.Medical;
+using MXTires.Microdata.Intangible.StructuredValues;
 
 namespace MXTires.Microdata
 {

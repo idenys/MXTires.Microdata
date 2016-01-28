@@ -15,7 +15,7 @@ namespace MXTires.Microdata.Places
         /// Gets or sets the additional property.
         /// </summary>
         /// <value>The additional property.</value>
-        MXTires.Microdata.Intangible.StructuredValue.PropertyValue AdditionalProperty { get; set; }
+        MXTires.Microdata.Intangible.StructuredValues.PropertyValue AdditionalProperty { get; set; }
         /// <summary>
         /// Gets or sets the address.
         /// </summary>
@@ -45,7 +45,7 @@ namespace MXTires.Microdata.Places
         /// Gets or sets the geo.
         /// </summary>
         /// <value>The geo.</value>
-        MXTires.Microdata.Intangible.StructuredValue.GeoCoordinates Geo { get; set; }
+        MXTires.Microdata.Intangible.StructuredValues.GeoCoordinates Geo { get; set; }
         /// <summary>
         /// Gets or sets the global location number.
         /// </summary>
@@ -75,7 +75,7 @@ namespace MXTires.Microdata.Places
         /// Gets or sets the opening hours specification.
         /// </summary>
         /// <value>The opening hours specification.</value>
-        System.Collections.Generic.List<MXTires.Microdata.Intangible.StructuredValue.OpeningHoursSpecification> OpeningHoursSpecification { get; set; }
+        System.Collections.Generic.List<MXTires.Microdata.Intangible.StructuredValues.OpeningHoursSpecification> OpeningHoursSpecification { get; set; }
         /// <summary>
         /// Gets or sets the photo.
         /// </summary>

@@ -26,7 +26,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Intangible.StructuredValue
+namespace MXTires.Microdata.Intangible.StructuredValues
 {
     /// <summary>
     /// The geographic coordinates of a place or event.

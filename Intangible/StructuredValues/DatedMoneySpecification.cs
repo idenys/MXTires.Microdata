@@ -24,7 +24,7 @@
 #endregion
 
 using Newtonsoft.Json;
-namespace MXTires.Microdata.Intangible.StructuredValue
+namespace MXTires.Microdata.Intangible.StructuredValues
 {
     /// <summary>
     /// A DatedMoneySpecification represents monetary values with optional start and end dates.

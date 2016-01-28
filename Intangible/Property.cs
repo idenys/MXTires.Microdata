@@ -50,7 +50,7 @@ namespace MXTires.Microdata.Intangible
         public Class RangeIncludes { get; set; }
 
         /// <summary>
-        /// Property 	Relates a property to one that supersedes it.
+        /// Property - Relates a property to one that supersedes it.
         /// </summary>
         [JsonProperty("supersededBy")]
         public Property SupersededBy { get; set; }

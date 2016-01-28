@@ -24,9 +24,9 @@
 #endregion
 
 using System.Collections.Generic;
-using MXTires.Microdata.Intangible.StructuredValue;
 using Newtonsoft.Json;
 using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Intangible.StructuredValues;
 
 namespace MXTires.Microdata
 {

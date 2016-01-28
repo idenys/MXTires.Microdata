@@ -23,40 +23,40 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
-namespace MXTires.Microdata.Intangible.StructuredValue
+namespace MXTires.Microdata.Intangible.StructuredValues
 {
     /// <summary>
-    /// A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
+    /// A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
     /// </summary>
-    public class TypeAndQuantityNode : Thing
+    public class WarrantyPromise : Thing
     {
         /// <summary>
-        /// Number 	The quantity of the goods included in the offer.
+        /// QuantitativeValue 	The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
         /// </summary>
-        [JsonProperty("amountOfThisGood")]
-        public float AmountOfThisGood { get; set; }		
+        /// <value>The duration of warranty.</value>
+        [JsonProperty("durationOfWarranty")]
+        public QuantitativeValue DurationOfWarranty { get; private set; }
 
         /// <summary>
-        /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
+        /// WarrantyScope 	The scope of the warranty promise.
         /// </summary>
-        [JsonProperty("businessFunction")]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public BusinessFunction BusinessFunction { get; set; }		
-        
-        /// <summary>
-        /// Product 	The product that this structured value is referring to.
-        /// </summary>
-        [JsonProperty("typeOfGood")]
-        public Product TypeOfGood  { get; set; }		
+        /// <value>The warranty scope.</value>
+        [JsonProperty("warrantyScope")]
+        public WarrantyScope WarrantyScope { get; private set; }
 
         /// <summary>
-        /// Text - The unit of measurement given using the UN/CEFACT Common Code (3 characters).
+        /// Initializes a new instance of the <see cref="WarrantyPromise"/> class.
         /// </summary>
-        [JsonProperty("unitCode")]
-        public string UnitCode  { get; set; }		
+        /// <param name="durationOfWarranty">The duration of warranty.</param>
+        /// <param name="warrantyScope">The warranty scope.</param>
+        public WarrantyPromise(QuantitativeValue durationOfWarranty, WarrantyScope warrantyScope) {
+            DurationOfWarranty = durationOfWarranty;
+            WarrantyScope = warrantyScope;
+        }
     }
 }

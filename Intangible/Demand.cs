@@ -26,7 +26,7 @@
 using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
-using MXTires.Microdata.Intangible.StructuredValue;
+using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 

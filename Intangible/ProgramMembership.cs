@@ -46,8 +46,9 @@ namespace MXTires.Microdata.Intangible
         Thing member;
         /// <summary>
         /// Organization  or Person - A member of an Organization or a ProgramMembership.
-        /// Organizations can be members of organizations; ProgramMembership is typically for individuals. Supersedes members, musicGroupMember.
-        /// Inverse property: memberOf.
+        /// Organizations can be members of organizations; ProgramMembership is typically for individuals. 
+        /// Supersedes <see cref="Members"/>, musicGroupMember.
+        /// Inverse property: <see cref="MemberOf"/> .
         /// </summary>
         /// <value>The member.</value>
         [JsonProperty("member")]

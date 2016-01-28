@@ -24,39 +24,37 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
-
-namespace MXTires.Microdata.Intangible.StructuredValue
+namespace MXTires.Microdata.Intangible.StructuredValues
 {
     /// <summary>
-    /// A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
+    /// A structured value providing information about when a certain organization or person owned a certain product
     /// </summary>
-    public class WarrantyPromise : Thing
+    public class OwnershipInfo : Thing
     {
         /// <summary>
-        /// QuantitativeValue 	The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
+        /// Organization  or  Person - The organization or person from which the product was acquired.
         /// </summary>
-        /// <value>The duration of warranty.</value>
-        [JsonProperty("durationOfWarranty")]
-        public QuantitativeValue DurationOfWarranty { get; private set; }
+        [JsonProperty("acquiredFrom")]
+        public Thing AcquiredFrom { get; set; }
 
         /// <summary>
-        /// WarrantyScope 	The scope of the warranty promise.
+        /// DateTime - The date and time of obtaining the product.
         /// </summary>
-        /// <value>The warranty scope.</value>
-        [JsonProperty("warrantyScope")]
-        public WarrantyScope WarrantyScope { get; private set; }
+        [JsonProperty("ownedFrom")]
+        public DateTime? OwnedFrom { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WarrantyPromise"/> class.
+        /// DateTime - The date and time of giving up ownership on the product.
         /// </summary>
-        /// <param name="durationOfWarranty">The duration of warranty.</param>
-        /// <param name="warrantyScope">The warranty scope.</param>
-        public WarrantyPromise(QuantitativeValue durationOfWarranty, WarrantyScope warrantyScope) {
-            DurationOfWarranty = durationOfWarranty;
-            WarrantyScope = warrantyScope;
-        }
+        [JsonProperty("ownedThrough")]
+        public DateTime? OwnedThrough { get; set; }
+
+
+        /// <summary>
+        /// Product - The product that this structured value is referring to.
+        /// </summary>
+        [JsonProperty("typeOfGood")]
+        public Product TypeOfGood { get; set; }
     }
 }

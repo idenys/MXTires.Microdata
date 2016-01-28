@@ -26,7 +26,7 @@
 using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Intangible.StructuredValue
+namespace MXTires.Microdata.Intangible.StructuredValues
 {
     /// <summary>
     /// A structured value providing information about the opening hours of a place or a certain service inside a place.

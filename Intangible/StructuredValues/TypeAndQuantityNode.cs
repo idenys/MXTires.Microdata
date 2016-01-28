@@ -23,38 +23,40 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
+using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
-namespace MXTires.Microdata.Intangible.StructuredValue
+using Newtonsoft.Json.Converters;
+
+namespace MXTires.Microdata.Intangible.StructuredValues
 {
     /// <summary>
-    /// A structured value providing information about when a certain organization or person owned a certain product
+    /// A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
     /// </summary>
-    public class OwnershipInfo : Thing
+    public class TypeAndQuantityNode : Thing
     {
         /// <summary>
-        /// Organization  or  Person - The organization or person from which the product was acquired.
+        /// Number 	The quantity of the goods included in the offer.
         /// </summary>
-        [JsonProperty("acquiredFrom")]
-        public Thing AcquiredFrom { get; set; }
+        [JsonProperty("amountOfThisGood")]
+        public float AmountOfThisGood { get; set; }		
 
         /// <summary>
-        /// DateTime - The date and time of obtaining the product.
+        /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
         /// </summary>
-        [JsonProperty("ownedFrom")]
-        public DateTime? OwnedFrom { get; set; }
-
+        [JsonProperty("businessFunction")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public BusinessFunction BusinessFunction { get; set; }		
+        
         /// <summary>
-        /// DateTime - The date and time of giving up ownership on the product.
-        /// </summary>
-        [JsonProperty("ownedThrough")]
-        public DateTime? OwnedThrough { get; set; }
-
-
-        /// <summary>
-        /// Product - The product that this structured value is referring to.
+        /// Product 	The product that this structured value is referring to.
         /// </summary>
         [JsonProperty("typeOfGood")]
-        public Product TypeOfGood { get; set; }
+        public Product TypeOfGood  { get; set; }		
+
+        /// <summary>
+        /// Text - The unit of measurement given using the UN/CEFACT Common Code (3 characters).
+        /// </summary>
+        [JsonProperty("unitCode")]
+        public string UnitCode  { get; set; }		
     }
 }

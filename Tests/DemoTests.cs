@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MXTires.Microdata;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
-using MXTires.Microdata.Intangible.StructuredValue;
+using MXTires.Microdata.Intangible.StructuredValues;
 
 namespace MXTires.Microdata.Tests
 {

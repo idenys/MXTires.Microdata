@@ -23,50 +23,20 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
-using System;
-using MXTires.Microdata.Intangible.StructuredValues;
 
-namespace MXTires.Microdata.CreativeWorks
+namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// Class ImageObject.
+    /// Enumerated status values for Reservation.
     /// </summary>
-    public class ImageObject : MediaObject
+    public enum ReservationStatusType
     {
-        /// <summary>
-        /// Text - The caption for this object.
-        /// </summary>
-        [JsonProperty("caption")]
-        public string Caption { get; set; }
-
-        object exifData;
-        /// <summary>
-        /// Text  or PropertyValue exif data for this object.
-        /// </summary>
-        [JsonProperty("exifData")]
-        public object ExifData
-        {
-            get { return exifData; }
-            set
-            {
-                var validator = new TypeValidator(typeof(String), typeof(PropertyValue));
-                validator.Validate(value);
-                exifData = value;
-            }
-        }
-
-        /// <summary>
-        /// Boolean - Indicates whether this image is representative of the content of the page.
-        /// </summary>
-        [JsonProperty("representativeOfPage")]
-        public bool? RepresentativeOfPage { get; set; }
-
-        /// <summary>
-        /// ImageObject -Thumbnail image for an image or video.
-        /// </summary>
-        [JsonProperty("thumbnail")]
-        public ImageObject Thumbnail { get; set; }
+        ReservationCancelled,
+        ReservationConfirmed,
+        ReservationHold,
+        ReservationPending,
     }
 }
