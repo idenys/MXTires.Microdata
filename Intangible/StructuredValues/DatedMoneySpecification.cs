@@ -30,7 +30,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// A DatedMoneySpecification represents monetary values with optional start and end dates.
     /// For example, this could represent an employee's salary over a specific period of time.
     /// </summary>
-    public class DatedMoneySpecification : Thing
+    public class DatedMoneySpecification : StructuredValue
     {
         /// <summary>
         /// Number - The amount of money.

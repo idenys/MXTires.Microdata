@@ -30,7 +30,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// <summary>
     /// A structured value providing information about when a certain organization or person owned a certain product
     /// </summary>
-    public class OwnershipInfo : Thing
+    public class OwnershipInfo : StructuredValue
     {
         /// <summary>
         /// Organization  or  Person - The organization or person from which the product was acquired.

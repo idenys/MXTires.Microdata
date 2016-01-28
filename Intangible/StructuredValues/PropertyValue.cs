@@ -9,7 +9,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// Always use specific schema.org properties when a) they exist and b) you can populate them. 
     /// Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.
     /// </summary>
-    public class PropertyValue : Thing
+    public class PropertyValue : StructuredValue
     {
         /// <summary>
         /// Number - The upper value of some characteristic or property.

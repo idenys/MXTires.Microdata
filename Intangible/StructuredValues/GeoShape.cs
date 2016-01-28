@@ -31,7 +31,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// <summary>
     /// The geographic shape of a place.
     /// </summary>
-    public class GeoShape : Thing
+    public class GeoShape : StructuredValue
     {
         /// <summary>
         /// Text 	A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.

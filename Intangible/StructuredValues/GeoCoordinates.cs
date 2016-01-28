@@ -31,7 +31,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// <summary>
     /// The geographic coordinates of a place or event.
     /// </summary>
-    public class GeoCoordinates : Thing
+    public class GeoCoordinates : StructuredValue
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GeoCoordinates"/> class.

@@ -32,7 +32,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// <summary>
     /// A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
     /// </summary>
-    public class TypeAndQuantityNode : Thing
+    public class TypeAndQuantityNode : StructuredValue
     {
         /// <summary>
         /// Number 	The quantity of the goods included in the offer.

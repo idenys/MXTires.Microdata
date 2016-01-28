@@ -31,7 +31,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// <summary>
     /// A structured value providing information about the opening hours of a place or a certain service inside a place.
     /// </summary>
-    public class OpeningHoursSpecification : Thing
+    public class OpeningHoursSpecification : StructuredValue
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OpeningHoursSpecification"/> class.
