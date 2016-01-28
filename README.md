@@ -33,4 +33,8 @@ Visual Studio 2008 or higher
         }
 ```
 ## Dependencies
-[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/ "Newtonsoft.Json")(>= 7.0.0)
+[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/ "Newtonsoft.Json") (>= 7.0.0)
+
+##License
+
+[1010Tires.com](http://www.1010tires.com/). License - [License.md](https://github.com/idenys/MXTires.Microdata/blob/master/License.md)
