@@ -504,6 +504,7 @@
     <Compile Include="WPFooter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ChangeLog.md" />
     <None Include="License.md" />
     <None Include="MXTires.MicroData.snk" />
     <None Include="packages.config" />
