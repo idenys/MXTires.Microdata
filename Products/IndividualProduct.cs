@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,30 +23,29 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using MXTires.Microdata.Validators;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Products
 {
     /// <summary>
-    /// A datasheet or vendor specification of a product (in the sense of a prototypical description).
+    /// A single, identifiable product instance (e.g. a laptop with a particular serial number).
     /// </summary>
-    public class ProductModel : Product
+    public class IndividualProduct : Product
     {
+        string serialNumber;
         /// <summary>
-        /// A pointer to a base product from which this product is a variant. 
-        /// It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive.
+        /// Text 	The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
         /// </summary>
-        public ProductModel isVariantOf { get; set; }
-        /// <summary>
-        /// A pointer from a previous, often discontinued variant of the product to its newer variant.
-        /// </summary>
-        public ProductModel predecessorOf { get; set; }
-        /// <summary>
-        /// A pointer from a newer variant of a product to its previous, often discontinued predecessor.
-        /// </summary>
-        public ProductModel successorOf { get; set; }
+        [JsonProperty("serialNumber")]
+        public string SerialNumber
+        {
+            get { return this.serialNumber; }
+            set
+            {
+                this.serialNumber = value;
+            }
+        }
     }
 }

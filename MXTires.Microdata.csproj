@@ -217,7 +217,7 @@
     <Compile Include="Intangible\Enumeration\BookFormatType.cs" />
     <Compile Include="Intangible\Enumeration\BusinessEntityType.cs" />
     <Compile Include="Intangible\Enumeration\BusinessFunction.cs" />
-    <Compile Include="Car.cs" />
+    <Compile Include="Products\Car.cs" />
     <Compile Include="ContactPoint.cs" />
     <Compile Include="Corporation.cs" />
     <Compile Include="Intangible\Enumeration\ContactPointOption.cs" />
@@ -263,6 +263,7 @@
     <Compile Include="Intangible\ServiceChannel.cs" />
     <Compile Include="Intangible\StructuredValue.cs" />
     <Compile Include="Intangible\StructuredValues\DatedMoneySpecification.cs" />
+    <Compile Include="Intangible\StructuredValues\EngineSpecification.cs" />
     <Compile Include="Intangible\StructuredValues\GeoCoordinates.cs" />
     <Compile Include="Intangible\StructuredValues\GeoShape.cs" />
     <Compile Include="Intangible\Enumeration\ItemAvailability.cs" />
@@ -476,8 +477,9 @@
     <Compile Include="Places\TouristAttraction.cs" />
     <Compile Include="PostalAddress.cs" />
     <Compile Include="PriceSpecification.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductModel.cs" />
+    <Compile Include="Products\IndividualProduct.cs" />
+    <Compile Include="Products\Product.cs" />
+    <Compile Include="Products\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicationEvent.cs" />
     <Compile Include="QuantitativeValue.cs" />
@@ -487,19 +489,19 @@
     <Compile Include="Actions\SearchAction.cs" />
     <Compile Include="Thing.cs" />
     <Compile Include="Actions\AchieveActions\TieAction.cs" />
-    <Compile Include="Tire.cs" />
+    <Compile Include="Products\Tire.cs" />
     <Compile Include="TireShop.cs" />
     <Compile Include="Intangible\StructuredValues\TypeAndQuantityNode.cs" />
     <Compile Include="Actions\TradeAction.cs" />
     <Compile Include="Validators\TypeUtil.cs" />
     <Compile Include="Validators\TypeValidator.cs" />
     <Compile Include="Validators\Validator.cs" />
-    <Compile Include="Vehicle.cs" />
+    <Compile Include="Products\Vehicle.cs" />
     <Compile Include="VideoObject.cs" />
     <Compile Include="Intangible\StructuredValues\WarrantyPromise.cs" />
     <Compile Include="Intangible\Enumeration\WarrantyScope.cs" />
-    <Compile Include="WebSite.cs" />
-    <Compile Include="Wheel.cs" />
+    <Compile Include="CreativeWorks\WebSite.cs" />
+    <Compile Include="Products\Wheel.cs" />
     <Compile Include="Actions\AchieveActions\WinAction.cs" />
     <Compile Include="WPFooter.cs" />
   </ItemGroup>
