@@ -23,25 +23,29 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Collections.Generic;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Products
 {
     /// <summary>
-    /// A single, identifiable product instance (e.g. a laptop with a particular serial number).
+    /// A placeholder for multiple similar products of the same kind.
     /// </summary>
-    public class IndividualProduct : Product
+    public class SomeProducts : Product
     {
-        string serialNumber;
+        QuantitativeValue inventoryLevel;
         /// <summary>
-        /// Text - The serial number or any alphanumeric identifier of a particular product. 
-        /// When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+        /// QuantitativeValue - The current approximate inventory level for the item or items.
         /// </summary>
-        [JsonProperty("serialNumber")]
-        public string SerialNumber
+        [JsonProperty("inventoryLevel")]
+        public QuantitativeValue InventoryLevel
         {
-            get { return this.serialNumber; }
-            set { this.serialNumber = value; }
+            get { return this.inventoryLevel; }
+            set
+            {
+                this.inventoryLevel = value;
+            }
         }
     }
 }

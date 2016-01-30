@@ -480,6 +480,7 @@
     <Compile Include="Products\IndividualProduct.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Products\ProductModel.cs" />
+    <Compile Include="Products\SomeProducts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicationEvent.cs" />
     <Compile Include="QuantitativeValue.cs" />
