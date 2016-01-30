@@ -151,7 +151,7 @@
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
     <Compile Include="BroadcastService.cs" />
-    <Compile Include="Comment.cs" />
+    <Compile Include="CreativeWorks\Comment.cs" />
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />
     <Compile Include="Actions\ControlActions\ControlAction.cs" />
     <Compile Include="Actions\CreateActions\CreateAction.cs" />
