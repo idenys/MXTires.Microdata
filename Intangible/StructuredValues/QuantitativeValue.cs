@@ -23,20 +23,16 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.StructuredValues;
+using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {
     /// <summary>
     /// A point value or interval for product characteristics and other purposes.
     /// </summary>
-    public class QuantitativeValue : Thing
+    public class QuantitativeValue : StructuredValue
     {
         /// <summary>
         /// Gets or sets the additional property.

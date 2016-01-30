@@ -275,7 +275,7 @@
     <Compile Include="Intangible\Language.cs" />
     <Compile Include="Intangible\ListItem.cs" />
     <Compile Include="Intangible\TrainTrip.cs" />
-    <Compile Include="LocalBusiness.cs" />
+    <Compile Include="LocalBusinesses\LocalBusiness.cs" />
     <Compile Include="Actions\AchieveActions\LoseAction.cs" />
     <Compile Include="LocalBusinesses\AnimalShelter.cs" />
     <Compile Include="LocalBusinesses\AutomotiveBusinesses\AutoBodyShop.cs" />
@@ -483,7 +483,7 @@
     <Compile Include="Products\SomeProducts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicationEvent.cs" />
-    <Compile Include="QuantitativeValue.cs" />
+    <Compile Include="Intangible\StructuredValues\QuantitativeValue.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Intangible\Rating.cs" />
     <Compile Include="Review.cs" />
@@ -491,7 +491,7 @@
     <Compile Include="Thing.cs" />
     <Compile Include="Actions\AchieveActions\TieAction.cs" />
     <Compile Include="Products\Tire.cs" />
-    <Compile Include="TireShop.cs" />
+    <Compile Include="LocalBusinesses\Stores\TireShop.cs" />
     <Compile Include="Intangible\StructuredValues\TypeAndQuantityNode.cs" />
     <Compile Include="Actions\TradeAction.cs" />
     <Compile Include="Validators\TypeUtil.cs" />
