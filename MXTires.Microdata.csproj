@@ -219,7 +219,7 @@
     <Compile Include="Intangible\Enumeration\BusinessFunction.cs" />
     <Compile Include="Products\Car.cs" />
     <Compile Include="ContactPoint.cs" />
-    <Compile Include="Corporation.cs" />
+    <Compile Include="Organizations\Corporation.cs" />
     <Compile Include="Intangible\Enumeration\ContactPointOption.cs" />
     <Compile Include="Intangible\Enumeration\CreditCard.cs" />
     <Compile Include="Intangible\Enumeration\DaysOfWeek.cs" />
@@ -404,7 +404,7 @@
     <Compile Include="Actions\MoveAction.cs" />
     <Compile Include="MedicalEntities\MedicalEntity.cs" />
     <Compile Include="MedicalEntities\MedicalTest.cs" />
-    <Compile Include="Organization.cs" />
+    <Compile Include="Organizations\Organization.cs" />
     <Compile Include="Intangible\Enumeration\PaymentMethod.cs" />
     <Compile Include="Actions\OrganizeAction.cs" />
     <Compile Include="Organizations\Airline.cs" />
@@ -484,7 +484,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicationEvent.cs" />
     <Compile Include="Intangible\StructuredValues\QuantitativeValue.cs" />
-    <Compile Include="Question.cs" />
+    <Compile Include="CreativeWorks\Question.cs" />
     <Compile Include="Intangible\Rating.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="Actions\SearchAction.cs" />
