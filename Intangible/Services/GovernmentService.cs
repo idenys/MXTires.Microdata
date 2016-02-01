@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,19 +23,21 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Intangible
+namespace MXTires.Microdata.Intangible.Services
 {
     /// <summary>
-    /// A service which provides access to media programming like TV or radio. Access may be via cable or satellite.
+    /// A service provided by a government organization, e.g. food stamps, veterans benefits, etc.
     /// </summary>
-    public class CableOrSatelliteService : Service
+    public class GovernmentService : Service
     {
+        /// <summary>
+        /// The operating organization, if different from the provider. This enables the representation of services that are provided by an organization, but operated by another organization like a subcontractor.
+        /// </summary>
+        [JsonProperty("serviceOperator")]
+        public Organization ServiceOperator { get; set; }
     }
 }

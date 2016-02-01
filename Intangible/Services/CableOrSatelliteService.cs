@@ -23,25 +23,12 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using MXTires.Microdata.Intangible.Services;
-using Newtonsoft.Json;
-namespace MXTires.Microdata.Events
+namespace MXTires.Microdata.Intangible.Services
 {
     /// <summary>
-    /// A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.
+    /// A service which provides access to media programming like TV or radio. Access may be via cable or satellite.
     /// </summary>
-    public class PublicationEvent : Event
+    public class CableOrSatelliteService : Service
     {
-        /// <summary>
-        /// Boolean - A flag to signal that the publication is accessible for free.
-        /// </summary>
-        [JsonProperty("free")]
-        public bool Free { get; set; }
-
-        /// <summary>
-        /// BroadcastService - A broadcast service associated with the publication event.
-        /// </summary>
-        [JsonProperty("publishedOn")]
-        public BroadcastService PublishedOn { get; set; }
     }
 }

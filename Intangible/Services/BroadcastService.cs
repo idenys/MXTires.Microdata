@@ -24,12 +24,12 @@
 #endregion
 
 using Newtonsoft.Json;
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Intangible.Services
 {
     /// <summary>
     /// A delivery service through which content is provided via broadcast over the air or online.
     /// </summary>
-    public class BroadcastService : Thing
+    public class BroadcastService : Service
     {
         /// <summary>
         /// Place -	The area within which users can expect to reach the broadcast service.

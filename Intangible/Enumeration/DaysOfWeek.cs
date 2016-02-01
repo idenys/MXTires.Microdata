@@ -24,11 +24,21 @@
 #endregion
 
 using System;
+using System.Runtime.Serialization;
 
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// Enum DaysOfWeek
+    /// The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer. 
+    /// Commonly used values:
+    /// http://purl.org/goodrelations/v1#Monday 
+    /// http://purl.org/goodrelations/v1#Tuesday 
+    /// http://purl.org/goodrelations/v1#Wednesday 
+    /// http://purl.org/goodrelations/v1#Thursday 
+    /// http://purl.org/goodrelations/v1#Friday 
+    /// http://purl.org/goodrelations/v1#Saturday 
+    /// http://purl.org/goodrelations/v1#Sunday 
+    /// http://purl.org/goodrelations/v1#PublicHolidays 
     /// </summary>
     [Flags]
     public enum DaysOfWeek
@@ -36,30 +46,42 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Monday
         /// </summary>
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#Monday")]
         Mo = 1 << 0,
         /// <summary>
         /// Tuesday
         /// </summary>
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#Tuesday ")]
         Tu = 1 << 1,
         /// <summary>
         /// Wednesday
         /// </summary>
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#Wednesday")]
         We = 1 << 2,
         /// <summary>
         /// Thursday
         /// </summary>
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#Thursday")]
         Th = 1 << 3,
         /// <summary>
         /// Friday
         /// </summary>
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#Friday")]
         Fr = 1 << 4,
         /// <summary>
         /// Saturday
         /// </summary>
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#Saturday")]
         Sa = 1 << 5,
         /// <summary>
         /// Sunday
         /// </summary>
-        Su = 1 << 6
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#Sunday")]
+        Su = 1 << 6,
+        /// <summary>
+        /// Sunday
+        /// </summary>
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#PublicHolidays")]
+        PublicHolidays = 1 << 7,
     }
 }

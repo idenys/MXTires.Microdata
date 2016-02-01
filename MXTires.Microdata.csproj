@@ -150,7 +150,7 @@
     <Compile Include="Attributes\ActorAttribute.cs" />
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
-    <Compile Include="BroadcastService.cs" />
+    <Compile Include="Intangible\Services\BroadcastService.cs" />
     <Compile Include="CreativeWorks\Comment.cs" />
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />
     <Compile Include="Actions\ControlActions\ControlAction.cs" />
@@ -200,7 +200,7 @@
     <Compile Include="Intangible\BreadcrumbList.cs" />
     <Compile Include="Intangible\BroadcastChannel.cs" />
     <Compile Include="Intangible\BusTrip.cs" />
-    <Compile Include="Intangible\CableOrSatelliteService.cs" />
+    <Compile Include="Intangible\Services\CableOrSatelliteService.cs" />
     <Compile Include="Intangible\Class.cs" />
     <Compile Include="Intangible\Demand.cs" />
     <Compile Include="Intangible\EntryPoint.cs" />
@@ -217,6 +217,9 @@
     <Compile Include="Intangible\Enumeration\BookFormatType.cs" />
     <Compile Include="Intangible\Enumeration\BusinessEntityType.cs" />
     <Compile Include="Intangible\Enumeration\BusinessFunction.cs" />
+    <Compile Include="Intangible\Services\GovernmentService.cs" />
+    <Compile Include="Intangible\Services\Taxi.cs" />
+    <Compile Include="Intangible\Services\TaxiService.cs" />
     <Compile Include="Products\Car.cs" />
     <Compile Include="ContactPoint.cs" />
     <Compile Include="Organizations\Corporation.cs" />
@@ -259,7 +262,7 @@
     <Compile Include="Intangible\Reservation.cs" />
     <Compile Include="Intangible\Role.cs" />
     <Compile Include="Intangible\Seat.cs" />
-    <Compile Include="Intangible\Service.cs" />
+    <Compile Include="Intangible\Services\Service.cs" />
     <Compile Include="Intangible\ServiceChannel.cs" />
     <Compile Include="Intangible\StructuredValue.cs" />
     <Compile Include="Intangible\StructuredValues\DatedMoneySpecification.cs" />

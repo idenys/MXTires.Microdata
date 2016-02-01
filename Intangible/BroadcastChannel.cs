@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Intangible.Services;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible
