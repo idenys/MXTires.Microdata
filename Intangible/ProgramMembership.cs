@@ -64,6 +64,27 @@ namespace MXTires.Microdata.Intangible
         }
 
         /// <summary>
+        /// The member of
+        /// </summary>
+        Thing memberOf;
+        /// <summary>
+        /// Organization  or Person -  Organization or a ProgramMembership of which this Program is a member of.
+        /// Inverse property: <see cref="Member"/> .
+        /// </summary>
+        /// <value>The member.</value>
+        [JsonProperty("memberOf")]
+        public Thing MemberOf
+        {
+            get { return memberOf; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                memberOf = value;
+            }
+        }
+
+        /// <summary>
         /// The members
         /// </summary>
         List<Thing> members;
