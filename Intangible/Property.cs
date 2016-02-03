@@ -23,6 +23,9 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 namespace MXTires.Microdata.Intangible
 {
@@ -49,10 +52,20 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("rangeIncludes")]
         public Class RangeIncludes { get; set; }
 
+        object supersededBy;
         /// <summary>
-        /// Property - Relates a property to one that supersedes it.
+        /// Property  or Enumeration  or Class - Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
         /// </summary>
         [JsonProperty("supersededBy")]
-        public Property SupersededBy { get; set; }
+        public object SupersededBy
+        {
+            get { return this.supersededBy; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(Class), typeof(Property), typeof(Enum) });
+                validator.Validate(value);
+                this.supersededBy = value;
+            }
+        }
     }
 }

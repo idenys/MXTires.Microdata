@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
@@ -44,6 +45,8 @@ namespace MXTires.Microdata.Intangible
             get { return this.supersededBy; }
             set
             {
+                var validator = new TypeValidator(new List<Type>(){typeof(Class), typeof(Property), typeof(Enum)});
+                validator.Validate(value);
                 this.supersededBy = value;
             }
         }
