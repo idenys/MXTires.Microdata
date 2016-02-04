@@ -73,12 +73,22 @@ namespace MXTires.Microdata
             }
         }
 
+        object category;
         /// <summary>
         /// Text  or <see cref="PhysicalActivityCategory" />  or <see cref="Thing" /> - A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
         /// </summary>
         /// <value>The category.</value>
         [JsonProperty("category")]
-        public object Category { get; set; }
+        public object Category
+        {
+            get { return category; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(PhysicalActivityCategory), typeof(Thing), typeof(String) });
+                validator.Validate(value);
+                category = value;
+            }
+        }
 
         /// <summary>
         /// The colour of the product.
@@ -100,6 +110,7 @@ namespace MXTires.Microdata
         /// <value>The gtin13.</value>
         [JsonProperty("gtin13")]
         public string Gtin13 { get; set; }
+
         /// <summary>
         /// The GTIN-14 code of the product, or the product to which the offer refers. See GS1 GTIN Summary for more details.
         /// </summary>
@@ -156,6 +167,7 @@ namespace MXTires.Microdata
         [JsonProperty("itemCondition")]
         [JsonConverter(typeof(StringEnumConverter))]
         public OfferItemCondition? ItemCondition { get; set; }
+
         /// <summary>
         /// ImageObject  or URL - An associated logo.
         /// </summary>
@@ -171,11 +183,11 @@ namespace MXTires.Microdata
         public Organization Manufacturer { get; set; }
 
         /// <summary>
-        /// ProductModel  or Text 	The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
+        /// ProductModel  or Text- The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
         /// </summary>
         /// <value>The model.</value>
         [JsonProperty("model")]
-        public ProductModel Model { get; set; }
+        public object Model { get; set; }
 
         /// <summary>
         /// The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
