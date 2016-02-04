@@ -35,12 +35,12 @@ namespace MXTires.Microdata.Intangible
     /// </summary>
     public class Class : Thing
     {
-        Thing supersededBy;
+        object supersededBy;
         /// <summary>
         /// Enumeration  or Class  or Property 	Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
         /// </summary>
         [JsonProperty("supersededBy")]
-        public Thing SupersededBy
+        public object SupersededBy
         {
             get { return this.supersededBy; }
             set
