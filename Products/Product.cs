@@ -33,6 +33,7 @@ using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json.Converters;
 using MXTires.Microdata.Intangible.Enumeration.Medical;
 using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata
 {
@@ -55,14 +56,22 @@ namespace MXTires.Microdata
         [JsonProperty("audience")]
         public Audience Audience { get; set; }
 
+        Thing brand;
         /// <summary>
-        /// Organization  or
-        /// Brand 	The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+        /// Organization  or Brand - The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
         /// </summary>
         /// <value>The brand.</value>
         [JsonProperty("brand")]
-        public Brand Brand { get; set; }
-
+        public Thing Brand
+        {
+            get { return brand; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Brand));
+                validator.Validate(value);
+                brand = value;
+            }
+        }
 
         /// <summary>
         /// Text  or <see cref="PhysicalActivityCategory" />  or <see cref="Thing" /> - A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
@@ -84,6 +93,7 @@ namespace MXTires.Microdata
         /// <value>The depth.</value>
         [JsonProperty("depth")]
         public QuantitativeValue Depth { get; set; }
+
         /// <summary>
         /// The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary for more details.
         /// </summary>
@@ -96,36 +106,42 @@ namespace MXTires.Microdata
         /// <value>The gtin14.</value>
         [JsonProperty("gtin14")]
         public string Gtin14 { get; set; }
+
         /// <summary>
         /// The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See GS1 GTIN Summary for more details.
         /// </summary>
         /// <value>The gtin8.</value>
         [JsonProperty("gtin8")]
         public string Gtin8 { get; set; }
+
         /// <summary>
-        /// Distance  or QuantitativeValue 	The height of the item or person.
+        /// Distance  or QuantitativeValue - The height of the item or person.
         /// </summary>
         /// <value>The height.</value>
         [JsonProperty("height")]
-        public QuantitativeValue Height { get; set; }
+        public Thing Height { get; set; }
+
         /// <summary>
         /// A pointer to another product (or multiple products) for which this product is an accessory or spare part.
         /// </summary>
         /// <value>The is accessory or spare part for.</value>
         [JsonProperty("isAccessoryOrSparePartFor")]
         public Product IsAccessoryOrSparePartFor { get; set; }
+
         /// <summary>
         /// A pointer to another product (or multiple products) for which this product is a consumable.
         /// </summary>
         /// <value>The is consumable for.</value>
         [JsonProperty("isConsumableFor")]
         public Product IsConsumableFor { get; set; }
+
         /// <summary>
         /// A pointer to another, somehow related product (or multiple products).
         /// </summary>
         /// <value>The is related to.</value>
         [JsonProperty("isRelatedTo")]
         public Product IsRelatedTo { get; set; }
+
         /// <summary>
         /// A pointer to another, functionally similar product (or multiple products).
         /// </summary>
@@ -141,43 +157,49 @@ namespace MXTires.Microdata
         [JsonConverter(typeof(StringEnumConverter))]
         public OfferItemCondition? ItemCondition { get; set; }
         /// <summary>
-        /// ImageObject  or URL 	An associated logo.
+        /// ImageObject  or URL - An associated logo.
         /// </summary>
         /// <value>The logo.</value>
         [JsonProperty("logo")]
-        public string Logo { get; set; }
+        public object Logo { get; set; }
+
         /// <summary>
         /// Organization - The manufacturer of the product.
         /// </summary>
         /// <value>The manufacturer.</value>
         [JsonProperty("manufacturer")]
         public Organization Manufacturer { get; set; }
+
         /// <summary>
         /// ProductModel  or Text 	The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
         /// </summary>
         /// <value>The model.</value>
         [JsonProperty("model")]
         public ProductModel Model { get; set; }
+
         /// <summary>
         /// The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
         /// </summary>
         /// <value>The MPN.</value>
         [JsonProperty("mpn")]
         public string Mpn { get; set; }
+
         /// <summary>
         /// An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, or give away tickets to an event.
         /// </summary>
         /// <value>The offers.</value>
         [JsonProperty("offers")]
         public IList<Offer> Offers { get; set; }
+
         /// <summary>
         /// The product identifier, such as ISBN. For example: <meta itemprop="productID" content="isbn:123-456-789" />.
         /// </summary>
         /// <value>The product identifier.</value>
         [JsonProperty("productID")]
         public string ProductId { get; set; }
+
         /// <summary>
-        /// Date.The release date of a product or product model. This can be used to distinguish the exact variant of a product.
+        /// Date - The release date of a product or product model. This can be used to distinguish the exact variant of a product.
         /// </summary>
         /// <value>The release date.</value>
         [JsonProperty("releaseDate")]
@@ -202,21 +224,27 @@ namespace MXTires.Microdata
         /// <value>The sku.</value>
         [JsonProperty("sku")]
         public string Sku { get; set; }
+
         /// <summary>
         /// QuantitativeValue 	The weight of the product or person.
         /// </summary>
         /// <value>The weight.</value>
         [JsonProperty("weight")]
         public QuantitativeValue Weight { get; set; }
+
         /// <summary>
-        /// Distance  or QuantitativeValue 	The width of the item.
+        /// Distance  or QuantitativeValue - The width of the item.
         /// </summary>
         /// <value>The width.</value>
         [JsonProperty("width")]
-        public QuantitativeValue Width { get; set; }
+        public Thing Width { get; set; }
 
         /// <summary>
-        /// Distance  or QuantitativeValue -The width of the item.
+        /// A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic 
+        /// for which there is no matching property in schema.org. 
+        /// Note: Publishers should be aware that applications designed to use specific schema.org properties 
+        /// (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) 
+        /// will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
         /// </summary>
         /// <value>The additional property.</value>
         [JsonProperty("additionalProperty")]
