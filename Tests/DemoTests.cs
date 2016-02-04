@@ -11,6 +11,9 @@ namespace MXTires.Microdata.Tests
     [TestClass]
     public class DemoTests
     {
+        /// <summary>
+        /// Product to JSON-LD 
+        /// </summary>
         [TestMethod]
         public void SimpleProductTest()
         {
@@ -24,6 +27,9 @@ namespace MXTires.Microdata.Tests
             System.Diagnostics.Debug.Write(product.ToJson());
         }
 
+        /// <summary>
+        /// LocalBusiness to JSON-LD 
+        /// </summary>
         [TestMethod]
         public void LocalBusinessTest()
         {
@@ -58,6 +64,9 @@ namespace MXTires.Microdata.Tests
             System.Diagnostics.Debug.Write(shop.ToJson());
         }
 
+        /// <summary>
+        /// Offer to JSON-LD 
+        /// </summary>
         [TestMethod]
         public void SimpleOfferTest()
         {
@@ -96,6 +105,9 @@ namespace MXTires.Microdata.Tests
             //}</script>
         }
 
+        /// <summary>
+        /// BreadcrumbList to JSON-LD 
+        /// </summary>
         [TestMethod]
         public void BreadcrumbListTest()
         {
@@ -197,6 +209,9 @@ namespace MXTires.Microdata.Tests
             //}</script>
         }
 
+        /// <summary>
+        /// Tire object to JSON-LD 
+        /// </summary>
         [TestMethod]
         public void TireTest()
         {
@@ -220,6 +235,9 @@ namespace MXTires.Microdata.Tests
             //}</script>
         }
 
+        /// <summary>
+        /// Event object to JSON-LD 
+        /// </summary>
         [TestMethod]
         public void EventTest()
         {
@@ -229,6 +247,9 @@ namespace MXTires.Microdata.Tests
         
         }
 
+        /// <summary>
+        /// WebSite object to JSON-LD 
+        /// </summary>
         [TestMethod]
         public void WebSiteTest()
         {
@@ -255,6 +276,9 @@ namespace MXTires.Microdata.Tests
             System.Diagnostics.Debug.WriteLine(webSite.ToIndentedJson());
         }
 
+        /// <summary>
+        /// To test Action
+        /// </summary>
         [TestMethod]
         public void TestChooseAction() {
             var action = new ChooseAction();
@@ -263,6 +287,5 @@ namespace MXTires.Microdata.Tests
             action.Option = new Object();
             action.Option = new Person();
         }
-
     }
 }

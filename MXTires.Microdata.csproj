@@ -150,6 +150,8 @@
     <Compile Include="Attributes\ActorAttribute.cs" />
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
+    <Compile Include="CreativeWorks\ComicStory.cs" />
+    <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />
     <Compile Include="CreativeWorks\Comment.cs" />
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />
