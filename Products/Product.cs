@@ -56,6 +56,19 @@ namespace MXTires.Microdata
         [JsonProperty("audience")]
         public Audience Audience { get; set; }
 
+        /// <summary>
+        /// Text - An award won by or for this item. Supersedes <see cref="Awards"/>.
+        /// </summary>
+        /// <value>The award.</value>
+        [JsonProperty("award")]
+        public String Award { get; set; }
+
+        /// <summary>
+        /// Awards won by or for this item. Superseded by <see cref="Award"/>
+        /// </summary>
+        [JsonProperty("awards")]
+        public IList<String> Awards { get; set; }
+
         Thing brand;
         /// <summary>
         /// Organization  or Brand - The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
