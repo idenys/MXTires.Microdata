@@ -23,12 +23,18 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
     /// <summary>
-    /// Class AudioObject.
+    /// An audio file.
     /// </summary>
-    public class AudioObject
+    public class AudioObject : MediaObject 
     {
+        /// <summary>
+        /// Text - If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
+        /// </summary>
+        [JsonProperty("transcript")]
+        public string Transcript { get; set; }
     }
 }

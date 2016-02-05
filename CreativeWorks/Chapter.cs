@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,45 +24,35 @@
 #endregion
 
 using System;
-using MXTires.Microdata.Intangible.Enumeration;
+using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A book.
+    /// Defined in the bib.schema.org extension. (This is an initial exploratory release.)
+    /// Canonical URL: http://schema.org/Chapter
+    /// One of the sections into which a book is divided. A chapter usually has a section number or a name.
     /// </summary>
-    public class Book : CreativeWork, MXTires.Microdata.CreativeWorks.IBook
+    public class Chapter : CreativeWork
     {
         /// <summary>
-        /// Text - The edition of the book.
+        /// Integer  or Text - The page on which the work ends; for example "138" or "xvi".
         /// </summary>
-        [JsonProperty("bookEdition")]
-        public string BookEdition { get; set; }
+        [JsonProperty("pageEnd")]
+        public String PageEnd { get; set; }
 
         /// <summary>
-        /// BookFormatType - The format of the book.
+        /// Integer  or Text - The page on which the work starts; for example "135" or "xiii".
         /// </summary>
-        [JsonProperty("bookFormat")]
-        public BookFormatType BookFormat { get; set; }
+        [JsonProperty("pageStart")]
+        public String PageStart { get; set; }
 
         /// <summary>
-        /// Person - The illustrator of the book.
+        /// Text - Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
         /// </summary>
-        [JsonProperty("illustrator")]
-        public Person Illustrator { get; set; }
-
-        /// <summary>
-        /// Text - The ISBN of the book.
-        /// </summary>
-        [JsonProperty("isbn")]
-        public Person Isbn { get; set; }
-
-        /// <summary>
-        /// Integer - The number of pages in the book.
-        /// </summary>
-        [JsonProperty("numberOfPages")]
-        public Int32? NumberOfPages { get; set; }
+        [JsonProperty("pagination")]
+        public String Pagination { get; set; }
     }
 }

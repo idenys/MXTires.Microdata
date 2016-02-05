@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,45 +24,22 @@
 #endregion
 
 using System;
-using MXTires.Microdata.Intangible.Enumeration;
+using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A book.
+    /// A publication in any medium issued in successive parts bearing numerical or chronological designations and intended, such as a magazine, scholarly journal, or newspaper to continue indefinitely. 
+    /// See also blog post.
     /// </summary>
-    public class Book : CreativeWork, MXTires.Microdata.CreativeWorks.IBook
+    public class Periodical : CreativeWorkSeries
     {
         /// <summary>
-        /// Text - The edition of the book.
+        /// Text - The International Standard Serial Number (ISSN) that identifies this periodical. You can repeat this property to (for example) identify different formats of this periodical.
         /// </summary>
-        [JsonProperty("bookEdition")]
-        public string BookEdition { get; set; }
-
-        /// <summary>
-        /// BookFormatType - The format of the book.
-        /// </summary>
-        [JsonProperty("bookFormat")]
-        public BookFormatType BookFormat { get; set; }
-
-        /// <summary>
-        /// Person - The illustrator of the book.
-        /// </summary>
-        [JsonProperty("illustrator")]
-        public Person Illustrator { get; set; }
-
-        /// <summary>
-        /// Text - The ISBN of the book.
-        /// </summary>
-        [JsonProperty("isbn")]
-        public Person Isbn { get; set; }
-
-        /// <summary>
-        /// Integer - The number of pages in the book.
-        /// </summary>
-        [JsonProperty("numberOfPages")]
-        public Int32? NumberOfPages { get; set; }
+        [JsonProperty("issn")]
+        public String Issn { get; set; }
     }
 }

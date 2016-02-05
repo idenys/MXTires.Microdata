@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,6 +24,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
@@ -31,10 +32,11 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A book.
+    /// An audiobook.
     /// </summary>
-    public class Book : CreativeWork, MXTires.Microdata.CreativeWorks.IBook
+    public class Audiobook : AudioObject, IBook
     {
+        #region IBook
         /// <summary>
         /// Text - The edition of the book.
         /// </summary>
@@ -64,5 +66,6 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("numberOfPages")]
         public Int32? NumberOfPages { get; set; }
+        #endregion
     }
 }

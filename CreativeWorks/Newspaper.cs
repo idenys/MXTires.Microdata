@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,46 +23,14 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using MXTires.Microdata.Intangible.Enumeration;
-using MXTires.Microdata.Validators;
-using Newtonsoft.Json;
-
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A book.
+    /// Defined in the bib.schema.org extension. (This is an initial exploratory release.)
+    /// Canonical URL: http://schema.org/Newspaper
+    /// A publication containing information about varied topics that are pertinent to general information, a geographic area, or a specific subject matter (i.e. business, culture, education). Often published daily.
     /// </summary>
-    public class Book : CreativeWork, MXTires.Microdata.CreativeWorks.IBook
+    public class Newspaper : Periodical
     {
-        /// <summary>
-        /// Text - The edition of the book.
-        /// </summary>
-        [JsonProperty("bookEdition")]
-        public string BookEdition { get; set; }
-
-        /// <summary>
-        /// BookFormatType - The format of the book.
-        /// </summary>
-        [JsonProperty("bookFormat")]
-        public BookFormatType BookFormat { get; set; }
-
-        /// <summary>
-        /// Person - The illustrator of the book.
-        /// </summary>
-        [JsonProperty("illustrator")]
-        public Person Illustrator { get; set; }
-
-        /// <summary>
-        /// Text - The ISBN of the book.
-        /// </summary>
-        [JsonProperty("isbn")]
-        public Person Isbn { get; set; }
-
-        /// <summary>
-        /// Integer - The number of pages in the book.
-        /// </summary>
-        [JsonProperty("numberOfPages")]
-        public Int32? NumberOfPages { get; set; }
     }
 }
