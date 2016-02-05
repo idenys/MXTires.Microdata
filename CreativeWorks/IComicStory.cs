@@ -23,45 +23,36 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using Newtonsoft.Json;
-
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// Defined in the bib.schema.org extension. (This is an initial exploratory release.)
-    /// Canonical URL: http://schema.org/ComicStory
-    /// The term "story" is any indivisible, re-printable unit of a comic, including the interior stories, covers, and backmatter. Most comics have at least two stories: a cover (ComicCoverArt) and an interior story.
+    /// Interface for ComicStory
     /// </summary>
-    public class ComicStory : CreativeWork, IComicStory
+    public interface IComicStory
     {
         /// <summary>
         /// Person - The primary artist for a work in a medium other than pencils or digital line art--for example, if the primary artwork is done in watercolors or digital paints.
         /// </summary>
-        [JsonProperty("artist")]
-        public Person Artist { get; set; }
+        Person Artist { get; set; }
 
         /// <summary>
         /// Person - The individual who adds color to inked drawings.
         /// </summary>
-        [JsonProperty("colorist")]
-        public Person Colorist { get; set; }
+        Person Colorist { get; set; }
 
         /// <summary>
         /// Person - The individual who traces over the pencil drawings in ink after pencils are complete.
         /// </summary>
-        [JsonProperty("inker")]
-        public Person Inker { get; set; }
+        Person Inker { get; set; }
 
         /// <summary>
         /// Person - The individual who adds lettering, including speech balloons and sound effects, to artwork.
         /// </summary>
-        [JsonProperty("letterer")]
-        public Person Letterer { get; set; }
+        Person Letterer { get; set; }
 
         /// <summary>
         /// Person - The individual who draws the primary narrative artwork.
         /// </summary>
-        [JsonProperty("penciler")]
-        public Person Penciler { get; set; }
+        Person Penciler { get; set; }
     }
 }

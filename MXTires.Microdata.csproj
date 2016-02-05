@@ -151,6 +151,7 @@
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
     <Compile Include="CreativeWorks\ComicStory.cs" />
+    <Compile Include="CreativeWorks\IComicStory.cs" />
     <Compile Include="CreativeWorks\VisualArtwork.cs" />
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />

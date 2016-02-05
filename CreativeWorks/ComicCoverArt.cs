@@ -29,11 +29,12 @@ namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
     /// Defined in the bib.schema.org extension. (This is an initial exploratory release.)
-    /// Canonical URL: http://schema.org/ComicStory
-    /// The term "story" is any indivisible, re-printable unit of a comic, including the interior stories, covers, and backmatter. Most comics have at least two stories: a cover (ComicCoverArt) and an interior story.
+    /// Canonical URL: http://schema.org/ComicCoverArt
+    /// The artwork on the cover of a comic.
     /// </summary>
-    public class ComicStory : CreativeWork, IComicStory
+    public class ComicCoverArt : VisualArtwork, IComicStory
     {
+        #region IComicStory
         /// <summary>
         /// Person - The primary artist for a work in a medium other than pencils or digital line art--for example, if the primary artwork is done in watercolors or digital paints.
         /// </summary>
@@ -63,5 +64,7 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("penciler")]
         public Person Penciler { get; set; }
+
+        #endregion
     }
 }
