@@ -35,7 +35,7 @@ namespace MXTires.Microdata.Validators
         /// <summary>
         /// The types
         /// </summary>
-        private List<Type> types;
+        private IList<Type> types;
         /// <summary>
         /// The type1
         /// </summary>
@@ -49,7 +49,7 @@ namespace MXTires.Microdata.Validators
         /// Initializes a new instance of the <see cref="TypeValidator"/> class.
         /// </summary>
         /// <param name="acceptableTypes">The acceptable types.</param>
-        public TypeValidator(List<Type> acceptableTypes)
+        public TypeValidator(IList<Type> acceptableTypes)
         {
             types = acceptableTypes;
         }

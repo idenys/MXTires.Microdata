@@ -28,11 +28,32 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// Defined in the bib.schema.org extension. (This is an initial exploratory release.)
-    /// Canonical URL: http://schema.org/ComicCoverArt
-    /// The artwork on the cover of a comic.
+    /// A part of a successively published publication such as a periodical or publication volume, often numbered, usually containing a grouping of works such as articles. 
     /// </summary>
-    public class ComicCoverArt : VisualArtwork, IComicStory
+    public class PublicationIssue : Thing
     {
+        /// <summary>
+        /// Integer  or Text - Identifies the issue of publication; for example, "iii" or "2".
+        /// </summary>
+        [JsonProperty("issueNumber")]
+        public string IssueNumber { get; set; }
+
+        /// <summary>
+        /// Text  or Integer - The page on which the work ends; for example "138" or "xvi".
+        /// </summary>
+        [JsonProperty("pageEnd")]
+        public string PageEnd { get; set; }
+
+        /// <summary>
+        /// Text  or Integer - The page on which the work starts; for example "135" or "xiii".
+        /// </summary>
+        [JsonProperty("pageStart")]
+        public string PageStart { get; set; }
+
+        /// <summary>
+        /// Text - Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
+        /// </summary>
+        [JsonProperty("pagination")]
+        public string Pagination { get; set; }
     }
 }

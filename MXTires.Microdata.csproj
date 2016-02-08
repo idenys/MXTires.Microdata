@@ -148,12 +148,14 @@
     <Compile Include="Answer.cs" />
     <Compile Include="Actions\AssessActions\AssessAction.cs" />
     <Compile Include="Attributes\ActorAttribute.cs" />
+    <Compile Include="Attributes\MicrodataPropertyAttribute.cs" />
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
     <Compile Include="CreativeWorks\Atlas.cs" />
     <Compile Include="CreativeWorks\Audiobook.cs" />
     <Compile Include="CreativeWorks\Chapter.cs" />
     <Compile Include="CreativeWorks\ComicCoverArt.cs" />
+    <Compile Include="CreativeWorks\ComicIssue.cs" />
     <Compile Include="CreativeWorks\ComicSeries.cs" />
     <Compile Include="CreativeWorks\ComicStory.cs" />
     <Compile Include="CreativeWorks\CoverArt.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="CreativeWorks\IComicStory.cs" />
     <Compile Include="CreativeWorks\Newspaper.cs" />
     <Compile Include="CreativeWorks\Periodical.cs" />
+    <Compile Include="CreativeWorks\PublicationIssue.cs" />
     <Compile Include="CreativeWorks\Thesis.cs" />
     <Compile Include="CreativeWorks\VisualArtwork.cs" />
     <Compile Include="Intangible\Enumeration\Extentions.cs" />

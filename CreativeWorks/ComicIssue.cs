@@ -31,58 +31,17 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A work of art that is primarily visual in character.
+    /// Defined in the bib.schema.org extension. (This is an initial exploratory release.)
+    /// Canonical URL: http://schema.org/ComicIssue
+    /// Individual comic issues are serially published as part of a larger series. For the sake of consistency, even one-shot issues belong to a series comprised of a single issue. All comic issues can be uniquely identified by: the combination of the name and volume number of the series to which the issue belongs; the issue number; and the variant description of the issue (if any).
     /// </summary>
-    public class VisualArtwork : CreativeWork, IComicStory
+    public class ComicIssue : PublicationIssue
     {
         /// <summary>
-        /// Integer  or Text - The number of copies when multiple copies of a piece of artwork are produced - e.g.
-        /// for a limited edition of 20 prints, 'artEdition' refers to the total number of copies (in this example "20").
-        /// </summary>
-        [JsonProperty("artEdition")]
-        public String ArtEdition { get; set; }
-
-        /// <summary>
-        /// Text  or URL - The material used. (e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc.) Supersedes material.
-        /// </summary>
-        [JsonProperty("artMedium")]
-        public String ArtMedium { get; set; }
-
-        /// <summary>
-        /// Text  or URL - e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc.
-        /// </summary>
-        [JsonProperty("artform")]
-        public String Artform { get; set; }
-
-        /// <summary>
-        /// Person 	The primary artist for a work in a medium other than pencils or digital line art--for example, if the primary artwork is done in watercolors or digital paints.
+        /// Person - The primary artist for a work in a medium other than pencils or digital line art--for example, if the primary artwork is done in watercolors or digital paints.
         /// </summary>
         [JsonProperty("artist")]
         public Person Artist { get; set; }
-
-        /// <summary>
-        /// Text  or URL - The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc. Supersedes surface.
-        /// </summary>
-        [JsonProperty("artworkSurface")]
-        public String ArtworkSurface { get; set; }
-
-        /// <summary>
-        /// Distance  or QuantitativeValue - The depth of the item.
-        /// </summary>
-        [JsonProperty("depth")]
-        public Thing Depth { get; set; }
-
-        /// <summary>
-        /// Distance  or QuantitativeValue - The height of the item.
-        /// </summary>
-        [JsonProperty("height")]
-        public Thing Height { get; set; }
-
-        /// <summary>
-        /// Distance  or QuantitativeValue - The width of the item.
-        /// </summary>
-        [JsonProperty("width")]
-        public Thing Width { get; set; }
 
         /// <summary>
         /// Person - The individual who adds color to inked drawings.
@@ -107,5 +66,11 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("penciler")]
         public Person Penciler { get; set; }
+
+        /// <summary>
+        /// Text - A description of the variant cover for the issue, if the issue is a variant printing. For example, "Bryan Hitch Variant Cover" or "2nd Printing Variant".
+        /// </summary>
+        [JsonProperty("variantCover")]
+        public String VariantCover { get; set; }
     }
 }
