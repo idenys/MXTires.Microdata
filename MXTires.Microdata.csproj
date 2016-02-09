@@ -162,6 +162,7 @@
     <Compile Include="CreativeWorks\CreativeWorkSeries.cs" />
     <Compile Include="CreativeWorks\IBook.cs" />
     <Compile Include="CreativeWorks\IComicStory.cs" />
+    <Compile Include="CreativeWorks\Movie.cs" />
     <Compile Include="CreativeWorks\Newspaper.cs" />
     <Compile Include="CreativeWorks\Periodical.cs" />
     <Compile Include="CreativeWorks\PublicationIssue.cs" />
