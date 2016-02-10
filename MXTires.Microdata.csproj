@@ -168,6 +168,7 @@
     <Compile Include="CreativeWorks\PublicationIssue.cs" />
     <Compile Include="CreativeWorks\Thesis.cs" />
     <Compile Include="CreativeWorks\VisualArtwork.cs" />
+    <Compile Include="Extentions\BibNameSpace.cs" />
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />
     <Compile Include="CreativeWorks\Comment.cs" />

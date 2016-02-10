@@ -42,12 +42,13 @@ namespace MXTires.Microdata
         [JsonProperty("@type", Order = 2)]
         public new string Type { get { return "Product/Tire"; } }
 
+        string additionalType = "http://www.productontology.org/id/Tire";
         /// <summary>
         /// Additional type of product override
         /// </summary>
         /// <value>The type of the additional.</value>
         [JsonProperty("additionalType")]
-        public new string AdditionalType { get { return "http://www.productontology.org/id/Tire"; } }
+        public new string AdditionalType { get { return additionalType; } set { additionalType = value; } }
 
         /// <summary>
         /// Default constructor
@@ -58,6 +59,7 @@ namespace MXTires.Microdata
             SameAs.Add("http://en.wikipedia.org/wiki/Tire");
             SameAs.Add("http://www.1010tires.com/About/Tire-Tech");
 
+            ExternalExtensions = new List<Property>() { new Property() { Name = "auto", Description = "www.1010Tires.com", } };
             //Properties = new List<Property>();
             //Properties.Add(new Property() { Name = "Speed Rating" });
         }

@@ -5,6 +5,7 @@ using MXTires.Microdata;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.CreativeWorks;
 
 namespace MXTires.Microdata.Tests
 {
@@ -286,6 +287,18 @@ namespace MXTires.Microdata.Tests
             action.Option = new Thing();
             action.Option = new Object();
             action.Option = new Person();
+        }
+
+        /// <summary>
+        /// Test Atlas
+        /// </summary>
+        [TestMethod]
+        public void TestAtlas()
+        {
+            var atlas = new Atlas();
+            atlas.Context = new List<object>() { "http://schema.org", new Extentions.BibNameSpace(), };
+            atlas.Name = "Atlas of the world.";
+            System.Diagnostics.Debug.WriteLine(atlas.ToIndentedJson());
         }
     }
 }

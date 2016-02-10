@@ -32,8 +32,33 @@ Visual Studio 2008 or higher
         
         }
 ```
+## Code example with extentions:
+```
+        public void TestAtlas()
+        {
+            var atlas = new Atlas();
+            atlas.Context = new List<object>() { "http://schema.org", new Extentions.BibNameSpace(), };
+            atlas.Name = "Atlas of the world.";
+            System.Diagnostics.Debug.WriteLine(atlas.ToIndentedJson());
+        }
+```
+### Output
+
+<script type="application/ld+json">{
+  "name": "Atlas of the world.",
+  "@context": [
+    "http://schema.org",
+    {
+      "bib": "http://bib.schema.org"
+    }
+  ],
+  "@type": "Atlas"
+}</script>
+
 ## Dependencies
 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/ "Newtonsoft.Json") (>= 7.0.0)
+
+
 
 ##License
 

@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using MXTires.Microdata.Intangible;
 
 namespace MXTires.Microdata
 {
@@ -38,11 +39,17 @@ namespace MXTires.Microdata
     {
 #pragma warning disable 0414
 
+        object context = "http://schema.org";
         /// <summary>
         /// Context
         /// </summary>
         [JsonProperty("@context", Order = 1)]
-        string context = "http://schema.org";
+        public virtual object Context { get { return context; } set { context = value; } }
+
+        /// <summary>
+        /// Property for External Extensions
+        /// </summary>
+        internal IList<Property> ExternalExtensions { get; set; }
 
         /// <summary>
         /// Type tag

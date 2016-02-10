@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,41 +23,19 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata
+namespace MXTires.Microdata.Extentions
 {
     /// <summary>
-    /// Represents Wheel product
+    /// Schema.org bib extention namespace class
     /// </summary>
-    public class Wheel : Product
+    public class BibNameSpace
     {
         /// <summary>
-        /// Specific product type definition
+        /// Schema.org bib extention namespace
         /// </summary>
-        [JsonProperty("@type", Order = 2)]
-        public new string Type { get { return "Product/Wheel"; } }
-
-        string additionalType = "http://www.productontology.org/id/Wheel";
-        /// <summary>
-        /// Additional type of product override
-        /// </summary>
-        [JsonProperty("additionalType")]
-        public new string AdditionalType { get { return additionalType; } set { additionalType = value; } }
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public Wheel()
-        {
-            base.SameAs = new List<string>();
-            SameAs.Add("http://en.wikipedia.org/wiki/Wheel");
-            SameAs.Add("http://www.1010tires.com/About/Wheel-Tech");
-        }
+        [JsonProperty("bib")]
+        public string Bib = "http://bib.schema.org";
     }
 }
