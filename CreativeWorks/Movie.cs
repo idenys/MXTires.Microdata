@@ -44,9 +44,7 @@ namespace MXTires.Microdata.CreativeWorks
         public Person Actor { get; set; }
 
         /// <summary>
-        /// /// <summary>
         /// The actors, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Superseded by <see cref="actor"/>.
-        /// </summary>
         /// </summary>
         [JsonProperty("actors")]
         public IList<Person> Actors { get; set; }
