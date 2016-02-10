@@ -43,7 +43,7 @@ Visual Studio 2008 or higher
         }
 ```
 ### Output:
-'''
+```
 <script type="application/ld+json">{
   "name": "Atlas of the world.",
   "@context": [
@@ -54,7 +54,7 @@ Visual Studio 2008 or higher
   ],
   "@type": "Atlas"
 }</script>
-'''
+```
 
 ## Dependencies
 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/ "Newtonsoft.Json") (>= 7.0.0)
