@@ -193,7 +193,7 @@ namespace MXTires.Microdata
         /// Number  or QuantitativeValue - The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
         /// Typical unit code(s): C62 for persons
         /// </summary>
-        [JsonProperty("vehicleModelDate")]
+        [JsonProperty("vehicleSeatingCapacity")]
         public object VehicleSeatingCapacity { get; set; }
 
         /// <summary>
