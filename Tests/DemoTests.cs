@@ -300,5 +300,23 @@ namespace MXTires.Microdata.Tests
             atlas.Name = "Atlas of the world.";
             System.Diagnostics.Debug.WriteLine(atlas.ToIndentedJson());
         }
+
+        /// <summary>
+        /// Test converts Car to JSON-LD
+        /// </summary>
+        [TestMethod]
+        public void TestCar()
+        {
+            var car = new Car()
+            {
+                Name = "2015 Honda Civic 2 Dr Coupe EX 205/55R16 (89H)",
+                Brand = new Brand() { Name = "Honda" },
+                Model = new ProductModel() { Name = "Civic" },
+                ProductId = "123456",
+                ReleaseDate = new DateTime(2015, 1, 1).ToString(),
+            };
+
+            System.Diagnostics.Debug.Write(car.ToIndentedJson());
+        }
     }
 }
