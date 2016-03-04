@@ -29,6 +29,7 @@ using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using MXTires.Microdata.Intangible;
+using MXTires.Microdata.CreativeWorks;
 
 namespace MXTires.Microdata
 {
@@ -84,11 +85,21 @@ namespace MXTires.Microdata
         [JsonProperty("description")]
         public string Description { get; set; }
 
+        object image;
         /// <summary>
         /// URL  to an image of the item. This can be a URL or a fully described ImageObject.
         /// </summary>
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public object Image
+        {
+            get { return image; }
+            set
+            {
+                var validator = new TypeValidator(typeof(String), typeof(ImageObject));
+                validator.Validate(value);
+                image = value;
+            }
+        }
 
         /// <summary>
         /// Text 	The name of the item.

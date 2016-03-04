@@ -4,6 +4,7 @@ using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata.Intangible
 {
@@ -86,12 +87,22 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("serialNumber")]
         public string SerialNumber { get; set; }
 
+        Thing seller;
         /// <summary>
         /// <see cref="Organization" />   or <see cref="Person" /> - An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider. Supersedes merchant, vendor.
         /// </summary>
         /// <value>The seller.</value>
         [JsonProperty("seller")]
-        public Thing Seller { get; set; }
+        public Thing Seller
+        {
+            get { return seller; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Person), typeof(Organization));
+                validator.Validate(value);
+                seller = value;
+            }
+        }
 
         /// <summary>
         /// <see cref="Review" /> - A review of the item. Supersedes reviews.
