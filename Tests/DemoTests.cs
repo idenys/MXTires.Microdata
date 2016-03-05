@@ -318,5 +318,22 @@ namespace MXTires.Microdata.Tests
 
             System.Diagnostics.Debug.Write(car.ToIndentedJson());
         }
+
+        /// <summary>
+        /// Test to assign ImageObject to the image property
+        /// </summary>
+        [TestMethod]
+        public void TestImageObject()
+        {
+            var blogPosting = new BlogPosting();
+            blogPosting.Image = new ImageObject()
+            {
+                Url = "http://whatever.com/image.png",
+                Width = new QuantitativeValue() { Value = 500 },
+                Height = new QuantitativeValue() { Value = 500 }
+            };
+
+            System.Diagnostics.Debug.Write(blogPosting.ToIndentedJson());
+        }
     }
 }

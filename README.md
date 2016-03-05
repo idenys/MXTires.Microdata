@@ -32,6 +32,45 @@ Visual Studio 2008 or higher
         
         }
 ```
+## Code example for image:
+```
+        [TestMethod]
+        public void TestImageObject()
+        {
+            var blogPosting = new BlogPosting();
+            blogPosting.Image = new ImageObject()
+            {
+                Url = "http://whatever.com/image.png",
+                Width = new QuantitativeValue() { Value = 500 },
+                Height = new QuantitativeValue() { Value = 500 }
+            };
+
+            System.Diagnostics.Debug.Write(blogPosting.ToIndentedJson());
+        }
+```
+### Output:
+```
+<script type="application/ld+json">{
+  "image": {
+    "height": {
+      "value": 500.0,
+      "@context": "http://schema.org",
+      "@type": "QuantitativeValue"
+    },
+    "width": {
+      "value": 500.0,
+      "@context": "http://schema.org",
+      "@type": "QuantitativeValue"
+    },
+    "url": "http://whatever.com/image.png",
+    "@context": "http://schema.org",
+    "@type": "ImageObject"
+  },
+  "@context": "http://schema.org",
+  "@type": "BlogPosting"
+}</script>
+```
+
 ## Code example with extentions:
 ```
         public void TestAtlas()
