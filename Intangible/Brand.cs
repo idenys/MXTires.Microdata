@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 using Newtonsoft.Json;
+using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata.Intangible
 {
@@ -12,11 +14,21 @@ namespace MXTires.Microdata.Intangible
     /// </summary>
     public class Brand : Thing
     {
+        object logo;
         /// <summary>
         /// An associated logo.
         /// </summary>
         [JsonProperty("logo")]
-        public string Logo { get; set; }
+        public object Logo
+        {
+            get { return logo; }
+            set
+            {
+                var validator = new TypeValidator(typeof(ImageObject), typeof(String));
+                validator.Validate(value);
+                logo = value;
+            }
+        }
 
         /// <summary>
         /// Review - A review of the item. Supersedes reviews.
