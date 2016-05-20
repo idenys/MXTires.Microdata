@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
@@ -103,11 +104,21 @@ namespace MXTires.Microdata
             }
         }
 
+        object logo;
         /// <summary>
-        /// URL - An associated logo.
+        /// An associated logo.
         /// </summary>
         [JsonProperty("logo")]
-        public string Logo { get; set; }
+        public object Logo
+        {
+            get { return logo; }
+            set
+            {
+                var validator = new TypeValidator(typeof(ImageObject), typeof(String));
+                validator.Validate(value);
+                logo = value;
+            }
+        }
 
         /// <summary>
         /// ContactPoint - A contact point for a person or organization. Supersedes contactPoints.
