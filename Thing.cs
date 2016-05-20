@@ -175,6 +175,19 @@ namespace MXTires.Microdata
             if (item.Equals("Type")) item = item.Replace("Type", "@type");
             return "<script type=\"application/ld+json\">" + item + "</script>";
         }
+        /// <summary>
+        /// Returns Json string that  represents current object.
+        /// JSON written by the serializer with an option of Formatting.None and NullValueHandling.Ignore. It makes the JSON result small, skipping all unnecessary 
+        /// spaces and line breaks to produce the most compact and efficient JSON possible.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            var item = JsonConvert.SerializeObject(this, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+            item = item.Replace("Context", "@context");
+            if (item.Equals("Type")) item = item.Replace("Type", "@type");
+            return item;
+        }
 
         //#region Delegate and Events
         ///// <summary>
