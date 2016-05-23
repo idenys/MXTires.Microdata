@@ -115,7 +115,7 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The birth date.</value>
         [JsonProperty("birthDate")]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         /// <summary>
         /// Gets or sets the birth place.
