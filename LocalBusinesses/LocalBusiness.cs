@@ -101,22 +101,10 @@ namespace MXTires.Microdata
         public List<OpeningHoursSpecification> OpeningHoursSpecification { get; set; }
 
         /// <summary>
-        /// PostalAddress - Physical address of the item.
-        /// </summary>
-        [JsonProperty("address")]
-        public PostalAddress address { get; set; }
-
-        /// <summary>
-        ///  AggregateRating - The overall rating, based on a collection of reviews or ratings, of the item.
-        /// </summary>
-        [JsonProperty("aggregateRating")]
-        public AggregateRating aggregateRating { get; set; }
-
-        /// <summary>
         /// Place - The basic containment relation between places.
         /// </summary>
         [JsonProperty("containedIn")]
-        public Place containedIn { get; set; }
+        public Place ContainedIn { get; set; }
 
         /// <summary>
         /// ImageObject  or URL - An associated logo.

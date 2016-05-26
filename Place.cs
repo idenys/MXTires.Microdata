@@ -80,19 +80,19 @@ namespace MXTires.Microdata
         /// PostalAddress - Physical address of the item.
         /// </summary>
         [JsonProperty("address")]
-        public PostalAddress address { get; set; }
+        public PostalAddress Address { get; set; }
 
         /// <summary>
         ///  AggregateRating - The overall rating, based on a collection of reviews or ratings, of the item.
         /// </summary>
         [JsonProperty("aggregateRating")]
-        public AggregateRating aggregateRating { get; set; }
+        public AggregateRating AggregateRating { get; set; }
 
         /// <summary>
         /// Place - The basic containment relation between places.
         /// </summary>
         [JsonProperty("containedIn")]
-        public Place containedIn { get; set; }
+        public Place ContainedIn { get; set; }
 
         /// <summary>
         /// Event - Upcoming or past event associated with this place, organization, or action. Supersedes events.

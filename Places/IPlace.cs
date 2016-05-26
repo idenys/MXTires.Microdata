@@ -20,17 +20,17 @@ namespace MXTires.Microdata.Places
         /// Gets or sets the address.
         /// </summary>
         /// <value>The address.</value>
-        PostalAddress address { get; set; }
+        PostalAddress Address { get; set; }
         /// <summary>
         /// Gets or sets the aggregate rating.
         /// </summary>
         /// <value>The aggregate rating.</value>
-        MXTires.Microdata.Intangible.AggregateRating aggregateRating { get; set; }
+        MXTires.Microdata.Intangible.AggregateRating AggregateRating { get; set; }
         /// <summary>
         /// Gets or sets the contained in.
         /// </summary>
         /// <value>The contained in.</value>
-        Place containedIn { get; set; }
+        Place ContainedIn { get; set; }
         /// <summary>
         /// Gets or sets the event.
         /// </summary>
