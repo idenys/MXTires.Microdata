@@ -335,5 +335,23 @@ namespace MXTires.Microdata.Tests
 
             System.Diagnostics.Debug.Write(blogPosting.ToIndentedJson());
         }
+
+        [TestMethod]
+        public void TireShopTest()
+        {
+            TireShop shop = new TireShop();
+
+            shop.AggregateRating = new AggregateRating()
+            {
+                ReviewCount = "5",
+                RatingValue = "5",
+                Description = "Company Name",
+            };
+            shop.Url = "http://www.1010Tires.com/About/Installers/BC/Richmond/8";
+            shop.CurrenciesAccepted = "USD";
+
+
+            System.Diagnostics.Debug.Write(shop.ToIndentedJson());
+        }
     }
 }
