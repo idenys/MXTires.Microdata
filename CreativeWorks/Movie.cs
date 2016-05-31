@@ -38,13 +38,13 @@ namespace MXTires.Microdata.CreativeWorks
     public class Movie : Thing
     {
         /// <summary>
-        /// Person - An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="actors"/>.
+        /// Person - An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Actors"/>.
         /// </summary>
         [JsonProperty("actor")]
         public Person Actor { get; set; }
 
         /// <summary>
-        /// The actors, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Superseded by <see cref="actor"/>.
+        /// The actors, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Superseded by <see cref="Actor"/>.
         /// </summary>
         [JsonProperty("actors")]
         public IList<Person> Actors { get; set; }
@@ -56,14 +56,14 @@ namespace MXTires.Microdata.CreativeWorks
         public Country CountryOfOrigin { get; set; }
 
         /// <summary>
-        /// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="directors"/>.
+        /// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
         /// </summary>
         [JsonProperty("director")]
         public Person Director { get; set; }
 
         /// <summary>
         /// /// <summary>
-        /// The directors of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Superseded by <see cref="directors"/>.
+        /// The directors of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Superseded by <see cref="Directors"/>.
         /// </summary>
         /// </summary>
         [JsonProperty("directors")]

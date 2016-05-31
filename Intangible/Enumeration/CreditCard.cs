@@ -42,6 +42,9 @@ namespace MXTires.Microdata.Intangible.Enumeration
     [Flags]
     public enum CreditCard
     {
+        /// <summary>
+        /// Default enum value
+        /// </summary>
         [EnumMember(Value = "http://schema.1010tires.com/NoCredit")]
         NoCredit = 0,
 
