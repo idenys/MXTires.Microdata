@@ -6,6 +6,7 @@ using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Events;
 
 namespace MXTires.Microdata.Tests
 {
@@ -245,7 +246,40 @@ namespace MXTires.Microdata.Tests
             var baseEvent = new Event();
             baseEvent.Attendee = new Person();
             System.Diagnostics.Debug.WriteLine(baseEvent.ToIndentedJson());
-        
+
+            var eventsList = new ItemList();
+            eventsList.ItemListElement = new LinkedList<ListItem>();
+            eventsList.ItemListElement.AddLast(new ListItem() {
+                Item = new MusicEvent() {
+                    Name = "Boz Scaggs", StartDate = "2014-10-10T19:30",
+                    Location = new Place() { Name = "Warner Theatre", Address= new PostalAddress() {AddressLocality = "Washington, DC" } },
+                    Offers = new List<Offer>() { new Offer() { Url = "https://www.etix.com/ticket/1771656" } }
+                },
+                Position = 1
+            });
+            eventsList.ItemListElement.AddLast(new ListItem()
+            {
+                Item = new MusicEvent()
+                {
+                    Name = "Boz Scaggs",
+                    StartDate = "2015-05-02T20:00",
+                    Location = new Place() { Name = "Coral Springs Center for the Performing Arts", Address = new PostalAddress() { AddressLocality = "Coral Springs, FL" } },
+                    Offers = new List<Offer>() { new Offer() { Url = "http://frontgatetickets.com/venue.php?id=11766" } }
+                },
+                Position = 2
+
+            });
+
+            System.Diagnostics.Debug.WriteLine(eventsList.ToIndentedJson());
+
+            var musicEvent = new MusicEvent()
+            {
+                Name = "Boz Scaggs",
+                StartDate = "2015-05-02T20:00",
+                Location = new Place() { Name = "Coral Springs Center for the Performing Arts", Address = new PostalAddress() { AddressLocality = "Coral Springs, FL" } },
+                Offers = new List<Offer>() { new Offer() { Url = "http://frontgatetickets.com/venue.php?id=11766" } }
+            };
+            System.Diagnostics.Debug.WriteLine(musicEvent.ToString());
         }
 
         /// <summary>
