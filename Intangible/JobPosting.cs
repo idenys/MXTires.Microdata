@@ -24,6 +24,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -87,8 +88,20 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Place - A (typically single) geographic location associated with the job position.
         /// </summary>
+        public Place JobLocation
+        {
+            set
+            {
+                JobLocations = JobLocations ?? new List<Place>();
+                JobLocations.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// Places - Multiple geographic location associated with the job position.
+        /// </summary>
         [JsonProperty("jobLocation")]
-        public Place JobLocation { get; set; }
+        public List<Place> JobLocations { get; set; }
 
         /// <summary>
         /// Text - Category or categories describing the job. Use BLS O*NET-SOC taxonomy: http://www.onetcenter.org/taxonomy.html. Ideally includes textual label and formal code, with the property repeated for each applicable value.

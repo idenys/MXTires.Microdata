@@ -79,8 +79,20 @@ namespace MXTires.Microdata
         /// <summary>
         /// PostalAddress - Physical address of the item.
         /// </summary>
+        public PostalAddress Address
+        {
+            set
+            {
+                Addresses = Addresses ?? new List<PostalAddress>();
+                Addresses.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// PostalAddress - Physical addresses of the item.
+        /// </summary>
         [JsonProperty("address")]
-        public PostalAddress Address { get; set; }
+        public List<PostalAddress> Addresses { get; set; }
 
         /// <summary>
         ///  AggregateRating - The overall rating, based on a collection of reviews or ratings, of the item.

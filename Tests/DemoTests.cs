@@ -24,9 +24,128 @@ namespace MXTires.Microdata.Tests
                 Name = "T3 REPLICA NISSAN ALTIMA, MAXIMA (PAINTED/SILVER)",
             };
             Review review1 = new Review() { Name = "Review1", ReviewRating = new Rating() { RatingValue = "5" }, ReviewBody = "Best product ever!", Author = new Person() { Name = "Some Guy" } };
-            Review review2 = new Review() { Name = "Review2",  ReviewRating = new Rating() { RatingValue = "4" }, ReviewBody = "I've seen better...", Author = new Person() { Name = "Other Guy" } };
+            Review review2 = new Review() { Name = "Review2", ReviewRating = new Rating() { RatingValue = "4" }, ReviewBody = "I've seen better...", Author = new Person() { Name = "Other Guy" } };
             product.Reviews = new List<Review> { review1, review2 };
             System.Diagnostics.Debug.Write(product.ToJson());
+        }
+
+        /// <summary>
+        /// Organization with Multiple Addresses to JSON-LD
+        /// </summary>
+        [TestMethod]
+        public void OrganizationMultipleAddresses()
+        {
+            var org = new Organization()
+            {
+                Name = "My Test Organization",
+                Addresses = new List<PostalAddress>()
+                {
+                    new PostalAddress()
+                    {
+                        Name = "Location 1",
+                        StreetAddress = "123 Somewhere Road",
+                        AddressRegion = "Liverpool",
+                        AddressCountry = "United Kingdom"
+                    },
+                    new PostalAddress()
+                    {
+                        Name = "Location 2",
+                        AddressLocality = "Mountain View",
+                        AddressRegion = "Califronia",
+                        AddressCountry = "USA"
+                    },
+                }
+
+            };
+
+            System.Diagnostics.Debug.Write(org.ToIndentedJson());
+        }
+
+        /// <summary>
+        /// Organization with Single Address to JSON-LD
+        /// </summary>
+        [TestMethod]
+        public void OrganizationSingleAddress()
+        {
+            var org = new Organization()
+            {
+                Name = "My Test Organization",
+                Address = new PostalAddress()
+                {
+                    Name = "Location 1",
+                    StreetAddress = "123 Somewhere Road",
+                    AddressRegion = "Liverpool",
+                    AddressCountry = "United Kingdom"
+                }
+            };
+
+            System.Diagnostics.Debug.Write(org.ToIndentedJson());
+        }
+
+        /// <summary>
+        /// JobPosting with multiple locations to JSON-LD
+        /// </summary>
+        [TestMethod]
+        public void JobPostingMultipleLocation()
+        {
+            var posting = new JobPosting()
+            {
+                Name = "My Job Posting",
+                DatePosted = DateTime.Now,
+                Description = "This is my job description",
+                JobLocations = new List<Place>()
+                {
+                    new Place()
+                    {
+                        Name = "Location 1",
+                        Address = new PostalAddress()
+                        {
+                            Name = "Location 1 House",
+                            AddressRegion = "Liverpool",
+                            AddressCountry = "United Kingdom"
+                        }
+                    },
+                    new Place()
+                    {
+                        Name = "Location 2",
+                        Address = new PostalAddress()
+                        {
+                            Name = "Location 2 House",
+                            AddressRegion = "New York",
+                            AddressCountry = "USA"
+                        }
+                    }
+                }
+            };
+
+            System.Diagnostics.Debug.Write(posting.ToIndentedJson());
+        }
+
+        /// <summary>
+        /// JobPosting with single location to JSON-LD
+        /// </summary>
+        [TestMethod]
+        public void JobPostingSingleLocation()
+        {
+            var posting = new JobPosting()
+            {
+                Name = "My Job Posting",
+                DatePosted = DateTime.Now,
+                Description = "This is my job description",
+                JobLocation = new Place()
+                {
+                    Name = "Location 1",
+                    Address = new PostalAddress()
+                    {
+                        Name = "Location 1 House",
+                        AddressRegion = "Liverpool",
+                        AddressCountry = "United Kingdom"
+                    }
+                }
+
+            };
+
+            System.Diagnostics.Debug.Write(posting.ToIndentedJson());
         }
 
         /// <summary>
@@ -56,10 +175,10 @@ namespace MXTires.Microdata.Tests
                 Telephone = "604-324-5999",
             };
             shop.Location = new Place();
-            shop.Location.Geo = new GeoCoordinates("49.210978", "-123.089581");           
+            shop.Location.Geo = new GeoCoordinates("49.210978", "-123.089581");
 
-            OpeningHoursSpecification mondayHours = new OpeningHoursSpecification("5:30 PM", DaysOfWeek.Mo,"9:00 AM");
-            
+            OpeningHoursSpecification mondayHours = new OpeningHoursSpecification("5:30 PM", DaysOfWeek.Mo, "9:00 AM");
+
             shop.Location.OpeningHoursSpecification = new List<OpeningHoursSpecification>();
             shop.Location.OpeningHoursSpecification.Add(mondayHours);
 
@@ -78,7 +197,7 @@ namespace MXTires.Microdata.Tests
             };
             offer.Availability = ItemAvailability.InStock | ItemAvailability.Discontinued;
             offer.Reviews = new List<Review>();
-            offer.Reviews.Add(new Review() {  ItemReviewed = new Thing(), });
+            offer.Reviews.Add(new Review() { ItemReviewed = new Thing(), });
             offer.AcceptedPaymentMethod = PaymentMethod.VisaCheckout | PaymentMethod.PayPal;
             System.Diagnostics.Debug.WriteLine(offer.ToIndentedJson());
 
@@ -219,9 +338,9 @@ namespace MXTires.Microdata.Tests
         {
             var tire = new Tire() { Name = "T3 Tire" };
 
-            PropertyValue additionalProperty = new PropertyValue(name : "Specs", value : "265/60R18");
+            PropertyValue additionalProperty = new PropertyValue(name: "Specs", value: "265/60R18");
 
-            tire.AdditionalProperty =  additionalProperty ;
+            tire.AdditionalProperty = additionalProperty;
 
             System.Diagnostics.Debug.WriteLine(tire.ToIndentedJson());
 
@@ -249,10 +368,13 @@ namespace MXTires.Microdata.Tests
 
             var eventsList = new ItemList();
             eventsList.ItemListElement = new LinkedList<ListItem>();
-            eventsList.ItemListElement.AddLast(new ListItem() {
-                Item = new MusicEvent() {
-                    Name = "Boz Scaggs", StartDate = "2014-10-10T19:30",
-                    Location = new Place() { Name = "Warner Theatre", Address= new PostalAddress() {AddressLocality = "Washington, DC" } },
+            eventsList.ItemListElement.AddLast(new ListItem()
+            {
+                Item = new MusicEvent()
+                {
+                    Name = "Boz Scaggs",
+                    StartDate = "2014-10-10T19:30",
+                    Location = new Place() { Name = "Warner Theatre", Address = new PostalAddress() { AddressLocality = "Washington, DC" } },
                     Offers = new List<Offer>() { new Offer() { Url = "https://www.etix.com/ticket/1771656" } }
                 },
                 Position = 1
@@ -299,15 +421,15 @@ namespace MXTires.Microdata.Tests
                 ActionStatus = MXTires.Microdata.Intangible.Enumeration.ActionStatusType.PotentialActionStatus,
             };
             webSite.AggregateRating = new AggregateRating()
-                    {
-                        Id= "/SiteAggregateRating",
-                        BestRating = "5",
-                        WorstRating = "1",
-                        RatingValue = "4.6",
-                        ReviewCount = "3500",
-                        Description = "1010tires.com Reviews and Customer Ratings by Shopper Approved.",
-                        Url = "http://www.shopperapproved.com/reviews/1010tires.com/"
-                    };
+            {
+                Id = "/SiteAggregateRating",
+                BestRating = "5",
+                WorstRating = "1",
+                RatingValue = "4.6",
+                ReviewCount = "3500",
+                Description = "1010tires.com Reviews and Customer Ratings by Shopper Approved.",
+                Url = "http://www.shopperapproved.com/reviews/1010tires.com/"
+            };
             System.Diagnostics.Debug.WriteLine(webSite.ToIndentedJson());
         }
 
@@ -315,7 +437,8 @@ namespace MXTires.Microdata.Tests
         /// To test Action
         /// </summary>
         [TestMethod]
-        public void TestChooseAction() {
+        public void TestChooseAction()
+        {
             var action = new ChooseAction();
             action.Option = "text";
             action.Option = new Thing();
