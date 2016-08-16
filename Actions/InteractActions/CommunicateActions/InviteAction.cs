@@ -8,12 +8,12 @@ using Newtonsoft.Json;
 namespace MXTires.Microdata.Actions.InteractActions.CommunicateActions
 {
     /// <summary>
-    /// TThe act of asking someone to attend an event. Reciprocal of <see cref="RsvpAction"/>.
+    /// The act of asking someone to attend an event. Reciprocal of <see cref="RsvpAction"/>.
     /// </summary>
     public class InviteAction : CommunicateAction
     {
         /// <summary>
-        /// Upcoming or past event associated with this place, organization, or action. Supersedes <see cref="Events"/>events.
+        /// Upcoming or past event associated with this place, organization, or action. Supersedes <see cref="Events"/>.
         /// </summary>
         [JsonProperty("event")]
         public Event Event { get; set; }

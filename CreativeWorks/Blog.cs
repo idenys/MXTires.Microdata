@@ -35,21 +35,14 @@ namespace MXTires.Microdata.CreativeWorks
     public class Blog : CreativeWork
     {
         /// <summary>
-        /// BlogPosting  - A posting that is part of this blog. Supersedes blogPosts.
+        /// BlogPosting  - A posting that is part of this blog. Supersedes <see cref="BlogPosts"/>.
         /// </summary>
-        public BlogPosting BlogPost
-        {
-            set
-            {
-                BlogPosts = BlogPosts ?? new List<BlogPosting>();
-                BlogPosts.Add(value);
-            }
-        }
+        public BlogPosting BlogPost { get; set; }
 
         /// <summary>
-        /// BlogPosting  - The postings that are part of this blog. Supersedes blogPosts.
+        /// BlogPosting  - The postings that are part of this blog. 
         /// </summary>
-        [JsonProperty("blogPost")]
+        [JsonProperty("blogPosts")]
         public List<BlogPosting> BlogPosts { get; set; }
     }
 }
