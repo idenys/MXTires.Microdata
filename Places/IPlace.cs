@@ -17,10 +17,16 @@ namespace MXTires.Microdata.Places
         /// <value>The additional property.</value>
         MXTires.Microdata.Intangible.StructuredValues.PropertyValue AdditionalProperty { get; set; }
         /// <summary>
-        /// Gets or sets the address.
+        /// Sets a single address.
         /// </summary>
         /// <value>The address.</value>
-        PostalAddress Address { get; set; }
+        PostalAddress Address { set; }
+
+        /// <summary>
+        /// Gets or sets a collection of addresses
+        /// </summary>
+        List<PostalAddress> Addresses { get; set; }
+
         /// <summary>
         /// Gets or sets the aggregate rating.
         /// </summary>

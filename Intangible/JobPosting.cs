@@ -24,6 +24,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -72,11 +73,24 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("incentiveCompensation")]
         public string IncentiveCompensation { get; set; }
+
         /// <summary>
         /// Text - The industry associated with the job position.
         /// </summary>
+        public string Industry
+        {
+            set
+            {
+                Industries = Industries ?? new List<string>();
+                Industries.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// Text - The industries associated with the job position.
+        /// </summary>
         [JsonProperty("industry")]
-        public string Industry { get; set; }
+        public List<string> Industries { get; set; }
 
         /// <summary>
         /// Text - Description of benefits associated with the job. Supersedes benefits.
@@ -87,8 +101,20 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Place - A (typically single) geographic location associated with the job position.
         /// </summary>
+        public Place JobLocation
+        {
+            set
+            {
+                JobLocations = JobLocations ?? new List<Place>();
+                JobLocations.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// Places - Multiple geographic location associated with the job position.
+        /// </summary>
         [JsonProperty("jobLocation")]
-        public Place JobLocation { get; set; }
+        public List<Place> JobLocations { get; set; }
 
         /// <summary>
         /// Text - Category or categories describing the job. Use BLS O*NET-SOC taxonomy: http://www.onetcenter.org/taxonomy.html. Ideally includes textual label and formal code, with the property repeated for each applicable value.

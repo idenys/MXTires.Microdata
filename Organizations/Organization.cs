@@ -40,11 +40,23 @@ namespace MXTires.Microdata
         /// <summary>
         /// PostalAddress - Physical address of the item.
         /// </summary>
-        [JsonProperty("address")]
-        public PostalAddress Address { get; set; }
+        public PostalAddress Address
+        {
+            set
+            {
+                Addresses = Addresses ?? new List<PostalAddress>();
+                Addresses.Add(value);
+            }
+        }
 
         /// <summary>
-        /// The location of the event, organization or action.
+        /// PostalAddress - Physical addresses of the item.
+        /// </summary>
+        [JsonProperty("address")]
+        public List<PostalAddress> Addresses { get; set; }
+
+        /// <summary>
+        /// The locations of the event, organization or action.
         /// </summary>
         [JsonProperty("location")]
         public Place Location { get; set; }
