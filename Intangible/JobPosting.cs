@@ -73,11 +73,24 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("incentiveCompensation")]
         public string IncentiveCompensation { get; set; }
+
         /// <summary>
         /// Text - The industry associated with the job position.
         /// </summary>
+        public string Industry
+        {
+            set
+            {
+                Industries = Industries ?? new List<string>();
+                Industries.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// Text - The industries associated with the job position.
+        /// </summary>
         [JsonProperty("industry")]
-        public string Industry { get; set; }
+        public List<string> Industries { get; set; }
 
         /// <summary>
         /// Text - Description of benefits associated with the job. Supersedes benefits.
