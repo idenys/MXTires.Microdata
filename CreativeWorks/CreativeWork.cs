@@ -143,10 +143,22 @@ namespace MXTires.Microdata
         public CreativeWork Citation { get; set; }
 
         /// <summary>
-        /// UserComments  or Comment - Comments, typically from users, on this CreativeWork.
+        /// UserComments  or Comment, typically from users, on this CreativeWork.
+        /// </summary>
+        public object Comment
+        {
+            set
+            {
+                Comments = Comments ?? new List<object>();
+                Comments.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// UserComments  Comments, typically from users, on this CreativeWork.
         /// </summary>
         [JsonProperty("comment")]
-        public object Comment { get; set; }
+        public List<object> Comments { get; set; }
 
         /// <summary>
         /// Integer - The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.
