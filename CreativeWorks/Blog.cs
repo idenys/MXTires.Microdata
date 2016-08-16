@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -36,7 +37,19 @@ namespace MXTires.Microdata.CreativeWorks
         /// <summary>
         /// BlogPosting  - A posting that is part of this blog. Supersedes blogPosts.
         /// </summary>
+        public BlogPosting BlogPost
+        {
+            set
+            {
+                BlogPosts = BlogPosts ?? new List<BlogPosting>();
+                BlogPosts.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// BlogPosting  - The postings that are part of this blog. Supersedes blogPosts.
+        /// </summary>
         [JsonProperty("blogPost")]
-        public BlogPosting BlogPost { get; set; }
+        public List<BlogPosting> BlogPosts { get; set; }
     }
 }
