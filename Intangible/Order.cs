@@ -97,13 +97,13 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Text - Code used to redeem a discount.
         /// </summary>
-        [JsonProperty("discount")]
+        [JsonProperty("discountCode")]
         public String DiscountCode { get; set; }
 
         /// <summary>
         /// Text - The currency (in 3-letter ISO 4217 format) of the discount.
         /// </summary>
-        [JsonProperty("DiscountCurrency")]
+        [JsonProperty("discountCurrency")]
         public String DiscountCurrency { get; set; }
 
         /// <summary>
