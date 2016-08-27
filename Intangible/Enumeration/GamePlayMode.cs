@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -22,23 +22,32 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
-using MXTires.Microdata.Places.AdministrativeAreas;
-using Newtonsoft.Json;
 
-namespace MXTires.Microdata.CreativeWorks
+using System.Runtime.Serialization;
+
+namespace MXTires.Microdata.Intangible.Enumeration
 {
 	/// <summary>
-	/// Season dedicated to TV broadcast and associated online delivery.
+	/// Indicates whether this game is multi-player, co-op or single-player.
 	/// </summary>
-	public class TVSeason : CreativeWorkSeason
-	{
+	public enum GamePlayMode
+    {
 		/// <summary>
-		/// Country - The country of the principal offices of the production company or individual responsible for the movie or program.
+		/// Play mode: CoOp. Co-operative games, where you play on the same team with friends.
 		/// </summary>
-		[JsonProperty("countryOfOrigin")]
-		public Country CountryOfOrigin
-		{
-			get; set;
-		}
-	}
+		[EnumMember(Value = "http://schema.org/CoOp")]
+        CoOp = 1 << 0,
+
+		/// <summary>
+		/// Play mode: MultiPlayer. Requiring or allowing multiple human players to play simultaneously.
+		/// </summary>
+		[EnumMember(Value = "http://schema.org/MultiPlayer")]
+		MultiPlayer = 1 << 1,
+
+		/// <summary>
+		/// Play mode: SinglePlayer. Which is played by a lone player.
+		/// </summary>
+		[EnumMember(Value = "http://schema.org/SinglePlayer")]
+		SinglePlayer = 1 << 2,
+    }
 }

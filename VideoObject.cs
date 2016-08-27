@@ -23,12 +23,98 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Organizations.PerformingGroups;
+using MXTires.Microdata.Validators;
+using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
-    /// <summary>
-    /// Class VideoObject.
-    /// </summary>
-    public class VideoObject
-    {
-    }
+	/// <summary>
+	/// Class VideoObject.
+	/// </summary>
+	public class VideoObject : MediaObject
+	{
+		/// <summary>
+		/// Person - An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Actors"/>.
+		/// </summary>
+		[JsonProperty("actor")]
+		public Person Actor
+		{
+			get; set;
+		}
+
+		/// <summary>
+		/// Text - The caption for this object.
+		/// </summary>
+		[JsonProperty("caption")]
+		public string Caption
+		{
+			get; set;
+		}
+
+		/// <summary>
+		/// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
+		/// </summary>
+		[JsonProperty("director")]
+		public Person Director
+		{
+			get; set;
+		}
+
+		Thing musicBy;
+		/// <summary>
+		/// MusicGroup  or Person - The composer of the soundtrack.
+		/// </summary>
+		/// <value>MusicGroup  or Person - The composer of the soundtrack.</value>
+		[JsonProperty("musicBy")]
+		public Thing MusicBy
+		{
+			get
+			{
+				return musicBy;
+			}
+			set
+			{
+				var validator = new TypeValidator(typeof(MusicGroup), typeof(Person));
+				validator.Validate(value);
+				musicBy = value;
+			}
+		}
+
+		/// <summary>
+		/// ImageObject -Thumbnail image for an image or video.
+		/// </summary>
+		[JsonProperty("thumbnail")]
+		public ImageObject Thumbnail
+		{
+			get; set;
+		}
+
+		/// <summary>
+		/// Text - If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
+		/// </summary>
+		[JsonProperty("transcript")]
+		public string Transcript
+		{
+			get; set;
+		}
+
+		/// <summary>
+		/// Text - The frame size of the video.
+		/// </summary>
+		[JsonProperty("videoFrameSize")]
+		public string VideoFrameSize
+		{
+			get; set;
+		}
+
+		/// <summary>
+		/// Text - The quality of the video.
+		/// </summary>
+		[JsonProperty("videoQuality")]
+		public string VideoQuality
+		{
+			get; set;
+		}
+	}
 }

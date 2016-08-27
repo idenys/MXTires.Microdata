@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,22 +23,44 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
-using System;
+using MXTires.Microdata.Places.AdministrativeAreas;
+using MXTires.Microdata.Organizations.PerformingGroups;
 
 namespace MXTires.Microdata.CreativeWorks
 {
 	/// <summary>
-	/// A media season e.g. tv, radio, video game etc.
+	/// CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
 	/// </summary>
-	public class CreativeWorkSeason : CreativeWork
+	/// <seealso cref="MXTires.Microdata.CreativeWorks.CreativeWorkSeries" />
+	public class TVSeries : CreativeWorkSeries
 	{
 		/// <summary>
 		/// Person - An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Actors"/>.
 		/// </summary>
 		[JsonProperty("actor")]
 		public Person Actor
+		{
+			get; set;
+		}
+
+		/// <summary>
+		/// CreativeWorkSeason - A season that is part of the media series. Supersedes season.
+		/// </summary>
+		[JsonProperty("containsSeason")]
+		public CreativeWorkSeason ContainsSeason
+		{
+			get; set;
+		}
+
+		/// <summary>
+		/// Country - The country of the principal offices of the production company or individual responsible for the movie or program.
+		/// </summary>
+		[JsonProperty("countryOfOrigin")]
+		public Country CountryOfOrigin
 		{
 			get; set;
 		}
@@ -53,16 +75,6 @@ namespace MXTires.Microdata.CreativeWorks
 		}
 
 		/// <summary>
-		/// Date - The end date and time of the item (in ISO 8601 date format).
-		/// </summary>
-		/// <value>The end date.</value>
-		[JsonProperty("endDate")]
-		public string EndDate
-		{
-			get; set;
-		}
-
-		/// <summary>
 		/// Episode - An episode of a tv, radio or game media within a series or season. Supersedes episodes.
 		/// </summary>
 		[JsonProperty("episode")]
@@ -72,7 +84,7 @@ namespace MXTires.Microdata.CreativeWorks
 		}
 
 		/// <summary>
-		/// Integer or Text - The number of episodes in this season or series.
+		/// Integer - The number of episodes in this season or series.
 		/// </summary>
 		[JsonProperty("numberOfEpisodes")]
 		public Int32? NumberOfEpisodes
@@ -81,12 +93,32 @@ namespace MXTires.Microdata.CreativeWorks
 		}
 
 		/// <summary>
-		/// CreativeWorkSeries - The series to which this episode or season belongs. Supersedes partOfTVSeries.
+		/// Integer - The number of seasons in this series.
 		/// </summary>
-		[JsonProperty("partOfSeries")]
-		public CreativeWorkSeries PartOfSeries
+		[JsonProperty("numberOfSeasons")]
+		public Int32? NumberOfSeasons
 		{
 			get; set;
+		}
+
+		Thing musicBy;
+		/// <summary>
+		/// MusicGroup  or Person - The composer of the soundtrack.
+		/// </summary>
+		/// <value>MusicGroup  or Person - The composer of the soundtrack.</value>
+		[JsonProperty("musicBy")]
+		public Thing MusicBy
+		{
+			get
+			{
+				return musicBy;
+			}
+			set
+			{
+				var validator = new TypeValidator(typeof(MusicGroup), typeof(Person));
+				validator.Validate(value);
+				musicBy = value;
+			}
 		}
 
 		/// <summary>
@@ -94,25 +126,6 @@ namespace MXTires.Microdata.CreativeWorks
 		/// </summary>
 		[JsonProperty("productionCompany")]
 		public Organization ProductionCompany
-		{
-			get; set;
-		}
-
-		/// <summary>
-		/// Text - Position of the season within an ordered group of seasons.
-		/// </summary>
-		[JsonProperty("seasonNumber")]
-		public string SeasonNumber
-		{
-			get; set;
-		}
-
-		/// <summary>
-		/// Date - The start date and time of the item (in ISO 8601 date format).
-		/// </summary>
-		/// <value>The start date.</value>
-		[JsonProperty("startDate")]
-		public string StartDate
 		{
 			get; set;
 		}

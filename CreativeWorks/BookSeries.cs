@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -22,23 +22,19 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
-using MXTires.Microdata.Places.AdministrativeAreas;
+
+using System;
+using System.Collections.Generic;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
 {
 	/// <summary>
-	/// Season dedicated to TV broadcast and associated online delivery.
+	/// A series of books. Included books can be indicated with the hasPart property.
 	/// </summary>
-	public class TVSeason : CreativeWorkSeason
+	/// <seealso cref="MXTires.Microdata.CreativeWorks.CreativeWorkSeries" />
+	public class BookSeries : CreativeWorkSeries
 	{
-		/// <summary>
-		/// Country - The country of the principal offices of the production company or individual responsible for the movie or program.
-		/// </summary>
-		[JsonProperty("countryOfOrigin")]
-		public Country CountryOfOrigin
-		{
-			get; set;
-		}
 	}
 }

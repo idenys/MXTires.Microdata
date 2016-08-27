@@ -22,7 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\MXTires.Microdata.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+	<CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -41,9 +41,9 @@
     <AssemblyOriginatorKeyFile>MXTires.MicroData.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -159,6 +159,11 @@
     <Compile Include="CreativeWorks\ComicSeries.cs" />
     <Compile Include="CreativeWorks\ComicStory.cs" />
     <Compile Include="CreativeWorks\CoverArt.cs" />
+    <Compile Include="CreativeWorks\BookSeries.cs" />
+    <Compile Include="CreativeWorks\MovieSeries.cs" />
+    <Compile Include="CreativeWorks\TVSeries.cs" />
+    <Compile Include="CreativeWorks\RadioSeries.cs" />
+    <Compile Include="CreativeWorks\VideoGameSeries.cs" />
     <Compile Include="CreativeWorks\CreativeWorkSeries.cs" />
     <Compile Include="CreativeWorks\IBook.cs" />
     <Compile Include="CreativeWorks\IComicStory.cs" />
@@ -167,10 +172,12 @@
     <Compile Include="CreativeWorks\Periodical.cs" />
     <Compile Include="CreativeWorks\PublicationIssue.cs" />
     <Compile Include="CreativeWorks\Thesis.cs" />
+    <Compile Include="CreativeWorks\RadioSeason.cs" />
     <Compile Include="CreativeWorks\VisualArtwork.cs" />
     <Compile Include="Extentions\BibNameSpace.cs" />
     <Compile Include="Extentions\ThingCollection.cs" />
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
+    <Compile Include="Intangible\Enumeration\GamePlayMode.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />
     <Compile Include="CreativeWorks\Comment.cs" />
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />

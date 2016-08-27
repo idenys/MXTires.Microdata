@@ -22,23 +22,14 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
-using MXTires.Microdata.Places.AdministrativeAreas;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
 {
 	/// <summary>
-	/// Season dedicated to TV broadcast and associated online delivery.
+	/// Season dedicated to radio broadcast and associated online delivery.
 	/// </summary>
-	public class TVSeason : CreativeWorkSeason
+	public class RadioSeason : CreativeWorkSeason
 	{
-		/// <summary>
-		/// Country - The country of the principal offices of the production company or individual responsible for the movie or program.
-		/// </summary>
-		[JsonProperty("countryOfOrigin")]
-		public Country CountryOfOrigin
-		{
-			get; set;
-		}
 	}
 }

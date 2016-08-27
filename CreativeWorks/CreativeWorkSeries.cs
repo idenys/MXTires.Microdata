@@ -37,7 +37,6 @@ namespace MXTires.Microdata.CreativeWorks
     /// </summary>
     public class CreativeWorkSeries : CreativeWork
     {
-
         /// <summary>
         /// Date - The end date and time of the item (in ISO 8601 date format).
         /// </summary>
