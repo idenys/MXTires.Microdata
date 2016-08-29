@@ -36,12 +36,21 @@ namespace MXTires.Microdata.Intangible
     /// </summary>
     public class Order : Thing
     {
+        object acceptedOffer;
         /// <summary>
         /// Offer - The offer(s) -- e.g., product, quantity and price combinations -- included in the order.
         /// </summary>
         [JsonProperty("acceptedOffer")]
-        public Offer AcceptedOffer { get; set; }
-
+        public object AcceptedOffer
+        {
+            get { return acceptedOffer; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Offer), typeof(List<Offer>));
+                validator.Validate(value);
+                acceptedOffer = value;
+            }
+        }
 
         /// <summary>
         /// PostalAddress - The billing address for the order.
