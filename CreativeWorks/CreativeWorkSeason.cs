@@ -26,6 +26,7 @@
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace MXTires.Microdata.CreativeWorks
 {
@@ -43,6 +44,12 @@ namespace MXTires.Microdata.CreativeWorks
 			get; set;
 		}
 
+        /// <summary>
+        /// An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("actors")]
+        public IList<Person> Actors { get; set; }
+
 		/// <summary>
 		/// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
 		/// </summary>
@@ -51,6 +58,12 @@ namespace MXTires.Microdata.CreativeWorks
 		{
 			get; set;
 		}
+
+        /// <summary>
+        /// A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("directors")]
+        public IList<Person> Directors { get; set; }
 
 		/// <summary>
 		/// Date - The end date and time of the item (in ISO 8601 date format).

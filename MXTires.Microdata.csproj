@@ -22,7 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\MXTires.Microdata.XML</DocumentationFile>
-	<CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -248,6 +248,8 @@
     <Compile Include="Intangible\Services\GovernmentService.cs" />
     <Compile Include="Intangible\Services\Taxi.cs" />
     <Compile Include="Intangible\Services\TaxiService.cs" />
+    <Compile Include="Intangible\StructuredValues\LocationFeatureSpecification.cs" />
+    <Compile Include="Places\Accommodation.cs" />
     <Compile Include="Products\Car.cs" />
     <Compile Include="ContactPoint.cs" />
     <Compile Include="Organizations\Corporation.cs" />

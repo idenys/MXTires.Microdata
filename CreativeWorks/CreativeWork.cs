@@ -501,6 +501,9 @@ namespace MXTires.Microdata
         public CreativeWork WorkTranslation { get; set; }
     }
 
+    /// <summary>
+    /// A media episode (e.g. TV, radio, video game) which can be part of a series or season.
+    /// </summary>
 	public class Episode : CreativeWork
 	{
 		/// <summary>
@@ -512,6 +515,13 @@ namespace MXTires.Microdata
 			get; set;
 		}
 
+        /// <summary>
+        /// An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("actors")]
+        public IList<Person> Actors { get; set; }
+
+
 		/// <summary>
 		/// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
 		/// </summary>
@@ -520,6 +530,12 @@ namespace MXTires.Microdata
 		{
 			get; set;
 		}
+
+        /// <summary>
+        /// A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("directors")]
+        public IList<Person> Directors { get; set; }
 
 		/// <summary>
 		/// Integer or Text - Position of the episode within an ordered group of episodes.

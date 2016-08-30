@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Collections.Generic;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Organizations.PerformingGroups;
 using MXTires.Microdata.Validators;
@@ -38,28 +39,31 @@ namespace MXTires.Microdata
 		/// Person - An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Actors"/>.
 		/// </summary>
 		[JsonProperty("actor")]
-		public Person Actor
-		{
-			get; set;
-		}
+        public Person Actor { get; set; }
+
+        /// <summary>
+        /// An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("actors")]
+        public IList<Person> Actors { get; set; }
 
 		/// <summary>
 		/// Text - The caption for this object.
 		/// </summary>
 		[JsonProperty("caption")]
-		public string Caption
-		{
-			get; set;
-		}
+        public string Caption { get; set; }
 
 		/// <summary>
 		/// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
 		/// </summary>
 		[JsonProperty("director")]
-		public Person Director
-		{
-			get; set;
-		}
+        public Person Director { get; set; }
+
+        /// <summary>
+        /// A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("directors")]
+        public IList<Person> Directors { get; set; }
 
 		Thing musicBy;
 		/// <summary>

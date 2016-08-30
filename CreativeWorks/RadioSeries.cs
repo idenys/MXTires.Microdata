@@ -46,6 +46,12 @@ namespace MXTires.Microdata.CreativeWorks
 			get; set;
 		}
 
+        /// <summary>
+        /// An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("actors")]
+        public IList<Person> Actors { get; set; }
+
 		/// <summary>
 		/// CreativeWorkSeason - A season that is part of the media series. Supersedes season.
 		/// </summary>
@@ -63,6 +69,13 @@ namespace MXTires.Microdata.CreativeWorks
 		{
 			get; set;
 		}
+
+        /// <summary>
+        /// A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("directors")]
+        public IList<Person> Directors { get; set; }
+
 
 		/// <summary>
 		/// Episode - An episode of a tv, radio or game media within a series or season. Supersedes episodes.

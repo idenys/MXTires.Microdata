@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -25,20 +25,18 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.LocalBusinesses.LodgingBusinesses
+namespace MXTires.Microdata.Places
 {
     /// <summary>
-    /// A lodging business, such as a motel, hotel, or inn.
+    /// The act of posing a question / favor to someone.
+    /// Related actions:
+    /// ReplyAction: Appears generally as a response to Accommodation
     /// </summary>
-    public class LodgingBusiness : LocalBusiness
+    public class Accommodation : Place
     {
         /// <summary>
         /// LocationFeatureSpecification - An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
@@ -47,45 +45,33 @@ namespace MXTires.Microdata.LocalBusinesses.LodgingBusinesses
         public LocationFeatureSpecification AmenityFeature { get; set; }
 
         /// <summary>
-        /// Audience - An intended audience, i.e. a group for whom something was created. Supersedes <see cref="ServiceAudience"/>.
+        /// QuantitativeValue - The size of the accommodation, e.g. in square meter or squarefoot. Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard
         /// </summary>
-        [JsonProperty("audience")]
-        public Audience Audience { get; set; }
+        [JsonProperty("floorSize")]
+        public QuantitativeValue FloorSize	{ get; set; }
 
-        /// <summary>
-        /// Audience - The audience eligible for this service. Superseded by <see cref="Audience"/>
-        /// </summary>
-        [JsonProperty("serviceAudience")]
-        public Audience ServiceAudience { get; set; }
-
-        object availableLanguage;
-
-        /// <summary>
-        /// Language  or Text - A language someone may use with the item. Please use one of the language codes from the IETF BCP 47 standard. <seealso cref="InLanguage"/> 
-        /// </summary>
-        [JsonProperty("availableLanguage")]
-        public object AvailableLanguage
+        object numberOfRooms;
+       /// <summary>
+       ///  Number  or QuantitativeValue - The number of rooms (excluding bathrooms and closets) of the acccommodation or lodging business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+       /// </summary>
+        [JsonProperty("numberOfRooms")]
+        public object NumberOfRooms
         {
-            get { return availableLanguage; }
+            get { return numberOfRooms; }
             set
             {
-                var validator = new TypeValidator(typeof(Language), typeof(String));
+                List<Type> typeList = new List<System.Type>() { typeof(float?), typeof(QuantitativeValue), typeof(Int32?), };
+                var validator = new TypeValidator(typeList);
                 validator.Validate(value);
-                availableLanguage = value;
+                numberOfRooms = value;
             }
         }
-
+	
         /// <summary>
-        /// DateTime - The earliest someone may check into a lodging establishment.
+        /// Text - Indications regarding the permitted usage of the accommodation.
         /// </summary>
-        [JsonProperty("checkinTime")]
-        public DateTime? CheckinTime { get; set; }
-
-        /// <summary>
-        /// DateTime - The latest someone may check out of a lodging establishment.
-        /// </summary>
-        [JsonProperty("checkoutTime")]
-        public DateTime? CheckoutTime { get; set; }
+        [JsonProperty("permittedUsage")]
+        public String PermittedUsage{ get; set; }	
 
         object petsAllowed;
         /// <summary>
@@ -102,11 +88,5 @@ namespace MXTires.Microdata.LocalBusinesses.LodgingBusinesses
                 petsAllowed = value;
             }
         }
-
-        /// <summary>
-        /// Rating - An official rating for a lodging business or food establishment, e.g. from national associations or standards bodies. Use the author property to indicate the rating organization, e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).
-        /// </summary>
-        [JsonProperty("starRating")]
-        public Rating StarRating { get; set; }
     }
 }
