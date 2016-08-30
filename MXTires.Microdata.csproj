@@ -176,6 +176,7 @@
     <Compile Include="CreativeWorks\VisualArtwork.cs" />
     <Compile Include="Extentions\BibNameSpace.cs" />
     <Compile Include="Extentions\ThingCollection.cs" />
+    <Compile Include="Intangible\BedDetails.cs" />
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Enumeration\GamePlayMode.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />
@@ -249,7 +250,12 @@
     <Compile Include="Intangible\Services\Taxi.cs" />
     <Compile Include="Intangible\Services\TaxiService.cs" />
     <Compile Include="Intangible\StructuredValues\LocationFeatureSpecification.cs" />
+    <Compile Include="LocalBusinesses\LodgingBusinesses\Resort.cs" />
     <Compile Include="Places\Accommodation.cs" />
+    <Compile Include="Places\Accommodations\Apartment.cs" />
+    <Compile Include="Places\Accommodations\CampingPitch.cs" />
+    <Compile Include="Places\Accommodations\HotelRoom.cs" />
+    <Compile Include="Places\Accommodations\Room.cs" />
     <Compile Include="Products\Car.cs" />
     <Compile Include="ContactPoint.cs" />
     <Compile Include="Organizations\Corporation.cs" />

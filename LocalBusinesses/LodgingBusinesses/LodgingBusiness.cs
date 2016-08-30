@@ -75,6 +75,23 @@ namespace MXTires.Microdata.LocalBusinesses.LodgingBusinesses
             }
         }
 
+        object inLanguage;
+
+        /// <summary>
+        /// Language  or Text - The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. <seealso cref="AvailableLanguage"/> 
+        /// </summary>
+        [JsonProperty("inLanguage")]
+        public object InLanguage
+        {
+            get { return inLanguage; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Language), typeof(String));
+                validator.Validate(value);
+                inLanguage = value;
+            }
+        }
+
         /// <summary>
         /// DateTime - The earliest someone may check into a lodging establishment.
         /// </summary>

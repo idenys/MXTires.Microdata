@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,29 +23,21 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MXTires.Microdata.LocalBusinesses.LodgingBusinesses;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Places.CivicStructures
+namespace MXTires.Microdata.Places.Accommodations
 {
     /// <summary>
-    /// A Campground.
+    /// An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (Source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Apartment).
     /// </summary>
-    public class Campground : LodgingBusiness, ICivicStructure, IPlace
+    public class Apartment : Accommodation
     {
         /// <summary>
-        /// The opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.
-        /// - Days are specified using the following two-letter combinations: Mo, Tu, We, Th, Fr, Sa, Su.
-        /// - Times are specified using 24:00 time. For example, 3pm is specified as 15:00. 
-        /// - Here is an example: <time itemprop="openingHours" datetime="Tu,Th 16:00-20:00">Tuesdays and Thursdays 4-8pm</time>. 
-        /// - If a business is open 7 days a week, then it can be specified as <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>.
+        /// QuantitativeValue - The allowed total occupancy for the accommodation in persons (including infants etc). 
+        /// For individual accommodations, this is not necessarily the legal maximum but defines the permitted usage as per the contractual agreement 
+        /// (e.g. a double room used by a single person). Typical unit code(s): C62 for person
         /// </summary>
-        [JsonProperty("openingHours")]
-        public new string OpeningHours { get; set; }
+        [JsonProperty("occupancy")]
+        public QuantitativeValue Occupancy { get; set; }
     }
 }
