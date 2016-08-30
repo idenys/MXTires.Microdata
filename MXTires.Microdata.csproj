@@ -255,6 +255,7 @@
     <Compile Include="Places\Accommodations\Apartment.cs" />
     <Compile Include="Places\Accommodations\CampingPitch.cs" />
     <Compile Include="Places\Accommodations\HotelRoom.cs" />
+    <Compile Include="Places\Accommodations\MeetingRoom.cs" />
     <Compile Include="Places\Accommodations\Room.cs" />
     <Compile Include="Products\Car.cs" />
     <Compile Include="ContactPoint.cs" />
