@@ -179,6 +179,7 @@
     <Compile Include="Intangible\BedDetails.cs" />
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Enumeration\GamePlayMode.cs" />
+    <Compile Include="Intangible\Enumeration\RestrictedDiet.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />
     <Compile Include="CreativeWorks\Comment.cs" />
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />
@@ -250,13 +251,16 @@
     <Compile Include="Intangible\Services\Taxi.cs" />
     <Compile Include="Intangible\Services\TaxiService.cs" />
     <Compile Include="Intangible\StructuredValues\LocationFeatureSpecification.cs" />
+    <Compile Include="Intangible\StructuredValues\NutritionInformation.cs" />
     <Compile Include="LocalBusinesses\LodgingBusinesses\Resort.cs" />
     <Compile Include="Places\Accommodation.cs" />
     <Compile Include="Places\Accommodations\Apartment.cs" />
     <Compile Include="Places\Accommodations\CampingPitch.cs" />
     <Compile Include="Places\Accommodations\HotelRoom.cs" />
+    <Compile Include="Places\Accommodations\House.cs" />
     <Compile Include="Places\Accommodations\MeetingRoom.cs" />
     <Compile Include="Places\Accommodations\Room.cs" />
+    <Compile Include="Places\Accommodations\Suite.cs" />
     <Compile Include="Products\Car.cs" />
     <Compile Include="ContactPoint.cs" />
     <Compile Include="Organizations\Corporation.cs" />

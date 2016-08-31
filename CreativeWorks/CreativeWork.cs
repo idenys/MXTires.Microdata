@@ -173,7 +173,7 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("contentLocation")]
         public Place ContentLocation { get; set; }
-        
+
         /// <summary>
         /// Text - Official rating of a piece of content—for example,'MPAA PG-13'.
         /// </summary>
@@ -336,7 +336,7 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("isFamilyFriendly")]
         public bool? IsFamilyFriendly { get; set; }
-        
+
         /// <summary>
         /// CreativeWork - Indicates a CreativeWork that this CreativeWork is (in some sense) part of.
         /// Inverse property: hasPart.
@@ -504,16 +504,17 @@ namespace MXTires.Microdata
     /// <summary>
     /// A media episode (e.g. TV, radio, video game) which can be part of a series or season.
     /// </summary>
-	public class Episode : CreativeWork
-	{
-		/// <summary>
-		/// Person - An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Actors"/>.
-		/// </summary>
-		[JsonProperty("actor")]
-		public Person Actor
-		{
-			get; set;
-		}
+    public class Episode : CreativeWork
+    {
+        /// <summary>
+        /// Person - An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Actors"/>.
+        /// </summary>
+        [JsonProperty("actor")]
+        public Person Actor
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
@@ -522,14 +523,15 @@ namespace MXTires.Microdata
         public IList<Person> Actors { get; set; }
 
 
-		/// <summary>
-		/// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
-		/// </summary>
-		[JsonProperty("director")]
-		public Person Director
-		{
-			get; set;
-		}
+        /// <summary>
+        /// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
+        /// </summary>
+        [JsonProperty("director")]
+        public Person Director
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes by <see cref="Actor"/>.
@@ -537,70 +539,82 @@ namespace MXTires.Microdata
         [JsonProperty("directors")]
         public IList<Person> Directors { get; set; }
 
-		/// <summary>
-		/// Integer or Text - Position of the episode within an ordered group of episodes.
-		/// </summary>
-		[JsonProperty("episodeNumber")]
-		public Int32? EpisodeNumber
-		{
-			get; set;
-		}
+        /// <summary>
+        /// Integer or Text - Position of the episode within an ordered group of episodes.
+        /// </summary>
+        [JsonProperty("episodeNumber")]
+        public Int32? EpisodeNumber
+        {
+            get;
+            set;
+        }
 
-		Thing musicBy;
-		/// <summary>
-		/// MusicGroup  or Person - The composer of the soundtrack.
-		/// </summary>
-		/// <value>MusicGroup  or Person - The composer of the soundtrack.</value>
-		[JsonProperty("musicBy")]
-		public Thing MusicBy
-		{
-			get
-			{
-				return musicBy;
-			}
-			set
-			{
-				var validator = new TypeValidator(typeof(MusicGroup), typeof(Person));
-				validator.Validate(value);
-				musicBy = value;
-			}
-		}
+        Thing musicBy;
+        /// <summary>
+        /// MusicGroup  or Person - The composer of the soundtrack.
+        /// </summary>
+        /// <value>MusicGroup  or Person - The composer of the soundtrack.</value>
+        [JsonProperty("musicBy")]
+        public Thing MusicBy
+        {
+            get
+            {
+                return musicBy;
+            }
+            set
+            {
+                var validator = new TypeValidator(typeof(MusicGroup), typeof(Person));
+                validator.Validate(value);
+                musicBy = value;
+            }
+        }
 
-		/// <summary>
-		/// CreativeWorkSeason - The season to which this episode belongs.
-		/// </summary>
-		[JsonProperty("partOfSeason")]
-		public CreativeWorkSeason PartOfSeason
-		{
-			get; set;
-		}
+        /// <summary>
+        /// CreativeWorkSeason - The season to which this episode belongs.
+        /// </summary>
+        [JsonProperty("partOfSeason")]
+        public CreativeWorkSeason PartOfSeason
+        {
+            get;
+            set;
+        }
 
-		/// <summary>
-		/// CreativeWorkSeries - The series to which this episode or season belongs. Supersedes partOfTVSeries.
-		/// </summary>
-		[JsonProperty("partOfSeries")]
-		public CreativeWorkSeries PartOfSeries
-		{
-			get; set;
-		}
+        /// <summary>
+        /// CreativeWorkSeries - The series to which this episode or season belongs. Supersedes partOfTVSeries.
+        /// </summary>
+        [JsonProperty("partOfSeries")]
+        public CreativeWorkSeries PartOfSeries
+        {
+            get;
+            set;
+        }
 
-		/// <summary>
-		/// Organization - The production company or studio responsible for the item e.g. series, video game, episode etc.
-		/// </summary>
-		[JsonProperty("productionCompany")]
-		public Organization ProductionCompany
-		{
-			get; set;
-		}
+        /// <summary>
+        /// Organization - The production company or studio responsible for the item e.g. series, video game, episode etc.
+        /// </summary>
+        [JsonProperty("productionCompany")]
+        public Organization ProductionCompany
+        {
+            get;
+            set;
+        }
 
-		/// <summary>
-		/// VideoObject - The trailer of a movie or tv/radio series, season, episode, etc.
-		/// </summary>
-		[JsonProperty("trailer")]
-		public VideoObject Trailer
-		{
-			get; set;
-		}
-	}
+        /// <summary>
+        /// VideoObject - The trailer of a movie or tv/radio series, season, episode, etc.
+        /// </summary>
+        [JsonProperty("trailer")]
+        public VideoObject Trailer
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// A flag to signal that the publication is accessible for free.
+        /// </summary>
+        [JsonProperty("isAccessibleForFree")]
+        public Boolean? IsAccessibleForFree { get; set; }
+
+    }
 }
  

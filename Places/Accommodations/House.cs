@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,26 +23,14 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using MXTires.Microdata.Intangible.Services;
 using Newtonsoft.Json;
-namespace MXTires.Microdata.Events
+
+namespace MXTires.Microdata.Places.Accommodations
 {
     /// <summary>
-    /// A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.
+    /// A house is a building or structure that has the ability to be occupied for habitation by humans or other creatures (Source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/House).
     /// </summary>
-    public class PublicationEvent : Event
+    public class House : Accommodation
     {
-        /// <summary>
-        /// Boolean - A flag to signal that the publication is accessible for free. Superseded By <see cref="Event.IsAccessibleForFree"/>
-        /// </summary>
-        [JsonProperty("free")]
-        public bool Free { get; set; }
-
-        /// <summary>
-        /// BroadcastService - A broadcast service associated with the publication event.
-        /// </summary>
-        [JsonProperty("publishedOn")]
-        public BroadcastService PublishedOn { get; set; }
     }
 }

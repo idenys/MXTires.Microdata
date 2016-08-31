@@ -30,6 +30,7 @@ using System.Collections.Generic;
 using MXTires.Microdata.Attributes;
 using MXTires.Microdata.Validators;
 using MXTires.Microdata.Intangible.Quantities;
+using System;
 namespace MXTires.Microdata
 {
     /// <summary>
@@ -201,5 +202,11 @@ namespace MXTires.Microdata
         /// <value>The work performed.</value>
         [JsonProperty("workPerformed")]
         public CreativeWork WorkPerformed { get; set; }
+
+        /// <summary>
+        /// A flag to signal that the publication is accessible for free.
+        /// </summary>
+        [JsonProperty("isAccessibleForFree")]
+        public Boolean? IsAccessibleForFree { get; set; }
     }
 }

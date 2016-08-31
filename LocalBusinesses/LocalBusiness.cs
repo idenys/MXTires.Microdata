@@ -64,7 +64,7 @@ namespace MXTires.Microdata
         public string PaymentAccepted { get; set; }
 
         /// <summary>
-        /// The price range of the business, for example $$$.
+        /// The price range of the business, for example $100 - $240.
         /// </summary>
         [JsonProperty("priceRange")]
         public string PriceRange { get; set; }

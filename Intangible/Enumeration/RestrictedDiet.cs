@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,25 +24,26 @@
 #endregion
 
 using System;
-using MXTires.Microdata.Intangible.Services;
 using Newtonsoft.Json;
-namespace MXTires.Microdata.Events
+
+namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.
+    /// A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons.
     /// </summary>
-    public class PublicationEvent : Event
+    [Flags]
+    public enum RestrictedDiet
     {
-        /// <summary>
-        /// Boolean - A flag to signal that the publication is accessible for free. Superseded By <see cref="Event.IsAccessibleForFree"/>
-        /// </summary>
-        [JsonProperty("free")]
-        public bool Free { get; set; }
-
-        /// <summary>
-        /// BroadcastService - A broadcast service associated with the publication event.
-        /// </summary>
-        [JsonProperty("publishedOn")]
-        public BroadcastService PublishedOn { get; set; }
+        DiabeticDiet = 1 << 0,
+        GlutenFreeDiet = 1 << 1,
+        HalalDiet = 1 << 2,
+        HinduDiet = 1 << 3,
+        KosherDiet = 1 << 4,
+        LowCalorieDiet = 1 << 5,
+        LowFatDiet = 1 << 6,
+        LowLactoseDiet = 1 << 7,
+        LowSaltDiet = 1 << 8,
+        VeganDiet = 1 << 9,
+        VegetarianDiet = 1 << 10,
     }
 }

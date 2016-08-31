@@ -23,12 +23,84 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using MXTires.Microdata.Intangible.Enumeration;
+using MXTires.Microdata.Intangible.Quantities;
+using MXTires.Microdata.Intangible.StructuredValues;
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata
 {
     /// <summary>
-    /// A recipe.
+    /// A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via suitableForDiet. The keywords property can also be used to add more detail.
     /// </summary>
     public class Recipe : CreativeWork
     {
+        /// <summary>
+        /// Duration - The time it takes to actually cook the dish, in ISO 8601 duration format.
+        /// </summary>
+        [JsonProperty("cookTime")]
+        public Duration CookTime { get; set; }
+
+        /// <summary>
+        /// Text - The method of cooking, such as Frying, Steaming, ...
+        /// </summary>
+        [JsonProperty("cookingMethod")]
+        public String CookingMethod { get; set; }
+
+        /// <summary>
+        /// NutritionInformation - Nutrition information about the recipe.
+        /// </summary>
+        [JsonProperty("nutrition")]
+        public NutritionInformation Nutrition { get; set; }
+
+        /// <summary>
+        /// Duration - The length of time it takes to prepare the recipe, in ISO 8601 duration format.
+        /// </summary>
+        [JsonProperty("prepTime")]
+        public Duration PrepTime { get; set; }
+
+        /// <summary>
+        /// Text - The category of the recipe—for example, appetizer, entree, etc.
+        /// </summary>
+        [JsonProperty("recipeCategory")]
+        public String RecipeCategory { get; set; }
+
+        /// <summary>
+        /// Text - The cuisine of the recipe (for example, French or Ethiopian).
+        /// </summary>
+        [JsonProperty("recipeCuisine")]
+        public String RecipeCuisine { get; set; }
+
+        /// <summary>
+        /// Text - A single ingredient used in the recipe, e.g. sugar, flour or garlic. Supersedes ingredients.
+        /// </summary>
+        [JsonProperty("recipeIngredient")]
+        public String RecipeIngredient { get; set; }
+
+        /// <summary>
+        /// ItemList  or Text - A step or instruction involved in making the recipe.
+        /// </summary>
+        [JsonProperty("recipeInstructions")]
+        public object RecipeInstructions { get; set; }
+
+
+        /// <summary>
+        /// Text - The quantity produced by the recipe (for example, number of people served, number of servings, etc).
+        /// </summary>
+        [JsonProperty("recipeYield")]
+        public String RecipeYield { get; set; }
+
+        /// <summary>
+        /// RestrictedDiet - Indicates a dietary restriction or guideline for which this recipe is suitable, e.g. diabetic, halal etc.
+        /// </summary>
+        [JsonProperty("suitableForDiet")]
+        public RestrictedDiet SuitableForDiet { get; set; }
+
+        /// <summary>
+        /// Duration 	The total time it takes to prepare and cook the recipe, in ISO 8601 duration format.
+        /// </summary>
+        [JsonProperty("totalTime")]
+        public Duration TotalTime { get; set; }
     }
 }
