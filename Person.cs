@@ -27,10 +27,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Intangible.Quantities;
+using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Places.AdministrativeAreas;
 using MXTires.Microdata.Validators;
-
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -160,6 +161,34 @@ namespace MXTires.Microdata
         public Organization Address { get; set; }
 
         /// <summary>
+        /// Text - The fax number.
+        /// </summary>
+        [JsonProperty("faxNumber")]
+        public string FaxNumber { get; set; }
+
+        /// <summary>
+        /// Person - The most generic uni-directional social relation.
+        /// </summary>
+        [JsonProperty("follows")]
+        public Person Follows { get; set; }
+
+        Thing funder;
+        /// <summary>
+        /// Organization  or Person - A person or organization that supports (sponsors) something through some kind of financial contribution.
+        /// </summary>
+        [JsonProperty("funder")]
+        public Thing Funder	{
+            get { return this.funder; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(Organization), typeof(Brand));
+                validator.Validate(value);
+                this.funder = value;
+            }
+        }
+
+
+        /// <summary>
         /// The brand
         /// </summary>
         private Thing brand;
@@ -195,6 +224,31 @@ namespace MXTires.Microdata
         public List<Person> Colleagues { get; set; }
 
         /// <summary>
+        /// ContactPoint - A contact point for a person or organization. Supersedes <see cref="contactPoints"/>.
+        /// </summary>
+        [JsonProperty("contactPoint")]
+        public ContactPoint ContactPoint { get; set; }
+
+        /// <summary>
+        /// Collection of contact points for a person or organization. Superseded by <see cref="ContactPoint"/> contactPoints.
+        /// </summary>
+        [JsonProperty("contactPoints")]
+        public IList<ContactPoint> ContactPoints { get; set; }
+
+        /// <summary>
+        /// Date - Date of death.
+        /// </summary>
+        [JsonProperty("deathDate")]
+        public DateTime? DeathDate { get; set; }
+
+
+        /// <summary>
+        /// Place - The place where the person died.
+        /// </summary>
+        [JsonProperty("deathPlace")]
+        public Place DeathPlace { get; set; }
+
+        /// <summary>
         /// Text - The Dun and Bradstreet DUNS number for identifying an organization or business person.
         /// </summary>
         /// <value>The duns.</value>
@@ -222,6 +276,18 @@ namespace MXTires.Microdata
         /// <value>The has position.</value>
         [JsonProperty("hasPOS")]
         public Place HasPOS { get; set; }
+
+        /// <summary>
+        /// Person - The most generic bi-directional social/work relation.
+        /// </summary>
+        [JsonProperty("knows")]
+        public Person Knows { get; set; }
+
+        /// <summary>
+        /// Offer 	A pointer to products or services offered by the organization or person. Inverse property: <see cref="OfferedBy"/>.
+        /// </summary>
+        [JsonProperty("makesOffer")]
+        public Offer MakesOffer { get; set; }
 
         /// <summary>
         /// The member of
@@ -252,7 +318,6 @@ namespace MXTires.Microdata
         /// <summary>
         /// A contact location for a person's place of work.
         /// </summary>
-        /// <value>The brand.</value>
         [JsonProperty("workLocation")]
         public Thing WorkLocation
         {
@@ -265,6 +330,29 @@ namespace MXTires.Microdata
             }
         }
 
+
+        /// <summary>
+        /// OfferCatalog - Indicates an OfferCatalog listing for this Organization, Person, or Service. 
+        /// </summary>
+        [JsonProperty("hasOfferCatalog")]
+        public OfferCatalog HasOfferCatalog { get; set; }
+
+        Thing height;
+
+        /// <summary>
+        /// Distance  or QuantitativeValue - The height of the person.
+        /// </summary>
+       [JsonProperty("height")]
+        public Thing  Height {
+            get { return this.workLocation; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(Distance), typeof(QuantitativeValue));
+                validator.Validate(value);
+                this.height = value;
+            }
+        }	
+
         /// <summary>
         /// The home location
         /// </summary>
@@ -273,7 +361,6 @@ namespace MXTires.Microdata
         /// <summary>
         /// A contact location for a person's residence.
         /// </summary>
-        /// <value>The brand.</value>
         [JsonProperty("homeLocation")]
         public Thing HomeLocation
         {
@@ -285,5 +372,136 @@ namespace MXTires.Microdata
                 this.homeLocation = value;
             }
         }
+
+        /// <summary>
+        /// The North American Industry Classification System (NAICS) code for a particular organization or business person.
+        /// </summary>
+        [JsonProperty("naics")]
+        public String Naics { get; set; }
+
+        /// <summary>
+        /// Country - Nationality of the person.
+        /// </summary>
+        [JsonProperty("nationality")]
+        public Country Nationality { get; set; }
+
+        private Thing netWorth;
+
+        /// <summary>
+        /// MonetaryAmount  or PriceSpecification - The total financial value of the person as calculated by subtracting assets from liabilities.
+        /// </summary>
+        [JsonProperty("netWorth")]
+        public Thing NetWorth
+        {
+            get { return this.netWorth; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(MonetaryAmount), typeof(PriceSpecification));
+                validator.Validate(value);
+                this.netWorth = value;
+            }
+        }
+
+        private Thing owns;
+
+        /// <summary>
+        /// OwnershipInfo  or Product - Products owned by the organization or person.
+        /// </summary>
+        [JsonProperty("owns")]
+        public Thing Owns
+        {
+            get { return this.owns; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(OwnershipInfo), typeof(Product));
+                validator.Validate(value);
+                this.owns = value;
+            }
+        }
+
+        /// <summary>
+        /// Person - A parent of this person. Supersedes <see cref="Parents"/>.
+        /// </summary>
+        [JsonProperty("parent")]
+        public Person Parent { get; set; }
+
+        /// <summary>
+        /// Parents of the person. Superseded by <see cref="Parent"/>.
+        /// </summary>
+        [JsonProperty("parents")]
+        public IList<Person> Parents { get; set; }
+
+        /// <summary>
+        /// Event - Event that this person is a performer or participant in.
+        /// </summary>
+        [JsonProperty("performerIn")]
+        public Event performerIn { get; set; }
+
+        /// <summary>
+        /// Person - The most generic familial relation.
+        /// </summary>
+        [JsonProperty("relatedTo")]
+        public Person RelatedTo { get; set; }
+
+        /// <summary>
+        /// Demand - A pointer to products or services sought by the organization or person (demand).
+        /// </summary>
+        [JsonProperty("seeks")]
+        public Demand Seeks { get; set; }
+
+        /// <summary>
+        /// Person - A sibling of the person. Supersedes <see cref="Siblings"/>.
+        /// </summary>
+        [JsonProperty("sibling")]
+        public Person Sibling { get; set; }
+
+        /// <summary>
+        /// Sibling of the person. Superseded by <see cref="Sibling"/>.
+        /// </summary>
+        [JsonProperty("sibling")]
+        public IList<Person> Siblings { get; set; }
+
+        Thing sponsor;
+             
+        /// <summary>
+        /// Organization  or Person  - A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+        /// </summary>
+        [JsonProperty("sponsor")]
+        public Thing Sponsor
+        {
+            get { return this.homeLocation; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                this.homeLocation = value;
+            }
+        }
+
+        /// <summary>
+        /// Person - The person's spouse.
+        /// </summary>
+        [JsonProperty("spouse")]
+        public Person Spouse { get; set; }
+
+        /// <summary>
+        /// Text - The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
+        /// </summary>
+        [JsonProperty("taxID")]
+        public String taxId { get; set; }
+
+        /// <summary>
+        /// Text - The Value-added Tax ID of the organization or person.
+        /// </summary>
+        [JsonProperty("vatID")]
+        public String VatId { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - The weight of the product or person.
+        /// </summary>
+        [JsonProperty("weight")]
+        public QuantitativeValue Weight { get; set; }
+
+
     }
 }
