@@ -180,6 +180,7 @@
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Enumeration\GamePlayMode.cs" />
     <Compile Include="Intangible\Enumeration\RestrictedDiet.cs" />
+    <Compile Include="Intangible\OfferCatalog.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />
     <Compile Include="CreativeWorks\Comment.cs" />
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Intangible\Services\Taxi.cs" />
     <Compile Include="Intangible\Services\TaxiService.cs" />
     <Compile Include="Intangible\StructuredValues\LocationFeatureSpecification.cs" />
+    <Compile Include="Intangible\StructuredValues\MonetaryAmount.cs" />
     <Compile Include="Intangible\StructuredValues\NutritionInformation.cs" />
     <Compile Include="LocalBusinesses\LodgingBusinesses\Resort.cs" />
     <Compile Include="Places\Accommodation.cs" />

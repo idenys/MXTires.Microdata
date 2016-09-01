@@ -165,25 +165,25 @@ namespace MXTires.Microdata
         public string Email { get; set; }
 
         /// <summary>
-        /// Person - Someone working for this organization. Supersedes <code>employees</code>.
+        /// Person - Someone working for this organization. Supersedes <see cref="Employees"/>.
         /// </summary>
         [JsonProperty("employee")]
         public Person Employee { get; set; }
 
         /// <summary>
-        /// Person - Someone working for this organization. Supersedes employees.
+        /// Person - Someone working for this organization. Superseded by <see cref="Employees"/>.
         /// </summary>
         [JsonProperty("employees")]
         public List<Person> Employees { get; set; }
 
         /// <summary>
-        /// Upcoming or past event associated with this place, organization, or action. Supersedes <code>events</code>.
+        /// Upcoming or past event associated with this place, organization, or action. Supersedes <see cref="Events"/>.
         /// </summary>
         [JsonProperty("event")]
         public Event Event { get; set; }
 
         /// <summary>
-        /// Collection of upcoming or past event associated with this place, organization, or action.
+        /// Collection of upcoming or past event associated with this place, organization, or action. Superseded by <see cref="Event"/>.
         /// </summary>
         [JsonProperty("events")]
         public List<Event> Events { get; set; }
@@ -195,13 +195,13 @@ namespace MXTires.Microdata
         public string FaxNumber { get; set; }
 
         /// <summary>
-        /// A person who founded this organization. Supersedes <code>founders</code>.
+        /// A person who founded this organization. Supersedes <see cref="Founders"/>.
         /// </summary>
         [JsonProperty("founder")]
         public Person Founder { get; set; }
 
         /// <summary>
-        /// Collection of people who founded this organization.
+        /// Collection of people who founded this organization. Superseded by <see cref="Founder"/>
         /// </summary>
         [JsonProperty("founders")]
         public List<Person> Founders { get; set; }
