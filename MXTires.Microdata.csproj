@@ -161,6 +161,7 @@
     <Compile Include="CreativeWorks\CoverArt.cs" />
     <Compile Include="CreativeWorks\BookSeries.cs" />
     <Compile Include="CreativeWorks\MovieSeries.cs" />
+    <Compile Include="CreativeWorks\TechArticle.cs" />
     <Compile Include="CreativeWorks\TVSeries.cs" />
     <Compile Include="CreativeWorks\RadioSeries.cs" />
     <Compile Include="CreativeWorks\VideoGameSeries.cs" />
