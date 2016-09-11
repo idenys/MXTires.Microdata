@@ -151,6 +151,7 @@
     <Compile Include="Attributes\MicrodataPropertyAttribute.cs" />
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
+    <Compile Include="CreativeWorks\Articles\NewsArticle.cs" />
     <Compile Include="CreativeWorks\Atlas.cs" />
     <Compile Include="CreativeWorks\Audiobook.cs" />
     <Compile Include="CreativeWorks\Chapter.cs" />
@@ -161,7 +162,7 @@
     <Compile Include="CreativeWorks\CoverArt.cs" />
     <Compile Include="CreativeWorks\BookSeries.cs" />
     <Compile Include="CreativeWorks\MovieSeries.cs" />
-    <Compile Include="CreativeWorks\TechArticle.cs" />
+    <Compile Include="CreativeWorks\Articles\TechArticle.cs" />
     <Compile Include="CreativeWorks\TVSeries.cs" />
     <Compile Include="CreativeWorks\RadioSeries.cs" />
     <Compile Include="CreativeWorks\VideoGameSeries.cs" />
