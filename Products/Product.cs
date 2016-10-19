@@ -118,6 +118,12 @@ namespace MXTires.Microdata
         public QuantitativeValue Depth { get; set; }
 
         /// <summary>
+        /// Text - The GTIN-12 code of the product, or the product to which the offer refers.The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C.Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary for more details.
+        /// </summary>
+        [JsonProperty("gtin12")]
+        public string Gtin12 { get; set; }
+
+        /// <summary>
         /// The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary for more details.
         /// </summary>
         /// <value>The gtin13.</value>
@@ -223,12 +229,65 @@ namespace MXTires.Microdata
         [JsonProperty("productID")]
         public string ProductId { get; set; }
 
+        object productionDate;
+        /// <summary>
+        /// Date - The date of production of the item, e.g. vehicle.
+        /// </summary>
+        /// <value>The release date.</value>
+        [JsonProperty("productionDate")]
+        public object ProductionDate {
+            get {
+                return productionDate;
+
+            }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(DateTime), typeof(String) });
+                validator.Validate(value);
+                productionDate = value;
+            }
+        }
+
+        object purchaseDate;
+        /// <summary>
+        /// Date - The date the item e.g. vehicle was purchased by the current owner.
+        /// </summary>
+        /// <value>The release date.</value>
+        [JsonProperty("purchaseDate")]
+        public object PurchaseDate
+        {
+            get
+            {
+                return purchaseDate;
+
+            }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(DateTime), typeof(String) });
+                validator.Validate(value);
+                purchaseDate = value;
+            }
+        }
+
+        object releaseDate;
         /// <summary>
         /// Date - The release date of a product or product model. This can be used to distinguish the exact variant of a product.
         /// </summary>
         /// <value>The release date.</value>
         [JsonProperty("releaseDate")]
-        public string ReleaseDate { get; set; }
+        public object ReleaseDate {
+            get
+            {
+                return releaseDate;
+
+            }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(DateTime), typeof(String) });
+                validator.Validate(value);
+                releaseDate = value;
+            }
+        }
         /// <summary>
         /// Review 	A review of the item. Supersedes reviews.
         /// </summary>
