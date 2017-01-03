@@ -542,6 +542,7 @@
     <Compile Include="LocalBusinesses\Stores\TireShop.cs" />
     <Compile Include="Intangible\StructuredValues\TypeAndQuantityNode.cs" />
     <Compile Include="Actions\TradeAction.cs" />
+    <Compile Include="Validators\NamespaceTypes.cs" />
     <Compile Include="Validators\TypeUtil.cs" />
     <Compile Include="Validators\TypeValidator.cs" />
     <Compile Include="Validators\Validator.cs" />
