@@ -67,6 +67,28 @@ namespace MXTires.Microdata.Validators
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="TypeValidator"/> class.
+        /// </summary>
+        /// <param name="typeNamespace">The namespace within all types will be acceptable</param>
+        /// <param name="excludeWithinNamespace">List of type names within the namespace that will be excluded</param>
+        /// <param name="acceptableTypes">List of other types (not from upper namespace) that will be included</param>
+        public TypeValidator(string typeNamespace, IList<string> excludeWithinNamespace, List<Type> acceptableTypes = null)
+        {
+            types = NamespaceTypes.GetNamespaceTypes(typeNamespace, excludeWithinNamespace);
+            if (acceptableTypes != null)
+            {
+                foreach (Type t in acceptableTypes)
+                {
+                    if (!types.Contains(t))
+                    {
+                        types.Add(t);
+                    }
+                }
+
+            }
+        }
+
+        /// <summary>
         /// Determines whether the specified type is valid.
         /// </summary>
         /// <param name="type">The type.</param>

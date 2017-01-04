@@ -362,6 +362,10 @@ namespace MXTires.Microdata.Tests
         [TestMethod]
         public void EventTest()
         {
+            WebPage webPage = new WebPage();
+            webPage.Id = "/events";
+            webPage.Url = "http://www.1010tires.com/";
+
             var baseEvent = new Event();
             baseEvent.Attendee = new Person();
             System.Diagnostics.Debug.WriteLine(baseEvent.ToIndentedJson());
@@ -399,7 +403,8 @@ namespace MXTires.Microdata.Tests
                 Name = "Boz Scaggs",
                 StartDate = "2015-05-02T20:00",
                 Location = new Place() { Name = "Coral Springs Center for the Performing Arts", Address = new PostalAddress() { AddressLocality = "Coral Springs, FL" } },
-                Offers = new List<Offer>() { new Offer() { Url = "http://frontgatetickets.com/venue.php?id=11766" } }
+                Offers = new List<Offer>() { new Offer() { Url = "http://frontgatetickets.com/venue.php?id=11766" } },
+                MainEntityOfPage = webPage
             };
             System.Diagnostics.Debug.WriteLine(musicEvent.ToString());
         }
@@ -437,20 +442,36 @@ namespace MXTires.Microdata.Tests
         /// WebSite object to JSON-LD 
         /// </summary>
         [TestMethod]
-        public void WebPageMainEntityTest()
+        public void WebPageTest()
         {
-            WebPage webPage = new WebPage();
-            webPage.Id = "/";
-            webPage.Url = "http://www.1010tires.com/";
-            webPage.MainEntity = new MusicEvent()
+            WebSite webSite = new WebSite();
+            webSite.Id = "/";
+            webSite.Url = "http://www.1010tires.com/";
+            webSite.PotentialAction = new SearchAction()
             {
-                Name = "Boz Scaggs",
-                StartDate = "2015-05-02T20:00",
-                Location = new Place() { Name = "Coral Springs Center for the Performing Arts", Address = new PostalAddress() { AddressLocality = "Coral Springs, FL" } },
-                Offers = new List<Offer>() { new Offer() { Url = "http://frontgatetickets.com/venue.php?id=11766" } }
+                Target = new MXTires.Microdata.Intangible.EntryPoint() { UrlTemplate = "http://www.1010tires.com/Products/Search/?q={q}", },
+                //Query = "required name=q",
+                QueryInput = new PropertyValueSpecification() { ValueName = "q", ValueRequired = true, MultipleValues = true },
+                ActionStatus = MXTires.Microdata.Intangible.Enumeration.ActionStatusType.PotentialActionStatus,
             };
+            webSite.AggregateRating = new AggregateRating()
+            {
+                Id = "/SiteAggregateRating",
+                BestRating = "5",
+                WorstRating = "1",
+                RatingValue = "4.6",
+                ReviewCount = "3500",
+                Description = "1010tires.com Reviews and Customer Ratings by Shopper Approved.",
+                Url = "http://www.shopperapproved.com/reviews/1010tires.com/"
+            };
+
+            WebPage webPage = new WebPage();
+            webPage.Id = "/events";
+            webPage.Url = "http://www.1010tires.com/";
+            webPage.MainEntityOfPage = webSite;
             System.Diagnostics.Debug.WriteLine(webPage.ToIndentedJson());
         }
+
 
         /// <summary>
         /// To test Action

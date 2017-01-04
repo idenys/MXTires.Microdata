@@ -143,7 +143,7 @@ namespace MXTires.Microdata
             get { return mainEntityOfPage; }
             set
             {
-                var validator = new TypeValidator(typeof(String), typeof(CreativeWork));
+                var validator = new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type>(new Type[] { typeof(String), typeof(WebSite) }));
                 validator.Validate(value);
                 mainEntityOfPage = value;
             }
