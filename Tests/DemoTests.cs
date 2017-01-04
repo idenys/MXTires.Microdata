@@ -439,7 +439,7 @@ namespace MXTires.Microdata.Tests
         }
 
         /// <summary>
-        /// WebSite object to JSON-LD 
+        /// WebPage object to JSON-LD 
         /// </summary>
         [TestMethod]
         public void WebPageTest()
@@ -471,6 +471,26 @@ namespace MXTires.Microdata.Tests
             webPage.MainEntityOfPage = webSite;
             System.Diagnostics.Debug.WriteLine(webPage.ToIndentedJson());
         }
+
+        /// <summary>
+        /// WebPage object with mainEntity set to JSON-LD 
+        /// </summary>
+        [TestMethod]
+        public void WebPageMainEntityTest()
+        {
+            WebPage webPage = new WebPage();
+            webPage.Id = "/";
+            webPage.Url = "http://www.1010tires.com/";
+            webPage.MainEntity = new MusicEvent()
+            {
+                Name = "Boz Scaggs",
+                StartDate = "2015-05-02T20:00",
+                Location = new Place() { Name = "Coral Springs Center for the Performing Arts", Address = new PostalAddress() { AddressLocality = "Coral Springs, FL" } },
+                Offers = new List<Offer>() { new Offer() { Url = "http://frontgatetickets.com/venue.php?id=11766" } }
+            };
+            System.Diagnostics.Debug.WriteLine(webPage.ToIndentedJson());
+        }
+
 
         /// <summary>
         /// To test Action

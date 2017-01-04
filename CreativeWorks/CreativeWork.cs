@@ -363,6 +363,12 @@ namespace MXTires.Microdata
         public Thing License { get; set; }
 
         /// <summary>
+        /// Thing - Indicates the primary entity described in some page or other CreativeWork.
+        /// </summary>
+        [JsonProperty("mainEntity")]
+        public Thing MainEntity { get; set; }
+
+        /// <summary>
         /// Thing - Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.
         /// </summary>
         [JsonProperty("mentions")]
