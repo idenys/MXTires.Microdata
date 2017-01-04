@@ -456,7 +456,7 @@ namespace MXTires.Microdata
         public Person Sibling { get; set; }
 
         /// <summary>
-        /// Sibling of the person. Superseded by <see cref="Sibling"/>.
+        /// Siblings of the person. Superseded by <see cref="Sibling"/>.
         /// </summary>
         [JsonProperty("siblings")]
         public IList<Person> Siblings { get; set; }
