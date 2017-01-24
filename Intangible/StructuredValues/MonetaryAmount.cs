@@ -24,6 +24,7 @@
 #endregion
 
 using Newtonsoft.Json;
+using System;
 
 namespace MXTires.Microdata.Intangible.StructuredValues
 {
@@ -32,27 +33,46 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// or a range as in describing a bank account being suitable for a balance between £1,000 and £1,000,000 GBP, or the value of a salary, etc. 
     /// It is recommended to use PriceSpecification Types to describe the price of an Offer, Invoice, etc.
     /// </summary>
-    public class MonetaryAmount : Thing
+    public class MonetaryAmount : StructuredValue
     {
         /// <summary>
-        /// QuantitativeValue - The allowed total occupancy for the accommodation in persons (including infants etc). 
-        /// For individual accommodations, this is not necessarily the legal maximum but defines the permitted usage as per the contractual agreement 
-        /// (e.g. a double room used by a single person). Typical unit code(s): C62 for person
+        /// Text - The currency in which the monetary amount is expressed (in 3-letter ISO 4217 format).
         /// </summary>
-        //[JsonProperty("occupancy")]
-        //public QuantitativeValue Occupancy { get; set; }
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
 
-//        currency	Text 	The currency in which the monetary amount is expressed (in 3-letter ISO 4217 format).
-//maxValue	Number 	The upper value of some characteristic or property.
-//minValue	Number 	The lower value of some characteristic or property.
-//validFrom	DateTime 	The date when the item becomes valid.
-//validThrough	DateTime 	The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-//value	Boolean  or 
-//Number  or 
-//StructuredValue  or 
-//Text 	
-//The value of the quantitative value or property value node.
-//For QuantitativeValue and MonetaryAmount, the recommended type for values is 'Number'.
-//For PropertyValue, it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.
+        /// <summary>
+        /// Number - The upper value of some characteristic or property.
+        /// </summary>
+        [JsonProperty("maxValue")]
+        public string MaxValue { get; set; }
+
+        /// <summary>
+        /// Number - The lower value of some characteristic or property.
+        /// </summary>
+        [JsonProperty("minValue")]
+        public string MinValue { get; set; }
+
+        /// <summary>
+        /// DateTime 	The date when the item becomes valid.
+        /// </summary>
+        [JsonProperty("validFrom")]
+        public DateTime? ValidFrom { get; set; }
+
+        /// <summary>
+        /// DateTime - The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+        /// </summary>
+        [JsonProperty("validThrough")]
+        public DateTime? ValidThrough { get; set; }
+
+        /// <summary>
+        /// Boolean  or Number  or StructuredValue  or Text - 	
+        /// The value of the quantitative value or property value node.
+        /// For QuantitativeValue and MonetaryAmount, the recommended type for values is 'Number'.
+        /// For PropertyValue, it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.
+        /// </summary>
+        [JsonProperty("value")]
+        public object Value { get; set; }
+        
     }
 }
