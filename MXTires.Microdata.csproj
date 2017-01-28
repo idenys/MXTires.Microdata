@@ -258,6 +258,10 @@
     <Compile Include="Intangible\StructuredValues\LocationFeatureSpecification.cs" />
     <Compile Include="Intangible\StructuredValues\MonetaryAmount.cs" />
     <Compile Include="Intangible\StructuredValues\NutritionInformation.cs" />
+    <Compile Include="Intangible\StructuredValues\PriceSpecifications\CompoundPriceSpecification.cs" />
+    <Compile Include="Intangible\StructuredValues\PriceSpecifications\DeliveryChargeSpecification.cs" />
+    <Compile Include="Intangible\StructuredValues\PriceSpecifications\PaymentChargeSpecification.cs" />
+    <Compile Include="Intangible\StructuredValues\PriceSpecifications\UnitPriceSpecification.cs" />
     <Compile Include="LocalBusinesses\LodgingBusinesses\Resort.cs" />
     <Compile Include="Places\Accommodation.cs" />
     <Compile Include="Places\Accommodations\Apartment.cs" />
