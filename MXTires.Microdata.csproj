@@ -152,6 +152,8 @@
     <Compile Include="Attributes\MicrodataValidationAttribute.cs" />
     <Compile Include="Attributes\TypeValidationAttribute.cs" />
     <Compile Include="CreativeWorks\Articles\NewsArticle.cs" />
+    <Compile Include="CreativeWorks\Articles\Report.cs" />
+    <Compile Include="CreativeWorks\Articles\ScholarlyArticle.cs" />
     <Compile Include="CreativeWorks\Atlas.cs" />
     <Compile Include="CreativeWorks\Audiobook.cs" />
     <Compile Include="CreativeWorks\Chapter.cs" />
