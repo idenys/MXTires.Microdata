@@ -252,8 +252,11 @@
     <Compile Include="Intangible\Enumeration\BookFormatType.cs" />
     <Compile Include="Intangible\Enumeration\BusinessEntityType.cs" />
     <Compile Include="Intangible\Enumeration\BusinessFunction.cs" />
+    <Compile Include="Intangible\Services\FoodService.cs" />
     <Compile Include="Intangible\Services\GovernmentService.cs" />
     <Compile Include="Intangible\Services\FinancialProduct.cs" />
+    <Compile Include="Intangible\Services\LoanOrCredit.cs" />
+    <Compile Include="Intangible\Services\PaymentCard.cs" />
     <Compile Include="Intangible\Services\Taxi.cs" />
     <Compile Include="Intangible\Services\TaxiService.cs" />
     <Compile Include="Intangible\StructuredValues\LocationFeatureSpecification.cs" />
