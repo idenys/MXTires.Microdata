@@ -233,6 +233,16 @@ namespace MXTires.Microdata.Intangible
         public PriceSpecification EligibleTransactionVolume { get; set; }
 
         /// <summary>
+        /// The GTIN-12 code of the product, or the product to which the offer refers. 
+        /// The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. 
+        /// Company Prefix, Item Reference, and Check Digit used to identify trade items. 
+        /// See GS1 GTIN Summary for more details.
+        /// </summary>
+        /// <value>The gtin13.</value>
+        [JsonProperty("gtin12")]
+        public string Gtin12 { get; set; }
+
+        /// <summary>
         /// The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary for more details.
         /// </summary>
         /// <value>The gtin13.</value>
