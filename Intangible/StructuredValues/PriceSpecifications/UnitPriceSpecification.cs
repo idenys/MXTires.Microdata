@@ -33,13 +33,15 @@ namespace MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications
     public class UnitPriceSpecification : PriceSpecification
     {
         /// <summary>
-        /// Number -This property specifies the minimal quantity and rounding increment that will be the basis for the billing.The unit of measurement is specified by the unitCode property.
+        /// Number - This property specifies the minimal quantity and rounding increment that will be the basis for the billing.
+        /// The unit of measurement is specified by the unitCode property.
         /// </summary>
         [JsonProperty("billingIncrement")]
         public string BillingIncrement { get; set; }
 
         /// <summary>
-        /// Text - A short text or acronym indicating multiple price specifications for the same offer, e.g.SRP for the suggested retail price or INVOICE for the invoice price, mostly used in the car industry.
+        /// Text - A short text or acronym indicating multiple price specifications for the same offer, e.g. 
+        /// SRP for the suggested retail price or INVOICE for the invoice price, mostly used in the car industry.
         /// </summary>
         [JsonProperty("priceType")]
         public string PriceType { get; set; }

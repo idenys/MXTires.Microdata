@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("1010Tires.com Inc.")]
 [assembly: AssemblyProduct("MXTires.Microdata")]
-[assembly: AssemblyCopyright("Copyright ©  1010Tires.com Inc. 2016. All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©  1010Tires.com Inc. 2017. All rights reserved.")]
 [assembly: AssemblyTrademark("1010Tires.com")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.2.8")]
-[assembly: AssemblyFileVersion("1.0.2.8")]
+[assembly: AssemblyVersion("1.0.3.2")]
+[assembly: AssemblyFileVersion("1.0.3.2")]
