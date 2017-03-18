@@ -29,12 +29,22 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("priceCurrency")]
         public string PriceCurrency { get; set; }
 
+        private object priceSpecification;
         /// <summary>
         /// One or more detailed price specifications, indicating the unit price and delivery or payment charges.
         /// </summary>
         /// <value>The price specification.</value>
         [JsonProperty("priceSpecification")]
-        public PriceSpecification PriceSpecification { get; set; }
+        public object PriceSpecification
+        {
+            get { return priceSpecification; }
+            set
+            {
+                var validator = new TypeValidator(typeof(PriceSpecification), typeof(IList<PriceSpecification>));
+                validator.Validate(value);
+                priceSpecification = value;
+            }
+        }
 
         /// <summary>
         /// The payment method(s) accepted by seller for this offer.
