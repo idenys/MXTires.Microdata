@@ -100,6 +100,6 @@ Visual Studio 2008 or higher
 
 
 
-##License
+## License
 
 [1010Tires.com](http://www.1010tires.com/). License - [License.md](https://github.com/idenys/MXTires.Microdata/blob/master/License.md)
