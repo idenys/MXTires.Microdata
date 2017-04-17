@@ -39,6 +39,12 @@ namespace MXTires.Microdata
     public class Event : Thing
     {
         /// <summary>
+        /// Thing - The subject matter of the content.
+        /// </summary>
+        [JsonProperty("about")]
+        public Thing About { get; set; }
+
+        /// <summary>
         /// The attendee
         /// </summary>
         Thing attendee;
@@ -108,6 +114,13 @@ namespace MXTires.Microdata
         }
 
         /// <summary>
+        /// Integer - The total number of individuals that may attend an event or venue.
+        /// </summary>
+        /// <value>The end date.</value>
+        [JsonProperty("maximumAttendeeCapacity")]
+        public int MaximumAttendeeCapacity { get; set; }
+
+        /// <summary>
         /// Offer - An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, or give away tickets to an event.
         /// </summary>
         /// <value>The offers.</value>
@@ -167,6 +180,13 @@ namespace MXTires.Microdata
         /// <value>The recorded in.</value>
         [JsonProperty("recordedIn")]
         public CreativeWork RecordedIn { get; set; }
+
+        /// <summary>
+        /// Integer - The number of attendee places for an event that remain unallocated.
+        /// </summary>
+        /// <value>The recorded in.</value>
+        [JsonProperty("remainingAttendeeCapacity")]
+        public int RemainingAttendeeCapacity { get; set; }
 
         /// <summary>
         /// Date - The start date and time of the item (in ISO 8601 date format).
