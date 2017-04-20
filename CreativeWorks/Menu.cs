@@ -23,39 +23,28 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
+using MXTires.Microdata.Intangible;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Intangible
+namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// An list item, e.g. a step in a checklist or how-to description.
+    /// A structured representation of food or drink items available from a FoodEstablishment.
     /// </summary>
-    public class ListItem : Thing
+    public class Menu : CreativeWork
     {
         /// <summary>
-        /// Thing - An entity represented by an entry in a list (e.g. an 'artist' in a list of 'artists')’.
+        /// MenuItem - A food or drink item contained in a menu or menu section.
         /// </summary>
-        [JsonProperty("item")]
-        public Thing Item { get; set; }
+        [JsonProperty("hasMenuItem")]
+        public MenuItem HasMenuItem { get; set; }
 
         /// <summary>
-        /// ListItem - A link to the ListItem that follows the current one.
+        /// MenuSection - A subgrouping of the menu (by dishes, course, serving time period, etc.).
         /// </summary>
-        [JsonProperty("nextItem")]
-        public ListItem NextItem { get; set; }
+        [JsonProperty("hasMenuSection")]
+        public MenuSection HasMenuSection { get; set; }
 
-        /// <summary>
-        /// Integer or Text - The position of an item in a series or sequence of items.
-        /// </summary>
-        [JsonProperty("position")]
-        public Int32 Position { get; set; }
-
-        /// <summary>
-        /// ListItem - A link to the ListItem that preceeds the current one.
-        /// </summary>
-        [JsonProperty("previousItem")]
-        public ListItem PreviousItem { get; set; }
     }
 }

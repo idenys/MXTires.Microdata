@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2016 1010Tires.com
+// Copyright (c) 2017 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,44 +23,35 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using MXTires.Microdata.Intangible.Services;
+using System;
+using MXTires.Microdata.Intangible.Enumeration;
+using MXTires.Microdata.Intangible.StructuredValues;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
+    /// A food or drink item listed in a menu or menu section.
     /// </summary>
-    public class BroadcastChannel : Thing
+    public class MenuItem : Thing
     {
         /// <summary>
-        /// Text - The unique address by which the BroadcastService can be identified in a provider lineup. In US, this is typically a number.
+        /// NutritionInformation - Nutrition information about the recipe or menu item.
         /// </summary>
-        [JsonProperty("broadcastChannelId")]
-        public string BroadcastChannelId { get; set; }
+        [JsonProperty("nutrition")]
+        public NutritionInformation Nutrition { get; set; }
 
         /// <summary>
-        /// Text - The type of service required to have access to the channel (e.g. Standard or Premium).
+        /// Offer - An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
         /// </summary>
-        [JsonProperty("broadcastServiceTier")]
-        public string BroadcastServiceTier { get; set; }
+        [JsonProperty("offers")]
+        public object Offers { get; set; }
 
         /// <summary>
-        /// Genre of the creative work, broadcast channel or group.
+        /// RestrictedDiet - Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
         /// </summary>
-        [JsonProperty("genre")]
-        public string Genre { get; set; }
+        [JsonProperty("suitableForDiet")]
+        public RestrictedDiet SuitableForDiet { get; set; }
 
-        /// <summary>
-        /// CableOrSatelliteService - The CableOrSatelliteService offering the channel.
-        /// </summary>
-        [JsonProperty("inBroadcastLineup")]
-        public CableOrSatelliteService InBroadcastLineup { get; set; }
-
-        /// <summary>
-        /// BroadcastService - The BroadcastService offered on this channel.
-        /// </summary>
-        [JsonProperty("providesBroadcastService")]
-        public BroadcastService ProvidesBroadcastService { get; set; }
     }
 }

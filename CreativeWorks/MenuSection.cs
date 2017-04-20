@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2017 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,39 +23,28 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
+using MXTires.Microdata.Intangible;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Intangible
+namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// An list item, e.g. a step in a checklist or how-to description.
+    /// A sub-grouping of food or drink items in a menu. E.g. courses (such as 'Dinner', 'Breakfast', etc.), 
+    /// specific type of dishes (such as 'Meat', 'Vegan', 'Drinks', etc.), or some other classification made by the menu provider.
     /// </summary>
-    public class ListItem : Thing
+    public class MenuSection : CreativeWork
     {
         /// <summary>
-        /// Thing - An entity represented by an entry in a list (e.g. an 'artist' in a list of 'artists')’.
+        /// MenuItem - A food or drink item contained in a menu or menu section.
         /// </summary>
-        [JsonProperty("item")]
-        public Thing Item { get; set; }
+        [JsonProperty("hasMenuItem")]
+        public MenuItem HasMenuItem { get; set; }
 
         /// <summary>
-        /// ListItem - A link to the ListItem that follows the current one.
+        /// MenuSection - A subgrouping of the menu (by dishes, course, serving time period, etc.).
         /// </summary>
-        [JsonProperty("nextItem")]
-        public ListItem NextItem { get; set; }
-
-        /// <summary>
-        /// Integer or Text - The position of an item in a series or sequence of items.
-        /// </summary>
-        [JsonProperty("position")]
-        public Int32 Position { get; set; }
-
-        /// <summary>
-        /// ListItem - A link to the ListItem that preceeds the current one.
-        /// </summary>
-        [JsonProperty("previousItem")]
-        public ListItem PreviousItem { get; set; }
+        [JsonProperty("hasMenuSection")]
+        public MenuSection HasMenuSection { get; set; }
     }
 }
