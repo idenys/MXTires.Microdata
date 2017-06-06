@@ -81,6 +81,12 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// The sold out
         /// </summary>
         [EnumMember(Value = "http://schema.org/SoldOut")]
-        SoldOut = 128 
+        SoldOut = 128,
+
+        /// <summary>
+        /// The pre-sale
+        /// </summary>
+        [EnumMember(Value = "http://schema.org/PreSale")]
+        PreSale = 256,
     }
 }
