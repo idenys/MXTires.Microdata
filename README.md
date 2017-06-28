@@ -3,7 +3,7 @@ MXTires.Microdata is framework to correspond schema.org object types to .Net cla
 
 ## Prerequisites
 Visual Studio 2008 or higher
-[NuGet](https://github.com/paypal/rest-api-sdk-dotnet#nuget "NuGet")
+[NuGet](https://www.nuget.org/packages/MXTires.Microdata "NuGet")
 
 ## Code example of defining a Product:
 [https://schema.org/Product](https://schema.org/Product/ "Product")
