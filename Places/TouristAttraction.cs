@@ -28,14 +28,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Places
 {
     /// <summary>
-    /// A tourist attraction.
+    /// A tourist attraction. In principle any Thing can be a TouristAttraction, from a Mountain and LandmarksOrHistoricalBuildings to a LocalBusiness. 
+    /// This Type can be used on its own to describe a general TourstAttraction, or be used as an additionalType to add tourist attraction properties 
+    /// to any other type.
     /// </summary>
     public class TouristAttraction : Place
     {
+        object availableLanguage;
+        /// <summary>
+        /// Language  or Text - A language someone may use with or at the item, service or place. 
+        /// Please use one of the language codes from the IETF BCP 47 standard. See also inLanguage
+        /// </summary>
+        [JsonProperty("availableLanguage")]
+        public object AvailableLanguage
+        {
+            get { return availableLanguage; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Language), typeof(string));
+                validator.Validate(value);
+                availableLanguage = value;
+            }
+        }
+
+        /// <summary>
+        /// Audience  or Text - Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
+        /// </summary>
+        [JsonProperty("touristType")]
+        public object TouristType { get; set; }
     }
 }

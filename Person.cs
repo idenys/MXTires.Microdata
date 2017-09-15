@@ -181,7 +181,7 @@ namespace MXTires.Microdata
             get { return this.funder; }
             set
             {
-                TypeValidator validator = new TypeValidator(typeof(Organization), typeof(Brand));
+                TypeValidator validator = new TypeValidator(typeof(Organization), typeof(Person));
                 validator.Validate(value);
                 this.funder = value;
             }

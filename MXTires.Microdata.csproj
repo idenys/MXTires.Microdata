@@ -163,6 +163,7 @@
     <Compile Include="CreativeWorks\ComicStory.cs" />
     <Compile Include="CreativeWorks\CoverArt.cs" />
     <Compile Include="CreativeWorks\BookSeries.cs" />
+    <Compile Include="CreativeWorks\HowTo.cs" />
     <Compile Include="CreativeWorks\MenuSection.cs" />
     <Compile Include="CreativeWorks\MovieSeries.cs" />
     <Compile Include="CreativeWorks\Articles\TechArticle.cs" />
@@ -186,6 +187,10 @@
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Enumeration\GamePlayMode.cs" />
     <Compile Include="Intangible\Enumeration\RestrictedDiet.cs" />
+    <Compile Include="Intangible\ListItems\HowToDirection.cs" />
+    <Compile Include="Intangible\ListItems\HowToItem.cs" />
+    <Compile Include="Intangible\ListItems\HowToSupply.cs" />
+    <Compile Include="Intangible\ListItems\HowToTool.cs" />
     <Compile Include="Intangible\MenuItem.cs" />
     <Compile Include="Intangible\OfferCatalog.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />

@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.StructuredValues;
+using System;
 
 namespace MXTires.Microdata
 {
@@ -55,6 +56,12 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("hasMap")]
         public Map HasMap { get; set; }
+
+        /// <summary>
+        /// Boolean - A flag to signal that the item, event, or place is accessible for free. Supersedes free.
+        /// </summary>
+        [JsonProperty("isAccessibleForFree")]
+        public bool? IsAccessibleForFree { get; set; }
 
         /// <summary>
         /// A URL to a map of the place.
@@ -153,6 +160,12 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("photos")]
         public IList<Thing> Photos { get; set; }
+
+        /// <summary>
+        /// Boolean - A flag to signal that the Place is open to public visitors. If this property is omitted there is no assumed default boolean value
+        /// </summary>
+        [JsonProperty("publicAccess")]
+        public Boolean? PublicAccess { get; set; }
 
         /// <summary>
         /// Review - A review of the item. Supersedes <see cref="Reviews" />.

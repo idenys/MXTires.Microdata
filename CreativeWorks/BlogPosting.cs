@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -31,5 +32,10 @@ namespace MXTires.Microdata.CreativeWorks
     /// <summary>
     /// A blog post.
     /// </summary>
-    public class BlogPosting : SocialMediaPosting    {    }
+    public class BlogPosting : SocialMediaPosting    {    
+        Int32 intNum;
+        int a;
+
+    
+    }
 }

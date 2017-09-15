@@ -86,13 +86,45 @@ namespace MXTires.Microdata
         [JsonProperty("endDate")]
         public string EndDate { get; set; }
 
+        Thing funder;
+        /// <summary>
+        /// Organization  or Person - A person or organization that supports (sponsors) something through some kind of financial contribution.
+        /// </summary>
+        [JsonProperty("funder")]
+        public Thing Funder
+        {
+            get { return this.funder; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                this.funder = value;
+            }
+        }
+
+        object inLanguage;
+        /// <summary>
+        /// Language  or Text - The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. Supersedes language.
+        /// </summary>
+        [JsonProperty("inLanguage")]
+        public object InLanguage
+        {
+            get { return inLanguage; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Language), typeof(string));
+                validator.Validate(value);
+                inLanguage = value;
+            }
+        }
+
         /// <summary>
         /// EventStatusType - An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.
         /// </summary>
         /// <value>The event status.</value>
         [JsonProperty("eventStatus")]
-        public EventStatusType? EventStatus { get; set; }
-
+        public EventStatusType? EventStatus { get; set; }       
+            
         /// <summary>
         /// The location
         /// </summary>
