@@ -190,6 +190,7 @@
     <Compile Include="Intangible\ListItems\HowToDirection.cs" />
     <Compile Include="Intangible\ListItems\HowToItem.cs" />
     <Compile Include="Intangible\ListItems\HowToSupply.cs" />
+    <Compile Include="Intangible\ListItems\HowToTip.cs" />
     <Compile Include="Intangible\ListItems\HowToTool.cs" />
     <Compile Include="Intangible\MenuItem.cs" />
     <Compile Include="Intangible\OfferCatalog.cs" />
