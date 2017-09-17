@@ -23,22 +23,37 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using MXTires.Microdata.Intangible.Quantities;
-using Newtonsoft.Json;
-
 namespace MXTires.Microdata.CreativeWorks
 {
+    using System;
+    using System.Collections.Generic;
+    using MXTires.Microdata.Intangible;
+    using MXTires.Microdata.Intangible.ListItems;
+    using MXTires.Microdata.Intangible.Quantities;
+    using MXTires.Microdata.Intangible.StructuredValues;
+    using MXTires.Microdata.Validators;
+    using Newtonsoft.Json;
+
     /// <summary>
     /// Instructions that explain how to achieve a result by performing a sequence of steps.
     /// </summary>
     public class HowTo : CreativeWork
     {
+        private object estimatedCost;
         /// <summary>
         /// MonetaryAmount  or Text - The estimated cost of the supply or supplies consumed when performing instructions.
         /// </summary>
         [JsonProperty("estimatedCost")]
-        public object EstimatedCost { get; set; }
+        public object EstimatedCost
+        {
+            get { return this.estimatedCost; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(MonetaryAmount), typeof(string));
+                validator.Validate(value);
+                this.estimatedCost = value;
+            }
+        }
 
         /// <summary>
         /// Duration - The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in ISO 8601 duration format.
@@ -47,28 +62,59 @@ namespace MXTires.Microdata.CreativeWorks
         public Duration PerformTime { get; set; }
 
         /// <summary>
-        /// Duration 	The length of time it takes to prepare the items to be used in instructions or a direction, in ISO 8601 duration format.
+        /// Duration - The length of time it takes to prepare the items to be used in instructions or a direction, in ISO 8601 duration format.
         /// </summary>
         [JsonProperty("prepTime")]
         public Duration PrepTime { get; set; }
 
+        private object steps;
         /// <summary>
-        /// CreativeWork  or ItemList  or Text -	The steps in the form of a single item (text, document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.
+        /// CreativeWork  or ItemList  or Text - The steps in the form of a single item (text, document, video, etc.) 
+        /// or an ordered list with HowToStep and/or HowToSection items.
         /// </summary>
         [JsonProperty("steps")]
-        public object Steps { get; set; }
+        public object Steps
+        {
+            get { return this.steps; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(new List<Type>(new Type[] { typeof(CreativeWork), typeof(ItemList), typeof(string)}));
+                validator.Validate(value);
+                this.steps = value;
+            }
+        }
 
+        private object supply;
         /// <summary>
         /// HowToSupply  or Text - A sub-property of instrument. A supply consumed when performing instructions or a direction.
         /// </summary>
         [JsonProperty("supply")]
-        public object Supply { get; set; }
+        public object Supply
+        {
+            get { return this.supply; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(HowToSupply), typeof(string));
+                validator.Validate(value);
+                this.supply = value;
+            }
+        }
 
+        private object tool;
         /// <summary>
         /// HowToTool  or Text 	A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
         /// </summary>
         [JsonProperty("tool")]
-        public object Tool { get; set; }
+        public object Tool
+        {
+            get { return this.tool; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(HowToTool), typeof(string));
+                validator.Validate(value);
+                this.tool = value;
+            }
+        }
 
         /// <summary>
         /// Duration - The total time required to perform instructions or a direction (including time to prepare the supplies), in ISO 8601 duration format.
@@ -76,10 +122,20 @@ namespace MXTires.Microdata.CreativeWorks
         [JsonProperty("totalTime")]
         public Duration TotalTime { get; set; }
 
+        private object yield;
         /// <summary>
         /// QuantitativeValue  or Text - The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles.
         /// </summary>
         [JsonProperty("yield")]
-        public object Yield { get; set; }
+        public object Yield
+        {
+            get { return this.yield; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(QuantitativeValue), typeof(string));
+                validator.Validate(value);
+                this.yield = value;
+            }
+        }
     }
 }

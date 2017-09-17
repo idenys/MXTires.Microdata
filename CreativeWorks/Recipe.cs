@@ -24,6 +24,7 @@
 #endregion
 
 using System;
+using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
@@ -34,7 +35,7 @@ namespace MXTires.Microdata
     /// <summary>
     /// A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via suitableForDiet. The keywords property can also be used to add more detail.
     /// </summary>
-    public class Recipe : CreativeWork
+    public class Recipe : HowTo
     {
         /// <summary>
         /// Duration - The time it takes to actually cook the dish, in ISO 8601 duration format.

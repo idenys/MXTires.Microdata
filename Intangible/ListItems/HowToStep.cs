@@ -23,32 +23,15 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections.Generic;
-using MXTires.Microdata.Validators;
-using Newtonsoft.Json;
-
 namespace MXTires.Microdata.Intangible.ListItems
 {
+    using System;
+    using Newtonsoft.Json;
+
     /// <summary>
-    /// An item used as either a tool or supply when performing the instructions for how to to achieve a result.
+    /// A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items.
     /// </summary>
-    public class HowToItem : ListItem
+    public class HowToStep : ItemList 
     {
-        object requiredQuantity;
-        /// <summary>
-        /// Number  or QuantitativeValue  or Text 	The required quantity of the item(s).
-        /// </summary>
-        [JsonProperty("requiredQuantity")]
-        public object RequiredQuantity
-        {
-            get { return this.requiredQuantity; }
-            set
-            {
-                TypeValidator validator = new TypeValidator(new List<Type>(new Type[] { typeof(Int32), typeof(QuantitativeValue), typeof(string) }));
-                validator.Validate(value);
-                this.requiredQuantity = value;
-            }
-        }
     }
 }

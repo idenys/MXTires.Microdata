@@ -165,6 +165,7 @@
     <Compile Include="CreativeWorks\BookSeries.cs" />
     <Compile Include="CreativeWorks\HowTo.cs" />
     <Compile Include="CreativeWorks\MenuSection.cs" />
+    <Compile Include="CreativeWorks\Messages\Message.cs" />
     <Compile Include="CreativeWorks\MovieSeries.cs" />
     <Compile Include="CreativeWorks\Articles\TechArticle.cs" />
     <Compile Include="CreativeWorks\Menu.cs" />
@@ -189,6 +190,8 @@
     <Compile Include="Intangible\Enumeration\RestrictedDiet.cs" />
     <Compile Include="Intangible\ListItems\HowToDirection.cs" />
     <Compile Include="Intangible\ListItems\HowToItem.cs" />
+    <Compile Include="Intangible\ListItems\HowToSection.cs" />
+    <Compile Include="Intangible\ListItems\HowToStep.cs" />
     <Compile Include="Intangible\ListItems\HowToSupply.cs" />
     <Compile Include="Intangible\ListItems\HowToTip.cs" />
     <Compile Include="Intangible\ListItems\HowToTool.cs" />
