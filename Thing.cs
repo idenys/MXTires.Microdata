@@ -95,7 +95,7 @@ namespace MXTires.Microdata
             get { return image; }
             set
             {
-                var validator = new TypeValidator(typeof(String), typeof(ImageObject));
+                var validator = new TypeValidator(new List<Type>(){typeof(String), typeof(ImageObject), typeof(String[]), typeof(ImageObject[])});
                 validator.Validate(value);
                 image = value;
             }
