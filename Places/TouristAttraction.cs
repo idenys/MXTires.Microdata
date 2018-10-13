@@ -29,6 +29,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MXTires.Microdata.Validators;
+using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Places
@@ -57,10 +58,20 @@ namespace MXTires.Microdata.Places
             }
         }
 
+        object touristType;
         /// <summary>
         /// Audience  or Text - Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
         /// </summary>
         [JsonProperty("touristType")]
-        public object TouristType { get; set; }
+        public object TouristType
+        {
+            get { return touristType; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Audience), typeof(string));
+                validator.Validate(value);
+                touristType = value;
+            }
+        }
     }
 }

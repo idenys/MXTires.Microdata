@@ -126,7 +126,7 @@ namespace MXTires.Microdata.CreativeWorks.Messages
                 }));
                 validator.Validate(value);
                 this.sender = value;
-            }; }
+            } }
 
         object toRecipient;
         /// <summary>

@@ -201,5 +201,56 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("vehicleTransmission")]
         public object VehicleTransmission { get; set; }
+
+        /// <summary>
+        /// The release date of a vehicle model (often used to differentiate versions of the same make and model).
+        /// </summary>
+        [JsonProperty("modelDate")]
+        public DateTime ModelDate { get; set; }
+
+        /// <summary>
+        /// QualitativeValue  or Text  or URL - Indicates that the vehicle meets the respective emission standard.
+        /// </summary>
+        [JsonProperty("meetsEmissionStandard")]
+        public object MeetsEmissionStandard { get; set; }
+
+        /// <summary>
+        /// Number 	The CO2 emissions in g/km. When used in combination with a QuantitativeValue, put "g/km" into the unitText property of that value, since there is no UN/CEFACT Common Code for "g/km".
+        /// </summary>
+        [JsonProperty("emissionsCO2")]
+        public object EmissionsCO2 { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - The capacity of the fuel tank or in the case of electric cars, the battery. If there are multiple components for storage, this should indicate the total of all storage of the same type.
+        /// Typical unit code(s): LTR for liters, GLL of US gallons, GLI for UK / imperial gallons, AMH for ampere-hours (for electrical vehicles).
+        /// </summary>
+        [JsonProperty("fuelCapacity")]
+        public QuantitativeValue FuelCapacity { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - The time needed to accelerate the vehicle from a given start velocity to a given target velocity.
+        /// Typical unit code(s): SEC for seconds
+        /// Note: There are unfortunately no standard unit codes for seconds/0..100 km/h or seconds/0..60 mph. Simply use "SEC" for seconds and indicate the velocities in the name of the QuantitativeValue, or use valueReference with a QuantitativeValue of 0..60 mph or 0..100 km/h to specify the reference speeds.
+        /// </summary>
+        [JsonProperty("accelerationTime")]
+        public QuantitativeValue AccelerationTime { get; set; }
+
+        /// <summary>
+        /// QualitativeValue  or Text  or URL - Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
+        /// </summary>
+        [JsonProperty("bodyType")]
+        public object BodyType { get; set; }
+
+         /// <summary>
+        /// QuantitativeValue - The distance between the centers of the front and rear wheels.
+        /// Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet
+        /// </summary>
+        [JsonProperty("weightTotal")]
+        public QuantitativeValue WeightTotal	{ get; set; }
+
+        [JsonProperty("wheelbase")]
+        public QuantitativeValue Wheelbase	{ get; set; }  	
+
+
     }
 }
