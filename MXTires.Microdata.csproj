@@ -287,6 +287,7 @@
     <Compile Include="Places\Accommodations\MeetingRoom.cs" />
     <Compile Include="Places\Accommodations\Room.cs" />
     <Compile Include="Places\Accommodations\Suite.cs" />
+    <Compile Include="Places\TouristDestination.cs" />
     <Compile Include="Products\BusOrCoach.cs" />
     <Compile Include="Products\Car.cs" />
     <Compile Include="ContactPoint.cs" />
