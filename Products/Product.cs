@@ -156,28 +156,28 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The is accessory or spare part for.</value>
         [JsonProperty("isAccessoryOrSparePartFor")]
-        public Product IsAccessoryOrSparePartFor { get; set; }
+        public object IsAccessoryOrSparePartFor { get; set; }
 
         /// <summary>
         /// A pointer to another product (or multiple products) for which this product is a consumable.
         /// </summary>
         /// <value>The is consumable for.</value>
         [JsonProperty("isConsumableFor")]
-        public Product IsConsumableFor { get; set; }
+        public object IsConsumableFor { get; set; }
 
         /// <summary>
         /// A pointer to another, somehow related product (or multiple products).
         /// </summary>
         /// <value>The is related to.</value>
         [JsonProperty("isRelatedTo")]
-        public Product IsRelatedTo { get; set; }
+        public object IsRelatedTo { get; set; }
 
         /// <summary>
         /// A pointer to another, functionally similar product (or multiple products).
         /// </summary>
         /// <value>The is similar to.</value>
         [JsonProperty("isSimilarTo")]
-        public Product IsSimilarTo { get; set; }
+        public object IsSimilarTo { get; set; }
 
         /// <summary>
         /// OfferItemCondition 	A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.
