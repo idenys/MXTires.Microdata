@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MXTires.Microdata</RootNamespace>
     <AssemblyName>MXTires.Microdata</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -157,6 +157,7 @@
     <Compile Include="CreativeWorks\Atlas.cs" />
     <Compile Include="CreativeWorks\Audiobook.cs" />
     <Compile Include="CreativeWorks\Chapter.cs" />
+    <Compile Include="CreativeWorks\Course.cs" />
     <Compile Include="CreativeWorks\ComicCoverArt.cs" />
     <Compile Include="CreativeWorks\ComicIssue.cs" />
     <Compile Include="CreativeWorks\ComicSeries.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="CreativeWorks\Thesis.cs" />
     <Compile Include="CreativeWorks\RadioSeason.cs" />
     <Compile Include="CreativeWorks\VisualArtwork.cs" />
+    <Compile Include="Events\CourseInstance.cs" />
     <Compile Include="Extentions\BibNameSpace.cs" />
     <Compile Include="Extentions\ThingCollection.cs" />
     <Compile Include="Intangible\BedDetails.cs" />

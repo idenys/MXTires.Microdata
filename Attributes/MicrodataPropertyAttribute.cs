@@ -64,7 +64,8 @@ namespace MXTires.Microdata.Attributes
         /// Initializes a new instance of the <see cref="MicrodataPropertyAttribute"/> class with the specified name and accepted types.
         /// </summary>
         /// <param name="name">Name of the property</param>
-        /// <param name="acceptedTypes">Types acceptable by this property</param>
+        /// <param name="acceptedType1">Types acceptable by this property</param>
+        /// <param name="acceptedType2">Types acceptable by this property</param>
         public MicrodataPropertyAttribute(String name, Type acceptedType1, Type acceptedType2)
         {
             ConstructorInit(name, null, new List<Type> { acceptedType1, acceptedType2 });

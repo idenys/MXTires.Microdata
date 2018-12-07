@@ -59,6 +59,7 @@ namespace MXTires.Microdata.Intangible.Enumeration
     [Flags]
     public enum RestrictedDiet
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         DiabeticDiet = 1 << 0,
         GlutenFreeDiet = 1 << 1,
         HalalDiet = 1 << 2,
@@ -70,5 +71,6 @@ namespace MXTires.Microdata.Intangible.Enumeration
         LowSaltDiet = 1 << 8,
         VeganDiet = 1 << 9,
         VegetarianDiet = 1 << 10,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

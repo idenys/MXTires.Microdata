@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
 using System;
 
 namespace MXTires.Microdata
@@ -41,39 +42,48 @@ namespace MXTires.Microdata
         /// Number 	The highest price if the price is a range.
         /// </summary>
         /// <value>The maximum price.</value>
-        public string maxPrice { get; set; }
+        [JsonProperty("maxPrice")]
+        public string MaxPrice { get; set; }
         /// <summary>
         /// Number 	The lowest price if the price is a range.
         /// </summary>
         /// <value>The minimum price.</value>
-        public string minPrice { get; set; }
+        [JsonProperty("minPrice")]
+        public string MinPrice { get; set; }
 
         /// <summary>
         /// Number  or Text. The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
         /// </summary>
         /// <value>The price.</value>
-        public string price { get; set; }
+        [JsonProperty("price")]
+        public string Price { get; set; }
 
         /// <summary>
         /// Text. The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification and its subtypes.
         /// </summary>
         /// <value>The price currency.</value>
         public string PriceCurrency { get; set; }
+        
         /// <summary>
         /// The date when the item becomes valid.
         /// </summary>
         /// <value>The valid from.</value>
-        public DateTime? validFrom { get; set; }
+        [JsonProperty("validFrom")]
+        public DateTime? ValidFrom { get; set; }
+        
         /// <summary>
         /// The end of the validity of offer, price specification, or opening hours data.
         /// </summary>
         /// <value>The valid through.</value>
-        public DateTime? validThrough { get; set; }
+        [JsonProperty("validThrough")]
+        public DateTime? ValidThrough { get; set; }
+
         /// <summary>
         /// Boolean 	Specifies whether the applicable value-added tax (VAT) is included in the price specification or not.
         /// </summary>
         /// <value><c>true</c> if [value added tax included]; otherwise, <c>false</c>.</value>
-        public bool valueAddedTaxIncluded { get; set; }
+        [JsonProperty("valueAddedTaxIncluded")]
+        public bool ValueAddedTaxIncluded { get; set; }
 
         #endregion
     }

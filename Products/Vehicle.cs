@@ -248,9 +248,11 @@ namespace MXTires.Microdata
         [JsonProperty("weightTotal")]
         public QuantitativeValue WeightTotal	{ get; set; }
 
+        /// <summary>
+        /// The distance between the centers of the front and rear wheels.
+        /// Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet
+        /// </summary>
         [JsonProperty("wheelbase")]
         public QuantitativeValue Wheelbase	{ get; set; }  	
-
-
     }
 }

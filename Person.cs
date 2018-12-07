@@ -224,7 +224,7 @@ namespace MXTires.Microdata
         public List<Person> Colleagues { get; set; }
 
         /// <summary>
-        /// ContactPoint - A contact point for a person or organization. Supersedes <see cref="contactPoints"/>.
+        /// ContactPoint - A contact point for a person or organization. Supersedes <see cref="ContactPoints"/>.
         /// </summary>
         [JsonProperty("contactPoint")]
         public ContactPoint ContactPoint { get; set; }
@@ -284,7 +284,7 @@ namespace MXTires.Microdata
         public Person Knows { get; set; }
 
         /// <summary>
-        /// Offer 	A pointer to products or services offered by the organization or person. Inverse property: <see cref="OfferedBy"/>.
+        /// Offer - A pointer to products or services offered by the organization or person. Inverse property: <see cref="OfferedBy"/>.
         /// </summary>
         [JsonProperty("makesOffer")]
         public Offer MakesOffer { get; set; }
