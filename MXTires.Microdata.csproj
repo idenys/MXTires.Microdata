@@ -164,6 +164,7 @@
     <Compile Include="CreativeWorks\ComicStory.cs" />
     <Compile Include="CreativeWorks\CoverArt.cs" />
     <Compile Include="CreativeWorks\BookSeries.cs" />
+    <Compile Include="CreativeWorks\DigitalDocument.cs" />
     <Compile Include="CreativeWorks\HowTo.cs" />
     <Compile Include="CreativeWorks\MenuSection.cs" />
     <Compile Include="CreativeWorks\Messages\Message.cs" />
@@ -187,6 +188,8 @@
     <Compile Include="Extentions\BibNameSpace.cs" />
     <Compile Include="Extentions\ThingCollection.cs" />
     <Compile Include="Intangible\BedDetails.cs" />
+    <Compile Include="Intangible\DigitalDocumentPermission.cs" />
+    <Compile Include="Intangible\Enumeration\DigitalDocumentPermissionType.cs" />
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Enumeration\GamePlayMode.cs" />
     <Compile Include="Intangible\Enumeration\RestrictedDiet.cs" />
