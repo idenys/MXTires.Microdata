@@ -159,6 +159,12 @@ namespace MXTires.Microdata.Intangible
         public string Title { get; set; }
 
         /// <summary>
+        /// DateTime? - The date when the job posting will expire.
+        /// </summary>
+        [JsonProperty("validThrough")]
+        public DateTime? ValidThrough { get; set; }
+        
+        /// <summary>
         /// Text - The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm).
         /// </summary>
         [JsonProperty("workHours")]
