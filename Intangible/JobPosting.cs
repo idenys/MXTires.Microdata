@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -169,5 +170,21 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("workHours")]
         public string WorkHours { get; set; }
+
+        private object identifier;
+        /// <summary>
+        /// PropertyValue  or Text or URL - The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc.
+        /// Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL(URI) links.See background notes for more details.
+        /// </summary>
+        [JsonProperty("identifier")]
+        public object Identifier {
+            get { return identifier; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type> { typeof(PropertyValue), typeof(string) });
+                validator.Validate(value);
+                identifier = value;
+            }
+        }
     }
 }
