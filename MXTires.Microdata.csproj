@@ -114,6 +114,7 @@
     <Compile Include="Actions\OrganizeActions\AssignAction.cs" />
     <Compile Include="Actions\OrganizeActions\AuthorizeAction.cs" />
     <Compile Include="Actions\OrganizeActions\BookmarkAction.cs" />
+    <Compile Include="Actions\PreOrderAction.cs" />
     <Compile Include="Actions\TradeActions\BuyAction.cs" />
     <Compile Include="Actions\OrganizeActions\CancelAction.cs" />
     <Compile Include="Actions\OrganizeActions\PlanAction.cs" />
@@ -187,12 +188,15 @@
     <Compile Include="Events\CourseInstance.cs" />
     <Compile Include="Extentions\BibNameSpace.cs" />
     <Compile Include="Extentions\ThingCollection.cs" />
+    <Compile Include="Intangible\AMRadioChannel.cs" />
     <Compile Include="Intangible\BedDetails.cs" />
+    <Compile Include="Intangible\BroadcastFrequencySpecification.cs" />
     <Compile Include="Intangible\DigitalDocumentPermission.cs" />
     <Compile Include="Intangible\Enumeration\DigitalDocumentPermissionType.cs" />
     <Compile Include="Intangible\Enumeration\Extentions.cs" />
     <Compile Include="Intangible\Enumeration\GamePlayMode.cs" />
     <Compile Include="Intangible\Enumeration\RestrictedDiet.cs" />
+    <Compile Include="Intangible\FMRadioChannel.cs" />
     <Compile Include="Intangible\ListItems\HowToDirection.cs" />
     <Compile Include="Intangible\ListItems\HowToItem.cs" />
     <Compile Include="Intangible\ListItems\HowToSection.cs" />
@@ -202,6 +206,7 @@
     <Compile Include="Intangible\ListItems\HowToTool.cs" />
     <Compile Include="Intangible\MenuItem.cs" />
     <Compile Include="Intangible\OfferCatalog.cs" />
+    <Compile Include="Intangible\RadioChannel.cs" />
     <Compile Include="Intangible\Services\BroadcastService.cs" />
     <Compile Include="CreativeWorks\Comment.cs" />
     <Compile Include="Actions\ConsumeActions\ConsumeAction.cs" />

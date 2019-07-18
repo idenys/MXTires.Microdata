@@ -24,7 +24,10 @@
 #endregion
 
 using MXTires.Microdata.Intangible.Services;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 
 namespace MXTires.Microdata.Intangible
 {
@@ -38,6 +41,21 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("broadcastChannelId")]
         public string BroadcastChannelId { get; set; }
+
+        object broadcastFrequency;
+        /// <summary>
+        /// BroadcastFrequencySpecification  or Text - The frequency used for over-the-air broadcasts.Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. "87 FM".
+        /// </summary>
+        [JsonProperty("broadcastFrequency")]
+        public object BroadcastFrequency {
+            get { return broadcastFrequency; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type> { typeof(BroadcastFrequencySpecification), typeof(string) });
+                validator.Validate(value);
+                broadcastFrequency = value;
+            }
+        }
 
         /// <summary>
         /// Text - The type of service required to have access to the channel (e.g. Standard or Premium).
