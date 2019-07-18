@@ -36,6 +36,14 @@ namespace MXTires.Microdata.Intangible
     /// </summary>
     public class JobPosting : Thing
     {
+
+        /// <summary>
+        /// AdministrativeArea - The location(s) applicants can apply from. This is usually used for telecommuting jobs where the applicant does not need to be in a physical office.
+        /// Note: This should not be used for citizenship or work visa requirements.
+        /// </summary>
+        [JsonProperty("applicantLocationRequirements")]
+        public AdministrativeArea ApplicantLocationRequirements { get; set; }
+
         /// <summary>
         /// Number  or PriceSpecification - The base salary of the job or of an employee in an EmployeeRole.
         /// </summary>
@@ -58,6 +66,23 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("employmentType")]
         public string EmploymentType { get; set; }
+
+        private object estimatedSalary;
+        /// <summary>
+        /// MonetaryAmount  or MonetaryAmountDistribution or Number - An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location.
+        /// Estimated salaries are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.
+        /// </summary>
+        [JsonProperty("estimatedSalary")]
+        public object EstimatedSalary
+        {
+            get { return estimatedSalary; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type> { typeof(MonetaryAmount), typeof(MonetaryAmountDistribution), typeof(decimal) });
+                validator.Validate(value);
+                estimatedSalary = value;
+            }
+        }
 
         /// <summary>
         /// Text - Description of skills and experience needed for the position.
@@ -94,10 +119,22 @@ namespace MXTires.Microdata.Intangible
         public List<string> Industries { get; set; }
 
         /// <summary>
-        /// Text - Description of benefits associated with the job. Supersedes benefits.
+        /// Text - Description of benefits associated with the job. Supersedes <code>Benefits</code>.
         /// </summary>
         [JsonProperty("jobBenefits")]
         public string JobBenefits { get; set; }
+
+        /// <summary>
+        /// Text - Description of benefits associated with the job. Superseded by <code>JobBenefits</code>.
+        /// </summary>
+        [JsonProperty("benefits")]
+        public string Benefits { get; set; }
+
+        /// <summary>
+        /// Boolean - An indicator as to whether a position is available for an immediate start.
+        /// </summary>
+        [JsonProperty("jobImmediateStart")]
+        public bool? jobImmediateStart { get; set; }
 
         /// <summary>
         /// Place - A (typically single) geographic location associated with the job position.
@@ -116,6 +153,28 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("jobLocation")]
         public List<Place> JobLocations { get; set; }
+
+        object jobStartDate;
+        /// <summary>
+        /// Date  or Text - The date on which a successful applicant for this job would be expected to start work.Choose a specific date in the future or use the jobImmediateStart property to indicate the position is to be filled as soon as possible.
+        /// </summary>
+        [JsonProperty("jobStartDate")]
+        public object JobStartDate
+        {
+            get { return jobStartDate; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type> { typeof(DateTime), typeof(string) });
+                validator.Validate(value);
+                jobStartDate = value;
+            }
+        }
+
+        /// <summary>
+        /// Text - A description of the job location(e.g TELECOMMUTE for telecommute jobs).
+        /// </summary>
+        [JsonProperty("jobLocationType")]
+        public string JobLocationType { get; set; }
 
         /// <summary>
         /// Text - Category or categories describing the job. Use BLS O*NET-SOC taxonomy: http://www.onetcenter.org/taxonomy.html. Ideally includes textual label and formal code, with the property repeated for each applicable value.
@@ -186,5 +245,6 @@ namespace MXTires.Microdata.Intangible
                 identifier = value;
             }
         }
+
     }
 }
