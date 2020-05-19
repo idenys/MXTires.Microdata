@@ -49,7 +49,7 @@ namespace MXTires.Microdata
         /// </summary>
         Thing attendee;
         /// <summary>
-        /// Organization or Person - A person or organization attending the event. Supersedes attendees.
+        /// Organization or Person - A person or organization attending the event. Supersedes <see cref="attendees"/>.
         /// </summary>
         /// <value>The attendee.</value>
         [JsonProperty("attendee")]
@@ -64,6 +64,13 @@ namespace MXTires.Microdata
                 attendee = value;
             }
         }
+
+        /// <summary>
+        /// Collection of Organization or Person. Superseded by <see cref="attendee"/>.
+        /// </summary>
+        /// <value>The attendee.</value>
+        [JsonProperty("attendees")]
+        public IList<object> Attendees { get; set; }
 
         /// <summary>
         /// DateTime - The time admission will commence.
@@ -184,7 +191,7 @@ namespace MXTires.Microdata
         /// </summary>
         Thing performer;
         /// <summary>
-        /// Organization  or Person 	A performer at the event—for example, a presenter, musician, musical group or actor. Supersedes performers.
+        /// Organization  or Person 	A performer at the event—for example, a presenter, musician, musical group or actor. Supersedes <see cref="Performers"/>.
         /// </summary>
         /// <value>The performer.</value>
         [JsonProperty("performer")]
@@ -198,6 +205,12 @@ namespace MXTires.Microdata
                 performer = value;
             }
         }
+
+        /// <summary>
+        /// Collection of performers. Superseded by <see cref="Performer"/>
+        /// </summary>
+        [JsonProperty("performers")]
+        public IList<object> Performers { get; set; }
 
         /// <summary>
         /// Date  - Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.
