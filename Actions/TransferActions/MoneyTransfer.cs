@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2020 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -25,17 +25,21 @@
 
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.LocalBusinesses.FinancialServices
+namespace MXTires.Microdata.Actions.TransferActions
 {
-    /// <summary>
-    /// Bank or credit union.
-    /// </summary>
-    public class BankOrCreditUnion : LocalBusiness
+    public class MoneyTransfer : TransferAction
     {
         /// <summary>
-        /// Text or URL - Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
+        /// MonetaryAmount  or Number - The amount of money.
         /// </summary>
-        [JsonProperty("feesAndCommissionsSpecification")]
-        public string FeesAndCommissionsSpecification { get; set; }
+        [JsonProperty("amount")]
+        public object Amount { get; set; }
+
+        /// <summary>
+        /// BankOrCreditUnion or Text - A bank or bank’s branch, financial institution or international financial institution operating the beneficiary’s 
+        /// bank account or releasing funds for the beneficiary.
+        /// </summary>
+        [JsonProperty("beneficiaryBank")]
+        public object BeneficiaryBank { get; set; }
     }
 }

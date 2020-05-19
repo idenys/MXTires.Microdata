@@ -27,6 +27,7 @@ using System;
 using System.Collections.Generic;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
@@ -287,6 +288,12 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("naics")]
         public string Naics { get; set; }
+
+        /// <summary>
+        /// NonprofitType - nonprofit Status indicates the legal status of a non-profit organization in its primary place of business.
+        /// </summary>
+        [JsonProperty("nonprofitStatus")]
+        public NonprofitType NonprofitStatus { get; set; }
 
         List<Thing> owns;
 
