@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2020 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,26 +23,18 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using MXTires.Microdata.Intangible.Enumeration;
-using Newtonsoft.Json;
 
 namespace MXTires.Microdata.LocalBusinesses.MedicalOrganizations
 {
-    /// <summary>
-    /// A medical clinic.
-    /// </summary>
-    public class MedicalClinic : MedicalOrganization
-    {
-        /// <summary>
-        ///  MedicalProcedure  or  MedicalTest or MedicalTherapy - A medical service available from this provider.
-        /// </summary>
-        [JsonProperty("availableService")]
-        public object AvailableService { get; set; }
+    using MXTires.Microdata.LocalBusinesses.LodgingBusinesses;
 
-        /// <summary>
-        /// MedicalSpecialty - A medical specialty of the provider.
-        /// </summary>
-        [JsonProperty("medicalSpecialty")]
-        public MedicalSpecialty MedicalSpecialty { get; set; }
+    /// <summary>
+    /// A CovidTestingFacility is a <see cref="MedicalClinic"/> where testing for the COVID-19 Coronavirus disease is available. 
+    /// If the facility is being made available from an established <see cref="Pharmacy"/>, <see cref="Hotel"/>, or other non-medical organization, multiple types can be listed. 
+    /// This makes it easier to re-use existing schema.org information about that place e.g. contact info, address, opening hours. Note that in an emergency, such information may not always be reliable.
+    /// </summary>
+    /// <remarks>This term is proposed for full integration into Schema.org, pending implementation feedback and adoption from applications and websites.</remarks>
+    public class CovidTestingFacility : MedicalClinic 
+    {
     }
 }

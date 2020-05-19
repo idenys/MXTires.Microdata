@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata
 {
@@ -48,14 +49,15 @@ namespace MXTires.Microdata
         public string CurrenciesAccepted { get; set; }
 
         /// <summary>
-        /// Duration 	The opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.
+        /// Text - The opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.
         ///- Days are specified using the following two-letter combinations: Mo, Tu, We, Th, Fr, Sa, Su.
         ///- Times are specified using 24:00 time. For example, 3pm is specified as 15:00. 
         ///- Here is an example: <time itemprop="openingHours" datetime="Tu,Th 16:00-20:00">Tuesdays and Thursdays 4-8pm</time>. 
         ///- If a business is open 7 days a week, then it can be specified as <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>.
         /// </summary>
+        /// <remarks>Changed to an object for reverse compatibility, since it was <see cref="Duration"/> before</remarks>
         [JsonProperty("openingHours")]
-        public List<Duration> OpeningHours { get; set; }
+        public List<object> OpeningHours { get; set; }
 
         /// <summary>
         /// Text 	Cash, credit card, etc.
@@ -84,11 +86,27 @@ namespace MXTires.Microdata
         [JsonProperty("geo")]
         public GeoCoordinates Geo { get; set; }
 
+        private object hasMap;
         /// <summary>
         /// A URL to a map of the place. Supersedes map, maps.
         /// </summary>
         [JsonProperty("hasMap")]
-        public Map HasMap { get; set; }
+        public object HasMap {
+            get { return hasMap; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Map), typeof(string));
+                validator.Validate(value);
+                hasMap = value;
+            }
+        }
+
+        /// <summary>
+        /// Boolean - Indicates whether some facility(e.g. <see cref="FoodEstablishment"/>, <see cref="CovidTestingFacility"/>) offers a service that can be used by driving through in a car.
+        /// In the case of CovidTestingFacility such facilities could potentially help with social distancing from other potentially-infected users.
+        /// </summary>
+        [JsonProperty("hasDriveThroughService")]
+        public bool HasDriveThroughService { get; set; }
 
         /// <summary>
         /// OpeningHoursSpecification - The opening hours of a certain place.

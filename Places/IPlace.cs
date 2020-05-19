@@ -61,7 +61,7 @@ namespace MXTires.Microdata.Places
         /// Gets or sets the has map.
         /// </summary>
         /// <value>The has map.</value>
-        Map HasMap { get; set; }
+        object HasMap { get; set; }
         /// <summary>
         /// Gets or sets the interaction count.
         /// </summary>

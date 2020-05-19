@@ -55,7 +55,7 @@ namespace MXTires.Microdata
         /// A URL to a map of the place. Supersedes <see cref="Map" />, <see cref="Maps" />.
         /// </summary>
         [JsonProperty("hasMap")]
-        public Map HasMap { get; set; }
+        public object HasMap { get; set; }
 
         /// <summary>
         /// Boolean - A flag to signal that the item, event, or place is accessible for free. Supersedes free.
