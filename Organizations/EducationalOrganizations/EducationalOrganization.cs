@@ -24,6 +24,7 @@
 #endregion
 
 using System;
+using MXTires.Microdata.Places;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -32,12 +33,15 @@ namespace MXTires.Microdata.Organizations
     /// <summary>
     /// An educational organization.
     /// </summary>
-    public class EducationalOrganization : Organization
+    public class EducationalOrganization : Organization, ICivicStructure
     {
         /// <summary>
         /// Person - Alumni of educational organization. Inverse property: alumniOf.
         /// </summary>
         [JsonProperty("alumni")]
         public Person Alumni { get; set; }
-    }
+
+        [JsonProperty("openingHours")]
+        public string OpeningHours { get; set; }
+}
 }

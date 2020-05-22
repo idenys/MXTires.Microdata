@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2016 1010Tires.com
+// Copyright (c) 2020 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,27 +23,19 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
 using System.Collections.Generic;
+using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Intangible.Services
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// A service provided by a government organization, e.g. food stamps, veterans benefits, etc.
+    /// An online or virtual location for attending events. For example, one may attend an online seminar or educational event. 
+    /// While a virtual location may be used as the location of an event, virtual locations should not be confused with physical locations in the real world.
     /// </summary>
-    public class GovernmentService : Service
+    public class VirtualLocation : Thing
     {
-        /// <summary>
-        ///  AdministrativeArea  or Text - Indicates a legal jurisdiction, e.g.of some legislation, or where some government service is based.
-        /// </summary>
-        [JsonProperty("jurisdiction")]
-        public object Jurisdiction { get; set; }
-
-        /// <summary>
-        /// The operating organization, if different from the provider. This enables the representation of services that are provided by an organization, but operated by another organization like a subcontractor.
-        /// </summary>
-        [JsonProperty("serviceOperator")]
-        public Organization ServiceOperator { get; set; }
     }
 }

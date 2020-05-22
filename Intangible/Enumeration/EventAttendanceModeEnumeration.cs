@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2016 1010Tires.com
+// Copyright (c) 2020 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,27 +23,25 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System.Collections.Generic;
-using MXTires.Microdata.Validators;
-using Newtonsoft.Json;
-
-namespace MXTires.Microdata.Intangible.Services
+namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// A service provided by a government organization, e.g. food stamps, veterans benefits, etc.
+    /// An EventAttendanceModeEnumeration value is one of potentially several modes of organising an event, relating to whether it is online or offline.
     /// </summary>
-    public class GovernmentService : Service
+    public enum EventAttendanceModeEnumeration
     {
         /// <summary>
-        ///  AdministrativeArea  or Text - Indicates a legal jurisdiction, e.g.of some legislation, or where some government service is based.
+        /// An event that is conducted as a combination of both offline and online modes.
         /// </summary>
-        [JsonProperty("jurisdiction")]
-        public object Jurisdiction { get; set; }
+        MixedEventAttendanceMode,
+        /// <summary>
+        /// An event that is primarily conducted offline.
+        /// </summary>
+        OfflineEventAttendanceMode,
 
         /// <summary>
-        /// The operating organization, if different from the provider. This enables the representation of services that are provided by an organization, but operated by another organization like a subcontractor.
+        /// An event that is primarily conducted online
         /// </summary>
-        [JsonProperty("serviceOperator")]
-        public Organization ServiceOperator { get; set; }
+        OnlineEventAttendanceMode,
     }
 }

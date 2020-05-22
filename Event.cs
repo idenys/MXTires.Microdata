@@ -45,6 +45,25 @@ namespace MXTires.Microdata
         public Thing About { get; set; }
 
         /// <summary>
+        /// Person - An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes  <see cref="Actors"/>.
+        /// </summary>
+        /// <value>The attendee.</value>
+        [JsonProperty("actor")]
+        public Person Actor { get; set; }
+
+        /// <summary>
+        /// Collection of <see cref="Actor"/>
+        /// </summary>
+        [JsonProperty("actors")]
+        public IList<Person> Actors { get; set; }
+
+        /// <summary>
+        /// The overall rating, based on a collection of reviews or ratings, of the item.
+        /// </summary>
+        [JsonProperty("aggregateRating")]
+        public AggregateRating AggregateRating { get; set; }
+        
+        /// <summary>
         /// The attendee
         /// </summary>
         Thing attendee;
@@ -73,6 +92,65 @@ namespace MXTires.Microdata
         public IList<object> Attendees { get; set; }
 
         /// <summary>
+        /// Audience - An intended audience, i.e.a group for whom something was created. Supersedes <see cref="ServiceAudience"/> .
+        /// </summary>
+        [JsonProperty("audience")] 
+        public Audience Audience { get; set; }
+
+        /// <summary>
+        /// Superseeded by <see cref="Audience"/>
+        /// </summary>
+        [JsonProperty("serviceAudience")]
+        public IList<Audience> ServiceAudience { get; set; }
+
+        Thing composer;
+        /// <summary>
+        /// Organization or Person - The person or organization who wrote a composition, or who is the composer of a work performed at some event.
+        /// </summary>
+        [JsonProperty("composer")]
+        [TypeValidation(typeof(Organization), typeof(Person))]
+        public Thing Composer
+        {
+            get { return composer; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                composer = value;
+            }
+        }
+
+        Thing contributor;
+        /// <summary>
+        /// Organization or Person - A secondary contributor to the CreativeWork or Event.
+        /// </summary>
+        [JsonProperty("contributor")]
+        [TypeValidation(typeof(Organization), typeof(Person))]
+        public Thing Contributor
+        {
+            get { return contributor; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                contributor = value;
+            }
+        }
+
+        /// <summary>
+        /// Person - A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. 
+        /// Directors can be associated with individual items or with a series, episode, clip. Supersedes directors.
+        /// </summary>
+        [JsonProperty("director")]
+        public Person Director { get; set; }
+
+        /// <summary>
+        /// Superseeded by <see cref="Director"/>
+        /// </summary>
+        [JsonProperty("directors")]
+        public IList<Person> Directors { get; set; }
+
+        /// <summary>
         /// DateTime - The time admission will commence.
         /// </summary>
         /// <value>The door time.</value>
@@ -93,9 +171,27 @@ namespace MXTires.Microdata
         [JsonProperty("endDate")]
         public string EndDate { get; set; }
 
+        /// <summary>
+        /// EventAttendanceModeEnumeration - The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.
+        /// </summary>
+        [JsonProperty("eventAttendanceMode")]
+        public EventAttendanceModeEnumeration EventAttendanceMode { get; set; }
+
+        /// <summary>
+        /// Schedule - Associates an Event with a Schedule.
+        /// There are circumstances where it is preferable to share a schedule for a series of repeating events rather than data on the individual events themselves.
+        /// For example, a website or application might prefer to publish a schedule for a weekly gym class rather than provide data on every event. 
+        /// A schedule could be processed by applications to add forthcoming events to a calendar. 
+        /// An Event that is associated with a Schedule using this property should not have startDate or endDate properties. 
+        /// These are instead defined within the associated Schedule, this avoids any ambiguity for clients using the data.
+        /// The property might have repeated values to specify different schedules, e.g. for different months or seasons.
+        /// </summary>
+        [JsonProperty("eventSchedule")]
+        public Schedule EventSchedule { get; set; }
+        
         Thing funder;
         /// <summary>
-        /// Organization  or Person - A person or organization that supports (sponsors) something through some kind of financial contribution.
+        /// Organization  or Person - A person or organization that supports (<see cref="Sponsors"/>) something through some kind of financial contribution.
         /// </summary>
         [JsonProperty("funder")]
         public Thing Funder
@@ -155,10 +251,21 @@ namespace MXTires.Microdata
         /// <summary>
         /// Integer - The total number of individuals that may attend an event or venue.
         /// </summary>
-        /// <value>The end date.</value>
         [JsonProperty("maximumAttendeeCapacity")]
-        public int MaximumAttendeeCapacity { get; set; }
+        public int? MaximumAttendeeCapacity { get; set; }
 
+        /// <summary>
+        /// Integer - The maximum physical attendee capacity of an Event whose eventAttendanceMode is OfflineEventAttendanceMode(or the offline aspects, in the case of a MixedEventAttendanceMode).
+        /// </summary>
+        [JsonProperty("maximumPhysicalAttendeeCapacity")]
+        public int? MaximumPhysicalAttendeeCapacity { get; set; }
+
+        /// <summary>
+        ///  Integer - The maximum physical attendee capacity of an Event whose eventAttendanceMode is OnlineEventAttendanceMode(or the online aspects, in the case of a MixedEventAttendanceMode).
+        /// </summary>
+        [JsonProperty("maximumVirtualAttendeeCapacity")]
+        public int? MaximumVirtualAttendeeCapacity { get; set; }
+       
         /// <summary>
         /// Offer - An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, or give away tickets to an event.
         /// </summary>
@@ -234,6 +341,39 @@ namespace MXTires.Microdata
         public int RemainingAttendeeCapacity { get; set; }
 
         /// <summary>
+        ///  Review - A review of the item. Supersedes <see cref="reviews"/>.
+        /// </summary>
+        [JsonProperty("review")]
+        public Review Review { get; set; }
+
+        /// <summary>
+        ///  Superseded by <see cref="Review"/>.
+        /// </summary>
+        [JsonProperty("reviews")]
+        public IList<Review> Reviews { get; set; }
+
+        Thing sponsor;
+        /// <summary>
+        /// Organization  or Person - A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+        /// </summary>
+        [JsonProperty("sponsor")]
+        public Thing Sponsor
+        {
+            get { return this.sponsor; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                this.sponsor = value;
+            }
+        }
+
+        /// <summary>
+        /// Collection of sponsors
+        /// </summary>
+        public IList<Thing> Sponsors { get; set; }
+
+        /// <summary>
         /// Date - The start date and time of the item (in ISO 8601 date format).
         /// </summary>
         /// <value>The start date.</value>
@@ -260,6 +400,14 @@ namespace MXTires.Microdata
         /// <value>The typical age range.</value>
         [JsonProperty("typicalAgeRange")]
         public string TypicalAgeRange { get; set; }
+
+        /// <summary>
+        /// CreativeWork - A work featured in some event, e.g. exhibited in an ExhibitionEvent. 
+        /// Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent).
+        /// </summary>
+        /// <value>The work performed.</value>
+        [JsonProperty("workFeatured")]
+        public CreativeWork WorkFeatured { get; set; }
 
         /// <summary>
         /// CreativeWork - A work performed in some event, for example a play performed in a TheaterEvent.

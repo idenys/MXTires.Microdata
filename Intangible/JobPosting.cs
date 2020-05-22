@@ -233,7 +233,7 @@ namespace MXTires.Microdata.Intangible
         private object identifier;
         /// <summary>
         /// PropertyValue  or Text or URL - The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc.
-        /// Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL(URI) links.See background notes for more details.
+        /// Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL(URI) links. See background notes for more details.
         /// </summary>
         [JsonProperty("identifier")]
         public object Identifier {
