@@ -130,22 +130,41 @@ namespace MXTires.Microdata
         public object NumberOfPreviousOwners { get; set; }
 
         /// <summary>
-        /// Date - The date of production of the item, e.g. vehicle.
+        /// QuantitativeValue - The permitted weight of passengers and cargo, EXCLUDING the weight of the empty vehicle.
+        /// Typical unit code(s) : KGM for kilogram, LBR for pound
+        /// Note 1: Many databases specify the permitted TOTAL weight instead, which is the sum of weight and payload
+        /// Note 2: You can indicate additional information in the name of the QuantitativeValue node.
+        /// Note 3: You may also link to a QualitativeValue node that provides additional information using valueReference.
+        /// Note 4: Note that you can use minValue and maxValue to indicate ranges.
         /// </summary>
-        [JsonProperty("productionDate")]
-        public DateTime? ProductionDate { get; set; }
-
-        /// <summary>
-        /// Date - The date the item e.g. vehicle was purchased by the current owner.
-        /// </summary>
-        [JsonProperty("purchaseDate")]
-        public DateTime? PurchaseDate { get; set; }
+        [JsonProperty("numberOfPreviousOwners")]
+        public QuantitativeValue payload { get; set; }
 
         /// <summary>
         /// SteeringPositionValue - The position of the steering wheel or similar device (mostly for cars).
         /// </summary>
         [JsonProperty("steeringPosition")]
         public DateTime? SteeringPosition { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - The permitted vertical load(TWR) of a trailer attached to the vehicle.Also referred to as Tongue Load Rating(TLR) or Vertical Load Rating(VLR)
+        /// Typical unit code(s) : KGM for kilogram, LBR for pound
+        ///  Note 1: You can indicate additional information in the name of the QuantitativeValue node.
+        /// Note 2: You may also link to a QualitativeValue node that provides additional information using valueReference.
+        /// Note 3: Note that you can use minValue and maxValue to indicate ranges.
+        /// </summary>
+        [JsonProperty("tongueWeight")]
+        public QuantitativeValue TongueWeight { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue 	The permitted weight of a trailer attached to the vehicle.
+        /// Typical unit code(s) : KGM for kilogram, LBR for pound
+        /// * Note 1: You can indicate additional information in the name of the QuantitativeValue node. 
+        /// * Note 2: You may also link to a QualitativeValue node that provides additional information using valueReference. 
+        /// * Note 3: Note that you can use minValue and maxValue to indicate ranges.
+        /// </summary>
+        [JsonProperty("trailerWeight")]
+        public QuantitativeValue TrailerWeight { get; set; }
 
         /// <summary>
         /// Text - A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
@@ -193,14 +212,22 @@ namespace MXTires.Microdata
         /// Number  or QuantitativeValue - The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
         /// Typical unit code(s): C62 for persons
         /// </summary>
-        [JsonProperty("vehicleSeatingCapacity")]
+        [JsonProperty("seatingCapacity")]
         public object VehicleSeatingCapacity { get; set; }
 
+        /// <summary>
+        /// QuantitativeValue - The speed range of the vehicle.If the vehicle is powered by an engine, the upper limit of the speed range (indicated by maxValue should be the maximum speed achievable under regular conditions.
+        /// Typical unit code(s) : KMH for km/h, HM for mile per hour(0.447 04 m/s), KNT for knot
+        /// * Note 1: Use minValue and maxValue to indicate the range.Typically, the minimal value is zero. * Note 2: There are many different ways of measuring the speed range. You can link to information about how the given value has been determined using the valueReference property.
+        /// </summary>
+        [JsonProperty("speed")]
+        public QuantitativeValue Speed { get; set; }
+        
         /// <summary>
         /// Text  or QualitativeValue  or URL - The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) ("gearbox" for cars).
         /// </summary>
         [JsonProperty("vehicleTransmission")]
-        public object VehicleTransmission { get; set; }
+        public object VehicleTransmission { get; set; }      
 
         /// <summary>
         /// The release date of a vehicle model (often used to differentiate versions of the same make and model).
@@ -241,9 +268,19 @@ namespace MXTires.Microdata
         [JsonProperty("bodyType")]
         public object BodyType { get; set; }
 
-         /// <summary>
-        /// QuantitativeValue - The distance between the centers of the front and rear wheels.
-        /// Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet
+        /// <summary>
+        /// Text - A callsign, as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
+        /// </summary>
+        [JsonProperty("callSign")]
+        public string CallSign { get; set; }
+
+
+        /// <summary>
+        /// QuantitativeValue   The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.
+        /// Typical unit code(s) : KGM for kilogram, LBR for pound
+        /// Note 1: You can indicate additional information in the name of the QuantitativeValue node.
+        /// Note 2: You may also link to a QualitativeValue node that provides additional information using valueReference.
+        /// Note 3: Note that you can use minValue and maxValue to indicate ranges.
         /// </summary>
         [JsonProperty("weightTotal")]
         public QuantitativeValue WeightTotal	{ get; set; }

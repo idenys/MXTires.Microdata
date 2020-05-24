@@ -56,12 +56,6 @@ namespace MXTires.Microdata
         public NutritionInformation Nutrition { get; set; }
 
         /// <summary>
-        /// Duration - The length of time it takes to prepare the recipe, in ISO 8601 duration format.
-        /// </summary>
-        [JsonProperty("prepTime")]
-        public Duration PrepTime { get; set; }
-
-        /// <summary>
         /// Text - The category of the recipe—for example, appetizer, entree, etc.
         /// </summary>
         [JsonProperty("recipeCategory")]
@@ -98,10 +92,5 @@ namespace MXTires.Microdata
         [JsonProperty("suitableForDiet")]
         public RestrictedDiet SuitableForDiet { get; set; }
 
-        /// <summary>
-        /// Duration 	The total time it takes to prepare and cook the recipe, in ISO 8601 duration format.
-        /// </summary>
-        [JsonProperty("totalTime")]
-        public Duration TotalTime { get; set; }
     }
 }
