@@ -323,6 +323,7 @@ namespace MXTires.Microdata
         [JsonProperty("width")]
         public Thing Width { get; set; }
 
+        object additionalProperty;
         /// <summary>
         /// A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic 
         /// for which there is no matching property in schema.org. 
@@ -332,7 +333,19 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The additional property.</value>
         [JsonProperty("additionalProperty")]
-        public PropertyValue AdditionalProperty { get; set; }
+        public object AdditionalProperty
+        {
+            get
+            {
+                return additionalProperty;
+            }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(PropertyValue), typeof(IList<PropertyValue>), typeof(List<PropertyValue>) });
+                validator.Validate(value);
+                additionalProperty = value;
+            }
+        }
 
     }
 }

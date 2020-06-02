@@ -240,7 +240,7 @@ namespace MXTires.Microdata.Intangible
             get { return identifier; }
             set
             {
-                var validator = new TypeValidator(new List<Type> { typeof(PropertyValue), typeof(string) });
+                var validator = new TypeValidator(new List<Type> { typeof(PropertyValue), typeof(string), typeof(List<PropertyValue>), typeof(IList<PropertyValue>) });
                 validator.Validate(value);
                 identifier = value;
             }

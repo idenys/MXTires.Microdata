@@ -339,8 +339,13 @@ namespace MXTires.Microdata.Tests
             var tire = new Tire() { Name = "T3 Tire" };
 
             PropertyValue additionalProperty = new PropertyValue(name: "Specs", value: "265/60R18");
+            IList<PropertyValue> additionalProperties = new List<PropertyValue>();
+            additionalProperties.Add(additionalProperty);
+            additionalProperties.Add(new PropertyValue("SpeedRating", "Q"));
+            additionalProperties.Add(new PropertyValue("LoadIndex", "116"));
+            additionalProperties.Add(new PropertyValue("SideWall", "BLK"));
 
-            tire.AdditionalProperty = additionalProperty;
+            tire.AdditionalProperty = additionalProperties;
 
             System.Diagnostics.Debug.WriteLine(tire.ToIndentedJson());
 

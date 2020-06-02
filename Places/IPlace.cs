@@ -15,7 +15,7 @@ namespace MXTires.Microdata.Places
         /// Gets or sets the additional property.
         /// </summary>
         /// <value>The additional property.</value>
-        MXTires.Microdata.Intangible.StructuredValues.PropertyValue AdditionalProperty { get; set; }
+        object AdditionalProperty { get; set; }
         /// <summary>
         /// Sets a single address.
         /// </summary>

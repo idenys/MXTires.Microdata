@@ -26,6 +26,7 @@
 using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Intangible.StructuredValues;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -60,11 +61,38 @@ namespace MXTires.Microdata
             SameAs.Add("http://www.1010tires.com/About/Tire-Tech");
 
             ExternalExtensions = new List<Property>() { new Property() { Name = "auto", Description = "www.1010Tires.com", } };
-            //Properties = new List<Property>();
-            //Properties.Add(new Property() { Name = "Speed Rating" });
         }
+
+        //[JsonProperty("speedRating")]
+        //public string SpeedRating { get; set; }
+
+        //[JsonProperty("sideWall")] public string SideWall { get; set; }
+        //[JsonProperty("treadWidth")] public string TreadWidth { get; set; }
+        //[JsonProperty("profile")] public string Profile { get; set; }
+        //[JsonProperty("rimDiameter")] public string RimDiameter { get; set; }
+        //[JsonProperty("loadIndex")] public string LoadIndex { get; set; }
+        //[JsonProperty("UTQG")] public string UTQG { get; set; }
+        //[JsonProperty("plyRating")] public string PlyRating { get; set; }
+        //[JsonProperty("approvedRimWidthRange")] public QuantitativeValue ApprovedRimWidthRange { get; set; }
+
+        //[JsonProperty("maxLoad")] public string MaxLoad { get; set; }
+
+        //[JsonProperty("noiseLevel")] public string NoiseLevel { get; set; }
+        //[JsonProperty("seasonDesignation")] public string SeasonDesignation { get; set; }
+        //[JsonProperty("subcategory")] public string Subcategory { get; set; }
+        //[JsonProperty("vehicleClassDesignation")] public string VehicleClassDesignation { get; set; }
+
+        //[JsonProperty("runFlat")] public bool? RunFlat { get; set; }
+        //[JsonProperty("studdable")] public bool? Studdable { get; set; }
+        //[JsonProperty("factoryPreStudded")] public bool? FactoryPreStudded { get; set; }
+
+        //[JsonProperty("overallDiameter")] public QuantitativeValue OverallDiameter { get; set; }
 
         //[JsonProperty("properties")]
         //public IList<Property> Properties { get; set; }
+
+        
+
+
     }
 }

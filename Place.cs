@@ -28,6 +28,7 @@ using Newtonsoft.Json;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.StructuredValues;
 using System;
+using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata
 {
@@ -36,14 +37,29 @@ namespace MXTires.Microdata
     /// </summary>
     public class Place : Thing, MXTires.Microdata.Places.IPlace
     {
+        object additionalProperty;
         /// <summary>
-        /// <see cref="PropertyValue"/> - A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. 
+        /// A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic 
+        /// for which there is no matching property in schema.org. 
+        /// Note: Publishers should be aware that applications designed to use specific schema.org properties 
+        /// (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) 
+        /// will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
         /// </summary>
-        /// <remarks>
-        /// Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
-        /// </remarks>
+        /// <value>The additional property.</value>
         [JsonProperty("additionalProperty")]
-        public PropertyValue AdditionalProperty { get; set; }
+        public object AdditionalProperty
+        {
+            get
+            {
+                return additionalProperty;
+            }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(PropertyValue), typeof(IList<PropertyValue>), typeof(List<PropertyValue>) });
+                validator.Validate(value);
+                additionalProperty = value;
+            }
+        }
 
         /// <summary>
         /// The location of the event, organization or action.
