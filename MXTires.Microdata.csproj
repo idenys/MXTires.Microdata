@@ -4,7 +4,7 @@
     <Version>1.0.3.9</Version>
     <Authors>1010Tires.com Inc.</Authors>
     <Company>1010Tires.com Inc.</Company>
-    <Copyright>Copyright© 1010Tires.com Inc. 2019. All rights reserved.</Copyright>
+    <Copyright>Copyright© 1010Tires.com Inc. 2020. All rights reserved.</Copyright>
     <Description>Converts .Net classes to Schema.org structured data in form of JSON-LD</Description>
     <PackageReleaseNotes>Added ShippingDetails to Offer. PostalCodeRangeSpecification,  DayOfWeek,  DefinedRegion,  OfferShippingDetails, ShippingDeliveryTime</PackageReleaseNotes>
     <PackageTags>.Net Microdata Schema.org Json-LD</PackageTags>
@@ -12,6 +12,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MXTires.MicroData.snk</AssemblyOriginatorKeyFile>
+    <RepositoryUrl>https://github.com/idenys/MXTires.Microdata</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Tests\**" />
