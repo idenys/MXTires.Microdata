@@ -6,7 +6,7 @@
     <Company>1010Tires.com Inc.</Company>
     <Copyright>Copyright© 1010Tires.com Inc. 2019. All rights reserved.</Copyright>
     <Description>Converts .Net classes to Schema.org structured data in form of JSON-LD</Description>
-    <PackageReleaseNotes>Bug fixes and few new properties added</PackageReleaseNotes>
+    <PackageReleaseNotes>Added ShippingDetails to Offer. PostalCodeRangeSpecification,  DayOfWeek,  DefinedRegion,  OfferShippingDetails, ShippingDeliveryTime</PackageReleaseNotes>
     <PackageTags>.Net Microdata Schema.org Json-LD</PackageTags>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
