@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
-    <Version>1.0.3.4</Version>
+    <TargetFrameworks>net40;net461;net472;net48;netcoreapp3.1</TargetFrameworks>
+    <Version>1.0.3.9</Version>
     <Authors>1010Tires.com Inc.</Authors>
     <Company>1010Tires.com Inc.</Company>
     <Copyright>Copyright© 1010Tires.com Inc. 2019. All rights reserved.</Copyright>

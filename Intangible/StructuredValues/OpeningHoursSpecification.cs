@@ -67,6 +67,23 @@ namespace MXTires.Microdata.Intangible.StructuredValues
             ValidThrough = validThrough;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OpeningHoursSpecification"/> class.
+        /// </summary>
+        /// <param name="closes">The closes.</param>
+        /// <param name="dayOfWeek">The day of week.</param>
+        /// <param name="opens">The opens.</param>
+        /// <param name="validFrom">The valid from.</param>
+        /// <param name="validThrough">The valid through.</param>
+        public OpeningHoursSpecification(string closes, DayOfWeek dayOfWeek, string opens, string validFrom = null, string validThrough = null)
+        {
+            Closes = closes;
+            DayOfWeek = dayOfWeek.ToString();
+            Opens = opens;
+            ValidFrom = validFrom;
+            ValidThrough = validThrough;
+        }
+
 
         #region Properties
         /// <summary>
@@ -81,7 +98,8 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         /// </summary>
         /// <value>The day of week.</value>
         [JsonProperty("dayOfWeek")]
-        public string DayOfWeek { get; set; }
+        public object DayOfWeek { get; set; }
+
 
         /// <summary>
         /// Time - The opening hour of the place or service on the given day(s) of the week.

@@ -97,6 +97,12 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("serialNumber")]
         public string SerialNumber { get; set; }
 
+        /// <summary>
+        /// OfferShippingDetails Indicates information about the shipping policies and options associated with an <see cref="Offer"/>.
+        /// </summary>
+        [JsonProperty("shippingDetails")]
+        public OfferShippingDetails ShippingDetails { get; set; }
+
         Thing seller;
         /// <summary>
         /// <see cref="Organization" />   or <see cref="Person" /> - An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider. Supersedes merchant, vendor.

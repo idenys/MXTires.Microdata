@@ -137,8 +137,8 @@ namespace MXTires.Microdata
         /// Note 3: You may also link to a QualitativeValue node that provides additional information using valueReference.
         /// Note 4: Note that you can use minValue and maxValue to indicate ranges.
         /// </summary>
-        [JsonProperty("numberOfPreviousOwners")]
-        public QuantitativeValue payload { get; set; }
+        [JsonProperty("payload")]
+        public QuantitativeValue Payload { get; set; }
 
         /// <summary>
         /// SteeringPositionValue - The position of the steering wheel or similar device (mostly for cars).
