@@ -46,11 +46,11 @@ namespace MXTires.Microdata.Intangible.Services
         [JsonProperty("feesAndCommissionsSpecification")]
         public String FeesAndCommissionsSpecification { get; set; }
 
-        object interestRate;
+        private object interestRate;
         /// <summary>
         /// Number  or QuantitativeValue - The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate.
         /// </summary>
         [JsonProperty("interestRate")]
-        public object InterestRate { get; set; }
+        public object InterestRate { get => interestRate; set => interestRate = value; }
     }
 }

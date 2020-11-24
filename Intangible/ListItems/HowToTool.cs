@@ -33,10 +33,5 @@ namespace MXTires.Microdata.Intangible.ListItems
     /// </summary>
     public class HowToTool : HowToItem
     {
-        /// <summary>
-        /// Number  or QuantitativeValue  or Text - The required quantity of the item(s). 
-        /// </summary>
-        [JsonProperty("requiredQuantity")]
-        public object RequiredQuantity	{ get; set; } 
     }
 }
