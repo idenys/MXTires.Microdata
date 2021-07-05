@@ -293,7 +293,7 @@ namespace MXTires.Microdata
         /// NonprofitType - nonprofit Status indicates the legal status of a non-profit organization in its primary place of business.
         /// </summary>
         [JsonProperty("nonprofitStatus")]
-        public NonprofitType NonprofitStatus { get; set; }
+        public NonprofitType? NonprofitStatus { get; set; }
 
         List<Thing> owns;
 
