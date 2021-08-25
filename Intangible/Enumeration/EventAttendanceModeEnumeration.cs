@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -33,15 +35,18 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// An event that is conducted as a combination of both offline and online modes.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/MixedEventAttendanceMode")]
         MixedEventAttendanceMode,
         /// <summary>
         /// An event that is primarily conducted offline.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/OfflineEventAttendanceMode")]
         OfflineEventAttendanceMode,
 
         /// <summary>
         /// An event that is primarily conducted online
         /// </summary>
+        [EnumMember(Value = "https://schema.org/OnlineEventAttendanceMode")]
         OnlineEventAttendanceMode,
     }
 }
