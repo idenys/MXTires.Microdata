@@ -41,7 +41,7 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The type.</value>
         [JsonProperty("@type", Order = 2)]
-        public new string Type { get { return "Product/Tire"; } }
+        public new string Type { get { return "Product"; } }
 
         string additionalType = "http://www.productontology.org/id/Tire";
         /// <summary>
