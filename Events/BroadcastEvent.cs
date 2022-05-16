@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata.Events
 {
     /// <summary>
@@ -30,5 +32,28 @@ namespace MXTires.Microdata.Events
     /// </summary>
     public class BroadcastEvent : PublicationEvent
     {
+        /// <summary>
+        /// The event being broadcast such as a sporting event or awards ceremony.
+        /// </summary>
+        [JsonProperty("broadcastOfEvent")]
+        public Event BroadcastOfEvent { get; set; }
+
+        /// <summary>
+        /// True if the broadcast is of a live event.
+        /// </summary>
+        [JsonProperty("isLiveBroadcast")]
+        public bool IsLiveBroadcast { get; set; }
+
+        /// <summary>
+        /// Language or Text Languages in which subtitles/captions are available, in IETF BCP 47 standard format.
+        /// </summary>
+        [JsonProperty("subtitleLanguage")]
+        public object SubtitleLanguage { get; set; }
+
+        /// <summary>
+        /// Text The type of screening or video broadcast used (e.g.IMAX, 3D, SD, HD, etc.).
+        /// </summary>
+        [JsonProperty("videoFormat")]
+        public string VideoFormat { get; set; }
     }
 }
