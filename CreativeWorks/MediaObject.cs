@@ -26,6 +26,7 @@
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Quantities;
+using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using System;
@@ -110,6 +111,29 @@ namespace MXTires.Microdata
                 height = value;
             }
         }
+
+        object ineligibleRegion;
+        /// <summary>
+        /// GeoShape  or Place  or Text - The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) 
+        /// for which the offer or delivery charge specification is not valid, e.g.a region where the transaction is not allowed.
+        /// </summary>
+        [JsonProperty("ineligibleRegion")]
+        public object IneligibleRegion
+        {
+            get { return ineligibleRegion; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(String), typeof(GeoShape), typeof(Place) });
+                validator.Validate(value);
+                ineligibleRegion = value;
+            }
+        }
+
+        /// <summary>
+        /// Used to indicate a specific claim contained, implied, translated or refined from the content of a MediaObject or other CreativeWork.The interpreting party can be indicated using claimInterpreter.
+        /// </summary>
+        [JsonProperty("interpretedAsClaim")]
+        public Claim InterpretedAsClaim { get; set; }
 
         /// <summary>
         /// Text 	Player type required—for example, Flash or Silverlight.
