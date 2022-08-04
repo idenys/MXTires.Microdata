@@ -24,6 +24,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.Quantities;
@@ -68,10 +69,16 @@ namespace MXTires.Microdata
         public String RecipeCuisine { get; set; }
 
         /// <summary>
-        /// Text - A single ingredient used in the recipe, e.g. sugar, flour or garlic. Supersedes ingredients.
+        /// Text - A single ingredient used in the recipe, e.g. sugar, flour or garlic. Supersedes <see cref="Ingredients"/> .
         /// </summary>
         [JsonProperty("recipeIngredient")]
-        public String RecipeIngredient { get; set; }
+        public string RecipeIngredient { get; set; }
+
+        /// <summary>
+        /// Text - A collection of ingredients used in the recipe, e.g. sugar, flour or garlic. Superseded by <see cref="RecipeIngredient"/> .
+        /// </summary>
+        [JsonProperty("ingredients")]
+        public IList<string> Ingredients { get; set; }
 
         /// <summary>
         /// ItemList  or Text - A step or instruction involved in making the recipe.

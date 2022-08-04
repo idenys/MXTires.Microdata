@@ -24,15 +24,12 @@
 #endregion
 
 using MXTires.Microdata.CreativeWorks;
-using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MXTires.Microdata
 {
