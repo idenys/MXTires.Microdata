@@ -33,7 +33,6 @@ namespace MXTires.Microdata.Intangible.Services
     /// </summary>
     public class FinancialProduct : Service
     {
-        object annualPercentageRate;
         /// <summary>
         /// Number or QuantitativeValue - The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.
         /// </summary>

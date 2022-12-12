@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461;net472;net48;netcoreapp3.1;net5.0</TargetFrameworks>
-    <Version>1.0.4.1</Version>
+    <TargetFrameworks>net461;net472;net48;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+    <Version>1.0.4.2</Version>
     <Authors>1010Tires.com Inc.</Authors>
     <Company>1010Tires.com Inc.</Company>
-    <Copyright>Copyright© 1010Tires.com Inc. 2021. All rights reserved.</Copyright>
+    <Copyright>Copyright© 1010Tires.com Inc. 2022. All rights reserved.</Copyright>
     <Description>Converts .Net classes to Schema.org structured data in form of JSON-LD</Description>
-    <PackageReleaseNotes>Tire product defined as Product to compline with Google standarts.</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated Newtonsoft.Json Version to 13.0.2</PackageReleaseNotes>
     <PackageTags>.Net Microdata Schema.org Json-LD</PackageTags>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MXTires.MicroData.snk</AssemblyOriginatorKeyFile>
     <RepositoryUrl>https://github.com/idenys/MXTires.Microdata</RepositoryUrl>
-    <AssemblyVersion>1.0.4.1</AssemblyVersion>
-    <FileVersion>1.0.4.1</FileVersion>
+    <AssemblyVersion>1.0.4.2</AssemblyVersion>
+    <FileVersion>1.0.4.2</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Tests\**" />
@@ -31,7 +31,7 @@
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
