@@ -88,5 +88,11 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// </summary>
         [EnumMember(Value = "http://schema.org/PreSale")]
         PreSale = 256,
+
+        /// <summary>
+        /// The item is available on back order
+        /// </summary>
+        [EnumMember(Value = "http://schema.org/BackOrder")]
+        BackOrder = 512,
     }
 }
