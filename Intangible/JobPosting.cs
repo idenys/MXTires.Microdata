@@ -89,11 +89,22 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("experienceRequirements")]
         public string ExperienceRequirements { get; set; }
+
+        private object hiringOrganization;
         /// <summary>
-        /// Organization - Organization offering the job position.
+        /// Organization or Person - Organization or Person offering the job position.
         /// </summary>
         [JsonProperty("hiringOrganization")]
-        public Organization HiringOrganization { get; set; }
+        public object HiringOrganization
+        {
+            get { return this.hiringOrganization; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(Person), typeof(Organization));
+                validator.Validate(value);
+                this.hiringOrganization = value;
+            }
+        }
         /// <summary>
         /// Text - Description of bonus and commission compensation aspects of the job. Supersedes incentives.
         /// </summary>

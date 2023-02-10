@@ -140,10 +140,20 @@ namespace MXTires.Microdata
         [JsonProperty("startTime")]
         public DateTime? StartTime { get; set; }
 
+        private object target;
         /// <summary>
-        ///EntryPoint - Indicates a target EntryPoint for an Action.
+        ///EntryPoint or URL - Indicates a target EntryPoint for an Action.
         /// </summary>
         [JsonProperty("target")]
-        public MXTires.Microdata.Intangible.EntryPoint Target { get; set; }
+        public object Target
+        {
+            get { return this.target; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(typeof(Intangible.EntryPoint), typeof(string));
+                validator.Validate(value);
+                this.target = value;
+            }
+        }
     }
 }

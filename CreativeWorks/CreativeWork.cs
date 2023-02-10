@@ -505,6 +505,14 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("workTranslation")]
         public CreativeWork WorkTranslation { get; set; }
+
+        /// <summary>
+        /// Date  or DateTime - Date the content expires and is no longer useful or available. 
+        /// For example a VideoObject or <seealso cref="NewsArticle"/>  whose availability or relevance is time-limited, 
+        /// or a <seealso cref="ClaimReview"/> fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date.
+        /// </summary>
+        [JsonProperty("expires")]
+        public object Expires { get; set; }
     }
 }
  

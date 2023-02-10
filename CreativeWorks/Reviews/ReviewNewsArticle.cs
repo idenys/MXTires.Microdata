@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2016 1010Tires.com
+// Copyright (c) 2023 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,15 +24,22 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
+using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
+using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.CreativeWorks.Articles;
 
-namespace MXTires.Microdata.CreativeWorks.Articles
+namespace MXTires.Microdata.CreativeWorks.Reviews
 {
     /// <summary>
-    ///An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (Source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/NewsArticle).
+    /// A NewsArticle and CriticReview providing a professional critic's assessment of a service, product, performance, or artistic or literary work.
+    /// Canonical URL: https://schema.org/ReviewNewsArticle
     /// </summary>
-    public class NewsArticle : Article, INewsArticle
+    public class ReviewNewsArticle : Review, INewsArticle
     {
+        #region Properties from NewsArticle
         /// <summary>
         /// Text 	The location where the NewsArticle was produced.
         /// </summary>
@@ -62,5 +69,7 @@ namespace MXTires.Microdata.CreativeWorks.Articles
         /// </summary>
         [JsonProperty("printSection")]
         public String PrintSection { get; set; }
+
+        #endregion
     }
 }

@@ -86,12 +86,6 @@ namespace MXTires.Microdata
         [JsonProperty("encodingFormat")]
         public string EncodingFormat { get; set; }
 
-        /// <summary>
-        /// Date 	Date the content expires and is no longer useful or available. Useful for videos.
-        /// </summary>
-        [JsonProperty("expires")]
-        public string Expires { get; set; }
-
         Thing height;
 
         /// <summary>
