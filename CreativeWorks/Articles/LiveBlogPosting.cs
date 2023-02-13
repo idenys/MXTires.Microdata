@@ -23,12 +23,30 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
+using System;
+
 namespace MXTires.Microdata.CreativeWorks.Articles
 {
-    /// <summary>
-    /// A scholarly article.
-    /// </summary>
-    public class ScholarlyArticle : Article
+    public class LiveBlogPosting : BlogPosting
     {
+        /// <summary>
+        /// DateTime -The time when the live blog will stop covering the Event.Note that coverage may continue after the Event concludes.
+        /// </summary>
+        [JsonProperty("coverageEndTime")]
+        public DateTime CoverageEndTime { get; set; }
+
+        /// <summary>
+        /// DateTime - The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins.
+        /// </summary>
+        [JsonProperty("coverageStartTime")]
+        public DateTime CoverageStartTime { get; set; }
+
+        /// <summary>
+        /// BlogPosting An update to the LiveBlog.
+        /// </summary>
+        [JsonProperty("liveBlogUpdate")]
+        public BlogPosting LiveBlogUpdate { get; set; }
+
     }
 }

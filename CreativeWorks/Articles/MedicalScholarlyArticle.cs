@@ -23,12 +23,19 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata.CreativeWorks.Articles
 {
     /// <summary>
-    /// A scholarly article.
+    /// A scholarly article in the medical domain.
     /// </summary>
-    public class ScholarlyArticle : Article
+    public class MedicalScholarlyArticle : ScholarlyArticle 
     {
+        /// <summary>
+        /// Text    The type of the medical article, taken from the US NLM MeSH publication type catalog.See also MeSH documentation.
+        /// </summary>
+        [JsonProperty("publicationType")] 
+        public string PublicationType { get; set; }
     }
 }

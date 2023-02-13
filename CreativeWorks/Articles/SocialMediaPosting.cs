@@ -23,12 +23,17 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata.CreativeWorks.Articles
 {
-    /// <summary>
-    /// A scholarly article.
-    /// </summary>
-    public class ScholarlyArticle : Article
+    public class SocialMediaPosting: Article
     {
+        /// <summary>
+        /// CreativeWork - A CreativeWork such as an image, video, or audio clip shared as part of this posting.
+        /// </summary>
+        [JsonProperty("sharedContent")]
+        
+        public CreativeWork SharedContent { get; set; }
     }
 }

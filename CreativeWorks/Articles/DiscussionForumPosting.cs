@@ -26,9 +26,9 @@
 namespace MXTires.Microdata.CreativeWorks.Articles
 {
     /// <summary>
-    /// A scholarly article.
+    /// A posting to a discussion forum.
     /// </summary>
-    public class ScholarlyArticle : Article
+    public class DiscussionForumPosting : SocialMediaPosting
     {
     }
 }

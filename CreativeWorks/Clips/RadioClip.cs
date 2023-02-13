@@ -23,12 +23,15 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-namespace MXTires.Microdata.CreativeWorks.Articles
+using System;
+using Newtonsoft.Json;
+
+namespace MXTires.Microdata.CreativeWorks.Clips
 {
     /// <summary>
-    /// A scholarly article.
+    /// A short radio program or a segment/part of a radio program.
     /// </summary>
-    public class ScholarlyArticle : Article
+    public class RadioClip : Clip
     {
     }
 }

@@ -23,12 +23,36 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata.CreativeWorks.Articles
 {
-    /// <summary>
-    /// A scholarly article.
-    /// </summary>
-    public class ScholarlyArticle : Article
+    public class APIReference : TechArticle
     {
+        /// <summary>
+        /// Text - Associated product/technology version.E.g., .NET Framework 4.5.
+        /// </summary>
+        [JsonProperty("assemblyVersion")]
+        public String AssemblyVersion { get; set; }
+
+        /// <summary>
+        /// Text - Library file name, e.g., mscorlib.dll, system.web.dll.Supersedes assembly.
+        /// </summary>
+        [JsonProperty("executableLibraryName")]
+        public String ExecutableLibraryName { get; set; }
+
+        /// <summary>
+        /// Text - Indicates whether API is managed or unmanaged.
+        /// </summary>
+        [JsonProperty("programmingModel")]
+        public String ProgrammingModel { get; set; }
+
+        /// <summary>
+        /// Text - Type of app development: phone, Metro style, desktop, XBox, etc.
+        /// </summary>
+        [JsonProperty("targetPlatform")]
+        public String TargetPlatform { get; set; }
+        
     }
 }

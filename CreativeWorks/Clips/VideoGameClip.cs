@@ -23,12 +23,15 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-namespace MXTires.Microdata.CreativeWorks.Articles
+using System;
+using Newtonsoft.Json;
+
+namespace MXTires.Microdata.CreativeWorks.Clips
 {
     /// <summary>
-    /// A scholarly article.
+    /// A short segment/part of a video game.
     /// </summary>
-    public class ScholarlyArticle : Article
+    public class VideoGameClip : Clip
     {
     }
 }

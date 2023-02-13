@@ -23,12 +23,16 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-namespace MXTires.Microdata.CreativeWorks.Articles
+using System;
+using Newtonsoft.Json;
+
+namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// A scholarly article.
+    /// Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates. <s
     /// </summary>
-    public class ScholarlyArticle : Article
+    /// <remarks>Note: This term has been superseded <see cref="SoftwareSourceCode"/><.</remarks>
+    public class Code : CreativeWork
     {
     }
 }
