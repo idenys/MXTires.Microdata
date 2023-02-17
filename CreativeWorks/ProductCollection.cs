@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2015 1010Tires.com
+// Copyright (c) 2016 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,24 +23,20 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using MXTires.Microdata.LocalBusinesses.LodgingBusinesses;
+using System;
+using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.Places.CivicStructures
+namespace MXTires.Microdata.CreativeWorks
 {
-    /// <summary>
-    /// A Campground.
-    /// </summary>
-    public class Campground : LodgingBusiness, ICivicStructure, IPlace
+    public class ProductCollection : Collection
     {
         /// <summary>
-        /// The opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.
-        /// - Days are specified using the following two-letter combinations: Mo, Tu, We, Th, Fr, Sa, Su.
-        /// - Times are specified using 24:00 time. For example, 3pm is specified as 15:00. 
-        /// - Here is an example: <time itemprop="openingHours" datetime="Tu,Th 16:00-20:00">Tuesdays and Thursdays 4-8pm</time>. 
-        /// - If a business is open 7 days a week, then it can be specified as <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>.
+        /// TypeAndQuantityNode - This links to a node or nodes indicating the exact quantity of the products included in an <see cref="Offer"></see>  or <see cref="ProductCollection"/> .
         /// </summary>
-        [JsonProperty("openingHours")]
-        public new string OpeningHours { get; set; }
+        [JsonProperty("includesObject")]
+        public TypeAndQuantityNode IncludesObject { get; set; }
     }
 }
