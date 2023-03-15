@@ -436,6 +436,12 @@ namespace MXTires.Microdata
         public Review Review { get; set; }
 
         /// <summary>
+        /// Review of the item. Superseded by <see cref="Review"/>.
+        /// </summary>
+        [JsonProperty("reviews")]
+        public IList<Review> Reviews { get; set; }
+
+        /// <summary>
         /// Organization - The Organization on whose behalf the creator was working.
         /// </summary>
         [JsonProperty("sourceOrganization")]
