@@ -24,7 +24,8 @@
 #endregion
 
 using System.Collections.Generic;
-using MXTires.Microdata.Validators;
+using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
@@ -32,8 +33,82 @@ namespace MXTires.Microdata.CreativeWorks
     /// <summary>
     /// A class, also often called a 'Type'; equivalent to rdfs:VideoGame.
     /// </summary>
-    public class VideoGame : IGame //, SoftwareApplication
+    public class VideoGame : SoftwareApplication, IGame 
     {
+        /// <summary>
+        /// Person An actor, e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Actors"/> .
+        /// </summary>
+        [JsonProperty("actor")]
+        public Person Actor { get; set; }
+
+        /// <summary>
+        /// An actor, e.g. in TV, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip. Sureseeded by <see cref="Actor"/>.
+        /// </summary>
+        [JsonProperty("actors")]
+        public IList<Person> Actors { get; set; }
+
+        /// <summary>
+        /// CreativeWork - Cheat codes to the game.
+        /// </summary>
+        [JsonProperty("cheatCode")]
+        public CreativeWork CheatCode { get; set; }
+
+        /// <summary>
+        /// A director of e.g. TV, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/> .
+        /// </summary>
+        [JsonProperty("director")]
+        public Person Director { get; set; }
+
+        /// <summary>
+        ///A director of e.g. TV, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.  Sureseeded by <see cref="Director"/>.
+        /// </summary>
+        [JsonProperty("directors")]
+        public IList<Person> Directors { get; set; }
+
+        /// <summary>
+        /// Text - The edition of a video game.
+        /// </summary>
+        [JsonProperty("gameEdition")]
+        public string GameEdition { get; set; }
+
+        /// <summary>
+        /// Text  or Thing  or URL - The electronic systems used to play video games.
+        /// </summary>
+        [JsonProperty("gamePlatform")]
+        public object GamePlatform { get; set; }
+
+        /// <summary>
+        /// GameServer - The server on which it is possible to play the game. Inverse property: <see cref="Game"/>
+        /// </summary>
+        [JsonProperty("gameServer")]
+        public GameServer GameServer { get; set; }
+
+        /// <summary>
+        /// CreativeWork - Links to tips, tactics, etc.
+        /// </summary>
+        [JsonProperty("gameTip")]
+        public CreativeWork GameTip { get; set; }
+
+        /// <summary>
+        /// MusicGroup  or Person - The composer of the soundtrack.
+        /// </summary>
+        [JsonProperty("musicBy")]
+        public object MusicBy { get; set; }
+
+        /// <summary>
+        /// GamePlayMode - Indicates whether this game is multi-player, co-op or single-player.The game can be marked as multi-player, co-op and single-player at the same time.
+        /// </summary>
+        [JsonProperty("playMode")]
+        public GamePlayMode PlayMode { get; set; }
+
+        /// <summary>
+        /// VideoObject - The trailer of a movie or TV/radio series, season, episode, etc.
+        /// </summary>
+        [JsonProperty("trailer")]
+        public VideoObject Trailer { get; set; }
+
+        #region Properties from Game
+
         /// <summary>
         /// Thing 	A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
         /// </summary>
@@ -63,5 +138,7 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("quest")]
         public Thing Quest { get; set; }
+
+        #endregion Properties from Game
     }
 }
