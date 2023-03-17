@@ -1,26 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net461;net472;net48;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
-    <Version>1.0.4.3</Version>
+    <Version>1.0.4.4</Version>
     <Authors>1010Tires.com Inc.</Authors>
     <Company>1010Tires.com Inc.</Company>
     <Copyright>Copyright© 1010Tires.com Inc. 2023. All rights reserved.</Copyright>
     <Description>Converts .Net classes to Schema.org structured data in form of JSON-LD</Description>
-    <PackageReleaseNotes>Added "Thing &gt; Intangible &gt; Enumeration &gt; ItemAvailability :: BackOrder".
-A Schema.org Enumeration Member</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated https://schema.org/GovernmentService properties. Updated VideoGame properties.</PackageReleaseNotes>
     <PackageTags>.Net Microdata Schema.org Json-LD</PackageTags>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MXTires.MicroData.snk</AssemblyOriginatorKeyFile>
     <RepositoryUrl>https://github.com/idenys/MXTires.Microdata</RepositoryUrl>
-    <AssemblyVersion>1.0.4.3</AssemblyVersion>
-    <FileVersion>1.0.4.3</FileVersion>
+    <AssemblyVersion>1.0.4.4</AssemblyVersion>
+    <FileVersion>1.0.4.4</FileVersion>
+    <Title>MXTires.Microdata</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Tests\**" />
     <EmbeddedResource Remove="Tests\**" />
     <None Remove="Tests\**" />
+    <None Include="..\src\1010TIRES\FrontEnd\FrontEnd\DEV\Angular\UI\Store\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include=".paket\paket.exe" />
     <None Include=".paket\paket.targets" />
     <None Include="License.md">
