@@ -139,14 +139,25 @@ namespace MXTires.Microdata
         [JsonProperty("contactPoint")]
         public ContactPoint ContactPoint { get; set; }
 
+        object department { get; set; }
         /// <summary>
-        /// Organization - A relationship between an organization and a department of that organization, 
+        /// Organization or IList<Organization> - A relationship between an organization and a department of that organization, 
         /// also described as an organization (allowing different urls, logos, opening hours). 
         /// For example: a store with a pharmacy, or a bakery with a cafe.
         /// </summary>
+        /// <remarks>Can have multiple departments</remarks>
         [JsonProperty("department")]
-        public Organization Department { get; set; }
-
+        public object Department
+        {
+            get { return department; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(IList<Organization>));
+                validator.Validate(value);
+                department = value;
+            }
+        }
+        
         /// <summary>
         /// Date - The date that this organization was dissolved.
         /// </summary>
