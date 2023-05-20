@@ -96,7 +96,7 @@ Visual Studio 2008 or higher
 ```
 
 ## Dependencies
-[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/ "Newtonsoft.Json") (>= 7.0.0)
+[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/ "Newtonsoft.Json") (>= 13.0.3)
 
 
 
