@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2016 1010Tires.com
+// Copyright (c) 2023 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,28 +24,26 @@
 #endregion
 
 using System;
-using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons.
+    /// Enumerates several types of return labels for product returns.
     /// </summary>
     [Flags]
-    public enum RestrictedDiet
+    public enum ReturnLabelSourceEnumeration
     {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-        DiabeticDiet = 1 << 0,
-        GlutenFreeDiet = 1 << 1,
-        HalalDiet = 1 << 2,
-        HinduDiet = 1 << 3,
-        KosherDiet = 1 << 4,
-        LowCalorieDiet = 1 << 5,
-        LowFatDiet = 1 << 6,
-        LowLactoseDiet = 1 << 7,
-        LowSaltDiet = 1 << 8,
-        VeganDiet = 1 << 9,
-        VegetarianDiet = 1 << 10,
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+        /// <summary>
+        /// Indicated that creating a return label is the responsibility of the customer.
+        /// </summary>
+        ReturnLabelCustomerResponsibility = 1 << 0,
+        /// <summary>
+        /// Indicated that a return label must be downloaded and printed by the customer.
+        /// </summary>
+        ReturnLabelDownloadAndPrint = 1 << 1,
+        /// <summary>
+        /// Specifies that a return label will be provided by the seller in the shipping box.
+        /// </summary>
+        ReturnLabelInBox = 1 << 2,
     }
 }

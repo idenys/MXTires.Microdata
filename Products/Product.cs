@@ -145,6 +145,12 @@ namespace MXTires.Microdata
         public string Gtin8 { get; set; }
 
         /// <summary>
+        /// MerchantReturnPolicy - Specifies a MerchantReturnPolicy that may be applicable. Supersedes <see cref="HasProductReturnPolicy"/>.
+        /// </summary>
+        [JsonProperty("hasMerchantReturnPolicy")]
+        public MerchantReturnPolicy HasMerchantReturnPolicy { get; set; }
+
+        /// <summary>
         /// Distance  or QuantitativeValue - The height of the item or person.
         /// </summary>
         /// <value>The height.</value>

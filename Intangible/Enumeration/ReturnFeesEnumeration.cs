@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2016 1010Tires.com
+// Copyright (c) 2023 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,28 +24,34 @@
 #endregion
 
 using System;
-using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons.
+    /// Enumerates several kinds of policies for product return fees.
     /// </summary>
     [Flags]
-    public enum RestrictedDiet
+    public enum ReturnFeesEnumeration
     {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-        DiabeticDiet = 1 << 0,
-        GlutenFreeDiet = 1 << 1,
-        HalalDiet = 1 << 2,
-        HinduDiet = 1 << 3,
-        KosherDiet = 1 << 4,
-        LowCalorieDiet = 1 << 5,
-        LowFatDiet = 1 << 6,
-        LowLactoseDiet = 1 << 7,
-        LowSaltDiet = 1 << 8,
-        VeganDiet = 1 << 9,
-        VegetarianDiet = 1 << 10,
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+        /// <summary>
+        /// Specifies that product returns are free of charge for the customer.
+        /// </summary>
+        FreeReturn = 1 << 0,
+        /// <summary>
+        /// Specifies that the customer must pay the original shipping costs when returning a product.
+        /// </summary>
+        OriginalShippingFees = 1 << 1,
+        /// <summary>
+        /// Specifies that the customer must pay a restocking fee when returning a product.
+        /// </summary>
+        RestockingFees = 1 << 2,
+        /// <summary>
+        /// Specifies that product returns must be paid for, and are the responsibility of, the customer.
+        /// </summary>
+        ReturnFeesCustomerResponsibility = 1 << 3,
+        /// <summary>
+        /// Specifies that the customer must pay the return shipping costs when returning a product.
+        /// </summary>
+        ReturnShippingFees = 1 << 4,
     }
 }

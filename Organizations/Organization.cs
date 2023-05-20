@@ -350,5 +350,11 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("vatID")]
         public string VatID { get; set; }
+
+        /// <summary>
+        /// MerchantReturnPolicy - Specifies a MerchantReturnPolicy that may be applicable. Supersedes <see cref="HasProductReturnPolicy"/>.
+        /// </summary>
+        [JsonProperty("hasMerchantReturnPolicy")]
+        public MerchantReturnPolicy HasMerchantReturnPolicy { get; set; }
     }
 }

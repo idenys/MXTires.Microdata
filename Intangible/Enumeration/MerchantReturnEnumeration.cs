@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2016 1010Tires.com
+// Copyright (c) 2023 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -22,30 +22,31 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
-
 using System;
-using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons.
+    /// Enumerates several kinds of product return policies.
     /// </summary>
     [Flags]
-    public enum RestrictedDiet
+    public enum MerchantReturnEnumeration
     {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-        DiabeticDiet = 1 << 0,
-        GlutenFreeDiet = 1 << 1,
-        HalalDiet = 1 << 2,
-        HinduDiet = 1 << 3,
-        KosherDiet = 1 << 4,
-        LowCalorieDiet = 1 << 5,
-        LowFatDiet = 1 << 6,
-        LowLactoseDiet = 1 << 7,
-        LowSaltDiet = 1 << 8,
-        VeganDiet = 1 << 9,
-        VegetarianDiet = 1 << 10,
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+        /// <summary>
+        /// Specifies that there is a finite window for product returns.
+        /// </summary>
+        MerchantReturnFiniteReturnWindow = 1 << 0,
+        /// <summary>
+        /// Specifies that product returns are not permitted.
+        /// </summary>
+        MerchantReturnNotPermitted = 1 << 1,
+        /// <summary>
+        /// Specifies that there is an unlimited window for product returns.
+        /// </summary>
+        MerchantReturnUnlimitedWindow = 1 << 2,
+        /// <summary>
+        /// Specifies that a product return policy is not provided.
+        /// </summary>
+        MerchantReturnUnspecified = 1 << 3,
     }
 }

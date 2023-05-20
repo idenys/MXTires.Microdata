@@ -268,6 +268,12 @@ namespace MXTires.Microdata.Intangible
         public string Gtin8 { get; set; }
 
         /// <summary>
+        /// MerchantReturnPolicy - Specifies a MerchantReturnPolicy that may be applicable. Supersedes <see cref="HasProductReturnPolicy"/>.
+        /// </summary>
+        [JsonProperty("hasMerchantReturnPolicy")]
+        public MerchantReturnPolicy HasMerchantReturnPolicy { get; set; }
+
+        /// <summary>
         /// TypeAndQuantityNode - This links to a node or nodes indicating the exact quantity of the products included in the offer.
         /// </summary>
         /// <value>The includes object.</value>

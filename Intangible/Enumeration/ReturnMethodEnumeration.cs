@@ -1,5 +1,5 @@
 ﻿#region License
-// Copyright (c) 2016 1010Tires.com
+// Copyright (c) 2023 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -22,30 +22,27 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
-
 using System;
-using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
-    /// A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons.
+    /// 
     /// </summary>
     [Flags]
-    public enum RestrictedDiet
+    public enum ReturnMethodEnumeration
     {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-        DiabeticDiet = 1 << 0,
-        GlutenFreeDiet = 1 << 1,
-        HalalDiet = 1 << 2,
-        HinduDiet = 1 << 3,
-        KosherDiet = 1 << 4,
-        LowCalorieDiet = 1 << 5,
-        LowFatDiet = 1 << 6,
-        LowLactoseDiet = 1 << 7,
-        LowSaltDiet = 1 << 8,
-        VeganDiet = 1 << 9,
-        VegetarianDiet = 1 << 10,
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+        /// <summary>
+        /// Specifies that product returns must be made at a kiosk.
+        /// </summary>
+        ReturnAtKiosk = 1 << 0,
+        /// <summary>
+        /// Specifies that product returns must be done by mail.
+        /// </summary>
+        ReturnByMail = 1 << 1,
+        /// <summary>
+        /// Specifies that product returns must be made in a store.
+        /// </summary>
+        ReturnInStore = 1 << 2,
     }
 }
