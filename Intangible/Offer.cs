@@ -47,6 +47,12 @@ namespace MXTires.Microdata.Intangible
         }
 
         /// <summary>
+        /// Date - The date after which the price is no longer available.
+        /// </summary>
+        [JsonProperty("priceValidUntil")]
+        public DateTime? PriceValidUntil { get; set; }
+
+        /// <summary>
         /// The payment method(s) accepted by seller for this offer.
         /// </summary>
         /// <value>The accepted payment method.</value>
