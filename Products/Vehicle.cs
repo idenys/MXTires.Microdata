@@ -233,7 +233,7 @@ namespace MXTires.Microdata
         /// The release date of a vehicle model (often used to differentiate versions of the same make and model).
         /// </summary>
         [JsonProperty("modelDate")]
-        public DateTime ModelDate { get; set; }
+        public DateTime? ModelDate { get; set; }
 
         /// <summary>
         /// QualitativeValue  or Text  or URL - Indicates that the vehicle meets the respective emission standard.
