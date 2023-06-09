@@ -17,6 +17,7 @@
     <FileVersion>1.0.4.5</FileVersion>
     <Title>MXTires.Microdata</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Tests\**" />

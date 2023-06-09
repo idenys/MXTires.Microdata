@@ -22,7 +22,9 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
+using Newtonsoft.Json.Linq;
 using System;
+using System.Runtime.Serialization;
 
 namespace MXTires.Microdata.Intangible.Enumeration
 {
@@ -35,14 +37,17 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Specifies that product returns must be made at a kiosk.
         /// </summary>
+        [EnumMember(Value = "ReturnInStore")]
         ReturnAtKiosk = 1 << 0,
         /// <summary>
         /// Specifies that product returns must be done by mail.
         /// </summary>
+        [EnumMember(Value = "ReturnInStore")]
         ReturnByMail = 1 << 1,
         /// <summary>
         /// Specifies that product returns must be made in a store.
         /// </summary>
+        [EnumMember(Value = "ReturnInStore")]
         ReturnInStore = 1 << 2,
     }
 }

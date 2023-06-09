@@ -22,7 +22,9 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
+using Newtonsoft.Json.Linq;
 using System;
+using System.Runtime.Serialization;
 
 namespace MXTires.Microdata.Intangible.Enumeration
 {
@@ -35,18 +37,22 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Specifies that there is a finite window for product returns.
         /// </summary>
+        [EnumMember(Value = "MerchantReturnFiniteReturnWindow")]
         MerchantReturnFiniteReturnWindow = 1 << 0,
         /// <summary>
         /// Specifies that product returns are not permitted.
         /// </summary>
+        [EnumMember(Value = "MerchantReturnNotPermitted")]
         MerchantReturnNotPermitted = 1 << 1,
         /// <summary>
         /// Specifies that there is an unlimited window for product returns.
         /// </summary>
+        [EnumMember(Value = "MerchantReturnUnlimitedWindow")]
         MerchantReturnUnlimitedWindow = 1 << 2,
         /// <summary>
         /// Specifies that a product return policy is not provided.
         /// </summary>
+        [EnumMember(Value = "MerchantReturnUnspecified")]
         MerchantReturnUnspecified = 1 << 3,
     }
 }

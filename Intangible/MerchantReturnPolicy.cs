@@ -45,7 +45,7 @@ namespace MXTires.Microdata.Intangible
         /// Country  or Text A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.
         /// </summary>
         [JsonProperty("applicableCountry")]
-        public object applicableCountry { get; set; }
+        public object ApplicableCountry { get; set; }
 
         /// <summary>
         /// ReturnFeesEnumeration   The type of return fees if the product is returned due to customer remorse.
@@ -136,13 +136,13 @@ namespace MXTires.Microdata.Intangible
         /// ReturnMethodEnumeration - The type of return method offered, specified from an enumeration.
         /// </summary>
         [JsonProperty("returnMethod")]
-        public ReturnMethodEnumeration ReturnMethod { get; set; }
+        public ReturnMethodEnumeration? ReturnMethod { get; set; }
 
         /// <summary>
         /// MerchantReturnEnumeration - Specifies an applicable return policy(from an enumeration).
         /// </summary>
         [JsonProperty("returnPolicyCategory")]
-        public MerchantReturnEnumeration ReturnPolicyCategory { get; set; }
+        public MerchantReturnEnumeration? ReturnPolicyCategory { get; set; }
 
         /// <summary>
         /// Country  or Text -  The country where the product has to be sent to for returns, for example "Ireland" using the name property of Country.You can also provide the two-letter ISO 3166-1 alpha-2 country code. Note that this can be different from the country where the product was originally shipped from or sent to.
@@ -152,9 +152,9 @@ namespace MXTires.Microdata.Intangible
         public object ReturnPolicyCountry { get; set; }
 
         /// <summary>
-        /// MonetaryAmount - Amount of shipping costs for product returns (for any reason). Applicable when property returnFees equals ReturnShippingFees.
+        /// MonetaryAmount - Amount of shipping costs for product returns (for any reason). Applicable when property <see cref="ReturnFees"/>  equals <see cref="ReturnShippingFees"/>.
         /// </summary>
         [JsonProperty("returnShippingFeesAmount")]
-        public MonetaryAmount returnShippingFeesAmount { get; set; }
+        public MonetaryAmount? ReturnShippingFeesAmount { get; set; }
     }
 }
