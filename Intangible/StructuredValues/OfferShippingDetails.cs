@@ -24,6 +24,8 @@
 #endregion
 
 
+using MXTires.Microdata.Intangible.Quantities;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible.StructuredValues
@@ -34,7 +36,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// One entity for Alaska/Hawaii.A different one for continental US.A different one for all France.
     /// Multiple of these entities can be used to represent different shipping costs and delivery times.
     /// Two entities that are identical but differ in rate and time:
-    /// e.g.Cheaper and slower: $5 in 5-7days or Fast and expensive: $15 in 1-2 days
+    /// e.g.Cheaper and slower: $5 in 5-7 days or Fast and expensive: $15 in 1-2 days
     /// </summary>
     public class OfferShippingDetails: Thing
     {
@@ -44,11 +46,43 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         [JsonProperty("deliveryTime")]
         public ShippingDeliveryTime DeliveryTime { get; set; }
 
+        private Thing depth;
+        /// <summary>
+        /// Distance or QuantitativeValue - The depth of the item.
+        /// </summary>
+        [JsonProperty("depth")]
+        public Thing Depth
+        {
+            get { return depth; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Distance), typeof(QuantitativeValue));
+                validator.Validate(value);
+                depth = value;
+            }
+        }
+
         /// <summary>
         /// Boolean - Indicates when shipping to a particular <see cref="ShippingDestination"/> is not available.
         /// </summary>
         [JsonProperty("doesNotShip")]
         public bool? DoesNotShip { get; set; }
+
+        private Thing height;
+        /// <summary>
+        /// Distance or QuantitativeValue - The height of the item.
+        /// </summary>
+        [JsonProperty("height")]
+        public Thing Height
+        {
+            get { return height; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Distance), typeof(QuantitativeValue));
+                validator.Validate(value);
+                height = value;
+            }
+        }
 
         /// <summary>
         /// DefinedRegion 	indicates (possibly multiple) shipping destinations. These can be defined in several ways e.g. postalCode ranges.
@@ -80,5 +114,27 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         /// </summary>
         [JsonProperty("transitTimeLabel")]
         public string TransitTimeLabel { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - The weight of the product or person..
+        /// </summary>
+        [JsonProperty("weight")]
+        public QuantitativeValue Weight { get; set; }
+
+        private Thing width;
+        /// <summary>
+        /// Distance or QuantitativeValue - The width of the item.
+        /// </summary>
+        [JsonProperty("width")]
+        public Thing Width
+        {
+            get { return width; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Distance), typeof(QuantitativeValue));
+                validator.Validate(value);
+                width = value;
+            }
+        }
     }
 }
