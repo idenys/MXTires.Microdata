@@ -57,7 +57,7 @@ namespace MXTires.Microdata.CreativeWorks
         /// Text - The ISBN of the book.
         /// </summary>
         [JsonProperty("isbn")]
-        public Person Isbn { get; set; }
+        public string Isbn { get; set; }
 
         /// <summary>
         /// Integer - The number of pages in the book.
