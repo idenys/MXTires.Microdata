@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Validators;
+using MXTires.Microdata.Intangible.StructuredValues;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -48,9 +49,17 @@ namespace MXTires.Microdata
         private static readonly TypeValidator MainEntityOfPageValidator =
             new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(string), typeof(WebSite) });
 
+        private static readonly TypeValidator IdentifierValidator =
+            new TypeValidator("MXTires.Microdata.Intangible", null, new List<Type> { typeof(string), typeof(PropertyValue) });
+
+        private static readonly TypeValidator SubjectOfValidator =
+            new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(CreativeWork) });
+
         private object context = "http://schema.org";
+        private object identifier;
         private object image;
         private object mainEntityOfPage;
+        private object subjectOf;
 
         /// <summary>
         /// Context
@@ -99,6 +108,27 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Text - A sub property of description. A short description of the item used to disambiguate from other, similar items.
+        /// </summary>
+        [JsonProperty("disambiguatingDescription", NullValueHandling = NullValueHandling.Ignore)]
+        public string DisambiguatingDescription { get; set; }
+
+        /// <summary>
+        /// The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc.
+        /// Schema.org: PropertyValue | Text | URL
+        /// </summary>
+        [JsonProperty("identifier", NullValueHandling = NullValueHandling.Ignore)]
+        public object Identifier
+        {
+            get { return identifier; }
+            set
+            {
+                IdentifierValidator.Validate(value);
+                identifier = value;
+            }
+        }
 
         /// <summary>
         /// URL to an image of the item. This can be a URL or a fully described ImageObject.
@@ -155,6 +185,21 @@ namespace MXTires.Microdata
             {
                 MainEntityOfPageValidator.Validate(value);
                 mainEntityOfPage = value;
+            }
+        }
+
+        /// <summary>
+        /// A CreativeWork or Event about this Thing.
+        /// Schema.org: CreativeWork | Event
+        /// </summary>
+        [JsonProperty("subjectOf", NullValueHandling = NullValueHandling.Ignore)]
+        public object SubjectOf
+        {
+            get { return subjectOf; }
+            set
+            {
+                SubjectOfValidator.Validate(value);
+                subjectOf = value;
             }
         }
 
