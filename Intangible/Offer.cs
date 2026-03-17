@@ -40,7 +40,10 @@ namespace MXTires.Microdata.Intangible
             get { return priceSpecification; }
             set
             {
-                var validator = new TypeValidator(typeof(PriceSpecification), typeof(IList<PriceSpecification>));
+                var validator = new TypeValidator(
+                    "MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications",
+                    null,
+                    new List<Type>() { typeof(PriceSpecification), typeof(IList<PriceSpecification>) });
                 validator.Validate(value);
                 priceSpecification = value;
             }
