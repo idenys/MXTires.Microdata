@@ -537,6 +537,50 @@ namespace MXTires.Microdata.Tests
             Assert.AreSame(certification, product.HasCertification);
         }
 
+        [TestMethod]
+        public void OfferOfferedByAcceptsOrganizationAndPerson()
+        {
+            var offer = new Offer();
+            var offeredBy = new Organization { Name = "1010Tires.com" };
+
+            offer.OfferedBy = offeredBy;
+
+            Assert.AreSame(offeredBy, offer.OfferedBy);
+        }
+
+        [TestMethod]
+        public void OfferLeaseLengthAcceptsDurationAndQuantitativeValue()
+        {
+            var offer = new Offer();
+            var quantitativeValue = new QuantitativeValue { Value = 12, UnitCode = "MON" };
+
+            offer.LeaseLength = quantitativeValue;
+
+            Assert.AreSame(quantitativeValue, offer.LeaseLength);
+        }
+
+        [TestMethod]
+        public void OfferLeaseLengthRejectsInvalidTypes()
+        {
+            var offer = new Offer();
+
+            Assert.ThrowsExactly<ArgumentException>(() => offer.LeaseLength = "12 months");
+        }
+
+        [TestMethod]
+        public void OfferAreaServedAndAdditionalPropertyAcceptDocumentedTypes()
+        {
+            var offer = new Offer();
+            var place = new Place { Name = "Vancouver" };
+            var property = new PropertyValue("warranty", "1 year");
+
+            offer.AreaServed = place;
+            offer.AdditionalProperty = property;
+
+            Assert.AreSame(place, offer.AreaServed);
+            Assert.AreSame(property, offer.AdditionalProperty);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD
         /// </summary>
