@@ -351,6 +351,58 @@ namespace MXTires.Microdata.Tests
             Assert.ThrowsExactly<ArgumentException>(() => action.Location = 42);
         }
 
+        [TestMethod]
+        public void CreativeWorkIsBasedOnAcceptsCreativeWorkProductAndText()
+        {
+            var work = new Article();
+
+            var basis = new Article { Name = "Original" };
+            work.IsBasedOn = basis;
+            Assert.AreSame(basis, work.IsBasedOn);
+
+            var product = new Product { Name = "Kit" };
+            work.IsBasedOn = product;
+            Assert.AreSame(product, work.IsBasedOn);
+
+            work.IsBasedOn = "http://example.com/original";
+            Assert.AreEqual("http://example.com/original", work.IsBasedOn);
+        }
+
+        [TestMethod]
+        public void CreativeWorkIsBasedOnRejectsInvalidTypes()
+        {
+            var work = new Article();
+
+            Assert.ThrowsExactly<ArgumentException>(() => work.IsBasedOn = 42);
+        }
+
+        [TestMethod]
+        public void CreativeWorkSizeAcceptsQuantitativeValueAndText()
+        {
+            var work = new Article();
+
+            work.Size = "XL";
+            Assert.AreEqual("XL", work.Size);
+
+            var quantitativeValue = new QuantitativeValue { Value = 10, UnitCode = "CMT" };
+            work.Size = quantitativeValue;
+            Assert.AreSame(quantitativeValue, work.Size);
+        }
+
+        [TestMethod]
+        public void CreativeWorkFunderAndFundingAcceptDocumentedTypes()
+        {
+            var work = new Article();
+            var funder = new Organization { Name = "Funding Org" };
+
+            work.Funder = funder;
+            Assert.AreSame(funder, work.Funder);
+
+            var grant = new Grant { Funder = funder };
+            work.Funding = grant;
+            Assert.AreSame(grant, work.Funding);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD
         /// </summary>
