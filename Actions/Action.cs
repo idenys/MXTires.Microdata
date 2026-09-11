@@ -26,6 +26,8 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json.Converters;
 using MXTires.Microdata.Validators;
@@ -41,6 +43,12 @@ namespace MXTires.Microdata
     /// </summary>
     public class Action : Thing
     {
+        /// <summary>
+        /// HowTo - Description of the process by which the action was performed.
+        /// </summary>
+        [JsonProperty("actionProcess")]
+        public HowTo ActionProcess { get; set; }
+
         /// <summary>
         /// ActionStatusType - Indicates the current disposition of the Action.
         /// </summary>
@@ -85,17 +93,17 @@ namespace MXTires.Microdata
         [JsonProperty("instrument")]
         public Thing Instrument { get; set; }
 
-        Thing location; 
+        object location;
         /// <summary>
-        /// PostalAddress or Place - The location of the event, organization or action.
+        /// Place, PostalAddress, Text, or VirtualLocation - The location of the event, organization or action.
         /// </summary>
         [JsonProperty("location")]
-        public Thing Location
+        public object Location
         {
             get { return location; }
             set
             {
-                var validator = new TypeValidator(typeof(PostalAddress), typeof(Place));
+                var validator = new TypeValidator(new List<Type> { typeof(Place), typeof(PostalAddress), typeof(string), typeof(VirtualLocation) });
                 validator.Validate(value);
                 location = value;
             }
@@ -121,6 +129,22 @@ namespace MXTires.Microdata
                 var validator = new TypeValidator(typeof(Organization), typeof(Person));
                 validator.Validate(value);
                 participant = value;
+            }
+        }
+
+        private Thing provider;
+        /// <summary>
+        /// Organization or Person - The service provider, service operator, or service performer; the goods producer.
+        /// </summary>
+        [JsonProperty("provider")]
+        public Thing Provider
+        {
+            get { return provider; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                provider = value;
             }
         }
 

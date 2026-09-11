@@ -313,8 +313,46 @@ namespace MXTires.Microdata.Tests
             Assert.ThrowsExactly<ArgumentException>(() => thing.Owner = "not an owner");
         }
 
+        [TestMethod]
+        public void ActionProviderAcceptsOrganizationAndPerson()
+        {
+            var action = new Action();
+            var provider = new Organization { Name = "1010Tires.com" };
+
+            action.Provider = provider;
+
+            Assert.AreSame(provider, action.Provider);
+        }
+
+        [TestMethod]
+        public void ActionLocationAcceptsPlacePostalAddressTextAndVirtualLocation()
+        {
+            var action = new Action();
+
+            action.Location = new Place { Name = "Venue" };
+            Assert.IsInstanceOfType(action.Location, typeof(Place));
+
+            action.Location = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+            Assert.IsInstanceOfType(action.Location, typeof(PostalAddress));
+
+            action.Location = "Online";
+            Assert.AreEqual("Online", action.Location);
+
+            var virtualLocation = new VirtualLocation();
+            action.Location = virtualLocation;
+            Assert.AreSame(virtualLocation, action.Location);
+        }
+
+        [TestMethod]
+        public void ActionLocationRejectsInvalidTypes()
+        {
+            var action = new Action();
+
+            Assert.ThrowsExactly<ArgumentException>(() => action.Location = 42);
+        }
+
         /// <summary>
-        /// BreadcrumbList to JSON-LD 
+        /// BreadcrumbList to JSON-LD
         /// </summary>
         [TestMethod]
         public void BreadcrumbListTest()
