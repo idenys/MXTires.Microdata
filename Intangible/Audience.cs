@@ -22,7 +22,7 @@ namespace MXTires.Microdata.Intangible
         /// The geographic area associated with the audience.
         /// </summary>
         /// <value>The administrative area.</value>
-        [JsonProperty("administrativeArea")]
+        [JsonProperty("geographicArea")]
         public AdministrativeArea AdministrativeArea { get; set; }
 
     }

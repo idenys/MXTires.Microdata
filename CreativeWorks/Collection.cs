@@ -35,7 +35,12 @@ namespace MXTires.Microdata.CreativeWorks
     /// <summary>
     /// A created collection of Creative Works or other artefacts.
     /// </summary>
-    public class Collection : CreativeWork 
+    public class Collection : CreativeWork
     {
+        /// <summary>
+        /// Integer - The number of items in a Collection.
+        /// </summary>
+        [JsonProperty("collectionSize")]
+        public int? CollectionSize { get; set; }
     }
 }

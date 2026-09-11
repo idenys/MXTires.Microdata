@@ -7,8 +7,11 @@ using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Events;
+using MXTires.Microdata.Actions.MoveActions;
 using MXTires.Microdata.Actions.TradeActions;
+using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.Services;
+using MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications;
 using MXTires.Microdata.LocalBusinesses.MedicalOrganizations;
 using MXTires.Microdata.Organizations.PerformingGroups;
 using MXTires.Microdata.Places;
@@ -1207,6 +1210,77 @@ namespace MXTires.Microdata.Tests
 
 
             System.Diagnostics.Debug.Write(shop.ToIndentedJson());
+        }
+
+        [TestMethod]
+        public void ChooseActionOptionSerializesUnderCorrectKey()
+        {
+            var action = new ChooseAction { Option = "red pill" };
+
+            var json = JObject.Parse(action.ToString());
+
+            Assert.AreEqual("red pill", (string)json["actionOption"]);
+            Assert.IsNull(json["option"]);
+        }
+
+        [TestMethod]
+        public void BedDetailsTypeOfBedSerializesUnderCorrectKey()
+        {
+            var bed = new BedDetails { typeOfBed = "King", NumberOfBeds = 2 };
+
+            var json = JObject.Parse(bed.ToString());
+
+            Assert.AreEqual("King", (string)json["typeOfBed"]);
+            Assert.AreEqual(2, (int)json["numberOfBeds"]);
+        }
+
+        [TestMethod]
+        public void AudienceGeographicAreaSerializesUnderCorrectKey()
+        {
+            var audience = new Audience { AdministrativeArea = new AdministrativeArea { Name = "British Columbia" } };
+
+            var json = JObject.Parse(audience.ToString());
+
+            Assert.IsNotNull(json["geographicArea"]);
+            Assert.IsNull(json["administrativeArea"]);
+        }
+
+        [TestMethod]
+        public void NutritionInformationSugarContentSerializesUnderCorrectKey()
+        {
+            var nutrition = new NutritionInformation { SugarContent = new Mass { Name = "10g sugar" } };
+
+            var json = JObject.Parse(nutrition.ToString());
+
+            Assert.IsNotNull(json["sugarContent"]);
+            Assert.IsNull(json["occupancy"]);
+        }
+
+        [TestMethod]
+        public void TravelActionDistanceIsPublicAndSerializes()
+        {
+            var action = new TravelAction { Distance = new Distance { Name = "5 km" } };
+
+            var json = JObject.Parse(action.ToString());
+
+            Assert.IsNotNull(json["distance"]);
+        }
+
+        [TestMethod]
+        public void HowToStepAcceptsDocumentedTypes()
+        {
+            var howTo = new HowTo();
+
+            howTo.Step = "Preheat the oven";
+            Assert.AreEqual("Preheat the oven", howTo.Step);
+        }
+
+        [TestMethod]
+        public void CompoundPriceSpecificationPriceTypeRoundTrips()
+        {
+            var spec = new CompoundPriceSpecification { PriceType = "SRP" };
+
+            Assert.AreEqual("SRP", spec.PriceType);
         }
     }
 }

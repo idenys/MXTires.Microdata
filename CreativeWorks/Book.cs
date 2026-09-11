@@ -36,6 +36,12 @@ namespace MXTires.Microdata.CreativeWorks
     public class Book : CreativeWork, MXTires.Microdata.CreativeWorks.IBook
     {
         /// <summary>
+        /// Boolean - Indicates whether the book is an abridged edition.
+        /// </summary>
+        [JsonProperty("abridged")]
+        public bool? Abridged { get; set; }
+
+        /// <summary>
         /// Text - The edition of the book.
         /// </summary>
         [JsonProperty("bookEdition")]

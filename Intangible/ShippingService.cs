@@ -41,6 +41,12 @@ namespace MXTires.Microdata.Intangible
         public string FulfillmentType { get; set; }
 
         /// <summary>
+        /// ShippingConditions - Conditions associated with a ShippingDeliveryTime.
+        /// </summary>
+        [JsonProperty("shippingConditions")]
+        public string ShippingConditions { get; set; }
+
+        /// <summary>
         /// QuantitativeValue - The typical delay the order has been sent for delivery and the goods reach the final customer.
         /// </summary>
         [JsonProperty("handlingTime")]

@@ -36,7 +36,7 @@ namespace MXTires.Microdata
         /// Text or Thing - A sub property of object. The options subject to this action.
         /// </summary>
         [TypeValidation(typeof(string), typeof(Thing))]
-        [JsonProperty("option")]
+        [JsonProperty("actionOption")]
         public object Option { get; set; }
     }
 }

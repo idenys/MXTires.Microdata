@@ -64,5 +64,11 @@ namespace MXTires.Microdata.LocalBusinesses.EmergencyServices
         /// </summary>
         [JsonProperty("medicalSpecialty")]
         public object MedicalSpecialty { get; set; }
+
+        /// <summary>
+        /// CDCPMDRecord or Dataset - Indicates data describing a hospital, e.g. a CDC ‘Hospitalization and Bed Availability’ or 'Facility' dataset.
+        /// </summary>
+        [JsonProperty("healthcareReportingData")]
+        public string HealthcareReportingData { get; set; }
     }
 }

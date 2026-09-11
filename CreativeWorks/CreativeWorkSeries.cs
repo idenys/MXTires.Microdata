@@ -48,5 +48,11 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("startDate")]
         public DateTime? StartDate { get; set; }
+
+        /// <summary>
+        /// Text - The International Standard Serial Number (ISSN) that identifies this serial publication.
+        /// </summary>
+        [JsonProperty("issn")]
+        public string Issn { get; set; }
     }
 }

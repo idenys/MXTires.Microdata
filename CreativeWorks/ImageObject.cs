@@ -62,5 +62,11 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("representativeOfPage")]
         public bool? RepresentativeOfPage { get; set; }
+
+        /// <summary>
+        /// Text - Represents textual captioning from a MediaObject, e.g. text of a 'meme'.
+        /// </summary>
+        [JsonProperty("embeddedTextCaption")]
+        public string EmbeddedTextCaption { get; set; }
     }
 }

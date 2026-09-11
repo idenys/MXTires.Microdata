@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata.Actions.InteractActions.CommunicateActions
 {
     /// <summary>
@@ -30,5 +32,10 @@ namespace MXTires.Microdata.Actions.InteractActions.CommunicateActions
     /// </summary>
     public class InformAction : CommunicateAction
     {
+        /// <summary>
+        /// Event - Upcoming or past event associated with this place, organization, or action.
+        /// </summary>
+        [JsonProperty("event")]
+        public Event Event { get; set; }
     }
 }

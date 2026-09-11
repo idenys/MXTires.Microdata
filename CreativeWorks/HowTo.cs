@@ -67,9 +67,25 @@ namespace MXTires.Microdata.CreativeWorks
         [JsonProperty("prepTime")]
         public Duration PrepTime { get; set; }
 
+        private object step;
+        /// <summary>
+        /// CreativeWork, HowToSection, HowToStep, or Text - A single step item (as HowToStep, text, document, video, etc.) or a HowToSection. This is the current schema.org name, superseding steps.
+        /// </summary>
+        [JsonProperty("step")]
+        public object Step
+        {
+            get { return this.step; }
+            set
+            {
+                TypeValidator validator = new TypeValidator(new List<Type>(new Type[] { typeof(CreativeWork), typeof(HowToSection), typeof(HowToStep), typeof(string) }));
+                validator.Validate(value);
+                this.step = value;
+            }
+        }
+
         private object steps;
         /// <summary>
-        /// CreativeWork  or ItemList  or Text - The steps in the form of a single item (text, document, video, etc.) 
+        /// CreativeWork  or ItemList  or Text - The steps in the form of a single item (text, document, video, etc.)
         /// or an ordered list with HowToStep and/or HowToSection items.
         /// </summary>
         [JsonProperty("steps")]

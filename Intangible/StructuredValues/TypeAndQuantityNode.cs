@@ -57,6 +57,12 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         /// Text - The unit of measurement given using the UN/CEFACT Common Code (3 characters).
         /// </summary>
         [JsonProperty("unitCode")]
-        public string UnitCode  { get; set; }		
+        public string UnitCode  { get; set; }
+
+        /// <summary>
+        /// Text - A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for unitCode.
+        /// </summary>
+        [JsonProperty("unitText")]
+        public string UnitText { get; set; }
     }
 }

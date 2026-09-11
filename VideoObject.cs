@@ -53,6 +53,12 @@ namespace MXTires.Microdata
 		[JsonProperty("caption")]
         public string Caption { get; set; }
 
+        /// <summary>
+        /// Text - Represents textual captioning from a MediaObject, e.g. text of a 'meme'.
+        /// </summary>
+        [JsonProperty("embeddedTextCaption")]
+        public string EmbeddedTextCaption { get; set; }
+
 		/// <summary>
 		/// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
 		/// </summary>

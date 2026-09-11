@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Actions.TradeActions
 {
     /// <summary>
-    /// The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. 
+    /// The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price.
     /// Reciprocal of BuyAction.
     /// </summary>
     public class SellAction : TradeAction
@@ -19,5 +20,11 @@ namespace MXTires.Microdata.Actions.TradeActions
         /// </summary>
         [JsonProperty("buyer")]
         public Person Buyer { get; set; }
+
+        /// <summary>
+        /// WarrantyPromise - The warranty promise(s) included in the offer.
+        /// </summary>
+        [JsonProperty("warrantyPromise")]
+        public WarrantyPromise WarrantyPromise { get; set; }
     }
 }

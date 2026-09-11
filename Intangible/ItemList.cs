@@ -22,6 +22,12 @@ namespace MXTires.Microdata.Intangible
         public LinkedList<ListItem> ItemListElement { get; set; }
 
         /// <summary>
+        /// Thing - Indicates a prototype of the elements in the list that is used to hold aggregate information (ratings, offers, etc.).
+        /// </summary>
+        [JsonProperty("aggregateElement")]
+        public Thing AggregateElement { get; set; }
+
+        /// <summary>
         /// ItemListOrderType  or Text - Type of ordering (e.g. Ascending, Descending, Unordered).
         /// </summary>
         [JsonProperty("itemListOrder")]

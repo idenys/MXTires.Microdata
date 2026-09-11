@@ -134,7 +134,13 @@ namespace MXTires.Microdata.Intangible
         }
 
         /// <summary>
-        /// OfferCatalog - Indicates an OfferCatalog listing for this Organization, Person, or Service. 
+        /// Certification - Certification information about a product, organization, service, place, or person.
+        /// </summary>
+        [JsonProperty("hasCertification")]
+        public Certification HasCertification { get; set; }
+
+        /// <summary>
+        /// OfferCatalog - Indicates an OfferCatalog listing for this Organization, Person, or Service.
         /// </summary>
         [JsonProperty("hasOfferCatalog")]
         public OfferCatalog HasOfferCatalog { get; set; }

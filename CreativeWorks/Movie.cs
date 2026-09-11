@@ -119,5 +119,11 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("trailer")]
         public VideoObject Trailer { get; set; }
+
+        /// <summary>
+        /// Text or URL - An EIDR (Entertainment Identifier Registry) identifier representing at the most general/abstract level, a work of film or television.
+        /// </summary>
+        [JsonProperty("titleEIDR")]
+        public string TitleEIDR { get; set; }
     }
 }

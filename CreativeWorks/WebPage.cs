@@ -111,5 +111,11 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("specialty")]
         public Specialty? Specialty { get; set; }
+
+        /// <summary>
+        /// SpeakableSpecification or URL - Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion.
+        /// </summary>
+        [JsonProperty("speakable")]
+        public string Speakable { get; set; }
     }
 }

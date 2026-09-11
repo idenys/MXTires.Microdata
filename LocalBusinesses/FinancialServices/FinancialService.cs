@@ -37,5 +37,10 @@ namespace MXTires.Microdata.LocalBusinesses.FinancialServices
     /// </summary>
     public class FinancialService : LocalBusiness
     {
+        /// <summary>
+        /// Text or URL - Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
+        /// </summary>
+        [JsonProperty("feesAndCommissionsSpecification")]
+        public string FeesAndCommissionsSpecification { get; set; }
     }
 }

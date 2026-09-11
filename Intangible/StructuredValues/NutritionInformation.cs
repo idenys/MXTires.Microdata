@@ -92,7 +92,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         /// <summary>
         /// Mass - The number of grams of sugar.
         /// </summary>
-        [JsonProperty("occupancy")]
+        [JsonProperty("sugarContent")]
         public Mass SugarContent { get; set; }
 
         /// <summary>
