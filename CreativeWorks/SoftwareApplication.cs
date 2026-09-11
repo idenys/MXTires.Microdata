@@ -124,6 +124,12 @@ namespace MXTires.Microdata.CreativeWorks
         public string ProcessorRequirements { get; set; }
 
         /// <summary>
+        /// RuntimePlatform or Text - Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .NET Framework 3.0).
+        /// </summary>
+        [JsonProperty("runtimePlatform")]
+        public string RuntimePlatform { get; set; }
+
+        /// <summary>
         /// URL  or Text - Description of what changed in this version.
         /// </summary>
         [JsonProperty("releaseNotes")]
@@ -174,5 +180,11 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("storageRequirements")]
         public string StorageRequirements { get; set; }
+
+        /// <summary>
+        /// DataFeed - Supporting data for a SoftwareApplication.
+        /// </summary>
+        [JsonProperty("supportingData")]
+        public string SupportingData { get; set; }
     }
 }

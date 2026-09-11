@@ -34,6 +34,30 @@ namespace MXTires.Microdata.Intangible.StructuredValues
     /// </summary>
     public class EngineSpecification : Thing
     {
+        /// <summary>
+        /// QuantitativeValue - The volume swept by all of the pistons inside the cylinders of an internal combustion engine in a single movement.
+        /// </summary>
+        [JsonProperty("engineDisplacement")]
+        public QuantitativeValue EngineDisplacement { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - The power of the vehicle's engine. Typical unit code(s): KWT for kilowatt, N12 for horsepower (hp).
+        /// </summary>
+        [JsonProperty("enginePower")]
+        public QuantitativeValue EnginePower { get; set; }
+
+        /// <summary>
+        /// QualitativeValue, Text, or URL - The type of engine or engines powering the vehicle.
+        /// </summary>
+        [JsonProperty("engineType")]
+        public string EngineType { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - The torque (turning force) of the vehicle's engine. Typical unit code(s): NU for newton-meter (N-m), F17 for pound-force per foot, or F48 for pound-force per inch.
+        /// </summary>
+        [JsonProperty("torque")]
+        public QuantitativeValue Torque { get; set; }
+
         object fuelType;
         /// <summary>
         /// QualitativeValue  or Text  or URL - The type of fuel suitable for the engine or engines of the vehicle. 

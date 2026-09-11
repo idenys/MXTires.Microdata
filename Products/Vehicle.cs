@@ -98,7 +98,7 @@ namespace MXTires.Microdata
         /// <summary>
         /// Text  or Number - The number or type of airbags in the vehicle.
         /// </summary>
-        [JsonProperty("NumberOfAirbags")]
+        [JsonProperty("numberOfAirbags")]
         public string NumberOfAirbags { get; set; }
 
         /// <summary>
@@ -187,7 +187,7 @@ namespace MXTires.Microdata
         /// <summary>
         /// Text - The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles.
         /// </summary>
-        [JsonProperty("VehicleEngine")]
+        [JsonProperty("vehicleIdentificationNumber")]
         public string VehicleIdentificationNumber { get; set; }
 
         /// <summary>
@@ -212,7 +212,7 @@ namespace MXTires.Microdata
         /// Number  or QuantitativeValue - The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
         /// Typical unit code(s): C62 for persons
         /// </summary>
-        [JsonProperty("seatingCapacity")]
+        [JsonProperty("vehicleSeatingCapacity")]
         public object VehicleSeatingCapacity { get; set; }
 
         /// <summary>
@@ -290,6 +290,12 @@ namespace MXTires.Microdata
         /// Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet
         /// </summary>
         [JsonProperty("wheelbase")]
-        public QuantitativeValue Wheelbase	{ get; set; }  	
+        public QuantitativeValue Wheelbase	{ get; set; }
+
+        /// <summary>
+        /// CarUsageType or Text - Indicates specific usage(s) of a car, e.g. commercial rental, driving school, or as a taxi.
+        /// </summary>
+        [JsonProperty("vehicleSpecialUsage")]
+        public string VehicleSpecialUsage { get; set; }
     }
 }

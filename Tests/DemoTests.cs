@@ -733,6 +733,63 @@ namespace MXTires.Microdata.Tests
             Assert.AreSame(channel, service.HasBroadcastChannel);
         }
 
+        [TestMethod]
+        public void VehiclePropertiesSerializeUnderCorrectJsonKeys()
+        {
+            var vehicle = new Vehicle
+            {
+                NumberOfAirbags = "6",
+                VehicleIdentificationNumber = "1FTFW1ET1EFA00001",
+                VehicleSeatingCapacity = 5
+            };
+
+            var json = JObject.Parse(vehicle.ToString());
+
+            Assert.AreEqual("6", (string)json["numberOfAirbags"]);
+            Assert.AreEqual("1FTFW1ET1EFA00001", (string)json["vehicleIdentificationNumber"]);
+            Assert.AreEqual(5, (int)json["vehicleSeatingCapacity"]);
+            Assert.IsNull(json["NumberOfAirbags"]);
+            Assert.IsNull(json["VehicleEngine"]);
+            Assert.IsNull(json["seatingCapacity"]);
+        }
+
+        [TestMethod]
+        public void PaymentCardCashBackAndFloorLimitAcceptDocumentedTypes()
+        {
+            var card = new PaymentCard();
+            var floorLimit = new MonetaryAmount { Currency = "USD", Value = 50 };
+
+            card.CashBack = true;
+            card.FloorLimit = floorLimit;
+
+            Assert.AreEqual(true, card.CashBack);
+            Assert.AreSame(floorLimit, card.FloorLimit);
+        }
+
+        [TestMethod]
+        public void MemberProgramTierMembershipPointsEarnedAcceptsNumberAndQuantitativeValue()
+        {
+            var tier = new MemberProgramTier();
+
+            tier.MembershipPointsEarned = 100;
+            Assert.AreEqual(100, tier.MembershipPointsEarned);
+
+            var points = new QuantitativeValue { Value = 100, UnitCode = "miles" };
+            tier.MembershipPointsEarned = points;
+            Assert.AreSame(points, tier.MembershipPointsEarned);
+        }
+
+        [TestMethod]
+        public void DietEndorsersAcceptsOrganizationAndPerson()
+        {
+            var diet = new Diet();
+            var endorser = new Organization { Name = "Health Org" };
+
+            diet.Endorsers = endorser;
+
+            Assert.AreSame(endorser, diet.Endorsers);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD
         /// </summary>

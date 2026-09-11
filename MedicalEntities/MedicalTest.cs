@@ -37,5 +37,34 @@ namespace MXTires.Microdata.MedicalEntities
     /// </summary>
     public class MedicalTest : MedicalEntity
     {
+        /// <summary>
+        /// Drug - Drugs that affect the test's results.
+        /// </summary>
+        [JsonProperty("affectedBy")]
+        public string AffectedBy { get; set; }
+
+        /// <summary>
+        /// MedicalEnumeration or Text - Range of acceptable values for a typical patient, when applicable.
+        /// </summary>
+        [JsonProperty("normalRange")]
+        public string NormalRange { get; set; }
+
+        /// <summary>
+        /// MedicalSign - A sign detected by the test.
+        /// </summary>
+        [JsonProperty("signDetected")]
+        public string SignDetected { get; set; }
+
+        /// <summary>
+        /// MedicalCondition - A condition the test is used to diagnose.
+        /// </summary>
+        [JsonProperty("usedToDiagnose")]
+        public string UsedToDiagnose { get; set; }
+
+        /// <summary>
+        /// MedicalDevice - Device used to perform the test.
+        /// </summary>
+        [JsonProperty("usesDevice")]
+        public string UsesDevice { get; set; }
     }
 }

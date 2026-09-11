@@ -23,6 +23,10 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
+using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible
@@ -33,7 +37,47 @@ namespace MXTires.Microdata.Intangible
     public class MemberProgramTier : Thing
     {
         /// <summary>
-        /// Text - A requirement for a user to join a membership tier, for example: a CreditCard if the tier requires sign up for a credit card, 
+        /// TierBenefitEnumeration - A member benefit for a particular tier of a member program.
+        /// </summary>
+        [JsonProperty("hasTierBenefit")]
+        public string HasTierBenefit { get; set; }
+
+        /// <summary>
+        /// CreditCard, MonetaryAmount, Text, or UnitPriceSpecification - A requirement for a user to join a membership tier, for example: a CreditCard if the tier requires sign up for a credit card, a UnitPriceSpecification if the user is required to pay a periodic fee, or a MonetaryAmount if the user needs to spend a minimum amount to join the tier.
+        /// </summary>
+        [JsonProperty("hasTierRequirement")]
+        public string HasTierRequirement { get; set; }
+
+        /// <summary>
+        /// MemberProgram - The member program this tier is a part of.
+        /// </summary>
+        [JsonProperty("isTierOf")]
+        public MemberProgram IsTierOf { get; set; }
+
+        private object membershipPointsEarned;
+        /// <summary>
+        /// Number or QuantitativeValue - The number of membership points earned by the member.
+        /// </summary>
+        [JsonProperty("membershipPointsEarned")]
+        public object MembershipPointsEarned
+        {
+            get { return membershipPointsEarned; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>()
+                {
+                    typeof(Byte), typeof(SByte), typeof(Int16), typeof(UInt16),
+                    typeof(Int32), typeof(UInt32), typeof(Int64), typeof(UInt64),
+                    typeof(Single), typeof(Double), typeof(Decimal),
+                    typeof(QuantitativeValue)
+                });
+                validator.Validate(value);
+                membershipPointsEarned = value;
+            }
+        }
+
+        /// <summary>
+        /// Text - A requirement for a user to join a membership tier, for example: a CreditCard if the tier requires sign up for a credit card,
         /// A textual summary of the required threshold or expectations to meet the tier.
         /// </summary>
         /// <value>The tier requirement.</value>
