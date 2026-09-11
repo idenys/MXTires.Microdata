@@ -280,6 +280,17 @@ namespace MXTires.Microdata.Tests
             Assert.AreSame(specifications, offer.PriceSpecification);
         }
 
+        [TestMethod]
+        public void ThingSubjectOfAcceptsEvent()
+        {
+            var thing = new Product();
+            var subjectEvent = new Event { Name = "Launch Event" };
+
+            thing.SubjectOf = subjectEvent;
+
+            Assert.AreSame(subjectEvent, thing.SubjectOf);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD 
         /// </summary>

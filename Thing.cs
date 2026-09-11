@@ -53,7 +53,7 @@ namespace MXTires.Microdata
             new TypeValidator("MXTires.Microdata.Intangible", null, new List<Type> { typeof(string), typeof(Uri), typeof(PropertyValue), typeof(List<PropertyValue>), typeof(IList<PropertyValue>) });
 
         private static readonly TypeValidator SubjectOfValidator =
-            new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(CreativeWork) });
+            new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(CreativeWork), typeof(Event) });
 
         private object context = "http://schema.org";
         private object identifier;

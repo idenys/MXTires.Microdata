@@ -1,4 +1,7 @@
 ﻿# MXTires.Microdata release notes
+##Release v. 1.0.4.8
+<i>Thing.SubjectOf</i> validator now accepts <i>Event</i> in addition to <i>CreativeWork</i>, matching schema.org's <i>CreativeWork | Event</i> union. Fixed <i>IBook.Isbn</i>/<i>Audiobook.Isbn</i> type mismatch (now <i>string</i>, matching <i>Book.Isbn</i>).
+
 ##Release v. 1.0.4.7
 Added net10.0 target framework. Fixed duplicate <i>identifier</i> serialization on <i>JobPosting</i>. <i>PriceSpecification.MembershipPointsEarned</i> now accepts a Number (any numeric type) or <i>QuantitativeValue</i>, matching schema.org. <i>TypeValidator</i> now checks type assignability instead of exact type equality, so list-typed union properties (e.g. <i>Offer.PriceSpecification</i>) correctly accept concrete list implementations like <i>List&lt;T&gt;</i>.
 
