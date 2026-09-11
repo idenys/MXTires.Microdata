@@ -25,11 +25,11 @@
 
 using System;
 using System.Collections.Generic;
-using MXTires.Microdata.Validators;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using MXTires.Microdata.Intangible;
 using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Validators;
+using MXTires.Microdata.Intangible.StructuredValues;
+using Newtonsoft.Json;
 
 namespace MXTires.Microdata
 {
@@ -38,14 +38,38 @@ namespace MXTires.Microdata
     /// </summary>
     public class Thing
     {
-#pragma warning disable 0414
+        private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
+        {
+            NullValueHandling = NullValueHandling.Ignore
+        };
 
-        object context = "http://schema.org";
+        private static readonly TypeValidator ImageValidator =
+            new TypeValidator(new List<Type> { typeof(string), typeof(ImageObject), typeof(string[]), typeof(ImageObject[]) });
+
+        private static readonly TypeValidator MainEntityOfPageValidator =
+            new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(string), typeof(WebSite) });
+
+        private static readonly TypeValidator IdentifierValidator =
+            new TypeValidator("MXTires.Microdata.Intangible", null, new List<Type> { typeof(string), typeof(Uri), typeof(PropertyValue), typeof(List<PropertyValue>), typeof(IList<PropertyValue>) });
+
+        private static readonly TypeValidator SubjectOfValidator =
+            new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(CreativeWork) });
+
+        private object context = "http://schema.org";
+        private object identifier;
+        private object image;
+        private object mainEntityOfPage;
+        private object subjectOf;
+
         /// <summary>
         /// Context
         /// </summary>
         [JsonProperty("@context", Order = 1)]
-        public virtual object Context { get { return context; } set { context = value; } }
+        public virtual object Context
+        {
+            get { return context; }
+            set { context = value; }
+        }
 
         /// <summary>
         /// Property for External Extensions
@@ -56,7 +80,7 @@ namespace MXTires.Microdata
         /// Type tag
         /// </summary>
         [JsonProperty("@type", Order = 2)]
-        public virtual string Type { get { return this.GetType().Name; } }
+        public virtual string Type { get { return GetType().Name; } }
 
         /// <summary>
         /// ID
@@ -70,33 +94,52 @@ namespace MXTires.Microdata
         /// 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those 
         /// defined externally.
         /// </summary>
-        [JsonProperty("additionalType")]
+        [JsonProperty("additionalType", NullValueHandling = NullValueHandling.Ignore)]
         public string AdditionalType { get; set; }
 
         /// <summary>
         /// Text 	An alias for the item.
         /// </summary>
-        [JsonProperty("alternateName")]
+        [JsonProperty("alternateName", NullValueHandling = NullValueHandling.Ignore)]
         public string AlternateName { get; set; }
 
         /// <summary>
         /// Text 	A short description of the item.
         /// </summary>
-        [JsonProperty("description")]
+        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
 
-        object image;
         /// <summary>
-        /// URL  to an image of the item. This can be a URL or a fully described ImageObject.
+        /// Text - A sub property of description. A short description of the item used to disambiguate from other, similar items.
         /// </summary>
-        [JsonProperty("image")]
+        [JsonProperty("disambiguatingDescription", NullValueHandling = NullValueHandling.Ignore)]
+        public string DisambiguatingDescription { get; set; }
+
+        /// <summary>
+        /// The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc.
+        /// Schema.org: PropertyValue | Text | URL
+        /// </summary>
+        [JsonProperty("identifier", NullValueHandling = NullValueHandling.Ignore)]
+        public object Identifier
+        {
+            get { return identifier; }
+            set
+            {
+                IdentifierValidator.Validate(value);
+                identifier = value;
+            }
+        }
+
+        /// <summary>
+        /// URL to an image of the item. This can be a URL or a fully described ImageObject.
+        /// </summary>
+        [JsonProperty("image", NullValueHandling = NullValueHandling.Ignore)]
         public object Image
         {
             get { return image; }
             set
             {
-                var validator = new TypeValidator(new List<Type>(){typeof(String), typeof(ImageObject), typeof(String[]), typeof(ImageObject[])});
-                validator.Validate(value);
+                ImageValidator.Validate(value);
                 image = value;
             }
         }
@@ -104,29 +147,26 @@ namespace MXTires.Microdata
         /// <summary>
         /// Text 	The name of the item.
         /// </summary>
-        [JsonProperty("name")]
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
         /// <summary>
         /// Action - Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.
         /// </summary>
-        [JsonProperty("potentialAction")]
+
+        [JsonProperty("potentialAction", NullValueHandling = NullValueHandling.Ignore)]
         public Microdata.Action PotentialAction { get; set; }
 
         /// <summary>
         ///	URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.
         /// </summary>
-        [JsonProperty("sameAs")]
+        [JsonProperty("sameAs", NullValueHandling = NullValueHandling.Ignore)]
         public IList<string> SameAs { get; set; }
 
         /// <summary>
         /// URL of the item.
         /// </summary>
-        [JsonProperty("url")]
+        [JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
         public string Url { get; set; }
-
-        #pragma warning restore 0414
-
-        private object mainEntityOfPage;
 
         /// <summary>
         /// URL  or CreativeWork - Indicates a page (or other CreativeWork) for which this thing is the main entity being described.
@@ -137,15 +177,29 @@ namespace MXTires.Microdata
         /// about is similar to mainEntity, with two key differences. First, about can refer to multiple entities/topics, while mainEntity should be used for only the primary one. Second, some pages have a primary entity that itself describes some other entity. For example, one web page may display a news article about a particular person. Another page may display a product review for a particular product. In these cases, mainEntity for the pages should refer to the news article or review, respectively, while about would more properly refer to the person or product. 
         /// Inverse property: mainEntity.
         /// </summary>
-        [JsonProperty("mainEntityOfPage")]
+        [JsonProperty("mainEntityOfPage", NullValueHandling = NullValueHandling.Ignore)]
         public object MainEntityOfPage
         {
             get { return mainEntityOfPage; }
             set
             {
-                var validator = new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type>(new Type[] { typeof(String), typeof(WebSite) }));
-                validator.Validate(value);
+                MainEntityOfPageValidator.Validate(value);
                 mainEntityOfPage = value;
+            }
+        }
+
+        /// <summary>
+        /// A CreativeWork or Event about this Thing.
+        /// Schema.org: CreativeWork | Event
+        /// </summary>
+        [JsonProperty("subjectOf", NullValueHandling = NullValueHandling.Ignore)]
+        public object SubjectOf
+        {
+            get { return subjectOf; }
+            set
+            {
+                SubjectOfValidator.Validate(value);
+                subjectOf = value;
             }
         }
 
@@ -157,10 +211,7 @@ namespace MXTires.Microdata
         /// <returns></returns>
         public string ToJson()
         {
-            string item = JsonConvert.SerializeObject(this, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-            item = item.Replace("Context", "@context");
-            if (item.Equals("Type")) item = item.Replace("Type", "@type");
-            return "<script type=\"application/ld+json\">" + item + "</script>";
+            return Serialize(Formatting.None, wrapInScriptTag: true);
         }
 
         /// <summary>
@@ -170,10 +221,7 @@ namespace MXTires.Microdata
         /// <returns></returns>
         public string ToIndentedJson()
         {
-            string item = JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-            item = item.Replace("Context", "@context");
-            if (item.Equals("Type")) item = item.Replace("Type", "@type");
-            return "<script type=\"application/ld+json\">" + item + "</script>";
+            return Serialize(Formatting.Indented, wrapInScriptTag: true);
         }
         /// <summary>
         /// Returns Json string that  represents current object.
@@ -183,29 +231,19 @@ namespace MXTires.Microdata
         /// <returns></returns>
         public override string ToString()
         {
-            var item = JsonConvert.SerializeObject(this, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-            item = item.Replace("Context", "@context");
-            if (item.Equals("Type")) item = item.Replace("Type", "@type");
-            return item;
+            return Serialize(Formatting.None, wrapInScriptTag: false);
         }
 
-        //#region Delegate and Events
-        ///// <summary>
-        ///// OnValidateEventHandler delegate to enable injection of custom validation routines
-        ///// </summary>
-        //public delegate void OnValidateEventHandler(object sender, EventArgs e);
-        //public delegate void OnValidatedEventHandler(object sender, EventArgs e);
+        private string Serialize(Formatting formatting, bool wrapInScriptTag)
+        {
+            var json = JsonConvert.SerializeObject(this, formatting, SerializerSettings);
 
-        //public OnValidateEventHandler OnValidate;
-        //public OnValidatedEventHandler OnValidated;
+            if (!wrapInScriptTag)
+            {
+                return json;
+            }
 
-        //#endregion 
-        //#region Internal Fields
-        ///// <summary>
-        ///// The Errors collection to keep the errors. Tthe validation method populates this.
-        ///// </summary>
-        //public List<error> Errors = new List<error>();
-
-        //#endregion
+            return "<script type=\"application/ld+json\">" + json + "</script>";
+        }
     }
 }

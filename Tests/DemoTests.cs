@@ -7,6 +7,8 @@ using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Events;
+using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace MXTires.Microdata.Tests
 {
@@ -148,6 +150,23 @@ namespace MXTires.Microdata.Tests
             System.Diagnostics.Debug.Write(posting.ToIndentedJson());
         }
 
+        [TestMethod]
+        public void JobPostingIdentifierSerializesOnce()
+        {
+            var posting = new JobPosting()
+            {
+                Identifier = new List<PropertyValue>
+                {
+                    new PropertyValue("identifier", "job-123")
+                }
+            };
+
+            var json = JObject.Parse(posting.ToString());
+
+            Assert.AreEqual(1, json.Properties().Count(property => property.Name == "identifier"));
+            Assert.AreEqual("job-123", (string)json["identifier"][0]["value"]);
+        }
+
         /// <summary>
         /// LocalBusiness to JSON-LD 
         /// </summary>
@@ -224,6 +243,41 @@ namespace MXTires.Microdata.Tests
             //  "@context": "http://schema.org",
             //  "@type": "Offer"
             //}</script>
+        }
+
+        [TestMethod]
+        public void MembershipPointsEarnedAcceptsNumberAndQuantitativeValue()
+        {
+            var specification = new PriceSpecification
+            {
+                MembershipPointsEarned = 10
+            };
+
+            Assert.AreEqual(10, specification.MembershipPointsEarned);
+
+            var points = new QuantitativeValue() { Value = 10, UnitCode = "miles" };
+            specification.MembershipPointsEarned = points;
+
+            Assert.AreSame(points, specification.MembershipPointsEarned);
+        }
+
+        [TestMethod]
+        public void MembershipPointsEarnedRejectsInvalidTypes()
+        {
+            var specification = new PriceSpecification();
+
+            Assert.ThrowsExactly<ArgumentException>(() => specification.MembershipPointsEarned = "10");
+        }
+
+        [TestMethod]
+        public void OfferPriceSpecificationAcceptsListOfPriceSpecification()
+        {
+            var offer = new Offer();
+            var specifications = new List<PriceSpecification> { new PriceSpecification { Price = "10" } };
+
+            offer.PriceSpecification = specifications;
+
+            Assert.AreSame(specifications, offer.PriceSpecification);
         }
 
         /// <summary>

@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461;net472;net48;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
-    <Version>1.0.4.5</Version>
+    <TargetFrameworks>net461;net472;net48;net6.0;net8.0;net10.0</TargetFrameworks>
+    <Version>1.0.4.7</Version>
     <Authors>1010Tires.com Inc.</Authors>
     <Company>1010Tires.com Inc.</Company>
     <Copyright>Copyright© 1010Tires.com Inc. 2023. All rights reserved.</Copyright>
     <Description>Converts .Net classes to Schema.org structured data in form of JSON-LD</Description>
-    <PackageReleaseNotes>Updated https://schema.org/GovernmentService properties. Updated VideoGame properties.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added net10.0 target framework. Fixed duplicate identifier serialization on JobPosting. PriceSpecification.MembershipPointsEarned now accepts a Number (any numeric type) or QuantitativeValue. TypeValidator now checks type assignability instead of exact type equality, so list-typed union properties (e.g. Offer.PriceSpecification) correctly accept concrete list implementations like List&lt;T&gt;.</PackageReleaseNotes>
     <PackageTags>.Net Microdata Schema.org Json-LD</PackageTags>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MXTires.MicroData.snk</AssemblyOriginatorKeyFile>
     <RepositoryUrl>https://github.com/idenys/MXTires.Microdata</RepositoryUrl>
-    <AssemblyVersion>1.0.4.5</AssemblyVersion>
-    <FileVersion>1.0.4.5</FileVersion>
+    <AssemblyVersion>1.0.4.7</AssemblyVersion>
+    <FileVersion>1.0.4.7</FileVersion>
     <Title>MXTires.Microdata</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <LangVersion>latest</LangVersion>
@@ -23,13 +23,13 @@
     <Compile Remove="Tests\**" />
     <EmbeddedResource Remove="Tests\**" />
     <None Remove="Tests\**" />
-    <None Include="..\src\1010TIRES\FrontEnd\FrontEnd\DEV\Angular\UI\Store\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Include=".paket\paket.exe" />
     <None Include=".paket\paket.targets" />
     <None Include="License.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
@@ -38,7 +38,7 @@
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

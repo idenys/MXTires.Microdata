@@ -23,8 +23,11 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace MXTires.Microdata
 {
@@ -36,8 +39,22 @@ namespace MXTires.Microdata
 
         #region Properties
 
-        //eligibleQuantity	QuantitativeValue 	The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
-        //eligibleTransactionVolume	PriceSpecification 	The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
+        /// <summary>
+        /// QuantitativeValue - The interval and unit of measurement of ordering quantities for which the offer or price specification is valid.
+        /// This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
+        /// </summary>
+        /// <value>The eligible quantity.</value>
+        [JsonProperty("eligibleQuantity")]
+        public QuantitativeValue EligibleQuantity { get; set; }
+
+        /// <summary>
+        /// PriceSpecification - The transaction volume, in a monetary unit, for which the offer or price specification is valid,
+        /// e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume,
+        /// or to limit the acceptance of credit cards to purchases to a certain minimal amount.
+        /// </summary>
+        /// <value>The eligible transaction volume.</value>
+        [JsonProperty("eligibleTransactionVolume")]
+        public PriceSpecification EligibleTransactionVolume { get; set; }
         /// <summary>
         /// Number 	The highest price if the price is a range.
         /// </summary>
@@ -62,7 +79,48 @@ namespace MXTires.Microdata
         /// Text. The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification and its subtypes.
         /// </summary>
         /// <value>The price currency.</value>
+        [JsonProperty("priceCurrency")]
         public string PriceCurrency { get; set; }
+
+        object membershipPointsEarned;
+        /// <summary>
+        /// Number or QuantitativeValue - The number of membership points earned by the member.
+        /// If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)
+        /// </summary>
+        /// <value>The membership points earned.</value>
+        [JsonProperty("membershipPointsEarned")]
+        public object MembershipPointsEarned
+        {
+            get { return membershipPointsEarned; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>()
+                {
+                    typeof(Byte),
+                    typeof(SByte),
+                    typeof(Int16),
+                    typeof(UInt16),
+                    typeof(Int32),
+                    typeof(UInt32),
+                    typeof(Int64),
+                    typeof(UInt64),
+                    typeof(Single),
+                    typeof(Double),
+                    typeof(Decimal),
+                    typeof(QuantitativeValue)
+                });
+                validator.Validate(value);
+                membershipPointsEarned = value;
+            }
+        }
+
+        /// <summary>
+        /// MemberProgramTier - The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails,
+        /// or MerchantReturnPolicy under an Offer) is valid for.
+        /// </summary>
+        /// <value>The eligible member tier.</value>
+        [JsonProperty("eligibleMemberTier")]
+        public MemberProgramTier EligibleMemberTier { get; set; }
         
         /// <summary>
         /// The date when the item becomes valid.

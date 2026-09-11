@@ -26,8 +26,6 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json.Converters;
