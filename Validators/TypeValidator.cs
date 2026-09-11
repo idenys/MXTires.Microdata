@@ -95,12 +95,12 @@ namespace MXTires.Microdata.Validators
         /// <returns><c>true</c> if the specified type is valid; otherwise, <c>false</c>.</returns>
         public override bool IsValid(Type type)
         {
-            if (type1 != null && type == type1) return true;
-            if (type2 != null && type == type2) return true;
+            if (type1 != null && type1.IsAssignableFrom(type)) return true;
+            if (type2 != null && type2.IsAssignableFrom(type)) return true;
 
             foreach (var item in types)
             {
-                if (type == item) return true;
+                if (item != null && item.IsAssignableFrom(type)) return true;
             }
             return false;
         }
