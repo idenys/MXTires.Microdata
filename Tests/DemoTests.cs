@@ -269,6 +269,17 @@ namespace MXTires.Microdata.Tests
             Assert.ThrowsExactly<ArgumentException>(() => specification.MembershipPointsEarned = "10");
         }
 
+        [TestMethod]
+        public void OfferPriceSpecificationAcceptsListOfPriceSpecification()
+        {
+            var offer = new Offer();
+            var specifications = new List<PriceSpecification> { new PriceSpecification { Price = "10" } };
+
+            offer.PriceSpecification = specifications;
+
+            Assert.AreSame(specifications, offer.PriceSpecification);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD 
         /// </summary>
