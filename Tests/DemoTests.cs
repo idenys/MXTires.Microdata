@@ -7,6 +7,8 @@ using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Events;
+using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace MXTires.Microdata.Tests
 {
@@ -146,6 +148,22 @@ namespace MXTires.Microdata.Tests
             };
 
             System.Diagnostics.Debug.Write(posting.ToIndentedJson());
+        }
+
+        [TestMethod]
+        public void JobPostingIdentifierSerializesOnce()
+        {
+            var posting = new JobPosting()
+            {
+                Identifier = new List<PropertyValue>
+                {
+                    new PropertyValue("identifier", "job-123")
+                }
+            };
+
+            var json = JObject.Parse(posting.ToString());
+
+            Assert.AreEqual(1, json.Properties().Count(property => property.Name == "identifier"));
         }
 
         /// <summary>
