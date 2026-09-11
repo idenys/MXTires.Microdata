@@ -164,6 +164,7 @@ namespace MXTires.Microdata.Tests
             var json = JObject.Parse(posting.ToString());
 
             Assert.AreEqual(1, json.Properties().Count(property => property.Name == "identifier"));
+            Assert.AreEqual("job-123", (string)json["identifier"][0]["value"]);
         }
 
         /// <summary>

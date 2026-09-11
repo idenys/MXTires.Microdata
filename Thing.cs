@@ -50,7 +50,7 @@ namespace MXTires.Microdata
             new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(string), typeof(WebSite) });
 
         private static readonly TypeValidator IdentifierValidator =
-            new TypeValidator("MXTires.Microdata.Intangible", null, new List<Type> { typeof(string), typeof(PropertyValue), typeof(List<PropertyValue>), typeof(IList<PropertyValue>) });
+            new TypeValidator("MXTires.Microdata.Intangible", null, new List<Type> { typeof(string), typeof(Uri), typeof(PropertyValue), typeof(List<PropertyValue>), typeof(IList<PropertyValue>) });
 
         private static readonly TypeValidator SubjectOfValidator =
             new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(CreativeWork) });
