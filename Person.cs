@@ -154,11 +154,21 @@ namespace MXTires.Microdata
         [JsonProperty("alumniOf")]
         public Organization AlumniOf { get; set; }
 
+        private object address;
         /// <summary>
         /// PostalAddress or Text - Physical address of the item.
         /// </summary>
         [JsonProperty("address")]
-        public PostalAddress Address { get; set; }
+        public object Address
+        {
+            get { return address; }
+            set
+            {
+                var validator = new TypeValidator(typeof(PostalAddress), typeof(string));
+                validator.Validate(value);
+                address = value;
+            }
+        }
 
         /// <summary>
         /// InteractionCounter - The number of completed interactions for this entity, in a particular role (the 'agent'), in a particular action, and in a particular context.

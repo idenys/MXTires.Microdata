@@ -17,15 +17,15 @@ namespace MXTires.Microdata.Places
         /// <value>The additional property.</value>
         object AdditionalProperty { get; set; }
         /// <summary>
-        /// Sets a single address.
+        /// Sets a single address. PostalAddress or Text.
         /// </summary>
         /// <value>The address.</value>
-        PostalAddress Address { set; }
+        object Address { set; }
 
         /// <summary>
-        /// Gets or sets a collection of addresses
+        /// Gets or sets a collection of addresses. PostalAddress or Text.
         /// </summary>
-        List<PostalAddress> Addresses { get; set; }
+        List<object> Addresses { get; set; }
 
         /// <summary>
         /// Gets or sets the aggregate rating.

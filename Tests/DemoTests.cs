@@ -48,7 +48,7 @@ namespace MXTires.Microdata.Tests
             var org = new Organization()
             {
                 Name = "My Test Organization",
-                Addresses = new List<PostalAddress>()
+                Addresses = new List<object>()
                 {
                     new PostalAddress()
                     {
@@ -1280,6 +1280,61 @@ namespace MXTires.Microdata.Tests
             var spec = new CompoundPriceSpecification { PriceType = "SRP" };
 
             Assert.AreEqual("SRP", spec.PriceType);
+        }
+
+        [TestMethod]
+        public void PersonAddressAcceptsPostalAddressAndText()
+        {
+            var person = new Person();
+            var address = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+
+            person.Address = address;
+            Assert.AreSame(address, person.Address);
+
+            person.Address = "PO Box 42";
+            Assert.AreEqual("PO Box 42", person.Address);
+        }
+
+        [TestMethod]
+        public void PersonAddressRejectsInvalidTypes()
+        {
+            var person = new Person();
+
+            Assert.ThrowsExactly<ArgumentException>(() => person.Address = 42);
+        }
+
+        [TestMethod]
+        public void OrganizationAddressAcceptsPostalAddressAndText()
+        {
+            var org = new Organization();
+
+            org.Address = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+            org.Address = "PO Box 42";
+
+            Assert.AreEqual(2, org.Addresses.Count);
+            Assert.IsInstanceOfType(org.Addresses[0], typeof(PostalAddress));
+            Assert.AreEqual("PO Box 42", org.Addresses[1]);
+        }
+
+        [TestMethod]
+        public void OrganizationAddressRejectsInvalidTypes()
+        {
+            var org = new Organization();
+
+            Assert.ThrowsExactly<ArgumentException>(() => org.Address = 42);
+        }
+
+        [TestMethod]
+        public void PlaceAddressAcceptsPostalAddressAndText()
+        {
+            var place = new Place();
+
+            place.Address = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+            place.Address = "PO Box 42";
+
+            Assert.AreEqual(2, place.Addresses.Count);
+            Assert.IsInstanceOfType(place.Addresses[0], typeof(PostalAddress));
+            Assert.AreEqual("PO Box 42", place.Addresses[1]);
         }
     }
 }

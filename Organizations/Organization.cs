@@ -40,22 +40,24 @@ namespace MXTires.Microdata
     public class Organization : Thing
     {
         /// <summary>
-        /// PostalAddress - Physical address of the item.
+        /// PostalAddress or Text - Physical address of the item.
         /// </summary>
-        public PostalAddress Address
+        public object Address
         {
             set
             {
-                Addresses = Addresses ?? new List<PostalAddress>();
+                var validator = new TypeValidator(typeof(PostalAddress), typeof(string));
+                validator.Validate(value);
+                Addresses = Addresses ?? new List<object>();
                 Addresses.Add(value);
             }
         }
 
         /// <summary>
-        /// PostalAddress - Physical addresses of the item.
+        /// PostalAddress or Text - Physical addresses of the item.
         /// </summary>
         [JsonProperty("address")]
-        public List<PostalAddress> Addresses { get; set; }
+        public List<object> Addresses { get; set; }
 
         /// <summary>
         /// The locations of the event, organization or action.
