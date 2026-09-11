@@ -7,6 +7,9 @@ using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Events;
+using MXTires.Microdata.Intangible.Services;
+using MXTires.Microdata.Organizations.PerformingGroups;
+using MXTires.Microdata.Places;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
@@ -649,6 +652,85 @@ namespace MXTires.Microdata.Tests
             var topic = new Product { Name = "All-season tires" };
             person.KnowsAbout = topic;
             Assert.AreSame(topic, person.KnowsAbout);
+        }
+
+        [TestMethod]
+        public void JobPostingJobDurationAcceptsDurationAndQuantitativeValue()
+        {
+            var posting = new JobPosting();
+            var quantitativeValue = new QuantitativeValue { Value = 6, UnitCode = "MON" };
+
+            posting.JobDuration = quantitativeValue;
+
+            Assert.AreSame(quantitativeValue, posting.JobDuration);
+        }
+
+        [TestMethod]
+        public void JobPostingRelevantOccupationAcceptsOccupation()
+        {
+            var posting = new JobPosting();
+            var occupation = new Occupation { OccupationalCategory = "Software Engineer" };
+
+            posting.RelevantOccupation = occupation;
+
+            Assert.AreSame(occupation, posting.RelevantOccupation);
+        }
+
+        [TestMethod]
+        public void AccommodationBedAndLeaseLengthAcceptDocumentedTypes()
+        {
+            var accommodation = new Accommodation();
+            var bed = new BedDetails();
+
+            accommodation.Bed = bed;
+            accommodation.LeaseLength = new QuantitativeValue { Value = 12, UnitCode = "MON" };
+            accommodation.NumberOfBedrooms = 3;
+
+            Assert.AreSame(bed, accommodation.Bed);
+            Assert.IsInstanceOfType(accommodation.LeaseLength, typeof(QuantitativeValue));
+            Assert.AreEqual(3, accommodation.NumberOfBedrooms);
+        }
+
+        [TestMethod]
+        public void ReviewNegativeAndPositiveNotesAcceptDocumentedTypes()
+        {
+            var review = new Review();
+
+            review.NegativeNotes = "Too expensive";
+            review.PositiveNotes = new ItemList();
+
+            Assert.AreEqual("Too expensive", review.NegativeNotes);
+            Assert.IsInstanceOfType(review.PositiveNotes, typeof(ItemList));
+        }
+
+        [TestMethod]
+        public void MusicGroupTrackAcceptsItemListAndMusicRecording()
+        {
+            var group = new MusicGroup();
+            var recording = new MusicRecording { Name = "Track 1" };
+
+            group.Track = recording;
+
+            Assert.AreSame(recording, group.Track);
+        }
+
+        [TestMethod]
+        public void MusicGroupTrackRejectsInvalidTypes()
+        {
+            var group = new MusicGroup();
+
+            Assert.ThrowsExactly<ArgumentException>(() => group.Track = "not a track");
+        }
+
+        [TestMethod]
+        public void BroadcastServiceHasBroadcastChannel()
+        {
+            var service = new BroadcastService();
+            var channel = new BroadcastChannel();
+
+            service.HasBroadcastChannel = channel;
+
+            Assert.AreSame(channel, service.HasBroadcastChannel);
         }
 
         /// <summary>

@@ -44,9 +44,57 @@ namespace MXTires.Microdata.Intangible.Services
         public Organization Broadcaster { get; set; }
 
         /// <summary>
+        /// Organization - The media network(s) whose content is broadcast on this station.
+        /// </summary>
+        [JsonProperty("broadcastAffiliateOf")]
+        public Organization BroadcastAffiliateOf { get; set; }
+
+        /// <summary>
+        /// Text - The name displayed in the channel guide, e.g. "Cable 9".
+        /// </summary>
+        [JsonProperty("broadcastDisplayName")]
+        public string BroadcastDisplayName { get; set; }
+
+        /// <summary>
+        /// BroadcastFrequencySpecification or Text - The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequencies of AM and FM radio channels, e.g. "87 FM".
+        /// </summary>
+        [JsonProperty("broadcastFrequency")]
+        public string BroadcastFrequency { get; set; }
+
+        /// <summary>
+        /// Text - The timezone in ISO 8601 format for which the service bases its broadcasts.
+        /// </summary>
+        [JsonProperty("broadcastTimezone")]
+        public string BroadcastTimezone { get; set; }
+
+        /// <summary>
+        /// Text - A callsign, as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
+        /// </summary>
+        [JsonProperty("callSign")]
+        public string CallSign { get; set; }
+
+        /// <summary>
+        /// BroadcastChannel - A broadcast channel of a broadcast service.
+        /// </summary>
+        [JsonProperty("hasBroadcastChannel")]
+        public BroadcastChannel HasBroadcastChannel { get; set; }
+
+        /// <summary>
+        /// Language or Text - The language of the content or performance or used in an action.
+        /// </summary>
+        [JsonProperty("inLanguage")]
+        public string InLanguage { get; set; }
+
+        /// <summary>
         /// BroadcastService - A broadcast service to which the broadcast service may belong to such as regional variations of a national channel.
         /// </summary>
         [JsonProperty("parentService")]
         public BroadcastService ParentService { get; set; }
+
+        /// <summary>
+        /// Text - The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
+        /// </summary>
+        [JsonProperty("videoFormat")]
+        public string VideoFormat { get; set; }
     }
 }

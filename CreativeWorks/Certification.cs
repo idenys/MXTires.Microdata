@@ -24,6 +24,8 @@
 #endregion
 
 using System;
+using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
@@ -36,6 +38,30 @@ namespace MXTires.Microdata.CreativeWorks
     public class Certification : CreativeWork
     {
         /// <summary>
+        /// Date or DateTime - Date when a certification was last audited.
+        /// </summary>
+        [JsonProperty("auditDate")]
+        public DateTime? AuditDate { get; set; }
+
+        /// <summary>
+        /// DefinedTerm or Text - Identifier of a certification instance (as registered with an independent certification body). Typically this identifier links to the certificate itself.
+        /// </summary>
+        [JsonProperty("certificationIdentification")]
+        public string CertificationIdentification { get; set; }
+
+        /// <summary>
+        /// Rating - Rating of a certification instance (as defined by an independent rating body) that is not part of the certification itself.
+        /// </summary>
+        [JsonProperty("certificationRating")]
+        public Rating CertificationRating { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - A measurement of an item, For example, the inseam of pants, the wheel size of a bicycle, or the gauge of a screw.
+        /// </summary>
+        [JsonProperty("hasMeasurement")]
+        public QuantitativeValue HasMeasurement { get; set; }
+
+        /// <summary>
         /// Organization - The organization issuing the certification, for example a professional organization, an industry federation, a government agency.
         /// </summary>
         [JsonProperty("issuedBy")]
@@ -46,6 +72,28 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("certificationStatus")]
         public string CertificationStatus { get; set; }
+
+        private object logo;
+        /// <summary>
+        /// ImageObject or URL - An associated logo.
+        /// </summary>
+        [JsonProperty("logo")]
+        public object Logo
+        {
+            get { return logo; }
+            set
+            {
+                var validator = new TypeValidator(typeof(ImageObject), typeof(string));
+                validator.Validate(value);
+                logo = value;
+            }
+        }
+
+        /// <summary>
+        /// AdministrativeArea - The geographic area where the item is valid.
+        /// </summary>
+        [JsonProperty("validIn")]
+        public AdministrativeArea ValidIn { get; set; }
 
         /// <summary>
         /// Date or DateTime - Date when a certification was issued.

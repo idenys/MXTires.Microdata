@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
@@ -45,6 +46,12 @@ namespace MXTires.Microdata.Intangible
         public AdministrativeArea ApplicantLocationRequirements { get; set; }
 
         /// <summary>
+        /// ContactPoint - Contact details for further information relevant to this job posting.
+        /// </summary>
+        [JsonProperty("applicationContact")]
+        public ContactPoint ApplicationContact { get; set; }
+
+        /// <summary>
         /// Number  or PriceSpecification - The base salary of the job or of an employee in an EmployeeRole.
         /// </summary>
         [JsonProperty("baseSalary")]
@@ -55,6 +62,30 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("datePosted")]
         public DateTime? DatePosted { get; set; }
+
+        /// <summary>
+        /// Boolean - Indicates whether an url associated with a JobPosting enables direct application for the job, via the posting website.
+        /// </summary>
+        [JsonProperty("directApply")]
+        public bool? DirectApply { get; set; }
+
+        /// <summary>
+        /// Text - The legal requirements such as citizenship, visa and other documentation required for an applicant to this job.
+        /// </summary>
+        [JsonProperty("eligibilityToWorkRequirement")]
+        public string EligibilityToWorkRequirement { get; set; }
+
+        /// <summary>
+        /// Text - A description of the employer, career opportunities and work environment for this position.
+        /// </summary>
+        [JsonProperty("employerOverview")]
+        public string EmployerOverview { get; set; }
+
+        /// <summary>
+        /// Organization - Indicates the department, unit and/or facility where the employee reports and/or in which the job is to be performed.
+        /// </summary>
+        [JsonProperty("employmentUnit")]
+        public Organization EmploymentUnit { get; set; }
 
         /// <summary>
         /// Text - Educational background needed for the position.
@@ -89,6 +120,12 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("experienceRequirements")]
         public string ExperienceRequirements { get; set; }
+
+        /// <summary>
+        /// Boolean - Indicates whether a JobPosting will accept experience in place of its formal educational qualifications.
+        /// </summary>
+        [JsonProperty("experienceInPlaceOfEducation")]
+        public bool? ExperienceInPlaceOfEducation { get; set; }
 
         private object hiringOrganization;
         /// <summary>
@@ -186,6 +223,52 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("jobLocationType")]
         public string JobLocationType { get; set; }
+
+        private object jobDuration;
+        /// <summary>
+        /// Duration or QuantitativeValue - The expected duration of an employment offer as advertised by the employer, e.g. for seasonal work or maternity-leave substitutes.
+        /// </summary>
+        [JsonProperty("jobDuration")]
+        public object JobDuration
+        {
+            get { return jobDuration; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Duration), typeof(QuantitativeValue));
+                validator.Validate(value);
+                jobDuration = value;
+            }
+        }
+
+        /// <summary>
+        /// DefinedTerm, Text, or URL - A description of the types of physical activity associated with the job.
+        /// </summary>
+        [JsonProperty("physicalRequirement")]
+        public string PhysicalRequirement { get; set; }
+
+        /// <summary>
+        /// Occupation - The Occupation for the JobPosting.
+        /// </summary>
+        [JsonProperty("relevantOccupation")]
+        public Occupation RelevantOccupation { get; set; }
+
+        /// <summary>
+        /// Text or URL - A description of any security clearance requirements of the job.
+        /// </summary>
+        [JsonProperty("securityClearanceRequirement")]
+        public string SecurityClearanceRequirement { get; set; }
+
+        /// <summary>
+        /// DefinedTerm, Text, or URL - A description of any sensory requirements and levels necessary to function on the job, including hearing and vision.
+        /// </summary>
+        [JsonProperty("sensoryRequirement")]
+        public string SensoryRequirement { get; set; }
+
+        /// <summary>
+        /// Integer - The number of positions open for this job posting.
+        /// </summary>
+        [JsonProperty("totalJobOpenings")]
+        public Int32? TotalJobOpenings { get; set; }
 
         /// <summary>
         /// Text - Category or categories describing the job. Use BLS O*NET-SOC taxonomy: http://www.onetcenter.org/taxonomy.html. Ideally includes textual label and formal code, with the property repeated for each applicable value.

@@ -226,7 +226,31 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The event status.</value>
         [JsonProperty("eventStatus")]
-        public EventStatusType? EventStatus { get; set; }       
+        public EventStatusType? EventStatus { get; set; }
+
+        /// <summary>
+        /// Grant - A Grant that directly or indirectly provided funding or sponsorship for this event.
+        /// </summary>
+        [JsonProperty("funding")]
+        public Grant Funding { get; set; }
+
+        /// <summary>
+        /// Offer - An Offer which is part of this event, e.g. a Volunteering Opportunity.
+        /// </summary>
+        [JsonProperty("hasParticipationOffer")]
+        public Offer HasParticipationOffer { get; set; }
+
+        /// <summary>
+        /// Offer - An Offer which is a sponsorship opportunity for this event.
+        /// </summary>
+        [JsonProperty("hasSponsorshipOffer")]
+        public Offer HasSponsorshipOffer { get; set; }
+
+        /// <summary>
+        /// DefinedTerm, Text, or URL - Keywords or tags used to describe some item.
+        /// </summary>
+        [JsonProperty("keywords")]
+        public string Keywords { get; set; }
             
         /// <summary>
         /// The location
@@ -400,6 +424,22 @@ namespace MXTires.Microdata
         /// <value>The typical age range.</value>
         [JsonProperty("typicalAgeRange")]
         public string TypicalAgeRange { get; set; }
+
+        Thing translator;
+        /// <summary>
+        /// Organization or Person - Organization or person who adapts a creative work or event to different languages, regional differences and technical requirements of a target market.
+        /// </summary>
+        [JsonProperty("translator")]
+        public Thing Translator
+        {
+            get { return translator; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                translator = value;
+            }
+        }
 
         /// <summary>
         /// CreativeWork - A work featured in some event, e.g. exhibited in an ExhibitionEvent. 
