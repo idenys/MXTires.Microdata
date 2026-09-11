@@ -28,6 +28,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata.Intangible
 {
@@ -36,6 +37,22 @@ namespace MXTires.Microdata.Intangible
     /// </summary>
     public class Rating : Thing
     {
+        private Thing author;
+        /// <summary>
+        /// Organization or Person - The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag.
+        /// </summary>
+        [JsonProperty("author")]
+        public Thing Author
+        {
+            get { return author; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                author = value;
+            }
+        }
+
         /// <summary>
         /// The best rating
         /// </summary>
@@ -56,6 +73,18 @@ namespace MXTires.Microdata.Intangible
         /// <value>The rating value.</value>
         [JsonProperty("ratingValue")]
         public string RatingValue { get; set; }
+
+        /// <summary>
+        /// Text - A short explanation (e.g. one to two sentences) providing background context and other information that led to the conclusion expressed in the rating.
+        /// </summary>
+        [JsonProperty("ratingExplanation")]
+        public string RatingExplanation { get; set; }
+
+        /// <summary>
+        /// StructuredValue or Text - This Review or Rating is relevant to this part or facet of the itemReviewed.
+        /// </summary>
+        [JsonProperty("reviewAspect")]
+        public string ReviewAspect { get; set; }
 
         /// <summary>
         /// The worst rating

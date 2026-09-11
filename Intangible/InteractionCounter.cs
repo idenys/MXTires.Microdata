@@ -24,6 +24,9 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
+using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible
@@ -39,6 +42,38 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("interactionType")]
         public MXTires.Microdata.Action InteractionType { get; set; }
+
+        private object interactionService;
+        /// <summary>
+        /// SoftwareApplication or WebSite - The WebSite or SoftwareApplication where the interactions took place.
+        /// </summary>
+        [JsonProperty("interactionService")]
+        public object InteractionService
+        {
+            get { return interactionService; }
+            set
+            {
+                var validator = new TypeValidator(typeof(SoftwareApplication), typeof(WebSite));
+                validator.Validate(value);
+                interactionService = value;
+            }
+        }
+
+        private object location;
+        /// <summary>
+        /// Place, PostalAddress, Text, or VirtualLocation - The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+        /// </summary>
+        [JsonProperty("location")]
+        public object Location
+        {
+            get { return location; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type> { typeof(Place), typeof(PostalAddress), typeof(string), typeof(VirtualLocation) });
+                validator.Validate(value);
+                location = value;
+            }
+        }
 
         /// <summary>
         /// Integer - The number of interactions for the CreativeWork using the WebSite or SoftwareApplication.

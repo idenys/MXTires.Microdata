@@ -38,11 +38,5 @@ namespace MXTires.Microdata.LocalBusinesses.MedicalOrganizations
         /// </summary>
         [JsonProperty("availableService")]
         public object AvailableService { get; set; }
-
-        /// <summary>
-        /// MedicalSpecialty - A medical specialty of the provider.
-        /// </summary>
-        [JsonProperty("medicalSpecialty")]
-        public MedicalSpecialty MedicalSpecialty { get; set; }
     }
 }

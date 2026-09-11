@@ -87,6 +87,24 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         public string Elevation { get; private set; }
 
         /// <summary>
+        /// PostalAddress or Text - Physical address of the item.
+        /// </summary>
+        [JsonProperty("address")]
+        public string Address { get; set; }
+
+        /// <summary>
+        /// Country or Text - The country. Recommended to be in 2-letter ISO 3166-1 alpha-2 format, for example "US".
+        /// </summary>
+        [JsonProperty("addressCountry")]
+        public string AddressCountry { get; set; }
+
+        /// <summary>
+        /// Text - The postal code.
+        /// </summary>
+        [JsonProperty("postalCode")]
+        public string PostalCode { get; set; }
+
+        /// <summary>
         /// Text  or Number - The latitude of a location. For example 37.42242.
         /// </summary>
         [JsonProperty("latitude")]

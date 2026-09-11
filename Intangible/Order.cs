@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata.Intangible
 {
@@ -143,6 +144,7 @@ namespace MXTires.Microdata.Intangible
         /// OrderStatus - The current status of the order.
         /// </summary>
         [JsonProperty("orderStatus")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public OrderStatus OrderStatus { get; set; }
 
         Thing orderedItem;

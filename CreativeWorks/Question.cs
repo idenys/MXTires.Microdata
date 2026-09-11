@@ -24,6 +24,8 @@
 #endregion
 
 using System;
+using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
@@ -38,6 +40,28 @@ namespace MXTires.Microdata
         /// <value>The accepted answer.</value>
         [JsonProperty("acceptedAnswer")]
         public Answer AcceptedAnswer { get; set; }
+
+        /// <summary>
+        /// Text - For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates the format of question being given.
+        /// </summary>
+        [JsonProperty("eduQuestionType")]
+        public string EduQuestionType { get; set; }
+
+        private object parentItem;
+        /// <summary>
+        /// Comment or CreativeWork - Indicates a Comment or CreativeWork that this item is part of.
+        /// </summary>
+        [JsonProperty("parentItem")]
+        public object ParentItem
+        {
+            get { return parentItem; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Comment), typeof(CreativeWork));
+                validator.Validate(value);
+                parentItem = value;
+            }
+        }
 
         /// <summary>
         /// Integer 	The number of answers this question has received.

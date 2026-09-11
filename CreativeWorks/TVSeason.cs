@@ -32,5 +32,16 @@ namespace MXTires.Microdata.CreativeWorks
 	/// </summary>
 	public class TVSeason : CreativeWorkSeason
 	{
+		/// <summary>
+		/// TVSeries - The TV series to which this episode or season belongs.
+		/// </summary>
+		[JsonProperty("partOfTVSeries")]
+		public TVSeries PartOfTVSeries { get; set; }
+
+		/// <summary>
+		/// Text or URL - An EIDR (Entertainment Identifier Registry) identifier representing at the most general/abstract level, a work of film or television.
+		/// </summary>
+		[JsonProperty("titleEIDR")]
+		public string TitleEIDR { get; set; }
 	}
 }

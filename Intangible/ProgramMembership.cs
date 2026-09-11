@@ -23,8 +23,10 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 namespace MXTires.Microdata.Intangible
 {
@@ -39,6 +41,34 @@ namespace MXTires.Microdata.Intangible
         /// <value>The hosting organization.</value>
         [JsonProperty("hostingOrganization")]
         public Organization HostingOrganization { get; set; }
+
+        private object membershipPointsEarned;
+        /// <summary>
+        /// Number or QuantitativeValue - The number of membership points earned by the member.
+        /// </summary>
+        [JsonProperty("membershipPointsEarned")]
+        public object MembershipPointsEarned
+        {
+            get { return membershipPointsEarned; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>()
+                {
+                    typeof(Byte), typeof(SByte), typeof(Int16), typeof(UInt16),
+                    typeof(Int32), typeof(UInt32), typeof(Int64), typeof(UInt64),
+                    typeof(Single), typeof(Double), typeof(Decimal),
+                    typeof(QuantitativeValue)
+                });
+                validator.Validate(value);
+                membershipPointsEarned = value;
+            }
+        }
+
+        /// <summary>
+        /// MemberProgram - The MemberProgram associated with a ProgramMembership.
+        /// </summary>
+        [JsonProperty("program")]
+        public MemberProgram Program { get; set; }
 
         /// <summary>
         /// The member

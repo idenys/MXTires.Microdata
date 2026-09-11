@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Places.Residences
@@ -37,5 +38,26 @@ namespace MXTires.Microdata.Places.Residences
     /// </summary>
     public class SingleFamilyResidence : Residence
     {
+        private object numberOfRooms;
+        /// <summary>
+        /// Number or QuantitativeValue - The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
+        /// </summary>
+        [JsonProperty("numberOfRooms")]
+        public object NumberOfRooms
+        {
+            get { return numberOfRooms; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(float?), typeof(QuantitativeValue), typeof(Int32?) });
+                validator.Validate(value);
+                numberOfRooms = value;
+            }
+        }
+
+        /// <summary>
+        /// QuantitativeValue - The allowed total occupancy for the accommodation in persons (including infants etc).
+        /// </summary>
+        [JsonProperty("occupancy")]
+        public QuantitativeValue Occupancy { get; set; }
     }
 }

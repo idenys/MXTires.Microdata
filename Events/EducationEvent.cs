@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata.Events
 {
     /// <summary>
@@ -30,5 +32,22 @@ namespace MXTires.Microdata.Events
     /// </summary>
     public class EducationEvent : Event
     {
+        /// <summary>
+        /// DefinedTerm or Text - The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+        /// </summary>
+        [JsonProperty("assesses")]
+        public string Assesses { get; set; }
+
+        /// <summary>
+        /// DefinedTerm, Text, or URL - The level in terms of progression through an educational or training context.
+        /// </summary>
+        [JsonProperty("educationalLevel")]
+        public string EducationalLevel { get; set; }
+
+        /// <summary>
+        /// DefinedTerm or Text - The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+        /// </summary>
+        [JsonProperty("teaches")]
+        public string Teaches { get; set; }
     }
 }

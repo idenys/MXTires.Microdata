@@ -48,5 +48,17 @@ namespace MXTires.Microdata.Events
         /// </summary>
         [JsonProperty("homeTeam")]
         public Thing HomeTeam { get; set; }
+
+        /// <summary>
+        /// Person - A person or organization who is the referee for the event.
+        /// </summary>
+        [JsonProperty("referee")]
+        public Person Referee { get; set; }
+
+        /// <summary>
+        /// Text or URL - A type of sport (e.g. Baseball).
+        /// </summary>
+        [JsonProperty("sport")]
+        public string Sport { get; set; }
     }
 }

@@ -7,7 +7,9 @@ using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Events;
+using MXTires.Microdata.Actions.TradeActions;
 using MXTires.Microdata.Intangible.Services;
+using MXTires.Microdata.LocalBusinesses.MedicalOrganizations;
 using MXTires.Microdata.Organizations.PerformingGroups;
 using MXTires.Microdata.Places;
 using Newtonsoft.Json.Linq;
@@ -788,6 +790,74 @@ namespace MXTires.Microdata.Tests
             diet.Endorsers = endorser;
 
             Assert.AreSame(endorser, diet.Endorsers);
+        }
+
+        [TestMethod]
+        public void CourseInstanceCourseModeSerializesUnderCorrectKey()
+        {
+            var instance = new CourseInstance { CourseMode = "online" };
+
+            var json = JObject.Parse(instance.ToString());
+
+            Assert.AreEqual("online", (string)json["courseMode"]);
+            Assert.IsNull(json["coursePrerequisites"]);
+        }
+
+        [TestMethod]
+        public void OrderItemPropertiesSerializeUnderDistinctKeys()
+        {
+            var item = new OrderItem
+            {
+                OrderItemNumber = "123",
+                OrderItemStatus = MXTires.Microdata.Intangible.Enumeration.OrderStatus.OrderDelivered,
+                OrderQuantity = 2
+            };
+
+            var json = JObject.Parse(item.ToString());
+
+            Assert.AreEqual("123", (string)json["orderItemNumber"]);
+            Assert.AreEqual("OrderDelivered", (string)json["orderItemStatus"]);
+            Assert.AreEqual(2, (int)json["orderQuantity"]);
+        }
+
+        [TestMethod]
+        public void BlogPostSerializesUnderCorrectKey()
+        {
+            var blog = new Blog { BlogPost = new BlogPosting { Name = "Hello World" } };
+
+            var json = JObject.Parse(blog.ToString());
+
+            Assert.IsNotNull(json["blogPost"]);
+            Assert.AreEqual("Hello World", (string)json["blogPost"]["name"]);
+            Assert.IsNull(json["BlogPost"]);
+        }
+
+        [TestMethod]
+        public void InteractionCounterLocationAndInteractionServiceAcceptDocumentedTypes()
+        {
+            var counter = new InteractionCounter();
+            var place = new Place { Name = "Store" };
+
+            counter.Location = place;
+            counter.InteractionService = new WebSite();
+
+            Assert.AreSame(place, counter.Location);
+            Assert.IsInstanceOfType(counter.InteractionService, typeof(WebSite));
+        }
+
+        [TestMethod]
+        public void MedicalOrganizationPropertiesRoundTrip()
+        {
+            var org = new MedicalOrganization
+            {
+                HealthPlanNetworkId = "NET-1",
+                IsAcceptingNewPatients = true,
+                MedicalSpecialty = MXTires.Microdata.Intangible.Enumeration.MedicalSpecialty.Cardiovascular
+            };
+
+            Assert.AreEqual("NET-1", org.HealthPlanNetworkId);
+            Assert.AreEqual(true, org.IsAcceptingNewPatients);
+            Assert.AreEqual(MXTires.Microdata.Intangible.Enumeration.MedicalSpecialty.Cardiovascular, org.MedicalSpecialty);
         }
 
         /// <summary>

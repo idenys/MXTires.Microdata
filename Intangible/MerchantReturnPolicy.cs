@@ -156,5 +156,17 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("returnShippingFeesAmount")]
         public MonetaryAmount? ReturnShippingFeesAmount { get; set; }
+
+        /// <summary>
+        /// MerchantReturnPolicySeasonalOverride - Seasonal override of a return policy.
+        /// </summary>
+        [JsonProperty("returnPolicySeasonalOverride")]
+        public string ReturnPolicySeasonalOverride { get; set; }
+
+        /// <summary>
+        /// MemberProgramTier - The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy) is valid for.
+        /// </summary>
+        [JsonProperty("validForMemberTier")]
+        public MemberProgramTier ValidForMemberTier { get; set; }
     }
 }

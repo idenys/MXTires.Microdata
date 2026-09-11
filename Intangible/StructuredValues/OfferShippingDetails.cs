@@ -68,6 +68,12 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         [JsonProperty("doesNotShip")]
         public bool? DoesNotShip { get; set; }
 
+        /// <summary>
+        /// ShippingService - Indicates which shipping service the ShippingDeliveryTime applies to.
+        /// </summary>
+        [JsonProperty("hasShippingService")]
+        public ShippingService HasShippingService { get; set; }
+
         private Thing height;
         /// <summary>
         /// Distance or QuantitativeValue - The height of the item.
@@ -97,6 +103,12 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         public string ShippingLabel { get; set; }
 
         /// <summary>
+        /// DefinedRegion - Indicates the origin of a shipment, i.e. where it should be coming from.
+        /// </summary>
+        [JsonProperty("shippingOrigin")]
+        public DefinedRegion ShippingOrigin { get; set; }
+
+        /// <summary>
         /// MonetaryAmount - The shipping rate is the cost of shipping to the specified destination. 
         /// Typically, the maxValue and currency values (of the <see cref="MonetaryAmount"/>) are most appropriate.
         /// </summary>
@@ -114,6 +126,12 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         /// </summary>
         [JsonProperty("transitTimeLabel")]
         public string TransitTimeLabel { get; set; }
+
+        /// <summary>
+        /// MemberProgramTier - The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy) is valid for.
+        /// </summary>
+        [JsonProperty("validForMemberTier")]
+        public MemberProgramTier ValidForMemberTier { get; set; }
 
         /// <summary>
         /// QuantitativeValue - The weight of the product or person..

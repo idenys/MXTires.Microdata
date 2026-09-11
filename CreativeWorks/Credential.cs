@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using MXTires.Microdata.Intangible.Quantities;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
@@ -43,5 +45,17 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("recognizedBy")]
         public Organization RecognizedBy { get; set; }
+
+        /// <summary>
+        /// Duration - The duration of validity of a permit or similar thing.
+        /// </summary>
+        [JsonProperty("validFor")]
+        public Duration ValidFor { get; set; }
+
+        /// <summary>
+        /// AdministrativeArea - The geographic area where the item is valid.
+        /// </summary>
+        [JsonProperty("validIn")]
+        public AdministrativeArea ValidIn { get; set; }
     }
 }

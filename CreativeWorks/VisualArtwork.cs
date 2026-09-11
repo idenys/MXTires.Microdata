@@ -107,5 +107,11 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("penciler")]
         public Person Penciler { get; set; }
+
+        /// <summary>
+        /// Mass or QuantitativeValue - The weight of the product or person.
+        /// </summary>
+        [JsonProperty("weight")]
+        public QuantitativeValue Weight { get; set; }
     }
 }

@@ -23,6 +23,10 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
+using MXTires.Microdata.Intangible.Quantities;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications
@@ -32,6 +36,28 @@ namespace MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications
     /// </summary>
     public class UnitPriceSpecification : PriceSpecification
     {
+        private object billingDuration;
+        /// <summary>
+        /// Duration, Number, or QuantitativeValue - Specifies for how long this price (or price component) will be billed. Can be used, for example, to model the contractual duration of a subscription or payment plan.
+        /// </summary>
+        [JsonProperty("billingDuration")]
+        public object BillingDuration
+        {
+            get { return billingDuration; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type> { typeof(Duration), typeof(decimal), typeof(QuantitativeValue) });
+                validator.Validate(value);
+                billingDuration = value;
+            }
+        }
+
+        /// <summary>
+        /// Number - Specifies after how much time this price (or price component) becomes valid and billing starts. Can be used, for example, to model a price increase after the first year of a subscription.
+        /// </summary>
+        [JsonProperty("billingStart")]
+        public double? BillingStart { get; set; }
+
         /// <summary>
         /// Number - This property specifies the minimal quantity and rounding increment that will be the basis for the billing.
         /// The unit of measurement is specified by the unitCode property.
@@ -40,7 +66,13 @@ namespace MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications
         public string BillingIncrement { get; set; }
 
         /// <summary>
-        /// Text - A short text or acronym indicating multiple price specifications for the same offer, e.g. 
+        /// PriceComponentTypeEnumeration - Identifies a price component (for example, a line item on an invoice), part of the total price for an offer.
+        /// </summary>
+        [JsonProperty("priceComponentType")]
+        public string PriceComponentType { get; set; }
+
+        /// <summary>
+        /// Text - A short text or acronym indicating multiple price specifications for the same offer, e.g.
         /// SRP for the suggested retail price or INVOICE for the invoice price, mostly used in the car industry.
         /// </summary>
         [JsonProperty("priceType")]

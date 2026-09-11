@@ -53,6 +53,24 @@ namespace MXTires.Microdata.Intangible
         }
 
         /// <summary>
+        /// EducationalOccupationalCredential or Text - Educational background needed for the position or Occupation.
+        /// </summary>
+        [JsonProperty("educationRequirements")]
+        public string EducationRequirements { get; set; }
+
+        /// <summary>
+        /// OccupationalExperienceRequirements or Text - Description of skills and experience needed for the position or Occupation.
+        /// </summary>
+        [JsonProperty("experienceRequirements")]
+        public string ExperienceRequirements { get; set; }
+
+        /// <summary>
+        /// AdministrativeArea - The region/country for which this occupational data is valid.
+        /// </summary>
+        [JsonProperty("occupationLocation")]
+        public AdministrativeArea OccupationLocation { get; set; }
+
+        /// <summary>
         /// CategoryCode or Text - A category describing the job, preferably using a term from a taxonomy such as BLS O*NET-SOC.
         /// </summary>
         [JsonProperty("occupationalCategory")]

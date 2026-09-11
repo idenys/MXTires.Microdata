@@ -1,4 +1,5 @@
 ﻿using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Events
@@ -12,8 +13,20 @@ namespace MXTires.Microdata.Events
         /// <summary>
         /// Text or URL - The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full-time" or "part-time") or as a URL reference to a term from a controlled vocabulary(e.g.https://ceds.ed.gov/element/001311#Asynchronous ).
         /// </summary>
-        [JsonProperty("coursePrerequisites")]
+        [JsonProperty("courseMode")]
         public object CourseMode { get; set; }
+
+        /// <summary>
+        /// Schedule - Represents the length and pace of a course, expressed as a Schedule.
+        /// </summary>
+        [JsonProperty("courseSchedule")]
+        public Schedule CourseSchedule { get; set; }
+
+        /// <summary>
+        /// Text - The amount of work expected of students taking the course, often provided as a figure per week or per month, depending on the course format.
+        /// </summary>
+        [JsonProperty("courseWorkload")]
+        public string CourseWorkload { get; set; }
 
         /// <summary>
         /// Person - A person assigned to instruct or provide instructional assistance for the CourseInstance.
