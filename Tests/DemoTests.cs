@@ -403,6 +403,62 @@ namespace MXTires.Microdata.Tests
             Assert.AreSame(grant, work.Funding);
         }
 
+        [TestMethod]
+        public void OrganizationAreaServedAcceptsDocumentedTypes()
+        {
+            var org = new Organization();
+
+            org.AreaServed = "Worldwide";
+            Assert.AreEqual("Worldwide", org.AreaServed);
+
+            var place = new Place { Name = "Vancouver" };
+            org.AreaServed = place;
+            Assert.AreSame(place, org.AreaServed);
+        }
+
+        [TestMethod]
+        public void OrganizationAreaServedRejectsInvalidTypes()
+        {
+            var org = new Organization();
+
+            Assert.ThrowsExactly<ArgumentException>(() => org.AreaServed = 42);
+        }
+
+        [TestMethod]
+        public void OrganizationKnowsAboutAcceptsThingAndText()
+        {
+            var org = new Organization();
+
+            org.KnowsAbout = "Tires";
+            Assert.AreEqual("Tires", org.KnowsAbout);
+
+            var topic = new Product { Name = "All-season tires" };
+            org.KnowsAbout = topic;
+            Assert.AreSame(topic, org.KnowsAbout);
+        }
+
+        [TestMethod]
+        public void OrganizationSponsorAcceptsOrganizationAndPerson()
+        {
+            var org = new Organization();
+            var sponsor = new Person { Name = "Some Guy" };
+
+            org.Sponsor = sponsor;
+
+            Assert.AreSame(sponsor, org.Sponsor);
+        }
+
+        [TestMethod]
+        public void OrganizationAcceptedPaymentMethodAcceptsEnum()
+        {
+            var org = new Organization
+            {
+                AcceptedPaymentMethod = PaymentMethod.VisaCheckout | PaymentMethod.PayPal
+            };
+
+            Assert.AreEqual(PaymentMethod.VisaCheckout | PaymentMethod.PayPal, org.AcceptedPaymentMethod);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD
         /// </summary>
