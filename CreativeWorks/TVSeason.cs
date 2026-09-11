@@ -32,13 +32,5 @@ namespace MXTires.Microdata.CreativeWorks
 	/// </summary>
 	public class TVSeason : CreativeWorkSeason
 	{
-		/// <summary>
-		/// Country - The country of the principal offices of the production company or individual responsible for the movie or program.
-		/// </summary>
-		[JsonProperty("countryOfOrigin")]
-		public Country CountryOfOrigin
-		{
-			get; set;
-		}
 	}
 }

@@ -80,12 +80,6 @@ namespace MXTires.Microdata
         [JsonProperty("encodesCreativeWork")]
         public CreativeWork EncodesCreativeWork { get; set; }
 
-        /// <summary>
-        /// Text 	mp3, mpeg4, etc.
-        /// </summary>
-        [JsonProperty("encodingFormat")]
-        public string EncodingFormat { get; set; }
-
         Thing height;
 
         /// <summary>
@@ -119,12 +113,6 @@ namespace MXTires.Microdata
                 ineligibleRegion = value;
             }
         }
-
-        /// <summary>
-        /// Used to indicate a specific claim contained, implied, translated or refined from the content of a MediaObject or other CreativeWork.The interpreting party can be indicated using claimInterpreter.
-        /// </summary>
-        [JsonProperty("interpretedAsClaim")]
-        public Claim InterpretedAsClaim { get; set; }
 
         /// <summary>
         /// Text 	Player type required—for example, Flash or Silverlight.

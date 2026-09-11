@@ -62,11 +62,5 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("representativeOfPage")]
         public bool? RepresentativeOfPage { get; set; }
-
-        /// <summary>
-        /// ImageObject -Thumbnail image for an image or video.
-        /// </summary>
-        [JsonProperty("thumbnail")]
-        public ImageObject Thumbnail { get; set; }
     }
 }

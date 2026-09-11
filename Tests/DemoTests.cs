@@ -490,6 +490,53 @@ namespace MXTires.Microdata.Tests
             Assert.AreSame(amenity, place.AmenityFeature[0]);
         }
 
+        [TestMethod]
+        public void ProductIsVariantOfAcceptsProductModelAndText()
+        {
+            var product = new Product();
+
+            product.IsVariantOf = "https://example.com/models/base-model";
+            Assert.AreEqual("https://example.com/models/base-model", product.IsVariantOf);
+
+            var model = new ProductModel { Name = "Base Model" };
+            product.IsVariantOf = model;
+            Assert.AreSame(model, product.IsVariantOf);
+        }
+
+        [TestMethod]
+        public void ProductNegativeAndPositiveNotesAcceptDocumentedTypes()
+        {
+            var product = new Product();
+
+            product.PositiveNotes = "Great value";
+            Assert.AreEqual("Great value", product.PositiveNotes);
+
+            var notes = new ItemList();
+            product.NegativeNotes = notes;
+            Assert.AreSame(notes, product.NegativeNotes);
+        }
+
+        [TestMethod]
+        public void ProductNegativeNotesRejectsInvalidTypes()
+        {
+            var product = new Product();
+
+            Assert.ThrowsExactly<ArgumentException>(() => product.NegativeNotes = 42);
+        }
+
+        [TestMethod]
+        public void ProductColorSwatchAndCertification()
+        {
+            var product = new Product();
+            var certification = new Certification { Name = "Energy Star" };
+
+            product.ColorSwatch = "https://example.com/swatch.png";
+            product.HasCertification = certification;
+
+            Assert.AreEqual("https://example.com/swatch.png", product.ColorSwatch);
+            Assert.AreSame(certification, product.HasCertification);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD
         /// </summary>

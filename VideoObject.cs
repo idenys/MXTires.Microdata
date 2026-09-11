@@ -86,15 +86,6 @@ namespace MXTires.Microdata
 		}
 
 		/// <summary>
-		/// ImageObject -Thumbnail image for an image or video.
-		/// </summary>
-		[JsonProperty("thumbnail")]
-		public ImageObject Thumbnail
-		{
-			get; set;
-		}
-
-		/// <summary>
 		/// Text - If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
 		/// </summary>
 		[JsonProperty("transcript")]

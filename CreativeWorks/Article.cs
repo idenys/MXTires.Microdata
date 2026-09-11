@@ -43,11 +43,5 @@ namespace MXTires.Microdata.CreativeWorks
         /// </summary>
         [JsonProperty("pagination")]
         public string Pagination { get; set; }
-
-        /// <summary>
-        /// Integer - The number of words in the text of the Article.
-        /// </summary>
-        [JsonProperty("wordCount")]
-        public Int32? WordCount { get; set; }
     }
 }

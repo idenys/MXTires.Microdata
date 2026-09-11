@@ -35,12 +35,6 @@ namespace MXTires.Microdata.Organizations
     /// </summary>
     public class EducationalOrganization : Organization, ICivicStructure
     {
-        /// <summary>
-        /// Person - Alumni of educational organization. Inverse property: alumniOf.
-        /// </summary>
-        [JsonProperty("alumni")]
-        public Person Alumni { get; set; }
-
         [JsonProperty("openingHours")]
         public string OpeningHours { get; set; }
 }

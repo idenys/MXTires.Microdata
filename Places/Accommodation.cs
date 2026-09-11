@@ -42,7 +42,7 @@ namespace MXTires.Microdata.Places
         /// LocationFeatureSpecification - An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
         /// </summary>
         [JsonProperty("amenityFeature")]
-        public LocationFeatureSpecification AmenityFeature { get; set; }
+        public new LocationFeatureSpecification AmenityFeature { get; set; }
 
         /// <summary>
         /// QuantitativeValue - The size of the accommodation, e.g. in square meter or squarefoot. Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard

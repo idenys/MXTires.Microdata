@@ -36,7 +36,7 @@ namespace MXTires.Microdata
         /// It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive.
         /// </summary>
          [JsonProperty("isVariantOf")]
-        public ProductModel IsVariantOf { get; set; }
+        public new ProductModel IsVariantOf { get; set; }
 
         /// <summary>
         /// A pointer from a previous, often discontinued variant of the product to its newer variant.

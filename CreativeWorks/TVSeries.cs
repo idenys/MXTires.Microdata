@@ -63,15 +63,6 @@ namespace MXTires.Microdata.CreativeWorks
 		}
 
 		/// <summary>
-		/// Country - The country of the principal offices of the production company or individual responsible for the movie or program.
-		/// </summary>
-		[JsonProperty("countryOfOrigin")]
-		public Country CountryOfOrigin
-		{
-			get; set;
-		}
-
-		/// <summary>
 		/// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
 		/// </summary>
 		[JsonProperty("director")]
