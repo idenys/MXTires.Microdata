@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461;net472;net48;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net461;net472;net48;net6.0;net8.0;net10.0</TargetFrameworks>
     <Version>1.0.4.6</Version>
     <Authors>1010Tires.com Inc.</Authors>
     <Company>1010Tires.com Inc.</Company>
@@ -23,13 +23,13 @@
     <Compile Remove="Tests\**" />
     <EmbeddedResource Remove="Tests\**" />
     <None Remove="Tests\**" />
-    <None Include="..\src\1010TIRES\FrontEnd\FrontEnd\DEV\Angular\UI\Store\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Include=".paket\paket.exe" />
     <None Include=".paket\paket.targets" />
     <None Include="License.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
