@@ -155,22 +155,10 @@ namespace MXTires.Microdata
         public Organization AlumniOf { get; set; }
 
         /// <summary>
-        /// PostalAddress - Physical address of the item.
-        /// </summary>
-        public PostalAddress Address
-        {
-            set
-            {
-                Addresses = Addresses ?? new List<PostalAddress>();
-                Addresses.Add(value);
-            }
-        }
-
-        /// <summary>
-        /// PostalAddress or Text - Physical addresses of the item.
+        /// PostalAddress or Text - Physical address of the item.
         /// </summary>
         [JsonProperty("address")]
-        public List<PostalAddress> Addresses { get; set; }
+        public PostalAddress Address { get; set; }
 
         /// <summary>
         /// InteractionCounter - The number of completed interactions for this entity, in a particular role (the 'agent'), in a particular action, and in a particular context.

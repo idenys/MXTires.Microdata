@@ -625,8 +625,7 @@ namespace MXTires.Microdata.Tests
 
             person.Address = address;
 
-            Assert.AreEqual(1, person.Addresses.Count);
-            Assert.AreSame(address, person.Addresses[0]);
+            Assert.AreSame(address, person.Address);
         }
 
         [TestMethod]
