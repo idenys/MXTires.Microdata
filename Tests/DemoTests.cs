@@ -291,6 +291,28 @@ namespace MXTires.Microdata.Tests
             Assert.AreSame(subjectEvent, thing.SubjectOf);
         }
 
+        [TestMethod]
+        public void ThingOwnerAcceptsOrganizationAndPerson()
+        {
+            var thing = new Product();
+            var org = new Organization { Name = "1010Tires.com" };
+
+            thing.Owner = org;
+            Assert.AreSame(org, thing.Owner);
+
+            var person = new Person { Name = "Some Guy" };
+            thing.Owner = person;
+            Assert.AreSame(person, thing.Owner);
+        }
+
+        [TestMethod]
+        public void ThingOwnerRejectsInvalidTypes()
+        {
+            var thing = new Product();
+
+            Assert.ThrowsExactly<ArgumentException>(() => thing.Owner = "not an owner");
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD 
         /// </summary>
