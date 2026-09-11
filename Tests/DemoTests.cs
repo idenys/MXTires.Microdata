@@ -244,6 +244,30 @@ namespace MXTires.Microdata.Tests
             //}</script>
         }
 
+        [TestMethod]
+        public void MembershipPointsEarnedAcceptsNumberAndQuantitativeValue()
+        {
+            var specification = new PriceSpecification
+            {
+                MembershipPointsEarned = 10
+            };
+
+            Assert.AreEqual(10, specification.MembershipPointsEarned);
+
+            var points = new QuantitativeValue() { Value = 10, UnitText = "miles" };
+            specification.MembershipPointsEarned = points;
+
+            Assert.AreSame(points, specification.MembershipPointsEarned);
+        }
+
+        [TestMethod]
+        public void MembershipPointsEarnedRejectsInvalidTypes()
+        {
+            var specification = new PriceSpecification();
+
+            Assert.ThrowsException<ArgumentException>(() => specification.MembershipPointsEarned = "10");
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD 
         /// </summary>

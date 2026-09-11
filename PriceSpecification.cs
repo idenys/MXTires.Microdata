@@ -24,8 +24,10 @@
 #endregion
 
 using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace MXTires.Microdata
 {
@@ -80,13 +82,37 @@ namespace MXTires.Microdata
         [JsonProperty("priceCurrency")]
         public string PriceCurrency { get; set; }
 
+        object membershipPointsEarned;
         /// <summary>
         /// Number or QuantitativeValue - The number of membership points earned by the member.
         /// If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)
         /// </summary>
         /// <value>The membership points earned.</value>
         [JsonProperty("membershipPointsEarned")]
-        public QuantitativeValue MembershipPointsEarned { get; set; }
+        public object MembershipPointsEarned
+        {
+            get { return membershipPointsEarned; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>()
+                {
+                    typeof(Byte),
+                    typeof(SByte),
+                    typeof(Int16),
+                    typeof(UInt16),
+                    typeof(Int32),
+                    typeof(UInt32),
+                    typeof(Int64),
+                    typeof(UInt64),
+                    typeof(Single),
+                    typeof(Double),
+                    typeof(Decimal),
+                    typeof(QuantitativeValue)
+                });
+                validator.Validate(value);
+                membershipPointsEarned = value;
+            }
+        }
 
         /// <summary>
         /// MemberProgramTier - The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails,
