@@ -255,7 +255,7 @@ namespace MXTires.Microdata.Tests
 
             Assert.AreEqual(10, specification.MembershipPointsEarned);
 
-            var points = new QuantitativeValue() { Value = 10, UnitText = "miles" };
+            var points = new QuantitativeValue() { Value = 10, UnitCode = "miles" };
             specification.MembershipPointsEarned = points;
 
             Assert.AreSame(points, specification.MembershipPointsEarned);
@@ -266,7 +266,7 @@ namespace MXTires.Microdata.Tests
         {
             var specification = new PriceSpecification();
 
-            Assert.ThrowsException<ArgumentException>(() => specification.MembershipPointsEarned = "10");
+            Assert.ThrowsExactly<ArgumentException>(() => specification.MembershipPointsEarned = "10");
         }
 
         /// <summary>
