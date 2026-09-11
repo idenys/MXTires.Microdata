@@ -581,6 +581,76 @@ namespace MXTires.Microdata.Tests
             Assert.AreSame(property, offer.AdditionalProperty);
         }
 
+        [TestMethod]
+        public void PersonHeightGetterReturnsItsOwnValueNotWorkLocation()
+        {
+            var person = new Person();
+            var workLocation = new Place { Name = "Office" };
+            var height = new QuantitativeValue { Value = 180, UnitCode = "CMT" };
+
+            person.WorkLocation = workLocation;
+            person.Height = height;
+
+            Assert.AreSame(height, person.Height);
+            Assert.AreSame(workLocation, person.WorkLocation);
+        }
+
+        [TestMethod]
+        public void PersonSponsorGetterReturnsItsOwnValueNotHomeLocation()
+        {
+            var person = new Person();
+            var homeLocation = new Place { Name = "Home" };
+            var sponsor = new Organization { Name = "Sponsor Inc" };
+
+            person.HomeLocation = homeLocation;
+            person.Sponsor = sponsor;
+
+            Assert.AreSame(sponsor, person.Sponsor);
+            Assert.AreSame(homeLocation, person.HomeLocation);
+        }
+
+        [TestMethod]
+        public void PersonAddressAcceptsPostalAddress()
+        {
+            var person = new Person();
+            var address = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+
+            person.Address = address;
+
+            Assert.AreEqual(1, person.Addresses.Count);
+            Assert.AreSame(address, person.Addresses[0]);
+        }
+
+        [TestMethod]
+        public void PersonHasCertificationHasCredentialAndHasOccupation()
+        {
+            var person = new Person();
+            var certification = new Certification { Name = "First Aid" };
+            var credential = new Credential { Name = "PhD" };
+            var occupation = new Occupation { OccupationalCategory = "Software Engineer" };
+
+            person.HasCertification = certification;
+            person.HasCredential = credential;
+            person.HasOccupation = occupation;
+
+            Assert.AreSame(certification, person.HasCertification);
+            Assert.AreSame(credential, person.HasCredential);
+            Assert.AreSame(occupation, person.HasOccupation);
+        }
+
+        [TestMethod]
+        public void PersonKnowsAboutAcceptsThingAndText()
+        {
+            var person = new Person();
+
+            person.KnowsAbout = "Tires";
+            Assert.AreEqual("Tires", person.KnowsAbout);
+
+            var topic = new Product { Name = "All-season tires" };
+            person.KnowsAbout = topic;
+            Assert.AreSame(topic, person.KnowsAbout);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD
         /// </summary>
