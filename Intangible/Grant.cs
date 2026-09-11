@@ -1,5 +1,5 @@
-﻿#region License
-// Copyright (c) 2016 1010Tires.com
+#region License
+// Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,50 +23,54 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
-using System;
-using MXTires.Microdata.Intangible.StructuredValues;
 
-namespace MXTires.Microdata.CreativeWorks
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// Class ImageObject.
+    /// A grant, typically financial, made to support a project, person, or organization.
     /// </summary>
-    public class ImageObject : MediaObject
+    public class Grant : Thing
     {
         /// <summary>
-        /// Text - The caption for this object.
+        /// Thing - Indicates something directly or indirectly funded or sponsored through a Grant.
         /// </summary>
-        [JsonProperty("caption")]
-        public string Caption { get; set; }
+        [JsonProperty("fundedItem")]
+        public Thing FundedItem { get; set; }
 
-        object exifData;
+        private Thing funder;
         /// <summary>
-        /// Text  or PropertyValue exif data for this object.
+        /// Organization or Person - A person or organization that supports (sponsors) something through some kind of financial contribution.
         /// </summary>
-        [JsonProperty("exifData")]
-        public object ExifData
+        [JsonProperty("funder")]
+        public Thing Funder
         {
-            get { return exifData; }
+            get { return funder; }
             set
             {
-                var validator = new TypeValidator(typeof(String), typeof(PropertyValue));
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
                 validator.Validate(value);
-                exifData = value;
+                funder = value;
             }
         }
 
+        private Thing sponsor;
         /// <summary>
-        /// Boolean - Indicates whether this image is representative of the content of the page.
+        /// Organization or Person - A person or organization that supports a thing through a pledge, promise, or financial contribution.
         /// </summary>
-        [JsonProperty("representativeOfPage")]
-        public bool? RepresentativeOfPage { get; set; }
-
-        /// <summary>
-        /// Text - Represents textual captioning from a MediaObject, e.g. text of a 'meme'.
-        /// </summary>
-        [JsonProperty("embeddedTextCaption")]
-        public string EmbeddedTextCaption { get; set; }
+        [JsonProperty("sponsor")]
+        public Thing Sponsor
+        {
+            get { return sponsor; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                sponsor = value;
+            }
+        }
     }
 }

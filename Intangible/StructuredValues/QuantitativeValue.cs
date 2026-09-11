@@ -84,6 +84,12 @@ namespace MXTires.Microdata
         public string UnitCode { get; set; }
 
         /// <summary>
+        /// Text - A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for unitCode.
+        /// </summary>
+        [JsonProperty("unitText")]
+        public string UnitText { get; set; }
+
+        /// <summary>
         /// Number - The value of the product characteristic.
         /// </summary>
         /// <value>The value.</value>

@@ -24,6 +24,8 @@
 #endregion
 
 using System;
+using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
@@ -32,6 +34,22 @@ namespace MXTires.Microdata
     /// </summary>
     public class Answer : CreativeWork
     {
+        private object answerExplanation;
+        /// <summary>
+        /// Comment or WebContent - A step-by-step or full explanation about Answer. Can outline how this Answer was achieved or contain more broad clarification or statement about it.
+        /// </summary>
+        [JsonProperty("answerExplanation")]
+        public object AnswerExplanation
+        {
+            get { return answerExplanation; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Comment), typeof(string));
+                validator.Validate(value);
+                answerExplanation = value;
+            }
+        }
+
         /// <summary>
         /// Integer 	The number of downvotes this question has received from the community.
         /// </summary>

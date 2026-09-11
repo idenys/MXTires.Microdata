@@ -38,5 +38,11 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("expectsAcceptanceOf")]
         public Offer ExpectsAcceptanceOf { get; set; }
+
+        /// <summary>
+        /// ActionAccessSpecification - A set of requirements that must be fulfilled in order to perform an Action.
+        /// </summary>
+        [JsonProperty("actionAccessibilityRequirement")]
+        public string ActionAccessibilityRequirement { get; set; }
     }
 }

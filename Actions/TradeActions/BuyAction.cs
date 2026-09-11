@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -29,5 +30,11 @@ namespace MXTires.Microdata.Actions.TradeActions
                 seller = value;
             }
         }
+
+        /// <summary>
+        /// WarrantyPromise - The warranty promise(s) included in the offer.
+        /// </summary>
+        [JsonProperty("warrantyPromise")]
+        public WarrantyPromise WarrantyPromise { get; set; }
     }
 }

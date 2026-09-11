@@ -24,5 +24,11 @@ namespace MXTires.Microdata.Organizations
         /// </summary>
         [JsonProperty("coach")]
         public Person Coach { get; set; }
+
+        /// <summary>
+        /// GenderType or Text - Gender of something, typically a Person, but possibly also fictional characters, animals, etc.
+        /// </summary>
+        [JsonProperty("gender")]
+        public string Gender { get; set; }
     }
 }

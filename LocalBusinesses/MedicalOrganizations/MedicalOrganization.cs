@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.Intangible.Enumeration;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.LocalBusinesses.MedicalOrganizations
@@ -37,5 +38,22 @@ namespace MXTires.Microdata.LocalBusinesses.MedicalOrganizations
     /// </summary>
     public class MedicalOrganization : LocalBusiness
     {
+        /// <summary>
+        /// Text - Name or unique ID of network. (Networks are often reused across different insurance plans.)
+        /// </summary>
+        [JsonProperty("healthPlanNetworkId")]
+        public string HealthPlanNetworkId { get; set; }
+
+        /// <summary>
+        /// Boolean - Whether the provider is accepting new patients.
+        /// </summary>
+        [JsonProperty("isAcceptingNewPatients")]
+        public bool? IsAcceptingNewPatients { get; set; }
+
+        /// <summary>
+        /// MedicalSpecialty - A medical specialty of the provider.
+        /// </summary>
+        [JsonProperty("medicalSpecialty")]
+        public MedicalSpecialty MedicalSpecialty { get; set; }
     }
 }

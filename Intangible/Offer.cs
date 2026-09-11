@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
+using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -90,6 +91,50 @@ namespace MXTires.Microdata.Intangible
         /// <value>The add on.</value>
         [JsonProperty("addOn")]
         public Offer AddOn { get; set; }
+
+        private object additionalProperty;
+        /// <summary>
+        /// PropertyValue - A property-value pair representing an additional characteristic of the entity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.
+        /// </summary>
+        [JsonProperty("additionalProperty")]
+        public object AdditionalProperty
+        {
+            get { return additionalProperty; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(PropertyValue), typeof(IList<PropertyValue>), typeof(List<PropertyValue>) });
+                validator.Validate(value);
+                additionalProperty = value;
+            }
+        }
+
+        /// <summary>
+        /// AggregateRating - The overall rating, based on a collection of reviews or ratings, of the item.
+        /// </summary>
+        [JsonProperty("aggregateRating")]
+        public AggregateRating AggregateRating { get; set; }
+
+        /// <summary>
+        /// Text or URL - An Amazon Standard Identification Number (ASIN) is a 10-character alphanumeric unique identifier assigned by Amazon.com and its partners for product identification within the Amazon organization.
+        /// </summary>
+        [JsonProperty("asin")]
+        public string Asin { get; set; }
+
+        private object areaServed;
+        /// <summary>
+        /// AdministrativeArea, GeoShape, Place, or Text - The geographic area where a service or offered item is provided.
+        /// </summary>
+        [JsonProperty("areaServed")]
+        public object AreaServed
+        {
+            get { return areaServed; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type> { typeof(AdministrativeArea), typeof(GeoShape), typeof(Place), typeof(string) });
+                validator.Validate(value);
+                areaServed = value;
+            }
+        }
 
         /// <summary>
         /// The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
@@ -203,6 +248,12 @@ namespace MXTires.Microdata.Intangible
         }
 
         /// <summary>
+        /// Text - A URL template (RFC 6570) for a checkout page for this offer.
+        /// </summary>
+        [JsonProperty("checkoutPageURLTemplate")]
+        public string CheckoutPageURLTemplate { get; set; }
+
+        /// <summary>
         /// QuantitativeValue - The typical delay between the receipt of the order and the goods leaving the warehouse.
         /// </summary>
         /// <value>The delivery lead time.</value>
@@ -248,9 +299,15 @@ namespace MXTires.Microdata.Intangible
         public PriceSpecification EligibleTransactionVolume { get; set; }
 
         /// <summary>
-        /// The GTIN-12 code of the product, or the product to which the offer refers. 
-        /// The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. 
-        /// Company Prefix, Item Reference, and Check Digit used to identify trade items. 
+        /// Text or URL - A Global Trade Item Number (GTIN). GTINs identify trade items, including products and services, using numeric identification codes. This is the preferred, unified gtin property, superseding the earlier defined gtin8, gtin12, gtin13, and gtin14 properties.
+        /// </summary>
+        [JsonProperty("gtin")]
+        public string Gtin { get; set; }
+
+        /// <summary>
+        /// The GTIN-12 code of the product, or the product to which the offer refers.
+        /// The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C.
+        /// Company Prefix, Item Reference, and Check Digit used to identify trade items.
         /// See GS1 GTIN Summary for more details.
         /// </summary>
         /// <value>The gtin13.</value>
@@ -275,6 +332,24 @@ namespace MXTires.Microdata.Intangible
         /// <value>The gtin8.</value>
         [JsonProperty("gtin8")]
         public string Gtin8 { get; set; }
+
+        /// <summary>
+        /// AdultOrientedEnumeration - Used to tag an item to be intended or suitable for consumption or use by adults only.
+        /// </summary>
+        [JsonProperty("hasAdultConsideration")]
+        public string HasAdultConsideration { get; set; }
+
+        /// <summary>
+        /// URL - The <a href="https://www.gs1.org/standards/gs1-digital-link">GS1 digital link</a> associated with the object.
+        /// </summary>
+        [JsonProperty("hasGS1DigitalLink")]
+        public string HasGS1DigitalLink { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - A product measurement, for example the inseam of pants, the wheel size of a bicycle, or the gauge of a screw.
+        /// </summary>
+        [JsonProperty("hasMeasurement")]
+        public QuantitativeValue HasMeasurement { get; set; }
 
         /// <summary>
         /// MerchantReturnPolicy - Specifies a MerchantReturnPolicy that may be applicable. Supersedes <see cref="HasProductReturnPolicy"/>.
@@ -304,6 +379,12 @@ namespace MXTires.Microdata.Intangible
         public QuantitativeValue InventoryLevel { get; set; }
 
         /// <summary>
+        /// Boolean - Indicates whether this content is family friendly.
+        /// </summary>
+        [JsonProperty("isFamilyFriendly")]
+        public bool? IsFamilyFriendly { get; set; }
+
+        /// <summary>
         /// <see cref="OfferItemCondition" /> - A predefined value from OfferItemCondition or a textual description of the condition of the product or service,
         /// or the products or services included in the offer.
         /// </summary>
@@ -319,6 +400,28 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("itemOffered")]
         public Product ItemOffered { get; set; }
 
+        private object leaseLength;
+        /// <summary>
+        /// Duration or QuantitativeValue - Length of the lease for some Accommodation, either particular to some Offer or in some cases intrinsic to the property.
+        /// </summary>
+        [JsonProperty("leaseLength")]
+        public object LeaseLength
+        {
+            get { return leaseLength; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Duration), typeof(QuantitativeValue));
+                validator.Validate(value);
+                leaseLength = value;
+            }
+        }
+
+        /// <summary>
+        /// Text - The circulation, sales or download URL, or the product page, of a Product, for a mobile-preferred version.
+        /// </summary>
+        [JsonProperty("mobileUrl")]
+        public string MobileUrl { get; set; }
+
         /// <summary>
         /// Text - The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
         /// </summary>
@@ -326,12 +429,34 @@ namespace MXTires.Microdata.Intangible
         [JsonProperty("mpn")]
         public string Mpn { get; set; }
 
+        private Thing offeredBy;
+        /// <summary>
+        /// Organization or Person - A pointer to the organization or person making the offer.
+        /// </summary>
+        [JsonProperty("offeredBy")]
+        public Thing OfferedBy
+        {
+            get { return offeredBy; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                offeredBy = value;
+            }
+        }
+
+        /// <summary>
+        /// MemberProgramTier - The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy) is valid for.
+        /// </summary>
+        [JsonProperty("validForMemberTier")]
+        public MemberProgramTier ValidForMemberTier { get; set; }
+
         /// <summary>
         /// WarrantyPromise - The warranty promise(s) included in the offer..
         /// </summary>
         /// <value>The warranty.</value>
         [JsonProperty("warranty")]
-        public WarrantyPromise Warranty { get; set; }	
+        public WarrantyPromise Warranty { get; set; }
 
 
     }

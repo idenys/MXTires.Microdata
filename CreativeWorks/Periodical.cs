@@ -36,10 +36,5 @@ namespace MXTires.Microdata.CreativeWorks
     /// </summary>
     public class Periodical : CreativeWorkSeries
     {
-        /// <summary>
-        /// Text - The International Standard Serial Number (ISSN) that identifies this periodical. You can repeat this property to (for example) identify different formats of this periodical.
-        /// </summary>
-        [JsonProperty("issn")]
-        public String Issn { get; set; }
     }
 }

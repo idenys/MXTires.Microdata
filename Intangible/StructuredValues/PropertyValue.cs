@@ -27,6 +27,12 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         public string MeasurementTechnique { get; set; }
 
         /// <summary>
+        /// DefinedTerm, MeasurementMethodEnum, Text, or URL - A technique, method or technology used in an Observation, StatisticalVariable or Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s).
+        /// </summary>
+        [JsonProperty("measurementMethod")]
+        public string MeasurementMethod { get; set; }
+
+        /// <summary>
         /// Number - The lower value of some characteristic or property.
         /// </summary>
         [JsonProperty("minValue")]

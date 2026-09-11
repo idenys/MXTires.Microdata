@@ -33,12 +33,15 @@ namespace MXTires.Microdata.CreativeWorks
 	public class TVSeason : CreativeWorkSeason
 	{
 		/// <summary>
-		/// Country - The country of the principal offices of the production company or individual responsible for the movie or program.
+		/// TVSeries - The TV series to which this episode or season belongs.
 		/// </summary>
-		[JsonProperty("countryOfOrigin")]
-		public Country CountryOfOrigin
-		{
-			get; set;
-		}
+		[JsonProperty("partOfTVSeries")]
+		public TVSeries PartOfTVSeries { get; set; }
+
+		/// <summary>
+		/// Text or URL - An EIDR (Entertainment Identifier Registry) identifier representing at the most general/abstract level, a work of film or television.
+		/// </summary>
+		[JsonProperty("titleEIDR")]
+		public string TitleEIDR { get; set; }
 	}
 }

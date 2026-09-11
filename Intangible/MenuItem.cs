@@ -24,8 +24,10 @@
 #endregion
 
 using System;
+using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible
@@ -35,6 +37,22 @@ namespace MXTires.Microdata.Intangible
     /// </summary>
     public class MenuItem : Thing
     {
+        private object menuAddOn;
+        /// <summary>
+        /// MenuItem or MenuSection - Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item.
+        /// </summary>
+        [JsonProperty("menuAddOn")]
+        public object MenuAddOn
+        {
+            get { return menuAddOn; }
+            set
+            {
+                var validator = new TypeValidator(typeof(MenuItem), typeof(MenuSection));
+                validator.Validate(value);
+                menuAddOn = value;
+            }
+        }
+
         /// <summary>
         /// NutritionInformation - Nutrition information about the recipe or menu item.
         /// </summary>

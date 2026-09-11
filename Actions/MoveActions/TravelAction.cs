@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MXTires.Microdata.Intangible.Quantities;
+using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Actions.MoveActions
 {
@@ -15,6 +16,7 @@ namespace MXTires.Microdata.Actions.MoveActions
         /// <summary>
         /// Distance - The distance travelled, e.g. exercising or travelling.
         /// </summary>
-        Distance Distance { get; set; }	 	
+        [JsonProperty("distance")]
+        public Distance Distance { get; set; }
     }
 }

@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net461;net472;net48;net6.0;net8.0;net10.0</TargetFrameworks>
-    <Version>1.0.4.7</Version>
+    <Version>1.0.4.8</Version>
     <Authors>1010Tires.com Inc.</Authors>
     <Company>1010Tires.com Inc.</Company>
     <Copyright>Copyright© 1010Tires.com Inc. 2023. All rights reserved.</Copyright>
     <Description>Converts .Net classes to Schema.org structured data in form of JSON-LD</Description>
-    <PackageReleaseNotes>Added net10.0 target framework. Fixed duplicate identifier serialization on JobPosting. PriceSpecification.MembershipPointsEarned now accepts a Number (any numeric type) or QuantitativeValue. TypeValidator now checks type assignability instead of exact type equality, so list-typed union properties (e.g. Offer.PriceSpecification) correctly accept concrete list implementations like List&lt;T&gt;.</PackageReleaseNotes>
+    <PackageReleaseNotes>Systematic audit against the current schema.org vocabulary: closed hundreds of missing-property gaps across the library (CreativeWork, Organization, Place, Product, Offer, Person, JobPosting, Event, and many more), added several new supporting types (Grant, InteractionCounter, Certification, Credential, MemberProgram, ShippingService, Occupation), and fixed a handful of real bugs found along the way - Thing.SubjectOf/Action.Location type gaps, IBook.Isbn mismatch, Person.Height/Sponsor/Address using the wrong backing field or type, and Vehicle properties serializing under the wrong or legacy JSON keys (including a copy-paste bug on VehicleIdentificationNumber). Also fixed: CourseInstance.CourseMode serializing under the wrong key ("coursePrerequisites"), OrderItem having three different properties all serialize under the same "orderItemNumber" key, Blog.BlogPost missing its JsonProperty attribute entirely, Order/OrderItem's OrderStatus enum serializing as a number instead of its name, ChooseAction.Option under "option" instead of "actionOption", BedDetails.typeOfBed sharing NumberOfBeds's key, Audience's geographic area under a key ("administrativeArea") that was never a valid schema.org property name, NutritionInformation.SugarContent serializing under "occupancy", and TravelAction.Distance being unserializable (no access modifier, no JsonProperty). This audit is now complete: every class in the library matching a current schema.org type implements all of that type's non-superseded properties. Additionally, Person/Organization/Place.Address (and IPlace.Address/Addresses) now accept Text in addition to PostalAddress, matching schema.org's documented union; Organization/Place.Addresses is now List&lt;object&gt; instead of List&lt;PostalAddress&gt; to support this. See ChangeLog.md for full details.</PackageReleaseNotes>
     <PackageTags>.Net Microdata Schema.org Json-LD</PackageTags>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MXTires.MicroData.snk</AssemblyOriginatorKeyFile>
     <RepositoryUrl>https://github.com/idenys/MXTires.Microdata</RepositoryUrl>
-    <AssemblyVersion>1.0.4.7</AssemblyVersion>
-    <FileVersion>1.0.4.7</FileVersion>
+    <AssemblyVersion>1.0.4.8</AssemblyVersion>
+    <FileVersion>1.0.4.8</FileVersion>
     <Title>MXTires.Microdata</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <LangVersion>latest</LangVersion>

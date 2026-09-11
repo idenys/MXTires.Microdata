@@ -53,13 +53,17 @@ namespace MXTires.Microdata
             new TypeValidator("MXTires.Microdata.Intangible", null, new List<Type> { typeof(string), typeof(Uri), typeof(PropertyValue), typeof(List<PropertyValue>), typeof(IList<PropertyValue>) });
 
         private static readonly TypeValidator SubjectOfValidator =
-            new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(CreativeWork) });
+            new TypeValidator("MXTires.Microdata.CreativeWorks", null, new List<Type> { typeof(CreativeWork), typeof(Event) });
+
+        private static readonly TypeValidator OwnerValidator =
+            new TypeValidator(typeof(Organization), typeof(Person));
 
         private object context = "http://schema.org";
         private object identifier;
         private object image;
         private object mainEntityOfPage;
         private object subjectOf;
+        private object owner;
 
         /// <summary>
         /// Context
@@ -149,6 +153,20 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Organization or Person - A person or organization who owns this Thing.
+        /// </summary>
+        [JsonProperty("owner", NullValueHandling = NullValueHandling.Ignore)]
+        public object Owner
+        {
+            get { return owner; }
+            set
+            {
+                OwnerValidator.Validate(value);
+                owner = value;
+            }
+        }
         /// <summary>
         /// Action - Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.
         /// </summary>

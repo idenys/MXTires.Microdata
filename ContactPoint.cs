@@ -26,6 +26,7 @@
 using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -89,5 +90,21 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("telephone")]
         public string Telephone { get; set; }
+
+        private object serviceArea;
+        /// <summary>
+        /// AdministrativeArea, GeoShape, or Place - The geographic area where the service is provided.
+        /// </summary>
+        [JsonProperty("serviceArea")]
+        public object ServiceArea
+        {
+            get { return serviceArea; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type> { typeof(AdministrativeArea), typeof(GeoShape), typeof(Place) });
+                validator.Validate(value);
+                serviceArea = value;
+            }
+        }
     }
 }

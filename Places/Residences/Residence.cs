@@ -37,5 +37,16 @@ namespace MXTires.Microdata.Places
     /// </summary>
     public class Residence : Place
     {
+        /// <summary>
+        /// FloorPlan - A floorplan of some Accommodation.
+        /// </summary>
+        [JsonProperty("accommodationFloorPlan")]
+        public string AccommodationFloorPlan { get; set; }
+
+        /// <summary>
+        /// Text - The floor level for an accommodation in a multi-storey building.
+        /// </summary>
+        [JsonProperty("floorLevel")]
+        public string FloorLevel { get; set; }
     }
 }

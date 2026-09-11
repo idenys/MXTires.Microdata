@@ -24,6 +24,8 @@
 #endregion
 
 
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata
 {
     /// <summary>
@@ -31,5 +33,10 @@ namespace MXTires.Microdata
     /// </summary>
     public class WebSite : CreativeWork
     {
+        /// <summary>
+        /// Text - The International Standard Serial Number (ISSN) that identifies this serial publication.
+        /// </summary>
+        [JsonProperty("issn")]
+        public string Issn { get; set; }
     }
 }

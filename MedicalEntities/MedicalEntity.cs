@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.Intangible;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.MedicalEntities
@@ -37,5 +38,52 @@ namespace MXTires.Microdata.MedicalEntities
     /// </summary>
     public class MedicalEntity : Thing
     {
+        /// <summary>
+        /// MedicalCode - A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.
+        /// </summary>
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Grant - A Grant that directly or indirectly provided funding or sponsorship for this medical entity.
+        /// </summary>
+        [JsonProperty("funding")]
+        public Grant Funding { get; set; }
+
+        /// <summary>
+        /// MedicalGuideline - A medical guideline related to this entity.
+        /// </summary>
+        [JsonProperty("guideline")]
+        public string Guideline { get; set; }
+
+        /// <summary>
+        /// DrugLegalStatus, MedicalEnumeration, or Text - The drug or supplement's legal status, including any controlled substance schedules that apply.
+        /// </summary>
+        [JsonProperty("legalStatus")]
+        public string LegalStatus { get; set; }
+
+        /// <summary>
+        /// MedicineSystem - The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.
+        /// </summary>
+        [JsonProperty("medicineSystem")]
+        public string MedicineSystem { get; set; }
+
+        /// <summary>
+        /// Organization - If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.
+        /// </summary>
+        [JsonProperty("recognizingAuthority")]
+        public Organization RecognizingAuthority { get; set; }
+
+        /// <summary>
+        /// MedicalSpecialty - If the entity is related to practices, interventions, drugs, therapies, or medical technologies, the specialty is the relevant specialty.
+        /// </summary>
+        [JsonProperty("relevantSpecialty")]
+        public string RelevantSpecialty { get; set; }
+
+        /// <summary>
+        /// MedicalStudy - A medical study or trial related to this entity.
+        /// </summary>
+        [JsonProperty("study")]
+        public string Study { get; set; }
     }
 }

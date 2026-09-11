@@ -27,6 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
@@ -153,12 +154,39 @@ namespace MXTires.Microdata
         [JsonProperty("alumniOf")]
         public Organization AlumniOf { get; set; }
 
+        private object address;
         /// <summary>
-        /// Gets or sets the address.
+        /// PostalAddress or Text - Physical address of the item.
         /// </summary>
-        /// <value>The address.</value>
         [JsonProperty("address")]
-        public Organization Address { get; set; }
+        public object Address
+        {
+            get { return address; }
+            set
+            {
+                var validator = new TypeValidator(typeof(PostalAddress), typeof(string));
+                validator.Validate(value);
+                address = value;
+            }
+        }
+
+        /// <summary>
+        /// InteractionCounter - The number of completed interactions for this entity, in a particular role (the 'agent'), in a particular action, and in a particular context.
+        /// </summary>
+        [JsonProperty("agentInteractionStatistic")]
+        public InteractionCounter AgentInteractionStatistic { get; set; }
+
+        /// <summary>
+        /// Text - A callsign, as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
+        /// </summary>
+        [JsonProperty("callSign")]
+        public string CallSign { get; set; }
+
+        /// <summary>
+        /// Person - A child of the person.
+        /// </summary>
+        [JsonProperty("children")]
+        public Person Children { get; set; }
 
         /// <summary>
         /// Text - The fax number.
@@ -187,6 +215,11 @@ namespace MXTires.Microdata
             }
         }
 
+        /// <summary>
+        /// Grant - A Grant that directly or indirectly provided funding or sponsorship for this person.
+        /// </summary>
+        [JsonProperty("funding")]
+        public Grant Funding { get; set; }
 
         /// <summary>
         /// The brand
@@ -263,6 +296,24 @@ namespace MXTires.Microdata
         public string GlobalLocationNumber { get; set; }
 
         /// <summary>
+        /// Certification - Certification information about a product, organization, service, place, or person.
+        /// </summary>
+        [JsonProperty("hasCertification")]
+        public Certification HasCertification { get; set; }
+
+        /// <summary>
+        /// Credential - A credential awarded to the Person or Organization.
+        /// </summary>
+        [JsonProperty("hasCredential")]
+        public Credential HasCredential { get; set; }
+
+        /// <summary>
+        /// Occupation - The Person's occupation. For past professions, use Role for expressing dates.
+        /// </summary>
+        [JsonProperty("hasOccupation")]
+        public Occupation HasOccupation { get; set; }
+
+        /// <summary>
         /// Text - The International Standard of Industrial Classification of All Economic Activities (ISIC),
         /// Revision 4 code for a particular organization, business person, or place.
         /// </summary>
@@ -278,10 +329,44 @@ namespace MXTires.Microdata
         public Place HasPOS { get; set; }
 
         /// <summary>
+        /// InteractionCounter - The number of interactions for the CreativeWork using the WebSite or SoftwareApplication.
+        /// </summary>
+        [JsonProperty("interactionStatistic")]
+        public InteractionCounter InteractionStatistic { get; set; }
+
+        /// <summary>
         /// Person - The most generic bi-directional social/work relation.
         /// </summary>
         [JsonProperty("knows")]
         public Person Knows { get; set; }
+
+        private object knowsAbout;
+        /// <summary>
+        /// Text, Thing, or URL - Of a Person, and less typically of an Organization, to indicate a topic that is known about - suggesting possible expertise but not implying it.
+        /// </summary>
+        [JsonProperty("knowsAbout")]
+        public object KnowsAbout
+        {
+            get { return knowsAbout; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Thing), typeof(string));
+                validator.Validate(value);
+                knowsAbout = value;
+            }
+        }
+
+        /// <summary>
+        /// Language or Text - Of a Person, and less typically of an Organization, to indicate a known language.
+        /// </summary>
+        [JsonProperty("knowsLanguage")]
+        public string KnowsLanguage { get; set; }
+
+        /// <summary>
+        /// Event - An event that this person or organization is a participant in, e.g. a life event such as a birth or death.
+        /// </summary>
+        [JsonProperty("lifeEvent")]
+        public Event LifeEvent { get; set; }
 
         /// <summary>
         /// Offer - A pointer to products or services offered by the organization or person. Inverse property: <see cref="OfferedBy"/>.
@@ -344,14 +429,14 @@ namespace MXTires.Microdata
         /// </summary>
        [JsonProperty("height")]
         public Thing  Height {
-            get { return this.workLocation; }
+            get { return this.height; }
             set
             {
                 TypeValidator validator = new TypeValidator(typeof(Distance), typeof(QuantitativeValue));
                 validator.Validate(value);
                 this.height = value;
             }
-        }	
+        }
 
         /// <summary>
         /// The home location
@@ -438,6 +523,18 @@ namespace MXTires.Microdata
         public Event performerIn { get; set; }
 
         /// <summary>
+        /// DefinedTerm, StructuredValue, or Text - The gender pronouns of this Person, used to inform grammar or display.
+        /// </summary>
+        [JsonProperty("pronouns")]
+        public string Pronouns { get; set; }
+
+        /// <summary>
+        /// CreativeWork or URL - Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork.
+        /// </summary>
+        [JsonProperty("publishingPrinciples")]
+        public string PublishingPrinciples { get; set; }
+
+        /// <summary>
         /// Person - The most generic familial relation.
         /// </summary>
         [JsonProperty("relatedTo")]
@@ -461,6 +558,12 @@ namespace MXTires.Microdata
         [JsonProperty("siblings")]
         public IList<Person> Siblings { get; set; }
 
+        /// <summary>
+        /// DefinedTerm or Text - A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is desired or required.
+        /// </summary>
+        [JsonProperty("skills")]
+        public string Skills { get; set; }
+
         Thing sponsor;
              
         /// <summary>
@@ -469,12 +572,12 @@ namespace MXTires.Microdata
         [JsonProperty("sponsor")]
         public Thing Sponsor
         {
-            get { return this.homeLocation; }
+            get { return this.sponsor; }
             set
             {
                 TypeValidator validator = new TypeValidator(typeof(Organization), typeof(Person));
                 validator.Validate(value);
-                this.homeLocation = value;
+                this.sponsor = value;
             }
         }
 

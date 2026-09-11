@@ -24,6 +24,8 @@
 #endregion
 
 
+using Newtonsoft.Json;
+
 namespace MXTires.Microdata
 {
     /// <summary>
@@ -31,5 +33,10 @@ namespace MXTires.Microdata
     /// </summary>
     public class WinAction : AchieveAction
     {
+        /// <summary>
+        /// Person - A sub property of participant. The loser of the action.
+        /// </summary>
+        [JsonProperty("loser")]
+        public Person Loser { get; set; }
     }
 }

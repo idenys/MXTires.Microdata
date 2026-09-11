@@ -45,6 +45,12 @@ namespace MXTires.Microdata
         public string AddressLocality { get; set; }
 
         /// <summary>
+        /// Text - An address extension is an additional address identifier that includes information such as suite number, building, floor, or unit number.
+        /// </summary>
+        [JsonProperty("extendedAddress")]
+        public string ExtendedAddress { get; set; }
+
+        /// <summary>
         /// Text - The region. For example, CA.
         /// </summary>
         [JsonProperty("addressRegion")]

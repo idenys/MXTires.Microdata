@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 // Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -23,20 +23,39 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using MXTires.Microdata.Attributes;
+using System;
+using MXTires.Microdata.Intangible.Quantities;
 using Newtonsoft.Json;
-namespace MXTires.Microdata
+
+namespace MXTires.Microdata.CreativeWorks
 {
     /// <summary>
-    /// The act of expressing a preference from a set of options or a large or unbounded set of choices/options.
+    /// A credential awarded to an individual or organization, such as a degree, certificate, or badge.
     /// </summary>
-    public class ChooseAction : AssessAction
+    public class Credential : CreativeWork
     {
         /// <summary>
-        /// Text or Thing - A sub property of object. The options subject to this action.
+        /// Text - The type or category of credential being described, for example "degree", "certificate", "badge".
         /// </summary>
-        [TypeValidation(typeof(string), typeof(Thing))]
-        [JsonProperty("actionOption")]
-        public object Option { get; set; }
+        [JsonProperty("credentialCategory")]
+        public string CredentialCategory { get; set; }
+
+        /// <summary>
+        /// Organization - An organization that acknowledges the validity, value or utility of a credential.
+        /// </summary>
+        [JsonProperty("recognizedBy")]
+        public Organization RecognizedBy { get; set; }
+
+        /// <summary>
+        /// Duration - The duration of validity of a permit or similar thing.
+        /// </summary>
+        [JsonProperty("validFor")]
+        public Duration ValidFor { get; set; }
+
+        /// <summary>
+        /// AdministrativeArea - The geographic area where the item is valid.
+        /// </summary>
+        [JsonProperty("validIn")]
+        public AdministrativeArea ValidIn { get; set; }
     }
 }

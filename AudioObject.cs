@@ -23,14 +23,37 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
     /// <summary>
     /// An audio file.
     /// </summary>
-    public class AudioObject : MediaObject 
+    public class AudioObject : MediaObject
     {
+        private object caption;
+        /// <summary>
+        /// MediaObject or Text - The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the encoding via encodingFormat.
+        /// </summary>
+        [JsonProperty("caption")]
+        public object Caption
+        {
+            get { return caption; }
+            set
+            {
+                var validator = new TypeValidator(typeof(MediaObject), typeof(string));
+                validator.Validate(value);
+                caption = value;
+            }
+        }
+
+        /// <summary>
+        /// Text - Represents textual captioning from a MediaObject, e.g. text of a 'meme'.
+        /// </summary>
+        [JsonProperty("embeddedTextCaption")]
+        public string EmbeddedTextCaption { get; set; }
+
         /// <summary>
         /// Text - If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
         /// </summary>

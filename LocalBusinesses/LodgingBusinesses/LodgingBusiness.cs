@@ -125,5 +125,21 @@ namespace MXTires.Microdata.LocalBusinesses.LodgingBusinesses
         /// </summary>
         [JsonProperty("starRating")]
         public Rating StarRating { get; set; }
+
+        private object numberOfRooms;
+        /// <summary>
+        /// Number or QuantitativeValue - The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
+        /// </summary>
+        [JsonProperty("numberOfRooms")]
+        public object NumberOfRooms
+        {
+            get { return numberOfRooms; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(float?), typeof(QuantitativeValue), typeof(Int32?) });
+                validator.Validate(value);
+                numberOfRooms = value;
+            }
+        }
     }
 }

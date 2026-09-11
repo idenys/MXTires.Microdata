@@ -67,5 +67,11 @@ namespace MXTires.Microdata.CreativeWorks
         [JsonProperty("numberOfPages")]
         public Int32? NumberOfPages { get; set; }
         #endregion
+
+        /// <summary>
+        /// Person - A person who reads (performs) the audiobook.
+        /// </summary>
+        [JsonProperty("readBy")]
+        public Person ReadBy { get; set; }
     }
 }

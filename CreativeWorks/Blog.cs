@@ -37,12 +37,19 @@ namespace MXTires.Microdata.CreativeWorks
         /// <summary>
         /// BlogPosting  - A posting that is part of this blog. Supersedes <see cref="BlogPosts"/>.
         /// </summary>
+        [JsonProperty("blogPost")]
         public BlogPosting BlogPost { get; set; }
 
         /// <summary>
-        /// BlogPosting  - The postings that are part of this blog. 
+        /// BlogPosting  - The postings that are part of this blog.
         /// </summary>
         [JsonProperty("blogPosts")]
         public List<BlogPosting> BlogPosts { get; set; }
+
+        /// <summary>
+        /// Text - The International Standard Serial Number (ISSN) that identifies this serial publication.
+        /// </summary>
+        [JsonProperty("issn")]
+        public string Issn { get; set; }
     }
 }

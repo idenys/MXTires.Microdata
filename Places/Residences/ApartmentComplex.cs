@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Places.Residences
@@ -37,5 +38,48 @@ namespace MXTires.Microdata.Places.Residences
     /// </summary>
     public class ApartmentComplex : Residence
     {
+        /// <summary>
+        /// QuantitativeValue - Indicates the total (available plus unavailable) number of accommodation units in an ApartmentComplex, or the number of accommodation units for a specific FloorPlan.
+        /// </summary>
+        [JsonProperty("numberOfAccommodationUnits")]
+        public QuantitativeValue NumberOfAccommodationUnits { get; set; }
+
+        /// <summary>
+        /// QuantitativeValue - Indicates the number of available accommodation units in an ApartmentComplex, or the number of accommodation units for a specific FloorPlan.
+        /// </summary>
+        [JsonProperty("numberOfAvailableAccommodationUnits")]
+        public QuantitativeValue NumberOfAvailableAccommodationUnits { get; set; }
+
+        private object numberOfBedrooms;
+        /// <summary>
+        /// Number or QuantitativeValue - The number of bedrooms.
+        /// </summary>
+        [JsonProperty("numberOfBedrooms")]
+        public object NumberOfBedrooms
+        {
+            get { return numberOfBedrooms; }
+            set
+            {
+                var validator = new TypeValidator(new List<Type>() { typeof(float?), typeof(QuantitativeValue), typeof(Int32?) });
+                validator.Validate(value);
+                numberOfBedrooms = value;
+            }
+        }
+
+        private object petsAllowed;
+        /// <summary>
+        /// Boolean or Text - Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+        /// </summary>
+        [JsonProperty("petsAllowed")]
+        public object PetsAllowed
+        {
+            get { return petsAllowed; }
+            set
+            {
+                var validator = new TypeValidator(typeof(bool), typeof(string));
+                validator.Validate(value);
+                petsAllowed = value;
+            }
+        }
     }
 }

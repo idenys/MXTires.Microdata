@@ -1,5 +1,5 @@
-﻿#region License
-// Copyright (c) 2016 1010Tires.com
+#region License
+// Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,50 +23,39 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using MXTires.Microdata.Validators;
-using Newtonsoft.Json;
-using System;
 using MXTires.Microdata.Intangible.StructuredValues;
+using Newtonsoft.Json;
 
-namespace MXTires.Microdata.CreativeWorks
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// Class ImageObject.
+    /// A ShippingService describes a class of shipping service available for a certain type of shipping, generally used
+    /// for the customer-facing description of specific shipping services.
     /// </summary>
-    public class ImageObject : MediaObject
+    public class ShippingService : StructuredValue
     {
         /// <summary>
-        /// Text - The caption for this object.
+        /// Text - Indicates when shipping to a particular fulfillmentDestination is not available.
         /// </summary>
-        [JsonProperty("caption")]
-        public string Caption { get; set; }
-
-        object exifData;
-        /// <summary>
-        /// Text  or PropertyValue exif data for this object.
-        /// </summary>
-        [JsonProperty("exifData")]
-        public object ExifData
-        {
-            get { return exifData; }
-            set
-            {
-                var validator = new TypeValidator(typeof(String), typeof(PropertyValue));
-                validator.Validate(value);
-                exifData = value;
-            }
-        }
+        [JsonProperty("fulfillmentType")]
+        public string FulfillmentType { get; set; }
 
         /// <summary>
-        /// Boolean - Indicates whether this image is representative of the content of the page.
+        /// ShippingConditions - Conditions associated with a ShippingDeliveryTime.
         /// </summary>
-        [JsonProperty("representativeOfPage")]
-        public bool? RepresentativeOfPage { get; set; }
+        [JsonProperty("shippingConditions")]
+        public string ShippingConditions { get; set; }
 
         /// <summary>
-        /// Text - Represents textual captioning from a MediaObject, e.g. text of a 'meme'.
+        /// QuantitativeValue - The typical delay the order has been sent for delivery and the goods reach the final customer.
         /// </summary>
-        [JsonProperty("embeddedTextCaption")]
-        public string EmbeddedTextCaption { get; set; }
+        [JsonProperty("handlingTime")]
+        public QuantitativeValue HandlingTime { get; set; }
+
+        /// <summary>
+        /// MemberProgramTier - The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy) is valid for.
+        /// </summary>
+        [JsonProperty("validForMemberTier")]
+        public MemberProgramTier ValidForMemberTier { get; set; }
     }
 }

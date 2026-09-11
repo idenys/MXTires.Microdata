@@ -49,12 +49,18 @@ namespace MXTires.Microdata.LocalBusinesses.MedicalOrganizations
         /// Hospital - A hospital with which the physician or office is affiliated.
         /// </summary>
         [JsonProperty("hospitalAffiliation")]
-        public Hospital hospitalAffiliation { get; set; }	
-        
-         /// <summary>
-        /// MedicalSpecialty - A medical specialty of the provider.
+        public Hospital hospitalAffiliation { get; set; }
+
+        /// <summary>
+        /// CategoryCode or Text - A category describing the job, preferably using a term from a taxonomy such as BLS O*NET-SOC.
         /// </summary>
-        [JsonProperty("medicalSpecialty")]
-        public object MedicalSpecialty { get; set; }	
+        [JsonProperty("occupationalCategory")]
+        public string OccupationalCategory { get; set; }
+
+        /// <summary>
+        /// Text - A National Provider Identifier (NPI) is a unique 10-digit identification number issued to health care providers in the United States by the Centers for Medicare and Medicaid Services (CMS).
+        /// </summary>
+        [JsonProperty("usNPI")]
+        public string UsNPI { get; set; }
     }
 }

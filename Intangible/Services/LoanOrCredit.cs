@@ -24,6 +24,7 @@
 #endregion
 
 using System;
+using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
@@ -41,10 +42,46 @@ namespace MXTires.Microdata.Intangible.Services
         public object Amount { get; set; }
 
         /// <summary>
+        /// Text - The currency in which the monetary amount is expressed (in 3-letter ISO 4217 format).
+        /// </summary>
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Duration - A grace period is the window during which the borrower can make payments that are not yet due without incurring late fees.
+        /// </summary>
+        [JsonProperty("gracePeriod")]
+        public Duration GracePeriod { get; set; }
+
+        /// <summary>
+        /// RepaymentSpecification - A form of paying back money previously borrowed from a lender, usually in form of periodical payments.
+        /// </summary>
+        [JsonProperty("loanRepaymentForm")]
+        public string LoanRepaymentForm { get; set; }
+
+        /// <summary>
+        /// Text or URL - The type of a loan or credit.
+        /// </summary>
+        [JsonProperty("loanType")]
+        public string LoanType { get; set; }
+
+        /// <summary>
         /// QuantitativeValue - The duration of the loan or credit agreement.
         /// </summary>
         [JsonProperty("loanTerm")]
         public QuantitativeValue LoanTerm { get; set; }
+
+        /// <summary>
+        /// Boolean - The only way you can then collect on the loan is through possession or repossession of the collateral.
+        /// </summary>
+        [JsonProperty("recourseLoan")]
+        public bool? RecourseLoan { get; set; }
+
+        /// <summary>
+        /// Boolean - Whether the terms for payment of interest can be renegotiated during the life of the loan.
+        /// </summary>
+        [JsonProperty("renegotiableLoan")]
+        public bool? RenegotiableLoan { get; set; }
 
         object requiredCollateral;
         /// <summary>

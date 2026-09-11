@@ -38,6 +38,11 @@ namespace MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications
         /// </summary>
         [JsonProperty("priceComponent")]
         public UnitPriceSpecification PriceComponent { get; set; }
-        
+
+        /// <summary>
+        /// PriceTypeEnumeration or Text - A short text or acronym indicating multiple price specifications for the same offer, e.g. SRP for the suggested retail price or INVOICE for the invoice price, mostly used in the car industry.
+        /// </summary>
+        [JsonProperty("priceType")]
+        public string PriceType { get; set; }
     }
 }

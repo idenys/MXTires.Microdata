@@ -136,6 +136,12 @@ namespace MXTires.Microdata
         public Place ContainedIn { get; set; }
 
         /// <summary>
+        /// Text - The floor level for an accommodation in a multi-storey building.
+        /// </summary>
+        [JsonProperty("floorLevel")]
+        public string FloorLevel { get; set; }
+
+        /// <summary>
         /// ImageObject  or URL - An associated logo.
         /// </summary>
         [JsonProperty("logo")]

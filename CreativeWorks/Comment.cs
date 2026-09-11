@@ -45,6 +45,12 @@ namespace MXTires.Microdata
         public Question ParentItem { get; set; }
 
         /// <summary>
+        /// CreativeWork - A CreativeWork such as an image, video, or audio clip shared as part of this posting.
+        /// </summary>
+        [JsonProperty("sharedContent")]
+        public CreativeWork SharedContent { get; set; }
+
+        /// <summary>
         /// Integer - The number of upvotes this question has received from the community.
         /// </summary>
         [JsonProperty("upvoteCount")]

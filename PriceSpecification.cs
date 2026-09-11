@@ -121,7 +121,14 @@ namespace MXTires.Microdata
         /// <value>The eligible member tier.</value>
         [JsonProperty("eligibleMemberTier")]
         public MemberProgramTier EligibleMemberTier { get; set; }
-        
+
+        /// <summary>
+        /// MemberProgramTier - The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails,
+        /// or MerchantReturnPolicy under an Offer) is valid for. This is the current schema.org name for eligibleMemberTier.
+        /// </summary>
+        [JsonProperty("validForMemberTier")]
+        public MemberProgramTier ValidForMemberTier { get; set; }
+
         /// <summary>
         /// The date when the item becomes valid.
         /// </summary>

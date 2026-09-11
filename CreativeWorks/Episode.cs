@@ -145,12 +145,5 @@ namespace MXTires.Microdata.CreativeWorks
             get;
             set;
         }
-
-        /// <summary>
-        /// A flag to signal that the publication is accessible for free.
-        /// </summary>
-        [JsonProperty("isAccessibleForFree")]
-        public Boolean? IsAccessibleForFree { get; set; }
-
     }
 }

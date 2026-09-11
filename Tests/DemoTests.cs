@@ -7,6 +7,14 @@ using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Events;
+using MXTires.Microdata.Actions.MoveActions;
+using MXTires.Microdata.Actions.TradeActions;
+using MXTires.Microdata.Intangible.Quantities;
+using MXTires.Microdata.Intangible.Services;
+using MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications;
+using MXTires.Microdata.LocalBusinesses.MedicalOrganizations;
+using MXTires.Microdata.Organizations.PerformingGroups;
+using MXTires.Microdata.Places;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
@@ -40,7 +48,7 @@ namespace MXTires.Microdata.Tests
             var org = new Organization()
             {
                 Name = "My Test Organization",
-                Addresses = new List<PostalAddress>()
+                Addresses = new List<object>()
                 {
                     new PostalAddress()
                     {
@@ -280,8 +288,582 @@ namespace MXTires.Microdata.Tests
             Assert.AreSame(specifications, offer.PriceSpecification);
         }
 
+        [TestMethod]
+        public void ThingSubjectOfAcceptsEvent()
+        {
+            var thing = new Product();
+            var subjectEvent = new Event { Name = "Launch Event" };
+
+            thing.SubjectOf = subjectEvent;
+
+            Assert.AreSame(subjectEvent, thing.SubjectOf);
+        }
+
+        [TestMethod]
+        public void ThingOwnerAcceptsOrganizationAndPerson()
+        {
+            var thing = new Product();
+            var org = new Organization { Name = "1010Tires.com" };
+
+            thing.Owner = org;
+            Assert.AreSame(org, thing.Owner);
+
+            var person = new Person { Name = "Some Guy" };
+            thing.Owner = person;
+            Assert.AreSame(person, thing.Owner);
+        }
+
+        [TestMethod]
+        public void ThingOwnerRejectsInvalidTypes()
+        {
+            var thing = new Product();
+
+            Assert.ThrowsExactly<ArgumentException>(() => thing.Owner = "not an owner");
+        }
+
+        [TestMethod]
+        public void ActionProviderAcceptsOrganizationAndPerson()
+        {
+            var action = new Action();
+            var provider = new Organization { Name = "1010Tires.com" };
+
+            action.Provider = provider;
+
+            Assert.AreSame(provider, action.Provider);
+        }
+
+        [TestMethod]
+        public void ActionLocationAcceptsPlacePostalAddressTextAndVirtualLocation()
+        {
+            var action = new Action();
+
+            action.Location = new Place { Name = "Venue" };
+            Assert.IsInstanceOfType(action.Location, typeof(Place));
+
+            action.Location = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+            Assert.IsInstanceOfType(action.Location, typeof(PostalAddress));
+
+            action.Location = "Online";
+            Assert.AreEqual("Online", action.Location);
+
+            var virtualLocation = new VirtualLocation();
+            action.Location = virtualLocation;
+            Assert.AreSame(virtualLocation, action.Location);
+        }
+
+        [TestMethod]
+        public void ActionLocationRejectsInvalidTypes()
+        {
+            var action = new Action();
+
+            Assert.ThrowsExactly<ArgumentException>(() => action.Location = 42);
+        }
+
+        [TestMethod]
+        public void CreativeWorkIsBasedOnAcceptsCreativeWorkProductAndText()
+        {
+            var work = new Article();
+
+            var basis = new Article { Name = "Original" };
+            work.IsBasedOn = basis;
+            Assert.AreSame(basis, work.IsBasedOn);
+
+            var product = new Product { Name = "Kit" };
+            work.IsBasedOn = product;
+            Assert.AreSame(product, work.IsBasedOn);
+
+            work.IsBasedOn = "http://example.com/original";
+            Assert.AreEqual("http://example.com/original", work.IsBasedOn);
+        }
+
+        [TestMethod]
+        public void CreativeWorkIsBasedOnRejectsInvalidTypes()
+        {
+            var work = new Article();
+
+            Assert.ThrowsExactly<ArgumentException>(() => work.IsBasedOn = 42);
+        }
+
+        [TestMethod]
+        public void CreativeWorkSizeAcceptsQuantitativeValueAndText()
+        {
+            var work = new Article();
+
+            work.Size = "XL";
+            Assert.AreEqual("XL", work.Size);
+
+            var quantitativeValue = new QuantitativeValue { Value = 10, UnitCode = "CMT" };
+            work.Size = quantitativeValue;
+            Assert.AreSame(quantitativeValue, work.Size);
+        }
+
+        [TestMethod]
+        public void CreativeWorkFunderAndFundingAcceptDocumentedTypes()
+        {
+            var work = new Article();
+            var funder = new Organization { Name = "Funding Org" };
+
+            work.Funder = funder;
+            Assert.AreSame(funder, work.Funder);
+
+            var grant = new Grant { Funder = funder };
+            work.Funding = grant;
+            Assert.AreSame(grant, work.Funding);
+        }
+
+        [TestMethod]
+        public void OrganizationAreaServedAcceptsDocumentedTypes()
+        {
+            var org = new Organization();
+
+            org.AreaServed = "Worldwide";
+            Assert.AreEqual("Worldwide", org.AreaServed);
+
+            var place = new Place { Name = "Vancouver" };
+            org.AreaServed = place;
+            Assert.AreSame(place, org.AreaServed);
+        }
+
+        [TestMethod]
+        public void OrganizationAreaServedRejectsInvalidTypes()
+        {
+            var org = new Organization();
+
+            Assert.ThrowsExactly<ArgumentException>(() => org.AreaServed = 42);
+        }
+
+        [TestMethod]
+        public void OrganizationKnowsAboutAcceptsThingAndText()
+        {
+            var org = new Organization();
+
+            org.KnowsAbout = "Tires";
+            Assert.AreEqual("Tires", org.KnowsAbout);
+
+            var topic = new Product { Name = "All-season tires" };
+            org.KnowsAbout = topic;
+            Assert.AreSame(topic, org.KnowsAbout);
+        }
+
+        [TestMethod]
+        public void OrganizationSponsorAcceptsOrganizationAndPerson()
+        {
+            var org = new Organization();
+            var sponsor = new Person { Name = "Some Guy" };
+
+            org.Sponsor = sponsor;
+
+            Assert.AreSame(sponsor, org.Sponsor);
+        }
+
+        [TestMethod]
+        public void OrganizationAcceptedPaymentMethodAcceptsEnum()
+        {
+            var org = new Organization
+            {
+                AcceptedPaymentMethod = PaymentMethod.VisaCheckout | PaymentMethod.PayPal
+            };
+
+            Assert.AreEqual(PaymentMethod.VisaCheckout | PaymentMethod.PayPal, org.AcceptedPaymentMethod);
+        }
+
+        [TestMethod]
+        public void PlaceContainmentAndTopologyPropertiesRoundTrip()
+        {
+            var place = new Place { Name = "Store" };
+            var container = new Place { Name = "Mall" };
+            var contained = new Place { Name = "Kiosk" };
+
+            place.ContainedInPlace = container;
+            place.ContainsPlace = contained;
+            place.GeoWithin = container;
+
+            Assert.AreSame(container, place.ContainedInPlace);
+            Assert.AreSame(contained, place.ContainsPlace);
+            Assert.AreSame(container, place.GeoWithin);
+        }
+
+        [TestMethod]
+        public void PlaceHasCertificationAndAmenityFeature()
+        {
+            var place = new Place { Name = "Hotel" };
+            var certification = new Certification { Name = "ISO 9001" };
+            var amenity = new LocationFeatureSpecification("Free WiFi", true, null, null, null);
+
+            place.HasCertification = certification;
+            place.AmenityFeature = new List<LocationFeatureSpecification> { amenity };
+
+            Assert.AreSame(certification, place.HasCertification);
+            Assert.AreEqual(1, place.AmenityFeature.Count);
+            Assert.AreSame(amenity, place.AmenityFeature[0]);
+        }
+
+        [TestMethod]
+        public void ProductIsVariantOfAcceptsProductModelAndText()
+        {
+            var product = new Product();
+
+            product.IsVariantOf = "https://example.com/models/base-model";
+            Assert.AreEqual("https://example.com/models/base-model", product.IsVariantOf);
+
+            var model = new ProductModel { Name = "Base Model" };
+            product.IsVariantOf = model;
+            Assert.AreSame(model, product.IsVariantOf);
+        }
+
+        [TestMethod]
+        public void ProductNegativeAndPositiveNotesAcceptDocumentedTypes()
+        {
+            var product = new Product();
+
+            product.PositiveNotes = "Great value";
+            Assert.AreEqual("Great value", product.PositiveNotes);
+
+            var notes = new ItemList();
+            product.NegativeNotes = notes;
+            Assert.AreSame(notes, product.NegativeNotes);
+        }
+
+        [TestMethod]
+        public void ProductNegativeNotesRejectsInvalidTypes()
+        {
+            var product = new Product();
+
+            Assert.ThrowsExactly<ArgumentException>(() => product.NegativeNotes = 42);
+        }
+
+        [TestMethod]
+        public void ProductColorSwatchAndCertification()
+        {
+            var product = new Product();
+            var certification = new Certification { Name = "Energy Star" };
+
+            product.ColorSwatch = "https://example.com/swatch.png";
+            product.HasCertification = certification;
+
+            Assert.AreEqual("https://example.com/swatch.png", product.ColorSwatch);
+            Assert.AreSame(certification, product.HasCertification);
+        }
+
+        [TestMethod]
+        public void OfferOfferedByAcceptsOrganizationAndPerson()
+        {
+            var offer = new Offer();
+            var offeredBy = new Organization { Name = "1010Tires.com" };
+
+            offer.OfferedBy = offeredBy;
+
+            Assert.AreSame(offeredBy, offer.OfferedBy);
+        }
+
+        [TestMethod]
+        public void OfferLeaseLengthAcceptsDurationAndQuantitativeValue()
+        {
+            var offer = new Offer();
+            var quantitativeValue = new QuantitativeValue { Value = 12, UnitCode = "MON" };
+
+            offer.LeaseLength = quantitativeValue;
+
+            Assert.AreSame(quantitativeValue, offer.LeaseLength);
+        }
+
+        [TestMethod]
+        public void OfferLeaseLengthRejectsInvalidTypes()
+        {
+            var offer = new Offer();
+
+            Assert.ThrowsExactly<ArgumentException>(() => offer.LeaseLength = "12 months");
+        }
+
+        [TestMethod]
+        public void OfferAreaServedAndAdditionalPropertyAcceptDocumentedTypes()
+        {
+            var offer = new Offer();
+            var place = new Place { Name = "Vancouver" };
+            var property = new PropertyValue("warranty", "1 year");
+
+            offer.AreaServed = place;
+            offer.AdditionalProperty = property;
+
+            Assert.AreSame(place, offer.AreaServed);
+            Assert.AreSame(property, offer.AdditionalProperty);
+        }
+
+        [TestMethod]
+        public void PersonHeightGetterReturnsItsOwnValueNotWorkLocation()
+        {
+            var person = new Person();
+            var workLocation = new Place { Name = "Office" };
+            var height = new QuantitativeValue { Value = 180, UnitCode = "CMT" };
+
+            person.WorkLocation = workLocation;
+            person.Height = height;
+
+            Assert.AreSame(height, person.Height);
+            Assert.AreSame(workLocation, person.WorkLocation);
+        }
+
+        [TestMethod]
+        public void PersonSponsorGetterReturnsItsOwnValueNotHomeLocation()
+        {
+            var person = new Person();
+            var homeLocation = new Place { Name = "Home" };
+            var sponsor = new Organization { Name = "Sponsor Inc" };
+
+            person.HomeLocation = homeLocation;
+            person.Sponsor = sponsor;
+
+            Assert.AreSame(sponsor, person.Sponsor);
+            Assert.AreSame(homeLocation, person.HomeLocation);
+        }
+
+        [TestMethod]
+        public void PersonAddressAcceptsPostalAddress()
+        {
+            var person = new Person();
+            var address = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+
+            person.Address = address;
+
+            Assert.AreSame(address, person.Address);
+        }
+
+        [TestMethod]
+        public void PersonHasCertificationHasCredentialAndHasOccupation()
+        {
+            var person = new Person();
+            var certification = new Certification { Name = "First Aid" };
+            var credential = new Credential { Name = "PhD" };
+            var occupation = new Occupation { OccupationalCategory = "Software Engineer" };
+
+            person.HasCertification = certification;
+            person.HasCredential = credential;
+            person.HasOccupation = occupation;
+
+            Assert.AreSame(certification, person.HasCertification);
+            Assert.AreSame(credential, person.HasCredential);
+            Assert.AreSame(occupation, person.HasOccupation);
+        }
+
+        [TestMethod]
+        public void PersonKnowsAboutAcceptsThingAndText()
+        {
+            var person = new Person();
+
+            person.KnowsAbout = "Tires";
+            Assert.AreEqual("Tires", person.KnowsAbout);
+
+            var topic = new Product { Name = "All-season tires" };
+            person.KnowsAbout = topic;
+            Assert.AreSame(topic, person.KnowsAbout);
+        }
+
+        [TestMethod]
+        public void JobPostingJobDurationAcceptsDurationAndQuantitativeValue()
+        {
+            var posting = new JobPosting();
+            var quantitativeValue = new QuantitativeValue { Value = 6, UnitCode = "MON" };
+
+            posting.JobDuration = quantitativeValue;
+
+            Assert.AreSame(quantitativeValue, posting.JobDuration);
+        }
+
+        [TestMethod]
+        public void JobPostingRelevantOccupationAcceptsOccupation()
+        {
+            var posting = new JobPosting();
+            var occupation = new Occupation { OccupationalCategory = "Software Engineer" };
+
+            posting.RelevantOccupation = occupation;
+
+            Assert.AreSame(occupation, posting.RelevantOccupation);
+        }
+
+        [TestMethod]
+        public void AccommodationBedAndLeaseLengthAcceptDocumentedTypes()
+        {
+            var accommodation = new Accommodation();
+            var bed = new BedDetails();
+
+            accommodation.Bed = bed;
+            accommodation.LeaseLength = new QuantitativeValue { Value = 12, UnitCode = "MON" };
+            accommodation.NumberOfBedrooms = 3;
+
+            Assert.AreSame(bed, accommodation.Bed);
+            Assert.IsInstanceOfType(accommodation.LeaseLength, typeof(QuantitativeValue));
+            Assert.AreEqual(3, accommodation.NumberOfBedrooms);
+        }
+
+        [TestMethod]
+        public void ReviewNegativeAndPositiveNotesAcceptDocumentedTypes()
+        {
+            var review = new Review();
+
+            review.NegativeNotes = "Too expensive";
+            review.PositiveNotes = new ItemList();
+
+            Assert.AreEqual("Too expensive", review.NegativeNotes);
+            Assert.IsInstanceOfType(review.PositiveNotes, typeof(ItemList));
+        }
+
+        [TestMethod]
+        public void MusicGroupTrackAcceptsItemListAndMusicRecording()
+        {
+            var group = new MusicGroup();
+            var recording = new MusicRecording { Name = "Track 1" };
+
+            group.Track = recording;
+
+            Assert.AreSame(recording, group.Track);
+        }
+
+        [TestMethod]
+        public void MusicGroupTrackRejectsInvalidTypes()
+        {
+            var group = new MusicGroup();
+
+            Assert.ThrowsExactly<ArgumentException>(() => group.Track = "not a track");
+        }
+
+        [TestMethod]
+        public void BroadcastServiceHasBroadcastChannel()
+        {
+            var service = new BroadcastService();
+            var channel = new BroadcastChannel();
+
+            service.HasBroadcastChannel = channel;
+
+            Assert.AreSame(channel, service.HasBroadcastChannel);
+        }
+
+        [TestMethod]
+        public void VehiclePropertiesSerializeUnderCorrectJsonKeys()
+        {
+            var vehicle = new Vehicle
+            {
+                NumberOfAirbags = "6",
+                VehicleIdentificationNumber = "1FTFW1ET1EFA00001",
+                VehicleSeatingCapacity = 5
+            };
+
+            var json = JObject.Parse(vehicle.ToString());
+
+            Assert.AreEqual("6", (string)json["numberOfAirbags"]);
+            Assert.AreEqual("1FTFW1ET1EFA00001", (string)json["vehicleIdentificationNumber"]);
+            Assert.AreEqual(5, (int)json["vehicleSeatingCapacity"]);
+            Assert.IsNull(json["NumberOfAirbags"]);
+            Assert.IsNull(json["VehicleEngine"]);
+            Assert.IsNull(json["seatingCapacity"]);
+        }
+
+        [TestMethod]
+        public void PaymentCardCashBackAndFloorLimitAcceptDocumentedTypes()
+        {
+            var card = new PaymentCard();
+            var floorLimit = new MonetaryAmount { Currency = "USD", Value = 50 };
+
+            card.CashBack = true;
+            card.FloorLimit = floorLimit;
+
+            Assert.AreEqual(true, card.CashBack);
+            Assert.AreSame(floorLimit, card.FloorLimit);
+        }
+
+        [TestMethod]
+        public void MemberProgramTierMembershipPointsEarnedAcceptsNumberAndQuantitativeValue()
+        {
+            var tier = new MemberProgramTier();
+
+            tier.MembershipPointsEarned = 100;
+            Assert.AreEqual(100, tier.MembershipPointsEarned);
+
+            var points = new QuantitativeValue { Value = 100, UnitCode = "miles" };
+            tier.MembershipPointsEarned = points;
+            Assert.AreSame(points, tier.MembershipPointsEarned);
+        }
+
+        [TestMethod]
+        public void DietEndorsersAcceptsOrganizationAndPerson()
+        {
+            var diet = new Diet();
+            var endorser = new Organization { Name = "Health Org" };
+
+            diet.Endorsers = endorser;
+
+            Assert.AreSame(endorser, diet.Endorsers);
+        }
+
+        [TestMethod]
+        public void CourseInstanceCourseModeSerializesUnderCorrectKey()
+        {
+            var instance = new CourseInstance { CourseMode = "online" };
+
+            var json = JObject.Parse(instance.ToString());
+
+            Assert.AreEqual("online", (string)json["courseMode"]);
+            Assert.IsNull(json["coursePrerequisites"]);
+        }
+
+        [TestMethod]
+        public void OrderItemPropertiesSerializeUnderDistinctKeys()
+        {
+            var item = new OrderItem
+            {
+                OrderItemNumber = "123",
+                OrderItemStatus = MXTires.Microdata.Intangible.Enumeration.OrderStatus.OrderDelivered,
+                OrderQuantity = 2
+            };
+
+            var json = JObject.Parse(item.ToString());
+
+            Assert.AreEqual("123", (string)json["orderItemNumber"]);
+            Assert.AreEqual("OrderDelivered", (string)json["orderItemStatus"]);
+            Assert.AreEqual(2, (int)json["orderQuantity"]);
+        }
+
+        [TestMethod]
+        public void BlogPostSerializesUnderCorrectKey()
+        {
+            var blog = new Blog { BlogPost = new BlogPosting { Name = "Hello World" } };
+
+            var json = JObject.Parse(blog.ToString());
+
+            Assert.IsNotNull(json["blogPost"]);
+            Assert.AreEqual("Hello World", (string)json["blogPost"]["name"]);
+            Assert.IsNull(json["BlogPost"]);
+        }
+
+        [TestMethod]
+        public void InteractionCounterLocationAndInteractionServiceAcceptDocumentedTypes()
+        {
+            var counter = new InteractionCounter();
+            var place = new Place { Name = "Store" };
+
+            counter.Location = place;
+            counter.InteractionService = new WebSite();
+
+            Assert.AreSame(place, counter.Location);
+            Assert.IsInstanceOfType(counter.InteractionService, typeof(WebSite));
+        }
+
+        [TestMethod]
+        public void MedicalOrganizationPropertiesRoundTrip()
+        {
+            var org = new MedicalOrganization
+            {
+                HealthPlanNetworkId = "NET-1",
+                IsAcceptingNewPatients = true,
+                MedicalSpecialty = MXTires.Microdata.Intangible.Enumeration.MedicalSpecialty.Cardiovascular
+            };
+
+            Assert.AreEqual("NET-1", org.HealthPlanNetworkId);
+            Assert.AreEqual(true, org.IsAcceptingNewPatients);
+            Assert.AreEqual(MXTires.Microdata.Intangible.Enumeration.MedicalSpecialty.Cardiovascular, org.MedicalSpecialty);
+        }
+
         /// <summary>
-        /// BreadcrumbList to JSON-LD 
+        /// BreadcrumbList to JSON-LD
         /// </summary>
         [TestMethod]
         public void BreadcrumbListTest()
@@ -627,6 +1209,132 @@ namespace MXTires.Microdata.Tests
 
 
             System.Diagnostics.Debug.Write(shop.ToIndentedJson());
+        }
+
+        [TestMethod]
+        public void ChooseActionOptionSerializesUnderCorrectKey()
+        {
+            var action = new ChooseAction { Option = "red pill" };
+
+            var json = JObject.Parse(action.ToString());
+
+            Assert.AreEqual("red pill", (string)json["actionOption"]);
+            Assert.IsNull(json["option"]);
+        }
+
+        [TestMethod]
+        public void BedDetailsTypeOfBedSerializesUnderCorrectKey()
+        {
+            var bed = new BedDetails { typeOfBed = "King", NumberOfBeds = 2 };
+
+            var json = JObject.Parse(bed.ToString());
+
+            Assert.AreEqual("King", (string)json["typeOfBed"]);
+            Assert.AreEqual(2, (int)json["numberOfBeds"]);
+        }
+
+        [TestMethod]
+        public void AudienceGeographicAreaSerializesUnderCorrectKey()
+        {
+            var audience = new Audience { AdministrativeArea = new AdministrativeArea { Name = "British Columbia" } };
+
+            var json = JObject.Parse(audience.ToString());
+
+            Assert.IsNotNull(json["geographicArea"]);
+            Assert.IsNull(json["administrativeArea"]);
+        }
+
+        [TestMethod]
+        public void NutritionInformationSugarContentSerializesUnderCorrectKey()
+        {
+            var nutrition = new NutritionInformation { SugarContent = new Mass { Name = "10g sugar" } };
+
+            var json = JObject.Parse(nutrition.ToString());
+
+            Assert.IsNotNull(json["sugarContent"]);
+            Assert.IsNull(json["occupancy"]);
+        }
+
+        [TestMethod]
+        public void TravelActionDistanceIsPublicAndSerializes()
+        {
+            var action = new TravelAction { Distance = new Distance { Name = "5 km" } };
+
+            var json = JObject.Parse(action.ToString());
+
+            Assert.IsNotNull(json["distance"]);
+        }
+
+        [TestMethod]
+        public void HowToStepAcceptsDocumentedTypes()
+        {
+            var howTo = new HowTo();
+
+            howTo.Step = "Preheat the oven";
+            Assert.AreEqual("Preheat the oven", howTo.Step);
+        }
+
+        [TestMethod]
+        public void CompoundPriceSpecificationPriceTypeRoundTrips()
+        {
+            var spec = new CompoundPriceSpecification { PriceType = "SRP" };
+
+            Assert.AreEqual("SRP", spec.PriceType);
+        }
+
+        [TestMethod]
+        public void PersonAddressAcceptsPostalAddressAndText()
+        {
+            var person = new Person();
+            var address = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+
+            person.Address = address;
+            Assert.AreSame(address, person.Address);
+
+            person.Address = "PO Box 42";
+            Assert.AreEqual("PO Box 42", person.Address);
+        }
+
+        [TestMethod]
+        public void PersonAddressRejectsInvalidTypes()
+        {
+            var person = new Person();
+
+            Assert.ThrowsExactly<ArgumentException>(() => person.Address = 42);
+        }
+
+        [TestMethod]
+        public void OrganizationAddressAcceptsPostalAddressAndText()
+        {
+            var org = new Organization();
+
+            org.Address = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+            org.Address = "PO Box 42";
+
+            Assert.AreEqual(2, org.Addresses.Count);
+            Assert.IsInstanceOfType(org.Addresses[0], typeof(PostalAddress));
+            Assert.AreEqual("PO Box 42", org.Addresses[1]);
+        }
+
+        [TestMethod]
+        public void OrganizationAddressRejectsInvalidTypes()
+        {
+            var org = new Organization();
+
+            Assert.ThrowsExactly<ArgumentException>(() => org.Address = 42);
+        }
+
+        [TestMethod]
+        public void PlaceAddressAcceptsPostalAddressAndText()
+        {
+            var place = new Place();
+
+            place.Address = new PostalAddress { StreetAddress = "123 Somewhere Road" };
+            place.Address = "PO Box 42";
+
+            Assert.AreEqual(2, place.Addresses.Count);
+            Assert.IsInstanceOfType(place.Addresses[0], typeof(PostalAddress));
+            Assert.AreEqual("PO Box 42", place.Addresses[1]);
         }
     }
 }

@@ -47,5 +47,11 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("aggregateRating")]
         public AggregateRating AggregateRating { get; set; }
+
+        /// <summary>
+        /// Text - A slogan or motto associated with the item.
+        /// </summary>
+        [JsonProperty("slogan")]
+        public string Slogan { get; set; }
     }
 }

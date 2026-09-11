@@ -63,15 +63,6 @@ namespace MXTires.Microdata.CreativeWorks
 		}
 
 		/// <summary>
-		/// Country - The country of the principal offices of the production company or individual responsible for the movie or program.
-		/// </summary>
-		[JsonProperty("countryOfOrigin")]
-		public Country CountryOfOrigin
-		{
-			get; set;
-		}
-
-		/// <summary>
 		/// Person - A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip. Supersedes <see cref="Directors"/>.
 		/// </summary>
 		[JsonProperty("director")]
@@ -151,5 +142,11 @@ namespace MXTires.Microdata.CreativeWorks
 		{
 			get; set;
 		}
+
+		/// <summary>
+		/// Text or URL - An EIDR (Entertainment Identifier Registry) identifier representing at the most general/abstract level, a work of film or television.
+		/// </summary>
+		[JsonProperty("titleEIDR")]
+		public string TitleEIDR { get; set; }
 	}
 }

@@ -44,13 +44,50 @@ namespace MXTires.Microdata.CreativeWorks
         [JsonProperty("dietFeatures")]
         public string DietFeatures {get;set;}
 
-	
-//endorsers	Person  or 
-//Organization 	People or organizations that endorse the plan.
-//expertConsiderations	Text 	Medical expert advice related to the plan.
-//overview	Text 	Descriptive information establishing the overarching theory/philosophy of the plan. May include the rationale for the name, the population where the plan first came to prominence, etc.
-//physiologicalBenefits	Text 	Specific physiologic benefits associated to the plan.
-//proprietaryName	Text 	Proprietary name given to the diet plan, typically by its originator or creator.
-//risks	Text 	Specific physiologic risks associated to the plan.
+        Thing endorsers;
+        /// <summary>
+        /// Person or Organization - People or organizations that endorse the plan.
+        /// </summary>
+        [JsonProperty("endorsers")]
+        public Thing Endorsers
+        {
+            get { return endorsers; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Organization), typeof(Person));
+                validator.Validate(value);
+                endorsers = value;
+            }
+        }
+
+        /// <summary>
+        /// Text - Medical expert advice related to the plan.
+        /// </summary>
+        [JsonProperty("expertConsiderations")]
+        public string ExpertConsiderations { get; set; }
+
+        /// <summary>
+        /// Text - Descriptive information establishing the overarching theory/philosophy of the plan. May include the rationale for the name, the population where the plan first came to prominence, etc.
+        /// </summary>
+        [JsonProperty("overview")]
+        public string Overview { get; set; }
+
+        /// <summary>
+        /// Text - Specific physiologic benefits associated to the plan.
+        /// </summary>
+        [JsonProperty("physiologicalBenefits")]
+        public string PhysiologicalBenefits { get; set; }
+
+        /// <summary>
+        /// Text - Proprietary name given to the diet plan, typically by its originator or creator.
+        /// </summary>
+        [JsonProperty("proprietaryName")]
+        public string ProprietaryName { get; set; }
+
+        /// <summary>
+        /// Text - Specific physiologic risks associated to the plan.
+        /// </summary>
+        [JsonProperty("risks")]
+        public string Risks { get; set; }
     }
 }

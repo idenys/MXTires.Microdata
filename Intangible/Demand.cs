@@ -46,6 +46,12 @@ namespace MXTires.Microdata.Intangible
         public PaymentMethod AcceptedPaymentMethod { get; set; }
 
         /// <summary>
+        /// Text or URL - An Amazon Standard Identification Number (ASIN) is a 10-character alphanumeric unique identifier assigned by Amazon.com and its partners for product identification within the Amazon organization.
+        /// </summary>
+        [JsonProperty("asin")]
+        public string Asin { get; set; }
+
+        /// <summary>
         /// QuantitativeValue - The amount of time that is required between accepting the offer and the actual usage of the resource or service.
         /// </summary>
         [JsonProperty("advanceBookingRequirement")]
@@ -185,12 +191,18 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("gtin14")]
         public String Gtin14 { get; set; }
-	
+
         /// <summary>
         /// Text - The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See GS1 GTIN Summary for more details.
         /// </summary>
         [JsonProperty("gtin8")]
         public String Gtin8 { get; set; }
+
+        /// <summary>
+        /// Text or URL - A Global Trade Item Number (GTIN). This is the preferred, unified gtin property, superseding gtin8, gtin12, gtin13, and gtin14.
+        /// </summary>
+        [JsonProperty("gtin")]
+        public string Gtin { get; set; }
 
         /// <summary>
         /// TypeAndQuantityNode - This links to a node or nodes indicating the exact quantity of the products included in the offer.
@@ -253,6 +265,12 @@ namespace MXTires.Microdata.Intangible
         public object Seller { get; set; }
 
         /// <summary>
+        /// Text - The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+        /// </summary>
+        [JsonProperty("serialNumber")]
+        public string SerialNumber { get; set; }
+
+        /// <summary>
         ///Text - The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
         /// </summary>
         [JsonProperty("sku")]
@@ -263,6 +281,12 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         [JsonProperty("validFrom")]
         public DateTime? ValidFrom { get; set; }
+
+        /// <summary>
+        /// Date or DateTime - The date after which the price is no longer available.
+        /// </summary>
+        [JsonProperty("validThrough")]
+        public DateTime? ValidThrough { get; set; }
 
         /// <summary>
         /// WarrantyPromise - The warranty promise(s) included in the offer. Supersedes warrantyPromise.

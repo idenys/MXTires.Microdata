@@ -28,6 +28,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.CreativeWorks.MusicPlaylists;
+using MXTires.Microdata.Intangible;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Organizations.PerformingGroups
@@ -37,5 +41,50 @@ namespace MXTires.Microdata.Organizations.PerformingGroups
     /// </summary>
     public class MusicGroup : PerformingGroup
     {
+        /// <summary>
+        /// MusicAlbum - A music album.
+        /// </summary>
+        [JsonProperty("album")]
+        public MusicAlbum Album { get; set; }
+
+        /// <summary>
+        /// MusicAlbum - A collection of music albums.
+        /// </summary>
+        [JsonProperty("albums")]
+        public IList<MusicAlbum> Albums { get; set; }
+
+        /// <summary>
+        /// DefinedTerm, Text, or URL - Genre of the creative work, broadcast channel or group.
+        /// </summary>
+        [JsonProperty("genre")]
+        public string Genre { get; set; }
+
+        /// <summary>
+        /// Person - A member of a music group—for example, John, Paul, George, or Ringo.
+        /// </summary>
+        [JsonProperty("musicGroupMember")]
+        public Person MusicGroupMember { get; set; }
+
+        private object track;
+        /// <summary>
+        /// ItemList or MusicRecording - A music recording (track)—usually a single song. Supersedes tracks.
+        /// </summary>
+        [JsonProperty("track")]
+        public object Track
+        {
+            get { return track; }
+            set
+            {
+                var validator = new TypeValidator(typeof(ItemList), typeof(MusicRecording));
+                validator.Validate(value);
+                track = value;
+            }
+        }
+
+        /// <summary>
+        /// MusicRecording - A music recording (track)—usually a single song. Superseded by track.
+        /// </summary>
+        [JsonProperty("tracks")]
+        public IList<MusicRecording> Tracks { get; set; }
     }
 }

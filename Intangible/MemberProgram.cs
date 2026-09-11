@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 // Copyright (c) 2015 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
@@ -23,20 +23,27 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using MXTires.Microdata.Attributes;
+using System.Collections.Generic;
 using Newtonsoft.Json;
-namespace MXTires.Microdata
+
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// The act of expressing a preference from a set of options or a large or unbounded set of choices/options.
+    /// A MemberProgram defines a loyalty (or membership) program that provides its members with certain benefits,
+    /// for example better pricing, free shipping or returns, or the ability to earn loyalty points.
     /// </summary>
-    public class ChooseAction : AssessAction
+    public class MemberProgram : Thing
     {
         /// <summary>
-        /// Text or Thing - A sub property of object. The options subject to this action.
+        /// Organization - The Organization (airline, travelers' club, retailer, etc.) the membership is made with or which offers the MemberProgram.
         /// </summary>
-        [TypeValidation(typeof(string), typeof(Thing))]
-        [JsonProperty("actionOption")]
-        public object Option { get; set; }
+        [JsonProperty("hostingOrganization")]
+        public Organization HostingOrganization { get; set; }
+
+        /// <summary>
+        /// MemberProgramTier - The tiers of a member program.
+        /// </summary>
+        [JsonProperty("hasTiers")]
+        public IList<MemberProgramTier> HasTiers { get; set; }
     }
 }

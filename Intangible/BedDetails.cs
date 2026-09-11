@@ -58,7 +58,7 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// Text - The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity
         /// </summary>
-        [JsonProperty("numberOfBeds")]
-        public String typeOfBed { get; set; }	
+        [JsonProperty("typeOfBed")]
+        public String typeOfBed { get; set; }
     }
 }

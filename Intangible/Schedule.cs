@@ -45,10 +45,16 @@ namespace MXTires.Microdata.Intangible
         public object ByMonth { get; set; }
 
         /// <summary>
-        /// Integer - Defines the day(s) of the month on which a recurring Event takes place.Specified as an Integer between 1-31. 
+        /// Integer - Defines the day(s) of the month on which a recurring Event takes place.Specified as an Integer between 1-31.
         /// </summary>
         [JsonProperty("byMonthDay")]
         public object ByMonthDay { get; set; }
+
+        /// <summary>
+        /// Integer - Defines the week(s) of the month on which a recurring Event takes place. Specified as an Integer between 1-5. For clarity, byMonthWeek is best used in conjunction with byDay to indicate concepts like the first and third Mondays of a month.
+        /// </summary>
+        [JsonProperty("byMonthWeek")]
+        public object ByMonthWeek { get; set; }
 
         /// <summary>
         /// Duration - The duration of the item(movie, audio recording, event, etc.) in ISO 8601 date format.
