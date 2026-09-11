@@ -25,6 +25,7 @@
 
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.StructuredValues;
 using System;
@@ -62,10 +63,112 @@ namespace MXTires.Microdata
         }
 
         /// <summary>
+        /// LocationFeatureSpecification - An amenity feature (e.g. a characteristic or service) of the Accommodation.
+        /// </summary>
+        [JsonProperty("amenityFeature")]
+        public List<LocationFeatureSpecification> AmenityFeature { get; set; }
+
+        /// <summary>
+        /// Text - A short textual code (also called "store code") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.
+        /// </summary>
+        [JsonProperty("branchCode")]
+        public string BranchCode { get; set; }
+
+        /// <summary>
+        /// Place - The basic containment relation between a place and one that contains it.
+        /// </summary>
+        [JsonProperty("containedInPlace")]
+        public Place ContainedInPlace { get; set; }
+
+        /// <summary>
+        /// Place - The basic containment relation between a place and another that it contains.
+        /// </summary>
+        [JsonProperty("containsPlace")]
+        public Place ContainsPlace { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry.
+        /// </summary>
+        [JsonProperty("geoContains")]
+        public Place GeoContains { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it.
+        /// </summary>
+        [JsonProperty("geoCoveredBy")]
+        public Place GeoCoveredBy { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry.
+        /// </summary>
+        [JsonProperty("geoCovers")]
+        public Place GeoCovers { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it.
+        /// </summary>
+        [JsonProperty("geoCrosses")]
+        public Place GeoCrosses { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint.
+        /// </summary>
+        [JsonProperty("geoDisjoint")]
+        public Place GeoDisjoint { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents spatial relations in which two geometries (or the places they represent) are topologically equal.
+        /// </summary>
+        [JsonProperty("geoEquals")]
+        public Place GeoEquals { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents spatial relations in which two geometries (or the places they represent) have at least one point in common.
+        /// </summary>
+        [JsonProperty("geoIntersects")]
+        public Place GeoIntersects { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common.
+        /// </summary>
+        [JsonProperty("geoOverlaps")]
+        public Place GeoOverlaps { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one point in common, but their interiors do not intersect.
+        /// </summary>
+        [JsonProperty("geoTouches")]
+        public Place GeoTouches { get; set; }
+
+        /// <summary>
+        /// GeospatialGeometry or Place - Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially contains it, i.e. it is inside (i.e. within) its interior.
+        /// </summary>
+        [JsonProperty("geoWithin")]
+        public Place GeoWithin { get; set; }
+
+        /// <summary>
         /// The location of the event, organization or action.
         /// </summary>
         [JsonProperty("geo")]
         public GeoCoordinates Geo { get; set; }
+
+        /// <summary>
+        /// Certification - Certification information about a product, organization, service, place, or person.
+        /// </summary>
+        [JsonProperty("hasCertification")]
+        public Certification HasCertification { get; set; }
+
+        /// <summary>
+        /// Boolean - Indicates whether some facility (e.g. FoodEstablishment, CovidTestingFacility) offers a service that can be used by driving through in a car.
+        /// </summary>
+        [JsonProperty("hasDriveThroughService")]
+        public bool? HasDriveThroughService { get; set; }
+
+        /// <summary>
+        /// URL - The <a href="https://www.gs1.org/standards/gs1-digital-link">GS1 digital link</a> associated with the object.
+        /// </summary>
+        [JsonProperty("hasGS1DigitalLink")]
+        public string HasGS1DigitalLink { get; set; }
 
         /// <summary>
         /// A URL to a map of the place. Supersedes <see cref="Map" />, <see cref="Maps" />.
@@ -160,10 +263,34 @@ namespace MXTires.Microdata
         public string IsicV4 { get; set; }
 
         /// <summary>
+        /// DefinedTerm, Text, or URL - Keywords or tags used to describe some item.
+        /// </summary>
+        [JsonProperty("keywords")]
+        public string Keywords { get; set; }
+
+        /// <summary>
+        /// Number or Text - The latitude of a location. For example 37.42242 (WGS 84).
+        /// </summary>
+        [JsonProperty("latitude")]
+        public string Latitude { get; set; }
+
+        /// <summary>
+        /// Number or Text - The longitude of a location. For example -122.08585 (WGS 84).
+        /// </summary>
+        [JsonProperty("longitude")]
+        public string Longitude { get; set; }
+
+        /// <summary>
         /// ImageObject  or URL - An associated logo.
         /// </summary>
         [JsonProperty("logo")]
         public object Logo { get; set; }
+
+        /// <summary>
+        /// Integer - The total number of individuals that may attend an event or venue.
+        /// </summary>
+        [JsonProperty("maximumAttendeeCapacity")]
+        public Int32? MaximumAttendeeCapacity { get; set; }
 
         /// <summary>
         /// Photograph  or ImageObject 	A photograph of this place. Supersedes photos.
@@ -197,9 +324,33 @@ namespace MXTires.Microdata
         public IList<Review> Reviews { get; set; }
 
         /// <summary>
+        /// Text - A slogan or motto associated with the item.
+        /// </summary>
+        [JsonProperty("slogan")]
+        public string Slogan { get; set; }
+
+        /// <summary>
+        /// Boolean - Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room.
+        /// </summary>
+        [JsonProperty("smokingAllowed")]
+        public bool? SmokingAllowed { get; set; }
+
+        /// <summary>
+        /// OpeningHoursSpecification - Special opening hours during, for example, a holiday season, or for a special event.
+        /// </summary>
+        [JsonProperty("specialOpeningHoursSpecification")]
+        public List<OpeningHoursSpecification> SpecialOpeningHoursSpecification { get; set; }
+
+        /// <summary>
         /// Text - The telephone number.
         /// </summary>
         [JsonProperty("telephone")]
         public string Telephone { get; set; }
+
+        /// <summary>
+        /// URL - A page providing information on how to book a tour of some Place, such as an Accommodation or ApartmentComplex in a real estate setting, as well as a Restaurant, Hotel, or Museum.
+        /// </summary>
+        [JsonProperty("tourBookingPage")]
+        public string TourBookingPage { get; set; }
     }
 }

@@ -459,6 +459,37 @@ namespace MXTires.Microdata.Tests
             Assert.AreEqual(PaymentMethod.VisaCheckout | PaymentMethod.PayPal, org.AcceptedPaymentMethod);
         }
 
+        [TestMethod]
+        public void PlaceContainmentAndTopologyPropertiesRoundTrip()
+        {
+            var place = new Place { Name = "Store" };
+            var container = new Place { Name = "Mall" };
+            var contained = new Place { Name = "Kiosk" };
+
+            place.ContainedInPlace = container;
+            place.ContainsPlace = contained;
+            place.GeoWithin = container;
+
+            Assert.AreSame(container, place.ContainedInPlace);
+            Assert.AreSame(contained, place.ContainsPlace);
+            Assert.AreSame(container, place.GeoWithin);
+        }
+
+        [TestMethod]
+        public void PlaceHasCertificationAndAmenityFeature()
+        {
+            var place = new Place { Name = "Hotel" };
+            var certification = new Certification { Name = "ISO 9001" };
+            var amenity = new LocationFeatureSpecification("Free WiFi", true, null, null, null);
+
+            place.HasCertification = certification;
+            place.AmenityFeature = new List<LocationFeatureSpecification> { amenity };
+
+            Assert.AreSame(certification, place.HasCertification);
+            Assert.AreEqual(1, place.AmenityFeature.Count);
+            Assert.AreSame(amenity, place.AmenityFeature[0]);
+        }
+
         /// <summary>
         /// BreadcrumbList to JSON-LD
         /// </summary>
