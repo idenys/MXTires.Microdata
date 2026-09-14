@@ -1,5 +1,5 @@
-﻿#region License
-// Copyright (c) 2015 1010Tires.com
+#region License
+// Copyright (c) 2026 1010Tires.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -23,16 +23,31 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
-namespace MXTires.Microdata.CreativeWorks
+namespace MXTires.Microdata.Intangible
 {
     /// <summary>
-    /// A blog post.
+    /// A SpeakableSpecification indicates (typically via XPath or CSS selectors) 
+    /// sections of a document that are highlighted as particularly appropriate for 
+    /// text-to-speech conversion.
     /// </summary>
-    public class BlogPosting : SocialMediaPosting    {    
-    
+    public class SpeakableSpecification : Thing
+    {
+        /// <summary>
+        /// CssSelectorType - A CSS selector, e.g. of a SpeakableSpecification or WebPageElement. 
+        /// In the context of SpeakableSpecification, either CSS selectors or XPath expressions 
+        /// to indicate language-related content within the section identified.
+        /// </summary>
+        [JsonProperty("cssSelector")]
+        public string CssSelector { get; set; }
+
+        /// <summary>
+        /// XPathType - An XPath, e.g. of a SpeakableSpecification or WebPageElement. 
+        /// In the context of SpeakableSpecification, either CSS selectors or XPath expressions 
+        /// to indicate language-related content within the section identified.
+        /// </summary>
+        [JsonProperty("xpath")]
+        public string Xpath { get; set; }
     }
 }
