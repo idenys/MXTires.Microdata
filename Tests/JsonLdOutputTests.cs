@@ -164,9 +164,9 @@ namespace MXTires.Microdata.Tests
                     {
                         problems.Add($"{type.Name}.{field.Name} => '{uri}'");
                     }
-                    else if (uri.StartsWith("http://schema.org/"))
+                    else if (!uri.StartsWith("https://schema.org/") && !uri.StartsWith("http://purl.org/goodrelations/v1#"))
                     {
-                        problems.Add($"{type.Name}.{field.Name} uses http: '{uri}'");
+                        problems.Add($"{type.Name}.{field.Name} is not a schema.org (https) or GoodRelations URI: '{uri}'");
                     }
                 }
             }
@@ -478,6 +478,23 @@ namespace MXTires.Microdata.Tests
             var action = new TrackAction { DeliveryMethod = DeliveryMethod.UPS };
 
             Assert.AreEqual("http://purl.org/goodrelations/v1#UPS", (string)Json(action)["deliveryMethod"]);
+        }
+
+        [TestMethod]
+        public void WebPageSpecialtyUsesMedicalSpecialty()
+        {
+            var page = new WebPage { Specialty = MedicalSpecialty.Cardiovascular };
+
+            Assert.AreEqual("https://schema.org/Cardiovascular", (string)Json(page)["specialty"]);
+        }
+
+        [TestMethod]
+        public void CreditCardNoCreditHasNoUri()
+        {
+#pragma warning disable CS0618
+            Assert.ThrowsExactly<JsonSerializationException>(() => SchemaEnumConverter.GetUris(CreditCard.NoCredit));
+#pragma warning restore CS0618
+            Assert.AreEqual("http://purl.org/goodrelations/v1#VISA", SchemaEnumConverter.GetUris(CreditCard.Visa).Single());
         }
 
         #endregion

@@ -1,4 +1,7 @@
 ﻿# MXTires.Microdata release notes
+##Release v. 1.0.5.1
+<i>WebPage.Specialty</i> is now typed <i>MedicalSpecialty</i>. schema.org's <i>specialty</i> takes a <i>Specialty</i>, whose values are the <i>MedicalSpecialty</i> members; the library's own <i>Specialty</i> enum was empty, so the property could never hold a valid value, and that enum is removed. <i>CreditCard.NoCredit</i> no longer carries the invented <i>https://schema.1010tires.com/NoCredit</i> URI, which no vocabulary defines; it is marked <i>[Obsolete]</i> and throws when serialized, like <i>PaymentMethod.VisaCheckout</i>. Leave the property unset instead. The enum URI test now requires every URI to be a schema.org (https) or GoodRelations URI.
+
 ##Release v. 1.0.5.0
 <b>Breaking changes</b> - JSON-LD output fixes from issue #42.
 <ul>

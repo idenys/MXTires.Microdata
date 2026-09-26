@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net461;net472;net48;net6.0;net8.0;net10.0</TargetFrameworks>
-    <Version>1.0.5.0</Version>
+    <Version>1.0.5.1</Version>
     <Authors>1010Tires.com Inc.</Authors>
     <Company>1010Tires.com Inc.</Company>
     <Copyright>Copyright© 1010Tires.com Inc. 2023. All rights reserved.</Copyright>
     <Description>Converts .Net classes to Schema.org structured data in form of JSON-LD</Description>
-    <PackageReleaseNotes>Breaking: JSON-LD output fixes (issue #42). All enumerations serialize as their schema.org/GoodRelations URI through one library-wide converter (SchemaEnumConverter); [Flags] combinations serialize as a JSON array; a member without a URI throws instead of writing a bare name or number. Enum, number and boolean properties are now nullable, so unset values are no longer written (e.g. Offer.ItemCondition, MerchantReturnPolicy fees/label sources, MonetaryAmount.MinValue/MaxValue, PriceSpecification.ValueAddedTaxIncluded, Rating.BestRating/WorstRating). schema.org URIs use https, including the default @context, which is now written on the root node only. Date-only properties (e.g. Offer.PriceValidUntil, Person.BirthDate) serialize as yyyy-MM-dd. ToJson/ToIndentedJson are virtual. Tire and Wheel no longer add hardcoded sameAs links; Wheel serializes as @type Product; Tire gets typed specs that serialize into additionalProperty. Fixed ReturnMethodEnumeration (all members wrote ReturnInStore), trailing spaces in Tuesday/DeliveryModePickUp URIs, Vehicle.SteeringPosition and Flight.EstimatedFlightDuration typed as DateTime, and TrackAction.DeliveryMethod being private. See ChangeLog.md for full details.</PackageReleaseNotes>
+    <PackageReleaseNotes>WebPage.Specialty is now typed MedicalSpecialty (schema.org's Specialty values); the empty Specialty enum, which could not hold any value, is removed. CreditCard.NoCredit no longer carries the invented https://schema.1010tires.com/NoCredit URI; it is marked [Obsolete] and throws when serialized, like other members with no schema.org or GoodRelations URI. See ChangeLog.md for details.</PackageReleaseNotes>
     <PackageTags>.Net Microdata Schema.org Json-LD</PackageTags>
     <PackageLicenseFile>License.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MXTires.MicroData.snk</AssemblyOriginatorKeyFile>
     <RepositoryUrl>https://github.com/idenys/MXTires.Microdata</RepositoryUrl>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
+    <AssemblyVersion>1.0.5.1</AssemblyVersion>
+    <FileVersion>1.0.5.1</FileVersion>
     <Title>MXTires.Microdata</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <LangVersion>latest</LangVersion>

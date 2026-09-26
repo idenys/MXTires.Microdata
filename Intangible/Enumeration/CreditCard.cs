@@ -43,9 +43,9 @@ namespace MXTires.Microdata.Intangible.Enumeration
     public enum CreditCard
     {
         /// <summary>
-        /// Default enum value
+        /// No credit card. Has no schema.org or GoodRelations URI, so serializing it throws.
         /// </summary>
-        [EnumMember(Value = "https://schema.1010tires.com/NoCredit")]
+        [Obsolete("Has no schema.org or GoodRelations URI and cannot be serialized; leave the property unset instead.")]
         NoCredit = 0,
 
         /// <summary>
