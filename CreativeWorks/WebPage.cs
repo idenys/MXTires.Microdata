@@ -109,10 +109,10 @@ namespace MXTires.Microdata.CreativeWorks
         public List<string> SignificantLinks { get; set; }
 
         /// <summary>
-        /// Specialty - One of the domain specialities to which this web page's content applies.
+        /// Specialty - One of the domain specialities to which this web page's content applies. schema.org's Specialty values are the MedicalSpecialty members.
         /// </summary>
         [JsonProperty("specialty")]
-        public Specialty? Specialty { get; set; }
+        public MedicalSpecialty? Specialty { get; set; }
 
         /// <summary>
         /// SpeakableSpecification or URL - Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion.
