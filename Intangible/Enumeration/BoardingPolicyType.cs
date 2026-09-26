@@ -26,6 +26,8 @@
 using System;
 using System.Threading.Tasks;
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -36,10 +38,12 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The group boarding policy
         /// </summary>
+        [EnumMember(Value = "https://schema.org/GroupBoardingPolicy")]
         GroupBoardingPolicy,
         /// <summary>
         /// The zone boarding policy
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ZoneBoardingPolicy")]
         ZoneBoardingPolicy
     }
 }

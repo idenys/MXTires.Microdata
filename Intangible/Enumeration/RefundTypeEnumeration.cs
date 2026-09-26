@@ -26,6 +26,8 @@
 using System;
 
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -37,14 +39,17 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Specifies that a refund can be done as an exchange for the same product.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ExchangeRefund")]
         ExchangeRefund = 1 << 0,
         /// <summary>
         /// Specifies that a refund can be done in the full amount the customer paid for the product.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/FullRefund")]
         FullRefund = 1 << 1,
         /// <summary>
         /// Specifies that the customer receives a store credit as refund when returning a product.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/StoreCreditRefund")]
         StoreCreditRefund = 1 << 2,
     }
 }

@@ -41,7 +41,7 @@ namespace MXTires.Microdata
         /// Specific product type definition
         /// </summary>
         [JsonProperty("@type", Order = 2)]
-        public new string Type { get { return "Product/Wheel"; } }
+        public new string Type { get { return "Product"; } }
 
         string additionalType = "http://www.productontology.org/id/Wheel";
         /// <summary>
@@ -49,15 +49,5 @@ namespace MXTires.Microdata
         /// </summary>
         [JsonProperty("additionalType")]
         public new string AdditionalType { get { return additionalType; } set { additionalType = value; } }
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public Wheel()
-        {
-            base.SameAs = new List<string>();
-            SameAs.Add("http://en.wikipedia.org/wiki/Wheel");
-            SameAs.Add("http://www.1010tires.com/About/Wheel-Tech");
-        }
     }
 }

@@ -54,6 +54,6 @@ namespace MXTires.Microdata.LocalBusinesses.MedicalOrganizations
         /// MedicalSpecialty - A medical specialty of the provider.
         /// </summary>
         [JsonProperty("medicalSpecialty")]
-        public MedicalSpecialty MedicalSpecialty { get; set; }
+        public MedicalSpecialty? MedicalSpecialty { get; set; }
     }
 }

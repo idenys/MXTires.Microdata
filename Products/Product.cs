@@ -29,7 +29,6 @@ using System.Collections.Generic;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
-using Newtonsoft.Json.Converters;
 using MXTires.Microdata.Intangible.Enumeration.Medical;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Places.AdministrativeAreas;
@@ -307,7 +306,6 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The item condition.</value>
         [JsonProperty("itemCondition")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public OfferItemCondition? ItemCondition { get; set; }
 
         /// <summary>

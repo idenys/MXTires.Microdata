@@ -35,19 +35,19 @@ namespace MXTires.Microdata.Intangible.Enumeration
 		/// <summary>
 		/// Play mode: CoOp. Co-operative games, where you play on the same team with friends.
 		/// </summary>
-		[EnumMember(Value = "http://schema.org/CoOp")]
+        [EnumMember(Value = "https://schema.org/CoOp")]
         CoOp = 1 << 0,
 
 		/// <summary>
 		/// Play mode: MultiPlayer. Requiring or allowing multiple human players to play simultaneously.
 		/// </summary>
-		[EnumMember(Value = "http://schema.org/MultiPlayer")]
+		[EnumMember(Value = "https://schema.org/MultiPlayer")]
 		MultiPlayer = 1 << 1,
 
 		/// <summary>
 		/// Play mode: SinglePlayer. Which is played by a lone player.
 		/// </summary>
-		[EnumMember(Value = "http://schema.org/SinglePlayer")]
+		[EnumMember(Value = "https://schema.org/SinglePlayer")]
 		SinglePlayer = 1 << 2,
     }
 }

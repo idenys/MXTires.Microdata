@@ -148,7 +148,7 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value><c>true</c> if [value added tax included]; otherwise, <c>false</c>.</value>
         [JsonProperty("valueAddedTaxIncluded")]
-        public bool ValueAddedTaxIncluded { get; set; }
+        public bool? ValueAddedTaxIncluded { get; set; }
 
         #endregion
     }

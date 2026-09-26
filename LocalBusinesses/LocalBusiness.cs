@@ -121,7 +121,7 @@ namespace MXTires.Microdata
         /// In the case of CovidTestingFacility such facilities could potentially help with social distancing from other potentially-infected users.
         /// </summary>
         [JsonProperty("hasDriveThroughService")]
-        public bool HasDriveThroughService { get; set; }
+        public bool? HasDriveThroughService { get; set; }
 
         /// <summary>
         /// OpeningHoursSpecification - The opening hours of a certain place.

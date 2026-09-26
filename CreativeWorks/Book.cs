@@ -51,7 +51,7 @@ namespace MXTires.Microdata.CreativeWorks
         /// BookFormatType - The format of the book.
         /// </summary>
         [JsonProperty("bookFormat")]
-        public BookFormatType BookFormat { get; set; }
+        public BookFormatType? BookFormat { get; set; }
 
         /// <summary>
         /// Person - The illustrator of the book.

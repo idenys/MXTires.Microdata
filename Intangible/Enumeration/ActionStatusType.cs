@@ -37,26 +37,26 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// An in-progress action (e.g, while watching the movie, or driving to a location).
         /// </summary>
-        [EnumMember(Value = "ActiveActionStatus")]
+        [EnumMember(Value = "https://schema.org/ActiveActionStatus")]
         ActiveActionStatus = 1 << 0,
 
         /// <summary>
         /// An action that has already taken place.
         /// </summary>
-        [EnumMember(Value = "CompletedActionStatus")]
+        [EnumMember(Value = "https://schema.org/CompletedActionStatus")]
         CompletedActionStatus = 1 << 1,
 
         /// <summary>
         /// An action that failed to complete. 
         /// The action's error property and the HTTP return code contain more information about the failure.
         /// </summary>
-        [EnumMember(Value = "FailedActionStatus")]
+        [EnumMember(Value = "https://schema.org/FailedActionStatus")]
         FailedActionStatus = 1 << 2,
 
         /// <summary>
         /// A description of an action that is supported.
         /// </summary>
-        [EnumMember(Value = "PotentialActionStatus")]
+        [EnumMember(Value = "https://schema.org/PotentialActionStatus")]
         PotentialActionStatus = 1 << 3
     }
 }

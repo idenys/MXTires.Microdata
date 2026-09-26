@@ -40,19 +40,19 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Permission to add comments to the document.
         /// </summary>
-        [EnumMember]
+        [EnumMember(Value = "https://schema.org/CommentPermission")]
         CommentPermission = 1 << 0,
 
         /// <summary>
         /// Permission to read or view the document.
         /// </summary>
-        [EnumMember]
+        [EnumMember(Value = "https://schema.org/ReadPermission")]
         ReadPermission = 1 << 1,
 
         /// <summary>
         /// Permission to write or edit the document.
         /// </summary>
-        [EnumMember]
+        [EnumMember(Value = "https://schema.org/WritePermission")]
         WritePermission = 1 << 2,
     }
 }

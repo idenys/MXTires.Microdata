@@ -33,6 +33,7 @@ using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Places.AdministrativeAreas;
 using MXTires.Microdata.Validators;
+using MXTires.Microdata.Serialization;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata
@@ -117,6 +118,7 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The birth date.</value>
         [JsonProperty("birthDate")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? BirthDate { get; set; }
 
         /// <summary>
@@ -272,6 +274,7 @@ namespace MXTires.Microdata
         /// Date - Date of death.
         /// </summary>
         [JsonProperty("deathDate")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? DeathDate { get; set; }
 
 

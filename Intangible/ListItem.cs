@@ -50,7 +50,7 @@ namespace MXTires.Microdata.Intangible
         /// Integer or Text - The position of an item in a series or sequence of items.
         /// </summary>
         [JsonProperty("position")]
-        public Int32 Position { get; set; }
+        public Int32? Position { get; set; }
 
         /// <summary>
         /// ListItem - A link to the ListItem that preceeds the current one.

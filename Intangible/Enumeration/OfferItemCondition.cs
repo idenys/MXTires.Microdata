@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -33,18 +35,22 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The new condition
         /// </summary>
+        [EnumMember(Value = "https://schema.org/NewCondition")]
         NewCondition,
         /// <summary>
         /// The damaged condition
         /// </summary>
+        [EnumMember(Value = "https://schema.org/DamagedCondition")]
         DamagedCondition,
         /// <summary>
         /// The refurbished condition
         /// </summary>
+        [EnumMember(Value = "https://schema.org/RefurbishedCondition")]
         RefurbishedCondition,
         /// <summary>
         /// The used condition
         /// </summary>
+        [EnumMember(Value = "https://schema.org/UsedCondition")]
         UsedCondition
     }
 }

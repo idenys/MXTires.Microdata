@@ -51,7 +51,7 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Tuesday
         /// </summary>
-        [EnumMember(Value = "http://purl.org/goodrelations/v1#Tuesday ")]
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#Tuesday")]
         Tu = 1 << 1,
         /// <summary>
         /// Wednesday

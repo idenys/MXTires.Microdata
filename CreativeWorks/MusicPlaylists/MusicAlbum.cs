@@ -39,7 +39,7 @@ namespace MXTires.Microdata.CreativeWorks.MusicPlaylists
         /// MusicAlbumProductionType - Classification of the album by it's type of content: soundtrack, live album, studio album, etc.
         /// </summary>
         [JsonProperty("albumProductionType")]
-        public MusicAlbumProductionType AlbumProductionType { get; set; }
+        public MusicAlbumProductionType? AlbumProductionType { get; set; }
 
         /// <summary>
         ///  MusicRelease - A release of this album. Inverse property: releaseOf.
@@ -51,7 +51,7 @@ namespace MXTires.Microdata.CreativeWorks.MusicPlaylists
         /// MusicAlbumReleaseType - The kind of release which this album is: single, EP or album.
         /// </summary>
         [JsonProperty("albumReleaseType")]
-        public MusicAlbumReleaseType AlbumReleaseType { get; set; }
+        public MusicAlbumReleaseType? AlbumReleaseType { get; set; }
 
         Thing byArtist;
         /// <summary>

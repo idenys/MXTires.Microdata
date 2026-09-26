@@ -54,29 +54,49 @@ Visual Studio 2008 or higher
   "image": {
     "height": {
       "value": 500.0,
-      "@context": "http://schema.org",
       "@type": "QuantitativeValue"
     },
     "width": {
       "value": 500.0,
-      "@context": "http://schema.org",
       "@type": "QuantitativeValue"
     },
     "url": "http://whatever.com/image.png",
-    "@context": "http://schema.org",
     "@type": "ImageObject"
   },
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "BlogPosting"
 }</script>
 ```
+`@context` is written on the root node only; nested nodes inherit it. Setting `Context` explicitly on a nested node still writes it there.
+
+## Enumerations and dates
+Enumeration values serialize as their schema.org (or GoodRelations) URI, and a `[Flags]` combination serializes as an array:
+```
+            var offer = new Offer
+            {
+                Availability = ItemAvailability.InStock,
+                AvailableDeliveryMethod = DeliveryMethod.OnSitePickup | DeliveryMethod.UPS,
+                PriceValidUntil = new DateTime(2026, 10, 25)
+            };
+```
+```
+{
+  "availability": "https://schema.org/InStock",
+  "availableDeliveryMethod": ["https://schema.org/OnSitePickup", "http://purl.org/goodrelations/v1#UPS"],
+  "priceValidUntil": "2026-10-25",
+  "@context": "https://schema.org",
+  "@type": "Offer"
+}
+```
+Enumeration and number/boolean properties are nullable, so anything left unset is omitted. Properties whose schema.org range is `Date` are written as `yyyy-MM-dd`.
+If you serialize with your own `JsonSerializerSettings`, add `new SchemaEnumConverter()` (namespace `MXTires.Microdata.Serialization`) to its `Converters`.
 
 ## Code example with extentions:
 ```
         public void TestAtlas()
         {
             var atlas = new Atlas();
-            atlas.Context = new List<object>() { "http://schema.org", new Extentions.BibNameSpace(), };
+            atlas.Context = new List<object>() { "https://schema.org", new Extentions.BibNameSpace(), };
             atlas.Name = "Atlas of the world.";
             System.Diagnostics.Debug.WriteLine(atlas.ToIndentedJson());
         }
@@ -86,7 +106,7 @@ Visual Studio 2008 or higher
 <script type="application/ld+json">{
   "name": "Atlas of the world.",
   "@context": [
-    "http://schema.org",
+    "https://schema.org",
     {
       "bib": "http://bib.schema.org"
     }

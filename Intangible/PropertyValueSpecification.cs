@@ -54,13 +54,13 @@ namespace MXTires.Microdata.Intangible
         /// Boolean - Whether multiple values are allowed for the property. Default is false.
         /// </summary>
         [JsonProperty("multipleValues")]
-        public Boolean MultipleValues { get; set; }
+        public Boolean? MultipleValues { get; set; }
 
         /// <summary>
         /// Boolean - Whether or not a property is mutable. Default is false. Specifying this for a property that also has a value makes it act similar to a "hidden" input in an HTML form.
         /// </summary>
         [JsonProperty("readonlyValue")]
-        public Boolean ReadonlyValue { get; set; }
+        public Boolean? ReadonlyValue { get; set; }
 
         /// <summary>
         /// Number - The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification.
@@ -96,6 +96,6 @@ namespace MXTires.Microdata.Intangible
         /// Boolean - Whether the property must be filled in to complete the action. Default is false.
         /// </summary>
         [JsonProperty("valueRequired")]
-        public Boolean ValueRequired { get; set; }
+        public Boolean? ValueRequired { get; set; }
     }
 }

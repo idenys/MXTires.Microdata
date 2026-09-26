@@ -42,7 +42,7 @@ namespace MXTires.Microdata.Events
         /// True if the broadcast is of a live event.
         /// </summary>
         [JsonProperty("isLiveBroadcast")]
-        public bool IsLiveBroadcast { get; set; }
+        public bool? IsLiveBroadcast { get; set; }
 
         /// <summary>
         /// Language or Text Languages in which subtitles/captions are available, in IETF BCP 47 standard format.

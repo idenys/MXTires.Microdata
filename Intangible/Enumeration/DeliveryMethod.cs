@@ -47,11 +47,13 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The on site pickup
         /// </summary>
+        [EnumMember(Value = "https://schema.org/OnSitePickup")]
         OnSitePickup = 1 << 0,
 
         /// <summary>
         /// A DeliveryMethod in which an item is made available via locker.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/LockerDelivery")]
         LockerDelivery = 1 << 1,
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The delivery mode pick up
         /// </summary>
-        [EnumMember(Value = "http://purl.org/goodrelations/v1#DeliveryModePickUp ")]
+        [EnumMember(Value = "http://purl.org/goodrelations/v1#DeliveryModePickUp")]
         DeliveryModePickUp = 1 << 6,
 
         //A private parcel service as the delivery mode available for a certain offer.
@@ -104,8 +106,15 @@ namespace MXTires.Microdata.Intangible.Enumeration
         UPS = 1 << 9,
 
         /// <summary>
-        /// The purolator
+        /// Purolator. Neither schema.org nor GoodRelations defines it, so it serializes as the generic schema.org ParcelService.
         /// </summary>
-        Purolator = 1 << 10
+        [EnumMember(Value = "https://schema.org/ParcelService")]
+        Purolator = 1 << 10,
+
+        /// <summary>
+        /// A private parcel service as the delivery mode available for a certain offer.
+        /// </summary>
+        [EnumMember(Value = "https://schema.org/ParcelService")]
+        ParcelService = 1 << 11
     }
 }

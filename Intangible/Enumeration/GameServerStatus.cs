@@ -35,25 +35,25 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Game server status: OfflinePermanently. Server is offline and not available.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/OfflinePermanently")]
+        [EnumMember(Value = "https://schema.org/OfflinePermanently")]
         OfflinePermanently = 1 << 0,
 
         /// <summary>
         /// Game server status: OfflineTemporarily. Server is offline now but it can be online soon.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/OfflineTemporarily")]
+        [EnumMember(Value = "https://schema.org/OfflineTemporarily")]
         OfflineTemporarily = 1 << 1,
 
         /// <summary>
         /// Game server status: Online. Server is available.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/Online")]
+        [EnumMember(Value = "https://schema.org/Online")]
         Online = 1 << 2,
 
         /// <summary>
         /// Game server status: OnlineFull. Server is online but unavailable. The maximum number of players has reached.
         /// </summary>
-        [EnumMember(Value = "http://schema.org/OnlineFull")]
+        [EnumMember(Value = "https://schema.org/OnlineFull")]
         OnlineFull= 1 << 3,
     }
 }

@@ -29,6 +29,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -39,19 +41,33 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The e book
         /// </summary>
+        [EnumMember(Value = "https://schema.org/EBook")]
         EBook,
         /// <summary>
         /// The hardcover
         /// </summary>
+        [EnumMember(Value = "https://schema.org/Hardcover")]
         Hardcover,
         /// <summary>
         /// The paperback
         /// </summary>
+        [EnumMember(Value = "https://schema.org/Paperback")]
         Paperback,
         /// <summary>
         /// Defined in the bib.schema.org extension. (This is an initial exploratory release.)
         /// Canonical URL: http://schema.org/GraphicNovel
         /// </summary>
-        GraphicNovel
+        [EnumMember(Value = "https://schema.org/GraphicNovel")]
+        GraphicNovel,
+        /// <summary>
+        /// Book format: Audiobook.
+        /// </summary>
+        [EnumMember(Value = "https://schema.org/AudiobookFormat")]
+        AudiobookFormat,
+        /// <summary>
+        /// Book format: Pamphlet.
+        /// </summary>
+        [EnumMember(Value = "https://schema.org/Pamphlet")]
+        Pamphlet
     }
 }

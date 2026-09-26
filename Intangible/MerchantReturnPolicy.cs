@@ -23,6 +23,9 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System;
+using System.Collections.Generic;
+using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Intangible.Enumeration;
@@ -35,11 +38,22 @@ namespace MXTires.Microdata.Intangible
     public class MerchantReturnPolicy : Thing
     {
         /// <summary>
-        /// PropertyValue - A property-value pair representing an additional characteristic of the entity, e.g.a product feature or another characteristic for which there is no matching property in schema.org.
+        /// PropertyValue or a list of PropertyValue - A property-value pair representing an additional characteristic of the entity, e.g.a product feature or another characteristic for which there is no matching property in schema.org.
         /// </summary>
         /// <remarks> Note: Publishers should be aware that applications designed to use specific schema.org properties(e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.</remarks>
         [JsonProperty("additionalProperty")]
-        public PropertyValue AdditionalProperty { get; set; }
+        public object AdditionalProperty
+        {
+            get { return additionalProperty; }
+            set
+            {
+                AdditionalPropertyValidator.Validate(value);
+                additionalProperty = value;
+            }
+        }
+        private object additionalProperty;
+        private static readonly TypeValidator AdditionalPropertyValidator =
+            new TypeValidator(new List<Type>() { typeof(PropertyValue), typeof(IList<PropertyValue>), typeof(List<PropertyValue>) });
 
         /// <summary>
         /// Country  or Text A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.
@@ -51,13 +65,13 @@ namespace MXTires.Microdata.Intangible
         /// ReturnFeesEnumeration   The type of return fees if the product is returned due to customer remorse.
         /// </summary>
         [JsonProperty("customerRemorseReturnFees")]
-        public ReturnFeesEnumeration CustomerRemorseReturnFees { get; set; }
+        public ReturnFeesEnumeration? CustomerRemorseReturnFees { get; set; }
 
         /// <summary>
         /// ReturnLabelSourceEnumeration    The method (from an enumeration) by which the customer obtains a return shipping label for a product returned due to customer remorse.
         /// </summary>
         [JsonProperty("customerRemorseReturnLabelSource")]
-        public ReturnLabelSourceEnumeration CustomerRemorseReturnLabelSource { get; set; }
+        public ReturnLabelSourceEnumeration? CustomerRemorseReturnLabelSource { get; set; }
 
         /// <summary>
         /// MonetaryAmount  The amount of shipping costs if a product is returned due to customer remorse.Applicable when property customerRemorseReturnFees equals ReturnShippingFees.
@@ -76,19 +90,19 @@ namespace MXTires.Microdata.Intangible
         /// Also used for product return policies to specify the condition of products accepted for returns.
         /// </summary>
         [JsonProperty("itemCondition")]
-        public OfferItemCondition ItemCondition { get; set; }
+        public OfferItemCondition? ItemCondition { get; set; }
 
         /// <summary>
         /// ReturnFeesEnumeration - The type of return fees for returns of defect products.
         /// </summary>
         [JsonProperty("itemDefectReturnFees")]
-        public ReturnFeesEnumeration ItemDefectReturnFees { get; set; }
+        public ReturnFeesEnumeration? ItemDefectReturnFees { get; set; }
 
         /// <summary>
         /// ReturnLabelSourceEnumeration - The method (from an enumeration) by which the customer obtains a return shipping label for a defect product.
         /// </summary>
         [JsonProperty("itemDefectReturnLabelSource")]
-        public ReturnLabelSourceEnumeration ItemDefectReturnLabelSource { get; set; }
+        public ReturnLabelSourceEnumeration? ItemDefectReturnLabelSource { get; set; }
 
         /// <summary>
         /// MonetaryAmount  Amount of shipping costs for defect product returns.Applicable when property itemDefectReturnFees equals ReturnShippingFees.
@@ -112,7 +126,7 @@ namespace MXTires.Microdata.Intangible
         ///  RefundTypeEnumeration   A refund type, from an enumerated list.
         /// </summary>
         [JsonProperty("refundType")]
-        public RefundTypeEnumeration RefundType { get; set; }
+        public RefundTypeEnumeration? RefundType { get; set; }
 
         /// <summary>
         /// MonetaryAmount or Number - Use MonetaryAmount to specify a fixed restocking fee for product returns, or use Number to specify a percentage of the product price paid by the customer.
@@ -124,13 +138,13 @@ namespace MXTires.Microdata.Intangible
         /// ReturnFeesEnumeration - The type of return fees for purchased products(for any return reason).
         /// </summary>
         [JsonProperty("returnFees")]
-        public ReturnFeesEnumeration ReturnFees { get; set; }
+        public ReturnFeesEnumeration? ReturnFees { get; set; }
 
         /// <summary>
         /// ReturnLabelSourceEnumeration - The method(from an enumeration) by which the customer obtains a return shipping label for a product returned for any reason.
         /// </summary>
         [JsonProperty("returnLabelSource")]
-        public ReturnLabelSourceEnumeration ReturnLabelSource { get; set; }
+        public ReturnLabelSourceEnumeration? ReturnLabelSource { get; set; }
 
         /// <summary>
         /// ReturnMethodEnumeration - The type of return method offered, specified from an enumeration.
@@ -155,7 +169,7 @@ namespace MXTires.Microdata.Intangible
         /// MonetaryAmount - Amount of shipping costs for product returns (for any reason). Applicable when property <see cref="ReturnFees"/>  equals <see cref="ReturnShippingFees"/>.
         /// </summary>
         [JsonProperty("returnShippingFeesAmount")]
-        public MonetaryAmount? ReturnShippingFeesAmount { get; set; }
+        public MonetaryAmount ReturnShippingFeesAmount { get; set; }
 
         /// <summary>
         /// MerchantReturnPolicySeasonalOverride - Seasonal override of a return policy.

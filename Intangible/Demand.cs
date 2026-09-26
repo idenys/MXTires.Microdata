@@ -43,7 +43,7 @@ namespace MXTires.Microdata.Intangible
         /// PaymentMethod - The payment method(s) accepted by seller for this offer.
         /// </summary>
         [JsonProperty("acceptedPaymentMethod")]
-        public PaymentMethod AcceptedPaymentMethod { get; set; }
+        public PaymentMethod? AcceptedPaymentMethod { get; set; }
 
         /// <summary>
         /// Text or URL - An Amazon Standard Identification Number (ASIN) is a 10-character alphanumeric unique identifier assigned by Amazon.com and its partners for product identification within the Amazon organization.
@@ -95,7 +95,7 @@ namespace MXTires.Microdata.Intangible
         /// ItemAvailability - The availability of this item—for example In stock, Out of stock, Pre-order, etc.
         /// </summary>
         [JsonProperty("availability")]
-        public ItemAvailability Availability { get; set; }
+        public ItemAvailability? Availability { get; set; }
 
         /// <summary>
         /// DateTime - The end of the availability of the product or service included in the offer.
@@ -119,14 +119,14 @@ namespace MXTires.Microdata.Intangible
         /// DeliveryMethod - The delivery method(s) available for this offer.
         /// </summary>
         [JsonProperty("availableDeliveryMethod")]
-        public DeliveryMethod AvailableDeliveryMethod { get; set; }
+        public DeliveryMethod? AvailableDeliveryMethod { get; set; }
 
         /// <summary>
         /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode).
         /// The default is http://purl.org/goodrelations/v1#Sell.
         /// </summary>
         [JsonProperty("businessFunction")]
-        public BusinessFunction BusinessFunction { get; set; }
+        public BusinessFunction? BusinessFunction { get; set; }
 
         /// <summary>
         /// QuantitativeValue - The typical delay between the receipt of the order and the goods leaving the warehouse.
@@ -138,7 +138,7 @@ namespace MXTires.Microdata.Intangible
         /// BusinessEntityType - The type(s) of customers for which the given offer is valid.
         /// </summary>
         [JsonProperty("eligibleCustomerType")]
-        public BusinessEntityType EligibleCustomerType { get; set; }
+        public BusinessEntityType? EligibleCustomerType { get; set; }
        
         ///QuantitativeValue - The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
         [JsonProperty("eligibleQuantity")]
@@ -238,7 +238,7 @@ namespace MXTires.Microdata.Intangible
         /// OfferItemCondition - A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.
         /// </summary>
         [JsonProperty("itemCondition")]
-        public OfferItemCondition ItemCondition { get; set; }
+        public OfferItemCondition? ItemCondition { get; set; }
 
         /// <summary>
         /// Product or Service - The item being offered.

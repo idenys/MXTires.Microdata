@@ -61,7 +61,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         public OpeningHoursSpecification(string closes, DaysOfWeek dayOfWeek, string opens, string validFrom = null, string validThrough = null)
         {
             Closes = closes;
-            DayOfWeek = dayOfWeek.ToString();
+            DayOfWeek = dayOfWeek;
             Opens = opens;
             ValidFrom = validFrom;
             ValidThrough = validThrough;
@@ -78,7 +78,7 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         public OpeningHoursSpecification(string closes, DayOfWeek dayOfWeek, string opens, string validFrom = null, string validThrough = null)
         {
             Closes = closes;
-            DayOfWeek = dayOfWeek.ToString();
+            DayOfWeek = dayOfWeek;
             Opens = opens;
             ValidFrom = validFrom;
             ValidThrough = validThrough;

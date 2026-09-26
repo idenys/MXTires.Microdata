@@ -27,6 +27,8 @@ using System.Collections.Generic;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -37,18 +39,22 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The status for a previously confirmed reservation that is now cancelled.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReservationCancelled")]
         ReservationCancelled,
         /// <summary>
         /// The status of a confirmed reservation.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReservationConfirmed")]
         ReservationConfirmed,
         /// <summary>
         /// The status of a reservation on hold pending an update like credit card number or flight changes.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReservationHold")]
         ReservationHold,
         /// <summary>
         /// The status of a reservation when a request has been sent, but not confirmed.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReservationPending")]
         ReservationPending,
     }
 }

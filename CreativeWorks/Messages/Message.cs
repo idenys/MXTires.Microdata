@@ -73,19 +73,19 @@ namespace MXTires.Microdata.CreativeWorks.Messages
         /// DateTime - The date/time at which the message has been read by the recipient if a single recipient exists.
         /// </summary>
         [JsonProperty("dateRead")]
-        public DateTime DateRead { get; set; }
+        public DateTime? DateRead { get; set; }
 
         /// <summary>
         /// DateTime - The date/time the message was received if a single recipient exists.
         /// </summary>
         [JsonProperty("dateReceived")]
-        public DateTime DateReceived { get; set; }
+        public DateTime? DateReceived { get; set; }
 
         /// <summary>
         /// DateTime - The date/time at which the message was sent..
         /// </summary>
         [JsonProperty("dateSent")]
-        public DateTime DateSent { get; set; }
+        public DateTime? DateSent { get; set; }
 
         /// <summary>
         /// CreativeWork - A CreativeWork attached to the message.

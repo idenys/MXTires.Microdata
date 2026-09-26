@@ -37,17 +37,22 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Specifies that product returns must be made at a kiosk.
         /// </summary>
-        [EnumMember(Value = "ReturnInStore")]
+        [EnumMember(Value = "https://schema.org/ReturnAtKiosk")]
         ReturnAtKiosk = 1 << 0,
         /// <summary>
         /// Specifies that product returns must be done by mail.
         /// </summary>
-        [EnumMember(Value = "ReturnInStore")]
+        [EnumMember(Value = "https://schema.org/ReturnByMail")]
         ReturnByMail = 1 << 1,
         /// <summary>
         /// Specifies that product returns must be made in a store.
         /// </summary>
-        [EnumMember(Value = "ReturnInStore")]
+        [EnumMember(Value = "https://schema.org/ReturnInStore")]
         ReturnInStore = 1 << 2,
+        /// <summary>
+        /// Specifies that the consumer can keep the product, even when receiving a refund or store credit.
+        /// </summary>
+        [EnumMember(Value = "https://schema.org/KeepProduct")]
+        KeepProduct = 1 << 3,
     }
 }

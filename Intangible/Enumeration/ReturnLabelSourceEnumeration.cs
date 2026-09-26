@@ -25,6 +25,8 @@
 
 using System;
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -36,14 +38,17 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Indicated that creating a return label is the responsibility of the customer.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReturnLabelCustomerResponsibility")]
         ReturnLabelCustomerResponsibility = 1 << 0,
         /// <summary>
         /// Indicated that a return label must be downloaded and printed by the customer.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReturnLabelDownloadAndPrint")]
         ReturnLabelDownloadAndPrint = 1 << 1,
         /// <summary>
         /// Specifies that a return label will be provided by the seller in the shipping box.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReturnLabelInBox")]
         ReturnLabelInBox = 1 << 2,
     }
 }

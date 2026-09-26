@@ -38,61 +38,73 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The discontinued
         /// </summary>
-        [EnumMember(Value = "http://schema.org/Discontinued")]
+        [EnumMember(Value = "https://schema.org/Discontinued")]
         Discontinued = 1,
 
         /// <summary>
         /// The in stock
         /// </summary>
-        [EnumMember(Value = "http://schema.org/InStock")]
+        [EnumMember(Value = "https://schema.org/InStock")]
         InStock = 2,
 
         /// <summary>
         /// The in store only
         /// </summary>
-        [EnumMember(Value = "http://schema.org/InStoreOnly")]
+        [EnumMember(Value = "https://schema.org/InStoreOnly")]
         InStoreOnly = 4,
 
         /// <summary>
         /// The limited availability
         /// </summary>
-        [EnumMember(Value = "http://schema.org/LimitedAvailability")]
+        [EnumMember(Value = "https://schema.org/LimitedAvailability")]
         LimitedAvailability = 8,
 
         /// <summary>
         /// The online only
         /// </summary>
-        [EnumMember(Value = "http://schema.org/OnlineOnly")]
+        [EnumMember(Value = "https://schema.org/OnlineOnly")]
         OnlineOnly = 16,
 
         /// <summary>
         /// The out of stock
         /// </summary>
-        [EnumMember(Value = "http://schema.org/OutOfStock")]
+        [EnumMember(Value = "https://schema.org/OutOfStock")]
         OutOfStock = 32,
 
         /// <summary>
         /// The pre order
         /// </summary>
-        [EnumMember(Value = "http://schema.org/PreOrder")]
+        [EnumMember(Value = "https://schema.org/PreOrder")]
         PreOrder = 64,
 
         /// <summary>
         /// The sold out
         /// </summary>
-        [EnumMember(Value = "http://schema.org/SoldOut")]
+        [EnumMember(Value = "https://schema.org/SoldOut")]
         SoldOut = 128,
 
         /// <summary>
         /// The pre-sale
         /// </summary>
-        [EnumMember(Value = "http://schema.org/PreSale")]
+        [EnumMember(Value = "https://schema.org/PreSale")]
         PreSale = 256,
 
         /// <summary>
         /// The item is available on back order
         /// </summary>
-        [EnumMember(Value = "http://schema.org/BackOrder")]
+        [EnumMember(Value = "https://schema.org/BackOrder")]
         BackOrder = 512,
+
+        /// <summary>
+        /// Indicates that the item is made to order (custom made).
+        /// </summary>
+        [EnumMember(Value = "https://schema.org/MadeToOrder")]
+        MadeToOrder = 1024,
+
+        /// <summary>
+        /// Indicates that the item is reserved and therefore not available.
+        /// </summary>
+        [EnumMember(Value = "https://schema.org/Reserved")]
+        Reserved = 2048,
     }
 }

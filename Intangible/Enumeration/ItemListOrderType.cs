@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -33,14 +35,17 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The item list order ascending
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ItemListOrderAscending")]
         ItemListOrderAscending,
         /// <summary>
         /// The item list order descending
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ItemListOrderDescending")]
         ItemListOrderDescending,
         /// <summary>
         /// The item list unordered
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ItemListUnordered")]
         ItemListUnordered,
     }
 }

@@ -30,8 +30,8 @@ using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
 using MXTires.Microdata.Validators;
+using MXTires.Microdata.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 namespace MXTires.Microdata
 {
     /// <summary>
@@ -165,6 +165,7 @@ namespace MXTires.Microdata
         /// Date - The date that this organization was dissolved.
         /// </summary>
         [JsonProperty("dissolutionDate")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? DissolutionDate { get; set; }
 
         /// <summary>
@@ -225,6 +226,7 @@ namespace MXTires.Microdata
         /// Date - The date that this organization was founded.
         /// </summary>
         [JsonProperty("foundingDate")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? FoundingDate { get; set; }
 
         /// <summary>
@@ -364,7 +366,6 @@ namespace MXTires.Microdata
         /// LoanOrCredit, PaymentMethod, or Text - The payment method(s) that are accepted in general by an organization, or for some specific demand or offer.
         /// </summary>
         [JsonProperty("acceptedPaymentMethod")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public PaymentMethod? AcceptedPaymentMethod { get; set; }
 
         private object actionableFeedbackPolicy;

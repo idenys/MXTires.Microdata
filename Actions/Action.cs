@@ -29,7 +29,6 @@ using System.Collections.Generic;
 using MXTires.Microdata.CreativeWorks;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
-using Newtonsoft.Json.Converters;
 using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata
@@ -53,7 +52,6 @@ namespace MXTires.Microdata
         /// ActionStatusType - Indicates the current disposition of the Action.
         /// </summary>
         [JsonProperty("actionStatus")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public ActionStatusType? ActionStatus { get; set; }
 
         private Thing agent;

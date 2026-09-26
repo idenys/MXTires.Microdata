@@ -25,6 +25,7 @@
 
 using System;
 using MXTires.Microdata.Intangible.Enumeration;
+using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Places.CivicStructures;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
@@ -70,7 +71,7 @@ namespace MXTires.Microdata.Intangible
         /// BoardingPolicyType 	The type of boarding policy used by the airline (e.g. zone-based or group-based).
         /// </summary>
         [JsonProperty("boardingPolicy")]
-        public BoardingPolicyType BoardingPolicy { get; set; }
+        public BoardingPolicyType? BoardingPolicy { get; set; }
 
         /// <summary>
         /// Airport - The airport where the flight originates.
@@ -100,7 +101,17 @@ namespace MXTires.Microdata.Intangible
         /// Duration  or Text - The estimated time the flight will take.
         /// </summary>
         [JsonProperty("estimatedFlightDuration")]
-        public DateTime? EstimatedFlightDuration { get; set; }
+        public object EstimatedFlightDuration
+        {
+            get { return estimatedFlightDuration; }
+            set
+            {
+                var validator = new TypeValidator(typeof(Duration), typeof(string));
+                validator.Validate(value);
+                estimatedFlightDuration = value;
+            }
+        }
+        private object estimatedFlightDuration;
 
         /// <summary>
         /// Distance  or Text - The distance of the flight.

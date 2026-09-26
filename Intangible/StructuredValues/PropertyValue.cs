@@ -69,7 +69,14 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         public object ValueReference { get; set; }
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="PropertyValue"/> class, for use with an object initializer.
+        /// </summary>
+        public PropertyValue()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PropertyValue"/> class with a name and a value.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="value"></param>

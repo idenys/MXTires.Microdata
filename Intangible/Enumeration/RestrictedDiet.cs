@@ -26,6 +26,8 @@
 using System;
 using Newtonsoft.Json;
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -35,16 +37,27 @@ namespace MXTires.Microdata.Intangible.Enumeration
     public enum RestrictedDiet
     {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        [EnumMember(Value = "https://schema.org/DiabeticDiet")]
         DiabeticDiet = 1 << 0,
+        [EnumMember(Value = "https://schema.org/GlutenFreeDiet")]
         GlutenFreeDiet = 1 << 1,
+        [EnumMember(Value = "https://schema.org/HalalDiet")]
         HalalDiet = 1 << 2,
+        [EnumMember(Value = "https://schema.org/HinduDiet")]
         HinduDiet = 1 << 3,
+        [EnumMember(Value = "https://schema.org/KosherDiet")]
         KosherDiet = 1 << 4,
+        [EnumMember(Value = "https://schema.org/LowCalorieDiet")]
         LowCalorieDiet = 1 << 5,
+        [EnumMember(Value = "https://schema.org/LowFatDiet")]
         LowFatDiet = 1 << 6,
+        [EnumMember(Value = "https://schema.org/LowLactoseDiet")]
         LowLactoseDiet = 1 << 7,
+        [EnumMember(Value = "https://schema.org/LowSaltDiet")]
         LowSaltDiet = 1 << 8,
+        [EnumMember(Value = "https://schema.org/VeganDiet")]
         VeganDiet = 1 << 9,
+        [EnumMember(Value = "https://schema.org/VegetarianDiet")]
         VegetarianDiet = 1 << 10,
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }

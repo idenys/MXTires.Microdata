@@ -24,6 +24,8 @@
 #endregion
 
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -31,9 +33,13 @@ namespace MXTires.Microdata.Intangible.Enumeration
     /// </summary>
     public enum MusicAlbumReleaseType
     {
+        [EnumMember(Value = "https://schema.org/AlbumRelease")]
         AlbumRelease,
+        [EnumMember(Value = "https://schema.org/BroadcastRelease")]
         BroadcastRelease,
+        [EnumMember(Value = "https://schema.org/EPRelease")]
         EPRelease,
+        [EnumMember(Value = "https://schema.org/SingleRelease")]
         SingleRelease,
     }
 }

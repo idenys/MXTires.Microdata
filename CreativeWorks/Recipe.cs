@@ -97,7 +97,7 @@ namespace MXTires.Microdata
         /// RestrictedDiet - Indicates a dietary restriction or guideline for which this recipe is suitable, e.g. diabetic, halal etc.
         /// </summary>
         [JsonProperty("suitableForDiet")]
-        public RestrictedDiet SuitableForDiet { get; set; }
+        public RestrictedDiet? SuitableForDiet { get; set; }
 
     }
 }

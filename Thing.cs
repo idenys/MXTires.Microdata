@@ -25,7 +25,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using MXTires.Microdata.CreativeWorks;
+using MXTires.Microdata.Serialization;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Validators;
 using MXTires.Microdata.Intangible.StructuredValues;
@@ -40,8 +42,12 @@ namespace MXTires.Microdata
     {
         private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
-            NullValueHandling = NullValueHandling.Ignore
+            NullValueHandling = NullValueHandling.Ignore,
+            Converters = { new SchemaEnumConverter() }
         };
+
+        [ThreadStatic]
+        private static int serializationDepth;
 
         private static readonly TypeValidator ImageValidator =
             new TypeValidator(new List<Type> { typeof(string), typeof(ImageObject), typeof(string[]), typeof(ImageObject[]) });
@@ -58,7 +64,8 @@ namespace MXTires.Microdata
         private static readonly TypeValidator OwnerValidator =
             new TypeValidator(typeof(Organization), typeof(Person));
 
-        private object context = "http://schema.org";
+        private object context = "https://schema.org";
+        private bool contextSet;
         private object identifier;
         private object image;
         private object mainEntityOfPage;
@@ -66,19 +73,38 @@ namespace MXTires.Microdata
         private object owner;
 
         /// <summary>
-        /// Context
+        /// Context. Written on the root node only, unless set explicitly on a nested node.
         /// </summary>
         [JsonProperty("@context", Order = 1)]
         public virtual object Context
         {
             get { return context; }
-            set { context = value; }
+            set
+            {
+                context = value;
+                contextSet = true;
+            }
         }
 
         /// <summary>
-        /// Property for External Extensions
+        /// Used by Json.NET: nested nodes inherit the root's @context, so it is written only once.
         /// </summary>
-        internal IList<Property> ExternalExtensions { get; set; }
+        public bool ShouldSerializeContext()
+        {
+            return contextSet || serializationDepth <= 1;
+        }
+
+        [OnSerializing]
+        internal void OnSerializingThing(StreamingContext streamingContext)
+        {
+            serializationDepth++;
+        }
+
+        [OnSerialized]
+        internal void OnSerializedThing(StreamingContext streamingContext)
+        {
+            serializationDepth--;
+        }
 
         /// <summary>
         /// Type tag
@@ -227,7 +253,7 @@ namespace MXTires.Microdata
         /// spaces and line breaks to produce the most compact and efficient JSON possible.
         /// </summary>
         /// <returns></returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Serialize(Formatting.None, wrapInScriptTag: true);
         }
@@ -237,7 +263,7 @@ namespace MXTires.Microdata
         /// JSON written by the serializer with an option of Formatting.Indented produces nicely formatted, easy to read JSON – great when you are developing. 
         /// </summary>
         /// <returns></returns>
-        public string ToIndentedJson()
+        public virtual string ToIndentedJson()
         {
             return Serialize(Formatting.Indented, wrapInScriptTag: true);
         }
@@ -254,7 +280,17 @@ namespace MXTires.Microdata
 
         private string Serialize(Formatting formatting, bool wrapInScriptTag)
         {
-            var json = JsonConvert.SerializeObject(this, formatting, SerializerSettings);
+            string json;
+            var outerDepth = serializationDepth;
+            serializationDepth = 0;
+            try
+            {
+                json = JsonConvert.SerializeObject(this, formatting, SerializerSettings);
+            }
+            finally
+            {
+                serializationDepth = outerDepth;
+            }
 
             if (!wrapInScriptTag)
             {

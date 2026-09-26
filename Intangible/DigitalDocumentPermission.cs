@@ -68,6 +68,6 @@ namespace MXTires.Microdata.Intangible
         /// DigitalDocumentPermissionType   The type of permission granted the person, organization, or audience.
         /// </summary>
         [JsonProperty("permissionType")]
-        public DigitalDocumentPermissionType PermissionType { get; set; }
+        public DigitalDocumentPermissionType? PermissionType { get; set; }
     }
 }
