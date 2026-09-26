@@ -25,6 +25,8 @@
 
 using System;
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -36,10 +38,12 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The hearing impaired supported
         /// </summary>
+        [EnumMember(Value = "https://schema.org/HearingImpairedSupported")]
         HearingImpairedSupported = 1 << 0,
         /// <summary>
         /// The toll free
         /// </summary>
+        [EnumMember(Value = "https://schema.org/TollFree")]
         TollFree = 1 << 1
     }
 }

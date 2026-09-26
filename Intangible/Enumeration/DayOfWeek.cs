@@ -45,7 +45,7 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Tuesday
         /// </summary>
-        [EnumMember(Value = "https://schema.org/Tuesday ")]
+        [EnumMember(Value = "https://schema.org/Tuesday")]
         Tuesday = 1 << 1,
         /// <summary>
         /// Wednesday

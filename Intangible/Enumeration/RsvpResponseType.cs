@@ -36,17 +36,17 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The RSVP response maybe
         /// </summary>
-        [EnumMember(Value = "RsvpResponseMaybe")]
+        [EnumMember(Value = "https://schema.org/RsvpResponseMaybe")]
         RsvpResponseMaybe,
         /// <summary>
         /// The RSVP response no
         /// </summary>
-        [EnumMember(Value = "RsvpResponseNo")]
+        [EnumMember(Value = "https://schema.org/RsvpResponseNo")]
         RsvpResponseNo,
         /// <summary>
         /// The RSVP response yes
         /// </summary>
-        [EnumMember(Value = "RsvpResponseYes")]
+        [EnumMember(Value = "https://schema.org/RsvpResponseYes")]
         RsvpResponseYes,
     }
 }

@@ -225,32 +225,21 @@ namespace MXTires.Microdata.Tests
             offer.Availability = ItemAvailability.InStock | ItemAvailability.Discontinued;
             offer.Reviews = new List<Review>();
             offer.Reviews.Add(new Review() { ItemReviewed = new Thing(), });
-            offer.AcceptedPaymentMethod = PaymentMethod.VisaCheckout | PaymentMethod.PayPal;
-            System.Diagnostics.Debug.WriteLine(offer.ToIndentedJson());
+            offer.AcceptedPaymentMethod = PaymentMethod.Cash | PaymentMethod.PayPal;
 
-            // <script type="application/ld+json">{
-            //  "reviews": [
-            //    {
-            //      "itemReviewed": {
-            //        "@context": "http://schema.org",
-            //        "@type": "Thing"
-            //      },
-            //      "author": {
-            //        "name": "a guy",
-            //        "@context": "http://schema.org",
-            //        "@type": "Person"
-            //      },
-            //      "@context": "http://schema.org",
-            //      "@type": "Review"
-            //    }
-            //  ],
-            //  "availability": "http://schema.org/Discontinued, http://schema.org/InStock",
-            //  "businessFunction": "http://purl.org/goodrelations/v1#Sell",
-            //  "itemCondition": "NewCondition",
-            //  "name": "T3 REPLICA NISSAN ALTIMA, MAXIMA (PAINTED/SILVER)",
-            //  "@context": "http://schema.org",
-            //  "@type": "Offer"
-            //}</script>
+            var json = JObject.Parse(offer.ToString());
+
+            Assert.AreEqual("https://schema.org", (string)json["@context"]);
+            Assert.AreEqual(
+                new JArray("https://schema.org/Discontinued", "https://schema.org/InStock").ToString(),
+                json["availability"].ToString());
+            Assert.AreEqual(
+                new JArray("http://purl.org/goodrelations/v1#Cash", "http://purl.org/goodrelations/v1#PayPal").ToString(),
+                json["acceptedPaymentMethod"].ToString());
+            Assert.IsNull(json["businessFunction"]);
+            Assert.IsNull(json["itemCondition"]);
+            Assert.IsNull(json["reviews"][0]["@context"]);
+            Assert.IsNull(json["reviews"][0]["itemReviewed"]["@context"]);
         }
 
         [TestMethod]
@@ -818,7 +807,7 @@ namespace MXTires.Microdata.Tests
             var json = JObject.Parse(item.ToString());
 
             Assert.AreEqual("123", (string)json["orderItemNumber"]);
-            Assert.AreEqual("OrderDelivered", (string)json["orderItemStatus"]);
+            Assert.AreEqual("https://schema.org/OrderDelivered", (string)json["orderItemStatus"]);
             Assert.AreEqual(2, (int)json["orderQuantity"]);
         }
 
@@ -1153,7 +1142,7 @@ namespace MXTires.Microdata.Tests
         public void TestAtlas()
         {
             var atlas = new Atlas();
-            atlas.Context = new List<object>() { "http://schema.org", new Extentions.BibNameSpace(), };
+            atlas.Context = new List<object>() { "https://schema.org", new Extentions.BibNameSpace(), };
             atlas.Name = "Atlas of the world.";
             System.Diagnostics.Debug.WriteLine(atlas.ToIndentedJson());
         }

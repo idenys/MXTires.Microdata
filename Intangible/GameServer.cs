@@ -31,6 +31,6 @@ namespace MXTires.Microdata.Intangible
         /// GameServerStatus - Status of a game server.
         /// </summary>
         [JsonProperty("serverStatus")]
-        public GameServerStatus ServerStatus { get; set; }	
+        public GameServerStatus? ServerStatus { get; set; }	
     }
 }

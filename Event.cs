@@ -175,7 +175,7 @@ namespace MXTires.Microdata
         /// EventAttendanceModeEnumeration - The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.
         /// </summary>
         [JsonProperty("eventAttendanceMode")]
-        public EventAttendanceModeEnumeration EventAttendanceMode { get; set; }
+        public EventAttendanceModeEnumeration? EventAttendanceMode { get; set; }
 
         /// <summary>
         /// Schedule - Associates an Event with a Schedule.
@@ -362,7 +362,7 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The recorded in.</value>
         [JsonProperty("remainingAttendeeCapacity")]
-        public int RemainingAttendeeCapacity { get; set; }
+        public int? RemainingAttendeeCapacity { get; set; }
 
         /// <summary>
         ///  Review - A review of the item. Supersedes <see cref="reviews"/>.

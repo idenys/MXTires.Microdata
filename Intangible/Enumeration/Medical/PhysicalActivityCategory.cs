@@ -26,6 +26,8 @@ using System.Linq;
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration.Medical
 {
     /// <summary>
@@ -37,36 +39,43 @@ namespace MXTires.Microdata.Intangible.Enumeration.Medical
         /// <summary>
         /// Physical activity of relatively low intensity that depends primarily on the aerobic energy-generating process; during activity, the aerobic metabolism uses oxygen to adequately meet energy demands during exercise.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/AerobicActivity")]
         AerobicActivity = 1 << 0,
 
         /// <summary>
         /// Physical activity that is of high-intensity which utilizes the anaerobic metabolism of the body.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/AnaerobicActivity")]
         AnaerobicActivity = 1 << 1,
 
         /// <summary>
         /// Physical activity that is engaged to help maintain posture and balance.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/Balance")]
         Balance = 1 << 2,
 
         /// <summary>
         /// Physical activity that is engaged in to improve joint and muscle flexibility.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/Flexibility")]
         Flexibility = 1 << 3,
 
         /// <summary>
         /// Any physical activity engaged in for recreational purposes. Examples may include ballroom dancing, roller skating, canoeing, fishing, etc.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/LeisureTimeActivity")]
         LeisureTimeActivity = 1 << 4,
 
         /// <summary>
         /// Any physical activity engaged in for job-related purposes. Examples may include waiting tables, maid service, carrying a mailbag, picking fruits or vegetables, construction work, etc.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/OccupationalActivity")]
         OccupationalActivity = 1 << 5,
 
         /// <summary>
         /// Physical activity that is engaged in to improve muscle and bone strength. Also referred to as resistance training.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/StrengthTraining")]
         StrengthTraining = 1 << 6,
     }
 }

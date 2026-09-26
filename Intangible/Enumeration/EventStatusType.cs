@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -33,18 +35,27 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The event canceled
         /// </summary>
+        [EnumMember(Value = "https://schema.org/EventCancelled")]
         EventCancelled = 1 << 0,
         /// <summary>
         /// The event postponed
         /// </summary>
+        [EnumMember(Value = "https://schema.org/EventPostponed")]
         EventPostponed = 1 << 1,
         /// <summary>
         /// The event rescheduled
         /// </summary>
+        [EnumMember(Value = "https://schema.org/EventRescheduled")]
         EventRescheduled = 1 << 2,
         /// <summary>
         /// The event scheduled
         /// </summary>
+        [EnumMember(Value = "https://schema.org/EventScheduled")]
         EventScheduled = 1 << 3,
+        /// <summary>
+        /// Indicates that the event was changed to allow online participation.
+        /// </summary>
+        [EnumMember(Value = "https://schema.org/EventMovedOnline")]
+        EventMovedOnline = 1 << 4,
     }
 }

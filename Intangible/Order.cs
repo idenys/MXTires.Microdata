@@ -28,7 +28,6 @@ using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata.Intangible
 {
@@ -144,8 +143,7 @@ namespace MXTires.Microdata.Intangible
         /// OrderStatus - The current status of the order.
         /// </summary>
         [JsonProperty("orderStatus")]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public OrderStatus OrderStatus { get; set; }
+        public OrderStatus? OrderStatus { get; set; }
 
         Thing orderedItem;
         /// <summary>
@@ -179,7 +177,7 @@ namespace MXTires.Microdata.Intangible
         /// PaymentMethod - The name of the credit card or other method of payment for the order.
         /// </summary>
         [JsonProperty("paymentMethod")]
-        public PaymentMethod PaymentMethod { get; set; }
+        public PaymentMethod? PaymentMethod { get; set; }
 
         /// <summary>
         /// Text - An identifier for the method of payment used (e.g. the last 4 digits of the credit card).

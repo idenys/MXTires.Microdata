@@ -27,6 +27,7 @@ using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Validators;
+using MXTires.Microdata.Serialization;
 using Newtonsoft.Json;
 using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
@@ -731,6 +732,7 @@ namespace MXTires.Microdata
         /// Date - Indicates the date on which the current structured data was generated / published. Typically used alongside sdPublisher.
         /// </summary>
         [JsonProperty("sdDatePublished")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? SdDatePublished { get; set; }
 
         private object sdLicense;

@@ -94,7 +94,7 @@ namespace MXTires.Microdata
         /// </summary>
         /// <value>The value.</value>
         [JsonProperty("value")]
-        public float Value { get; set; }
+        public float? Value { get; set; }
 
         /// <summary>
         /// Enumeration or StructuredValue - A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.

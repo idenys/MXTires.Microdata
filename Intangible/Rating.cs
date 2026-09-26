@@ -56,7 +56,7 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// The best rating
         /// </summary>
-        string bestRating = "5";
+        string bestRating;
         /// <summary>
         /// Number  or Text. The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
         /// </summary>
@@ -89,7 +89,7 @@ namespace MXTires.Microdata.Intangible
         /// <summary>
         /// The worst rating
         /// </summary>
-        string worstRating = "1";
+        string worstRating;
         /// <summary>
         /// The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.
         /// </summary>

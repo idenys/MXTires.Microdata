@@ -45,13 +45,13 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         /// Number - The upper value of some characteristic or property.
         /// </summary>
         [JsonProperty("maxValue")]
-        public decimal MaxValue { get; set; } = 0;
+        public decimal? MaxValue { get; set; }
 
         /// <summary>
         /// Number - The lower value of some characteristic or property.
         /// </summary>
         [JsonProperty("minValue")]
-        public decimal MinValue { get; set; } = 0;
+        public decimal? MinValue { get; set; }
 
         /// <summary>
         /// DateTime 	The date when the item becomes valid.

@@ -68,7 +68,7 @@ namespace MXTires.Microdata.CreativeWorks.MusicPlaylists
         /// MusicReleaseFormatType - Format of this release (the type of recording media used, ie.compact disc, digital media, LP, etc.).
         /// </summary>
         [JsonProperty("musicReleaseFormat")]
-        public MusicReleaseFormatType MusicReleaseFormatType { get; set; }
+        public MusicReleaseFormatType? MusicReleaseFormatType { get; set; }
 
         /// <summary>
         ///  Organization  - The label that issued the release.

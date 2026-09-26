@@ -27,6 +27,7 @@ using System;
 using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Validators;
+using MXTires.Microdata.Serialization;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.Intangible
@@ -76,6 +77,7 @@ namespace MXTires.Microdata.Intangible
         /// Date - The date when the item is no longer valid.
         /// </summary>
         [JsonProperty("validUntil")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? ValidUntil { get; set; }
     }
 }

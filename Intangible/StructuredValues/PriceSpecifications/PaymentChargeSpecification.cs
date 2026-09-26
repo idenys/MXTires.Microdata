@@ -37,13 +37,13 @@ namespace MXTires.Microdata.Intangible.StructuredValues.PriceSpecifications
         /// DeliveryMethod  The delivery method(s) to which the delivery charge or payment charge specification applies.
         /// </summary>
         [JsonProperty("appliesToDeliveryMethod")]
-        public DeliveryMethod AppliesToDeliveryMethod { get; set; }
+        public DeliveryMethod? AppliesToDeliveryMethod { get; set; }
 
         /// <summary>
         /// PaymentMethod The payment method(s) to which the payment charge specification applies.
         /// </summary>
         [JsonProperty("appliesToPaymentMethod")]
-        public PaymentMethod AppliesToPaymentMethod { get; set; }
+        public PaymentMethod? AppliesToPaymentMethod { get; set; }
         
     }
 }

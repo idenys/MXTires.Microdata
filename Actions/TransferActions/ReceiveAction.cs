@@ -41,6 +41,6 @@ namespace MXTires.Microdata.Actions.TransferActions
         /// DeliveryMethod  - A sub property of instrument. The method of delivery.
         /// </summary>
         [JsonProperty("deliveryMethod")]
-        public DeliveryMethod DeliveryMethod { get; set; }
+        public DeliveryMethod? DeliveryMethod { get; set; }
     }
 }

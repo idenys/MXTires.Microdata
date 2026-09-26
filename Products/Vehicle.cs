@@ -25,7 +25,9 @@
 
 using System;
 using System.Collections.Generic;
+using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Serialization;
 using Newtonsoft.Json;
 namespace MXTires.Microdata
 {
@@ -46,6 +48,7 @@ namespace MXTires.Microdata
         /// Date - The date of the first registration of the vehicle with the respective public authorities.
         /// </summary>
         [JsonProperty("dateVehicleFirstRegistered")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? DateVehicleFirstRegistered { get; set; }
 
         /// <summary>
@@ -144,7 +147,7 @@ namespace MXTires.Microdata
         /// SteeringPositionValue - The position of the steering wheel or similar device (mostly for cars).
         /// </summary>
         [JsonProperty("steeringPosition")]
-        public DateTime? SteeringPosition { get; set; }
+        public SteeringPositionValue? SteeringPosition { get; set; }
 
         /// <summary>
         /// QuantitativeValue - The permitted vertical load(TWR) of a trailer attached to the vehicle.Also referred to as Tongue Load Rating(TLR) or Vertical Load Rating(VLR)
@@ -206,6 +209,7 @@ namespace MXTires.Microdata
         /// Date - The release date of a vehicle model (often used to differentiate versions of the same make and model).
         /// </summary>
         [JsonProperty("vehicleModelDate")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? VehicleModelDate { get; set; }
 
         /// <summary>
@@ -233,6 +237,7 @@ namespace MXTires.Microdata
         /// The release date of a vehicle model (often used to differentiate versions of the same make and model).
         /// </summary>
         [JsonProperty("modelDate")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? ModelDate { get; set; }
 
         /// <summary>

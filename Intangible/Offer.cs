@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Intangible.Quantities;
 using MXTires.Microdata.Intangible.StructuredValues;
+using MXTires.Microdata.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using MXTires.Microdata.Validators;
 
 namespace MXTires.Microdata.Intangible
@@ -54,6 +54,7 @@ namespace MXTires.Microdata.Intangible
         /// Date - The date after which the price is no longer available.
         /// </summary>
         [JsonProperty("priceValidUntil")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? PriceValidUntil { get; set; }
 
         /// <summary>
@@ -61,7 +62,6 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         /// <value>The accepted payment method.</value>
         [JsonProperty ("acceptedPaymentMethod")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public PaymentMethod? AcceptedPaymentMethod { get; set; }
 
         /// <summary>
@@ -193,7 +193,6 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         /// <value>The availability.</value>
         [JsonProperty("availability")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public ItemAvailability? Availability { get; set; }
 
         /// <summary>
@@ -229,20 +228,19 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         /// <value>The available delivery method.</value>
         [JsonProperty("availableDeliveryMethod")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public DeliveryMethod? AvailableDeliveryMethod { get; set; }
 
         /// <summary>
         /// The business function
         /// </summary>
-        private BusinessFunction businessFunction = BusinessFunction.Sell;
+        private BusinessFunction? businessFunction;
         /// <summary>
-        /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
+        /// BusinessFunction - The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). When omitted, schema.org assumes http://purl.org/goodrelations/v1#Sell.
         /// </summary>
         /// <value>The business function.</value>
         [JsonProperty("businessFunction")]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public BusinessFunction BusinessFunction{
+        public BusinessFunction? BusinessFunction
+        {
             get { return businessFunction; }
             set { businessFunction = value; }
         }
@@ -265,7 +263,6 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         /// <value>The type of the eligible customer.</value>
         [JsonProperty("eligibleCustomerType")]
-        [JsonConverter(typeof(StringEnumConverter))]
         public BusinessEntityType? EligibleCustomerType { get; set; }
 
         /// <summary>
@@ -390,8 +387,7 @@ namespace MXTires.Microdata.Intangible
         /// </summary>
         /// <value>The item condition.</value>
         [JsonProperty("itemCondition")]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public OfferItemCondition ItemCondition { get; set; }
+        public OfferItemCondition? ItemCondition { get; set; }
 
         /// <summary>
         /// <see cref="Product" /> - The item being offered.

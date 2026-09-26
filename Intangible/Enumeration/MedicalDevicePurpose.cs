@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata
 {
     /// <summary>
@@ -36,10 +38,12 @@ namespace MXTires.Microdata
         /// <summary>
         /// The diagnostic
         /// </summary>
+        [EnumMember(Value = "https://schema.org/Diagnostic")]
         Diagnostic,
         /// <summary>
         /// The therapeutic
         /// </summary>
+        [EnumMember(Value = "https://schema.org/Therapeutic")]
         Therapeutic
     }
 }

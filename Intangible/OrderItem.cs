@@ -27,7 +27,6 @@ using System;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace MXTires.Microdata.Intangible
 {
@@ -52,8 +51,7 @@ namespace MXTires.Microdata.Intangible
         /// OrderStatus - The current status of the order item.
         /// </summary>
         [JsonProperty("orderItemStatus")]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public OrderStatus OrderItemStatus { get; set; }
+        public OrderStatus? OrderItemStatus { get; set; }
 
         /// <summary>
         /// Number or QuantitativeValue - The number of the item ordered. If the property is not set, assume the quantity is one.

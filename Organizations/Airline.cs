@@ -18,7 +18,7 @@ namespace MXTires.Microdata.Organizations
         /// BoardingPolicyType - The type of boarding policy used by the airline (e.g. zone-based or group-based).
         /// </summary>
         [JsonProperty("boardingPolicy")]
-        public BoardingPolicyType BoardingPolicy { get; set; }
+        public BoardingPolicyType? BoardingPolicy { get; set; }
 
         /// <summary>
         /// Text - IATA identifier for an airline or airport.

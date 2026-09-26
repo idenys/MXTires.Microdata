@@ -101,7 +101,7 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The visa checkout
         /// </summary>
-        [EnumMember(Value = "VisaCheckout")]
+        [Obsolete("Visa Checkout has no schema.org or GoodRelations URI and cannot be serialized.")]
         VisaCheckout = 1 << 9,
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// http://purl.org/goodrelations/v1#Discover http://purl.org/goodrelations/v1#JCB
         /// http://purl.org/goodrelations/v1#MasterCard http://purl.org/goodrelations/v1#VISA
         /// </summary>
-        [EnumMember(Value = "http://schema.org/CreditCard")]
+        [EnumMember(Value = "https://schema.org/CreditCard")]
         CreditCard = 1 << 10,
 
         /// <summary>

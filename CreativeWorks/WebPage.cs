@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using MXTires.Microdata.Intangible;
 using MXTires.Microdata.Intangible.Enumeration;
 using MXTires.Microdata.Validators;
+using MXTires.Microdata.Serialization;
 using Newtonsoft.Json;
 
 namespace MXTires.Microdata.CreativeWorks
@@ -58,6 +59,7 @@ namespace MXTires.Microdata.CreativeWorks
         /// Date - Date on which the content on this web page was last reviewed for accuracy and/or completeness.
         /// </summary>
         [JsonProperty("lastReviewed")]
+        [JsonConverter(typeof(DateOnlyConverter))]
         public DateTime? LastReviewed { get; set; }
 
         /// <summary>

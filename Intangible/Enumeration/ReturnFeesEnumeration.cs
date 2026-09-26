@@ -25,6 +25,8 @@
 
 using System;
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -36,22 +38,27 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Specifies that product returns are free of charge for the customer.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/FreeReturn")]
         FreeReturn = 1 << 0,
         /// <summary>
         /// Specifies that the customer must pay the original shipping costs when returning a product.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/OriginalShippingFees")]
         OriginalShippingFees = 1 << 1,
         /// <summary>
         /// Specifies that the customer must pay a restocking fee when returning a product.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/RestockingFees")]
         RestockingFees = 1 << 2,
         /// <summary>
         /// Specifies that product returns must be paid for, and are the responsibility of, the customer.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReturnFeesCustomerResponsibility")]
         ReturnFeesCustomerResponsibility = 1 << 3,
         /// <summary>
         /// Specifies that the customer must pay the return shipping costs when returning a product.
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ReturnShippingFees")]
         ReturnShippingFees = 1 << 4,
     }
 }

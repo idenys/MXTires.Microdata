@@ -25,6 +25,8 @@
 
 using System;
 
+using System.Runtime.Serialization;
+
 namespace MXTires.Microdata.Intangible.Enumeration
 {
     /// <summary>
@@ -36,18 +38,22 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// The parking map
         /// </summary>
+        [EnumMember(Value = "https://schema.org/ParkingMap")]
         ParkingMap = 1 << 0,
         /// <summary>
         /// The seating map
         /// </summary>
+        [EnumMember(Value = "https://schema.org/SeatingMap")]
         SeatingMap = 1 << 1,
         /// <summary>
         /// The transit map
         /// </summary>
+        [EnumMember(Value = "https://schema.org/TransitMap")]
         TransitMap = 1 << 2,
         /// <summary>
         /// The venue map
         /// </summary>
+        [EnumMember(Value = "https://schema.org/VenueMap")]
         VenueMap = 1 << 3,
     }
 }

@@ -37,22 +37,22 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Specifies that there is a finite window for product returns.
         /// </summary>
-        [EnumMember(Value = "MerchantReturnFiniteReturnWindow")]
+        [EnumMember(Value = "https://schema.org/MerchantReturnFiniteReturnWindow")]
         MerchantReturnFiniteReturnWindow = 1 << 0,
         /// <summary>
         /// Specifies that product returns are not permitted.
         /// </summary>
-        [EnumMember(Value = "MerchantReturnNotPermitted")]
+        [EnumMember(Value = "https://schema.org/MerchantReturnNotPermitted")]
         MerchantReturnNotPermitted = 1 << 1,
         /// <summary>
         /// Specifies that there is an unlimited window for product returns.
         /// </summary>
-        [EnumMember(Value = "MerchantReturnUnlimitedWindow")]
+        [EnumMember(Value = "https://schema.org/MerchantReturnUnlimitedWindow")]
         MerchantReturnUnlimitedWindow = 1 << 2,
         /// <summary>
         /// Specifies that a product return policy is not provided.
         /// </summary>
-        [EnumMember(Value = "MerchantReturnUnspecified")]
+        [EnumMember(Value = "https://schema.org/MerchantReturnUnspecified")]
         MerchantReturnUnspecified = 1 << 3,
     }
 }

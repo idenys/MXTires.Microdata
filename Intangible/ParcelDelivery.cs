@@ -65,7 +65,7 @@ namespace MXTires.Microdata.Intangible
         /// DeliveryMethod 	Method used for delivery or shipping.
         /// </summary>
         [JsonProperty("hasDeliveryMethod")]
-        public DeliveryMethod HasDeliveryMethod { get; set; }
+        public DeliveryMethod? HasDeliveryMethod { get; set; }
 
         /// <summary>
         /// Product - Item(s) being shipped.

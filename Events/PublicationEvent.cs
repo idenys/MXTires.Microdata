@@ -37,7 +37,7 @@ namespace MXTires.Microdata.Events
         /// Boolean - A flag to signal that the publication is accessible for free. Superseded By <see cref="Event.IsAccessibleForFree"/>
         /// </summary>
         [JsonProperty("free")]
-        public bool Free { get; set; }
+        public bool? Free { get; set; }
 
         /// <summary>
         /// BroadcastService - A broadcast service associated with the publication event.

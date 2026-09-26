@@ -106,7 +106,7 @@ namespace MXTires.Microdata.Intangible
         /// ReservationStatusType 	The current status of the reservation.
         /// </summary>
         [JsonProperty("reservationStatus")]
-        public ReservationStatusType ReservationStatus { get; set; }
+        public ReservationStatusType? ReservationStatus { get; set; }
 
         /// <summary>
         /// Ticket - A ticket associated with the reservation.

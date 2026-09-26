@@ -29,6 +29,6 @@ namespace MXTires.Microdata.Actions.InteractActions.CommunicateActions
         /// Number - If responding yes, the number of guests who will attend in addition to the invitee.
         /// </summary>
         [JsonProperty("rsvpResponse")]
-        public RsvpResponseType RsvpResponse { get; set; }
+        public RsvpResponseType? RsvpResponse { get; set; }
     }
 }
