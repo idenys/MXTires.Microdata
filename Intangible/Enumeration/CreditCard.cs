@@ -45,7 +45,7 @@ namespace MXTires.Microdata.Intangible.Enumeration
         /// <summary>
         /// Default enum value
         /// </summary>
-        [EnumMember(Value = "http://schema.1010tires.com/NoCredit")]
+        [EnumMember(Value = "https://schema.1010tires.com/NoCredit")]
         NoCredit = 0,
 
         /// <summary>
