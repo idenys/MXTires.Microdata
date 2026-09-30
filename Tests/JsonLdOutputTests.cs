@@ -242,6 +242,29 @@ namespace MXTires.Microdata.Tests
             Assert.IsNull(rate["maxValue"]);
         }
 
+        [TestMethod]
+        public void DefinedRegionTakesOnePostalCodePrefix()
+        {
+            var region = new DefinedRegion { AddressCountry = "CA", PostalCodePrefix = "V" };
+
+            AssertJson(@"{ ""@context"": ""https://schema.org"", ""@type"": ""DefinedRegion"", ""addressCountry"": ""CA"", ""postalCodePrefix"": ""V"" }", Json(region));
+        }
+
+        [TestMethod]
+        public void DefinedRegionTakesSeveralPostalCodePrefixes()
+        {
+            // schema.org Text properties can repeat; a region such as "Western Canada" spans several prefixes.
+            var region = new DefinedRegion { AddressCountry = "CA", PostalCodePrefix = new[] { "S", "T", "V" } };
+
+            AssertJson(@"[""S"", ""T"", ""V""]", Json(region)["postalCodePrefix"]);
+        }
+
+        [TestMethod]
+        public void DefinedRegionRejectsAPostalCodePrefixThatIsNotText()
+        {
+            Assert.ThrowsExactly<ArgumentException>(() => new DefinedRegion { PostalCodePrefix = 5 });
+        }
+
         #endregion
 
         #region 3, 4 and 5. URIs

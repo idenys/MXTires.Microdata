@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.Collections.Generic;
 using MXTires.Microdata.Places.AdministrativeAreas;
 using MXTires.Microdata.Validators;
 using Newtonsoft.Json;
@@ -66,11 +67,23 @@ namespace MXTires.Microdata.Intangible.StructuredValues
         [JsonProperty("postalCode")]
         public string PostalCode { get; set; }
 
+        object postalCodePrefix;
+
         /// <summary>
         /// Text    A defined range of postal codes indicated by a common textual prefix. Used for non-numeric systems such as UK.
+        /// One prefix as a string, or several (a region such as "Western Canada" spans S, T and V) as a list of strings.
         /// </summary>
         [JsonProperty("postalCodePrefix")]
-        public string PostalCodePrefix { get; set; }
+        public object PostalCodePrefix
+        {
+            get { return postalCodePrefix; }
+            set
+            {
+                var validator = new TypeValidator(typeof(string), typeof(IEnumerable<string>));
+                validator.Validate(value);
+                postalCodePrefix = value;
+            }
+        }
 
         /// <summary>
         /// PostalCodeRangeSpecification - A defined range of postal codes.
